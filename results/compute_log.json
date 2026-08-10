@@ -1,0 +1,47 @@
+{
+ "exp1_calibration": {
+  "cpu_seconds": 1456.1167330000003,
+  "wall_seconds": 339.0979859828949
+ },
+ "exp2_coverage": {
+  "cpu_seconds": 122.262293,
+  "wall_seconds": 577.672089099884
+ },
+ "exp3_modelclass": {
+  "cpu_seconds": 125.08044100000006,
+  "wall_seconds": 90.91459894180298
+ },
+ "exp4_resolution": {
+  "cpu_seconds": 340.6571829999998,
+  "wall_seconds": 66.65748023986816
+ },
+ "exp5_robustness": {
+  "cpu_seconds": 1691.249204,
+  "wall_seconds": 1566.285922050476
+ },
+ "exp6_dimension": {
+  "cpu_seconds": 331.95661699999937,
+  "wall_seconds": 75.53448963165283
+ },
+ "exp7_invariance": {
+  "cpu_seconds": 2503.8008959999997,
+  "wall_seconds": 1030.424400806427
+ },
+ "total_cpu_hours": 1.9439976297222223,
+ "exp9_modelerror": {
+  "cpu_seconds": 53.397375999999994,
+  "wall_seconds": 468.51807403564453
+ },
+ "exp10_noise": {
+  "cpu_seconds": 58.824639,
+  "wall_seconds": 154.35243010520935
+ },
+ "exp13_tolerance": {
+  "cpu_seconds": 246.647246,
+  "wall_seconds": 599.2525360584259
+ },
+ "exp11_scaling": {
+  "cpu_seconds": 68.398839,
+  "wall_seconds": 183.57995104789734
+ }
+}

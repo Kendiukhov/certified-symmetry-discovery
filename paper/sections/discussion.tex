@@ -1,0 +1,127 @@
+\section{Related work}
+\label{sec:related}
+
+\paragraph{Linear-algebraic symmetry discovery.} The idea that continuous
+symmetries are a nullspace runs through work on point clouds
+\citep{cahill2023liepca}, conserved quantities \citep{kaiser2018discovering},
+trained networks \citep{moskalev2022liegg,gruver2023lie} and dynamic mode
+decomposition \citep{baddoo2023physics}; \citet{otto2025unified} unify these,
+extend them to nonlinear group actions on manifolds and to sections of vector
+bundles, and add convex penalties that promote symmetry during training. Their
+conclusion names our problem: it will be important ``to study the perturbative
+effects of noisy data in algorithms to discover and promote symmetry, with the
+goal of understanding the effects of problem dimension, noise level, and amount
+of data.'' We take up that question and answer it with confidence statements
+rather than with a perturbation analysis, because a perturbation bound alone
+does not tell a user what to declare. The Weyl-inequality baseline in our
+experiments is the perturbation answer, and it is valid but never certifies.
+
+\paragraph{Optimisation-based discovery.} An alternative line searches for
+generators by nonlinear optimisation or adversarial training
+\citep{rao1999learning,miao2007learning,desai2022symmetry,yang2023liegan,
+yang2024latent,dehmamy2021automatic,liu2022machine,forestano2023deep,
+krippendorf2020detecting}, and a related line learns invariances as
+hyperparameters through augmentation or marginal likelihood
+\citep{benton2020learning,vanderwilk2018learning,immer2022invariance,
+romero2022learning}. These methods return a point estimate of a generator with
+no error control; the question we ask --- when may a discovered generator be
+declared, and at what tolerance --- applies to them too. Our machinery transfers
+whenever the Lie derivative is bilinear in the generator coordinates and the
+model coefficients, which covers any model that is linear in its parameters
+(basis-function regression, kernel and random-feature models, the last layer of
+a network). For a fully nonlinear model the ellipsoid must be replaced by a
+confidence region obtained some other way, and the trust-region step by an
+optimisation over it; the logic of \Cref{prop:simultaneous} is unchanged.
+
+\paragraph{Using a discovered symmetry.} Once a symmetry is in hand it is
+enforced, or promoted, or used to augment data: as hard linear constraints and
+convex penalties \citep{otto2025unified}, as physics-informed losses
+\citep{raissi2019physics,akhound2023lie}, as data augmentation
+\citep{brandstetter2022lie}, or inside equation discovery itself
+\citep{yang2024symmetry}. Everything downstream inherits the reliability of the
+discovery step, which is the argument for making that step honest: a symmetry
+enforced on the strength of a small singular value is a modelling error that
+subsequent fitting cannot undo.
+
+\paragraph{Approximate symmetry.} That real systems are only approximately
+symmetric is well recognised in modelling \citep{wang2022approximately,
+romero2022learning}, and \citet{otto2025unified} ask explicitly whether their
+framework can be used to ``find elements that are nearly symmetric, and to bound
+the degree of asymmetry''. \Cref{def:defect} is such a bound, and \symcert{}
+supplies its confidence statement.
+
+\paragraph{Statistics.} The equivalence-testing formulation is standard in
+settings where the interesting hypothesis is the null
+\citep{schuirmann1987comparison,berger1996bioequivalence,wellek2010testing}; our
+contribution is not the idea but the observation that symmetry discovery is one
+of those settings, together with a closed form for this particular functional.
+Rank tests \citep{cragg1997inferring,robin2000tests,kleibergen2006generalized}
+attack the same nullspace-dimension question and place symmetry in the null; we
+include one as a baseline and quantify the consequence. The selection issue is
+the one addressed by post-selection and split-sample inference
+\citep{berk2013valid,lee2016exact,meinshausen2009pvalues,chernozhukov2018double,
+andrews2024inference}; here simultaneity over the whole candidate space
+dissolves it more cheaply than splitting, which we verify empirically. Because a
+single event covers all generators at once, no multiplicity correction of the
+\citet{benjamini1995controlling} kind is needed --- and none would help, since the
+family being controlled is uncountable. Finally, the shape of the problem ---
+many moment conditions, a low-dimensional parameter, and a test of whether they
+can all be satisfied --- is the shape of a test of overidentifying restrictions
+\citep{hansen1982large}, with the difference that here the restriction of
+interest is the one we would like to accept rather than reject.
+
+\section{Discussion}
+
+\paragraph{What changes in practice.} The recipe is short. Fix the region $\nu$
+where the symmetry is supposed to hold, and a tolerance $\delta$ on the relative
+defect. Fit a model class large enough that a lack-of-fit test is satisfied.
+Compute $U(\theta)$; certify what falls below $\delta$; report $\kappa$ so the
+reader can see how much of the target domain the data actually visited. Report
+$U$ itself rather than a binary verdict --- it is the smallest tolerance the data
+support, and it is the honest analogue of the singular value that would
+otherwise be reported.
+
+\paragraph{Limitations.} We list them plainly.
+\begin{itemize}\itemsep2pt
+\item \emph{The model class is the binding assumption.} Validity requires the
+  truth to lie in the fitted class, or an assumed bound on how far outside it
+  lies. This is not a defect of the certificate so much as a fact about the
+  problem --- a fitted model can be more symmetric than the system it models,
+  and no analysis of that model can detect the difference. Our remedies are a
+  lack-of-fit gate, enlarging the class, and a sensitivity analysis in the size
+  of the model error; none is a substitute for thought about the class.
+\item \emph{Errors-in-variables.} When the states themselves are noisy and
+  derivatives are differenced, the regressors are noisy, the estimator is
+  biased, and the confidence ellipsoid is not valid. In our runs the bias acted
+  conservatively, but we do not claim validity there; weak-form model discovery
+  \citep{messenger2021weak} is the natural route.
+\item \emph{Conservatism.} The certificate over-covers, at a measured cost of
+  roughly $20\%$ in width relative to a calibration-targeting bootstrap
+  (\Cref{sec:tightness}) and a factor $8.1$--$8.8$ relative to the Le~Cam lower
+  bound (\Cref{sec:resolution}), part of which is the looseness of that bound
+  rather than of the certificate. Closing the measurable part of the gap --- exact quantiles for the
+  ratio functional in place of separate bounds on numerator and denominator ---
+  is the most concrete direction for improvement.
+\item \emph{Scope.} We treat connected symmetry groups whose generators lie in a
+  prescribed finite-dimensional class, and moderate problem sizes ($n \le 6$,
+  $Q \le 105$, $P \le 36$). Discrete symmetries, and symmetries visible only
+  after a nonlinear change of coordinates \citep{liu2022machine,yang2024latent},
+  are outside the framework as they are outside the Lie-algebraic setting
+  generally.
+\item \emph{Mostly simulated systems.} The benchmarks are simulated
+  deliberately: the claims are about error rates, and measuring an error rate
+  requires knowing the truth exactly, which a real system does not provide. We
+  include one real data set (\Cref{sec:realdata}), where the honest answer turns
+  out to be that nothing can be concluded --- informative about the method, but
+  not a substitute for a setting in which symmetries are both real and known.
+\end{itemize}
+
+\paragraph{The wider point.} Symmetry discovery is an instance of a pattern that
+recurs whenever a scientific claim takes the form ``this quantity is zero'':
+a rank, a conservation law, a conditional independence, a null effect. In each,
+an estimate is compared to a tolerance, and the tolerance is asked to carry
+statistical weight it cannot bear. The remedy is the same each time --- state the
+tolerance in interpretable units, and require the data to \emph{exclude} the
+alternative rather than merely fail to detect it. Whether that remedy is cheap
+depends on the functional; for the Lie derivative it turns out to cost two
+trust-region subproblems.

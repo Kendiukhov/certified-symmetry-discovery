@@ -1,0 +1,3 @@
+run_extra.sh: line 6: 52272 Terminated: 15          python3 -u run_all.py exp8_tightness >> ../results/run_all.log 2>&1
+run_extra.sh: line 12: 16198 Terminated: 15          python3 -u run_all.py exp5_robustness >> ../results/run_all.log 2>&1
+EXTRA DONE

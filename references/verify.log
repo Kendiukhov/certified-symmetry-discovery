@@ -1,0 +1,57 @@
+OK 1.000  otto2025unified                  A Unified Framework to Enforce, Discover, and Promote Symmetry in Mach
+OK 1.000  brunton2016discovering           Discovering governing equations from data by sparse identification of 
+OK 1.000  messenger2021weak                Weak SINDy: Galerkin-Based Data-Driven Model Selection
+OK 1.000  zhang2019convergence             On the Convergence of the SINDy Algorithm
+OK 1.000  champion2020unified              A unified sparse optimization framework to learn parsimonious physics-
+OK 1.000  kaptanoglu2022pysindy            PySINDy: A comprehensive Python package for robust sparse system ident
+OK 1.000  cahill2023liepca                 Lie PCA: Density estimation for symmetric manifolds
+OK 1.000  yang2023liegan                   Generative Adversarial Symmetry Discovery
+OK 1.000  yang2024latent                   Latent Space Symmetry Discovery
+OK 1.000  desai2022symmetry                Symmetry discovery with deep learning
+OK 1.000  dehmamy2021automatic             Automatic Symmetry Discovery with Lie Algebra Convolutional Network
+OK 1.000  moskalev2022liegg                LieGG: Studying Learned Lie Group Generators
+OK 1.000  gruver2023lie                    The Lie Derivative for Measuring Learned Equivariance
+OK 1.000  liu2022machine                   Machine Learning Hidden Symmetries
+OK 1.000  forestano2023deep                Deep learning symmetries and their Lie groups, algebras, and subalgebr
+!! 0.598  benton2020learning               Learning Invariances in Neural Networks from Training Data
+OK 1.000  immer2022invariance              Invariance Learning in Deep Neural Networks with Differentiable Laplac
+OK 1.000  vanderwilk2018learning           Learning Invariances using the Marginal Likelihood
+OK 1.000  wang2022approximately            Approximately Equivariant Networks for Imperfectly Symmetric Dynamics
+OK 1.000  cohen2016group                   Group Equivariant Convolutional Networks
+OK 1.000  finzi2021practical               A Practical Method for Constructing Equivariant Multilayer Perceptrons
+OK 1.000  kondor2018generalization         On the Generalization of Equivariance and Convolution in Neural Networ
+OK 1.000  bronstein2021geometric           Geometric Deep Learning: Grids, Groups, Graphs, Geodesics, and Gauges
+OK 1.000  kaiser2018discovering            Discovering conservation laws from data for control
+OK 1.000  krippendorf2020detecting         Detecting symmetries with neural networks
+!! 0.552  rao1999learning                  Learning Lie Groups for Invariant Visual Perception
+OK 0.915  baddoo2023physics                Physics-informed dynamic mode decomposition
+OK 1.000  romero2022learning               Learning Partial Equivariances from Data
+OK 1.000  akhound2023lie                   Lie Point Symmetry and Physics-Informed Networks
+OK 1.000  raissi2019physics                Physics-informed neural networks: A deep learning framework for solvin
+OK 1.000  schuirmann1987comparison         A comparison of the two one-sided tests procedure and the power approa
+OK 1.000  berger1996bioequivalence         Bioequivalence trials, intersection-union tests and equivalence confid
+OK 1.000  maurer2009empirical              Empirical Bernstein Bounds and Sample Variance Penalization
+OK 1.000  berk2013valid                    Valid post-selection inference
+OK 1.000  lee2016exact                     Exact post-selection inference, with application to the lasso
+OK 1.000  meinshausen2009pvalues           p-Values for High-Dimensional Regression
+OK 1.000  chernozhukov2018double           Double/debiased machine learning for treatment and structural paramete
+OK 1.000  andrews2024inference             Inference on Winners
+OK 1.000  davis1970rotation                The Rotation of Eigenvectors by a Perturbation. III
+OK 1.000  yu2015useful                     A useful variant of the Davis-Kahan theorem for statisticians
+OK 1.000  tropp2012user                    User-Friendly Tail Bounds for Sums of Random Matrices
+OK 1.000  kleibergen2006generalized        Generalized reduced rank tests using the singular value decomposition
+!! 0.465  robin2000tests                   Tests of Rank
+OK 1.000  cragg1997inferring               Inferring the rank of a matrix
+OK 1.000  johnstone2001distribution        On the distribution of the largest eigenvalue in principal components 
+OK 1.000  baik2005phase                    Phase transition of the largest eigenvalue for nonnull complex sample 
+OK 1.000  white1980heteroskedasticity      A Heteroskedasticity-Consistent Covariance Matrix Estimator and a Dire
+OK 1.000  benjamini1995controlling         Controlling the False Discovery Rate: A Practical and Powerful Approac
+OK 1.000  efron1979bootstrap               Bootstrap Methods: Another Look at the Jackknife
+OK 1.000  hansen1982large                  Large Sample Properties of Generalized Method of Moments Estimators
+OK 1.000  more1983computing                Computing a Trust Region Step
+?? 0.703  gander1989constrained            A constrained eigenvalue problem
+?? 0.867  stewart1990matrix                Matrix Perturbation Theory
+OK 1.000  anderson1963asymptotic           Asymptotic Theory for Principal Component Analysis
+OK 1.000  mixon2022three                   Three proofs of the Benedetto-Fickus theorem
+
+50/55 matched at >= 0.90; needs manual check: ['benton2020learning', 'rao1999learning', 'robin2000tests', 'gander1989constrained', 'stewart1990matrix']

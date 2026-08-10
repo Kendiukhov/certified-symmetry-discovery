@@ -1,0 +1,23 @@
+\begin{table}[t]
+\centering\small
+\begin{tabular}{llrrrrr}
+\toprule
+system & design & points & $\sqrt{\kappa\kappa'}$ & true dim.\ & nullspace dim.\ & \symcert{} dim.\ \\
+\midrule
+Van der Pol & single trajectory & 3000 & 34.9 & 0 & 0 & 0 \\
+Van der Pol & 8 trajectories & 3200 & 9.7 & 0 & 0 & 0 \\
+Van der Pol & uniform design & 3000 & 1.1 & 0 & 0 & 0 \\
+Hopf & single trajectory & 3000 & $\infty$ & 1 & 1 & 0 \\
+Hopf & 8 trajectories & 3200 & 24.0 & 1 & 1 & 1 \\
+Hopf & uniform design & 3000 & 1.1 & 1 & 1 & 1 \\
+Lorenz & single trajectory & 3000 & 231.3 & 0 & 0 & 0 \\
+Lorenz & 8 trajectories & 3200 & 84.4 & 0 & 0 & 0 \\
+Lorenz & uniform design & 3000 & 1.1 & 0 & 0 & 0 \\
+\bottomrule
+\end{tabular}
+\caption{Trajectory data. A single trajectory that settles onto an attractor
+gives an infinite or large extrapolation factor: the data lie in, or near, the
+zero set of a possible bracket, so a defect measured on them says little about
+the target domain. \symcert{} declines to certify exactly there.}
+\label{tab:trajectory}
+\end{table}

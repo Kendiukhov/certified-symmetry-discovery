@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the accompanying paper."
+title: "Certified Symmetry Discovery: Confidence Sets for Lie-Algebra Generators from Noisy, Limited Data"
+abstract: >-
+  Symmetry discovery by nullspace computation has no error control and inverts
+  the burden of proof. SymCert recasts it as an equivalence test and gives
+  closed-form confidence bounds on the equivariance defect that hold
+  simultaneously over every candidate generator.
+version: "1.0.0"
+license: MIT
+type: software
+authors:
+  - name: "Anonymous"
+keywords:
+  - symmetry discovery
+  - Lie algebra
+  - equivalence testing
+  - dynamical systems
+  - equivariance

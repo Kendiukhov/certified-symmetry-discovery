@@ -1,0 +1,20 @@
+!! 0.465  robin2000tests                   Tests of Rank
+?? 0.703  gander1989constrained            A constrained eigenvalue problem
+OK 1.000  kleibergen2006generalized        Generalized reduced rank tests using the singular value decomposition
+OK 1.000  andrews2024inference             Inference on winners
+OK 1.000  chernozhukov2018double           Double/debiased machine learning for treatment and structural paramete
+OK 1.000  berk2013valid                    Valid post-selection inference
+?? 0.759  meinshausen2009pvalues           p-values for high-dimensional regression
+OK 0.915  baddoo2023physics                Physics-informed dynamic mode decomposition
+OK 1.000  yang2024symmetry                 Symmetry-Informed Governing Equation Discovery
+OK 1.000  cirelson1976norms                Norms of Gaussian sample functions
+OK 1.000  borell1975brunn                  The Brunn-Minkowski inequality in Gauss space
+?? 0.800  holm1979simple                   A Simple Sequentially Rejective Multiple Test Procedure
+OK 1.000  rosenbaum2002observational       Observational Studies
+OK 1.000  miao2007learning                 Learning the Lie groups of visual invariance
+!! 0.535  finzi2020generalizing            Generalizing Convolutional Neural Networks for Equivariance to Lie Gro
+?? 0.738  brandstetter2022lie              Lie Point Symmetry Data Augmentation for Neural PDE Solvers
+OK 1.000  kaheman2020sindy                 SINDy-PI: a robust algorithm for parallel implicit sparse identificati
+OK 1.000  fasel2022ensemble                Ensemble-SINDy: Robust sparse model discovery in the low-data, high-no
+
+12/18 matched at >= 0.90; needs manual check: ['robin2000tests', 'gander1989constrained', 'meinshausen2009pvalues', 'holm1979simple', 'finzi2020generalizing', 'brandstetter2022lie']

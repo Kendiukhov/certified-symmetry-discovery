@@ -1,0 +1,69 @@
+OK 1.000  otto2025unified                  A Unified Framework to Enforce, Discover, and Promote Symmetry in Mach
+OK 1.000  cahill2023liepca                 Lie PCA: Density estimation for symmetric manifolds
+OK 1.000  moskalev2022liegg                LieGG: Studying Learned Lie Group Generators
+OK 1.000  gruver2023lie                    The Lie Derivative for Measuring Learned Equivariance
+OK 1.000  kaiser2018discovering            Discovering conservation laws from data for control
+OK 0.915  baddoo2023physics                Physics-informed dynamic mode decomposition
+OK 1.000  yang2023liegan                   Generative Adversarial Symmetry Discovery
+OK 1.000  yang2024latent                   Latent Space Symmetry Discovery
+OK 1.000  yang2024symmetry                 Symmetry-Informed Governing Equation Discovery
+OK 1.000  desai2022symmetry                Symmetry discovery with deep learning
+OK 1.000  dehmamy2021automatic             Automatic Symmetry Discovery with Lie Algebra Convolutional Network
+OK 1.000  liu2022machine                   Machine Learning Hidden Symmetries
+OK 1.000  forestano2023deep                Deep learning symmetries and their Lie groups, algebras, and subalgebr
+OK 1.000  krippendorf2020detecting         Detecting symmetries with neural networks
+!! 0.552  rao1999learning                  Learning Lie Groups for Invariant Visual Perception
+OK 1.000  miao2007learning                 Learning the Lie Groups of Visual Invariance
+OK 1.000  cohen2016group                   Group Equivariant Convolutional Networks
+OK 1.000  kondor2018generalization         On the Generalization of Equivariance and Convolution in Neural Networ
+OK 1.000  finzi2021practical               A Practical Method for Constructing Equivariant Multilayer Perceptrons
+OK 1.000  bronstein2021geometric           Geometric Deep Learning: Grids, Groups, Graphs, Geodesics, and Gauges
+!! 0.598  benton2020learning               Learning Invariances in Neural Networks from Training Data
+!! 0.537  vanderwilk2018learning           Learning Invariances using the Marginal Likelihood
+OK 1.000  immer2022invariance              Invariance Learning in Deep Neural Networks with Differentiable Laplac
+!! 0.624  wang2022approximately            Approximately Equivariant Networks for Imperfectly Symmetric Dynamics
+OK 1.000  romero2022learning               Learning Partial Equivariances from Data
+?? 0.738  brandstetter2022lie              Lie Point Symmetry Data Augmentation for Neural PDE Solvers
+OK 1.000  akhound2023lie                   Lie Point Symmetry and Physics-Informed Networks
+OK 1.000  raissi2019physics                Physics-informed neural networks: A deep learning framework for solvin
+OK 1.000  brunton2016discovering           Discovering governing equations from data by sparse identification of 
+OK 1.000  messenger2021weak                Weak SINDy: Galerkin-Based Data-Driven Model Selection
+OK 1.000  zhang2019convergence             On the Convergence of the SINDy Algorithm
+OK 1.000  champion2020unified              A Unified Sparse Optimization Framework to Learn Parsimonious Physics-
+OK 1.000  fasel2022ensemble                Ensemble-SINDy: Robust sparse model discovery in the low-data, high-no
+OK 1.000  kaptanoglu2022pysindy            PySINDy: A comprehensive Python package for robust sparse system ident
+?? 0.710  olver1993applications            Applications of Lie Groups to Differential Equations
+!! 0.667  lee2013smooth                    Introduction to Smooth Manifolds
+!! 0.588  bhatia1997matrix                 Matrix Analysis
+OK 1.000  davis1970rotation                The Rotation of Eigenvectors by a Perturbation. III
+OK 0.992  yu2015useful                     A useful variant of the Davis--Kahan theorem for statisticians
+OK 1.000  tropp2012user                    User-Friendly Tail Bounds for Sums of Random Matrices
+!! 0.557  gander1989constrained            A constrained eigenvalue problem
+OK 1.000  more1983computing                Computing a Trust Region Step
+!! 0.560  conn2000trust                    Trust Region Methods
+!! 0.438  boucheron2013concentration       Concentration Inequalities: A Nonasymptotic Theory of Independence
+OK 0.989  borell1975brunn                  The Brunn--Minkowski inequality in Gauss space
+OK 1.000  cirelson1976norms                Norms of Gaussian sample functions
+!! 0.688  tsybakov2009introduction         Introduction to Nonparametric Estimation
+OK 1.000  schuirmann1987comparison         A comparison of the two one-sided tests procedure and the power approa
+OK 1.000  berger1996bioequivalence         Bioequivalence trials, intersection-union tests and equivalence confid
+OK 1.000  wellek2010testing                Testing Statistical Hypotheses of Equivalence and Noninferiority
+!! 0.434  maurer2009empirical              Empirical Bernstein Bounds and Sample Variance Penalization
+!! 0.659  berk2013valid                    Valid post-selection inference
+OK 1.000  lee2016exact                     Exact post-selection inference, with application to the lasso
+?? 0.759  meinshausen2009pvalues           p-Values for High-Dimensional Regression
+OK 1.000  chernozhukov2018double           Double/debiased machine learning for treatment and structural paramete
+OK 1.000  andrews2024inference             Inference on Winners
+OK 1.000  kleibergen2006generalized        Generalized reduced rank tests using the singular value decomposition
+!! 0.455  robin2000tests                   Tests of Rank
+OK 1.000  cragg1997inferring               Inferring the rank of a matrix
+OK 1.000  anderson1963asymptotic           Asymptotic Theory for Principal Component Analysis
+OK 1.000  johnstone2001distribution        On the distribution of the largest eigenvalue in principal components 
+OK 1.000  baik2005phase                    Phase transition of the largest eigenvalue for nonnull complex sample 
+OK 1.000  white1980heteroskedasticity      A Heteroskedasticity-Consistent Covariance Matrix Estimator and a Dire
+OK 1.000  benjamini1995controlling         Controlling the False Discovery Rate: A Practical and Powerful Approac
+OK 1.000  efron1979bootstrap               Bootstrap Methods: Another Look at the Jackknife
+OK 1.000  hansen1982large                  Large Sample Properties of Generalized Method of Moments Estimators
+OK 1.000  rosenbaum2002observational       Observational Studies
+
+51/67 matched at >= 0.90; needs manual check: ['rao1999learning', 'benton2020learning', 'vanderwilk2018learning', 'wang2022approximately', 'brandstetter2022lie', 'olver1993applications', 'lee2013smooth', 'bhatia1997matrix', 'gander1989constrained', 'conn2000trust', 'boucheron2013concentration', 'tsybakov2009introduction', 'maurer2009empirical', 'berk2013valid', 'meinshausen2009pvalues', 'robin2000tests']

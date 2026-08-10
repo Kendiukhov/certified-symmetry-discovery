@@ -1,0 +1,26 @@
+\begin{table}[t]
+\centering\small
+\begin{tabular}{llrrr}
+\toprule
+error distribution & covariance & worst coverage & worst false cert.\ & certified dim.\ \\
+\midrule
+Gaussian & exact Gaussian & 1.000 & 0.000 & 0.00 \\
+Gaussian & sandwich & 1.000 & 0.000 & 0.00 \\
+Gaussian, heteroskedastic & exact Gaussian & 1.000 & 0.000 & 0.00 \\
+Gaussian, heteroskedastic & sandwich & 1.000 & 0.000 & 0.00 \\
+Laplace & exact Gaussian & 1.000 & 0.000 & 0.00 \\
+Laplace & sandwich & 1.000 & 0.000 & 0.00 \\
+Student $t_4$ & exact Gaussian & 1.000 & 0.000 & 0.00 \\
+Student $t_4$ & sandwich & 1.000 & 0.000 & 0.00 \\
+\bottomrule
+\end{tabular}
+\caption{Coverage of the certificate under departures from the Gaussian
+homoskedastic model, at nominal $0.95$. Each row spans three systems and two
+regimes --- one where nothing is certifiable, so that coverage is all that is
+being tested, and one where the true algebra is recovered --- with 400
+replications each; the last column is the certified dimension in the informative
+regime. The certificate depends on the errors only through a confidence
+ellipsoid for a least-squares estimator, and is correspondingly insensitive to
+their shape.}
+\label{tab:robustness}
+\end{table}

@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hsd"
+version = "1.0.0"
+description = "Certified symmetry discovery: confidence sets for Lie-algebra generators from noisy, limited data"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "sympy>=1.12",
+]
+
+[project.optional-dependencies]
+# Only the experiment and figure scripts need these; the library does not.
+experiments = ["matplotlib>=3.7", "pandas>=2.0"]
+dev = ["pytest>=7.0", "pyflakes"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]

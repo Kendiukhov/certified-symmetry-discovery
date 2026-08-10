@@ -1,0 +1,187 @@
+\section{Proofs}
+\label{app:proofs}
+
+\subsection*{\Cref{lem:props}}
+Write $u = DF\,\xi$ and $v = D\xi\,F$ as elements of $\Ltwo{\nu}$. Then
+$\defect^2 = \|u-v\|^2/(\|u\|^2+\|v\|^2)$. The parallelogram-type inequality
+$\|u-v\|^2 \le 2(\|u\|^2+\|v\|^2)$ gives $\defect \le \sqrt 2$, with equality
+iff $u = -v$; $\defect = 0$ iff $u = v$ in $\Ltwo{\nu}$, i.e.\ $[\xi,F]=0$
+$\nu$-almost everywhere, and since both are polynomials this holds on the
+support of $\nu$; that this is equivalent to the flow of $\xi$ mapping solutions
+to solutions is standard \citep[Ch.~9]{lee2013smooth}. Under
+$\xi \mapsto c\xi$ both $u$ and $v$ scale by $c$; under
+$F \mapsto c'F$ both scale by $c'$; the ratio is invariant in each case, hence
+also under any invertible linear reparameterisation of the candidate class,
+because $\defect$ depends on $\theta$ only through the field $\xi_\theta$.
+For $x = cQz$ with $Q$ orthogonal, the pullbacks are
+$\tilde F(z) = c^{-1}Q^{\!\top}F(cQz)$ and likewise for $\xi$, so
+$\tilde u = c^{-1}Q^{\!\top}u \circ (cQ)$ and similarly for $v$; the factor
+$c^{-1}Q^{\!\top}$ is a scalar multiple of an isometry and cancels in the
+ratio once $\nu$ is transported. \qed
+
+\subsection*{\Cref{lem:bilinear}}
+$DF_\beta$ and $F_\beta$ are linear in $\beta$, and $\xi_\theta$ and
+$D\xi_\theta$ are linear in $\theta$, so each of $DF_\beta\,\xi_\theta$ and
+$D\xi_\theta F_\beta$ is a polynomial vector field whose coefficient vector is
+bilinear in $(\theta,\beta)$. Collecting coefficients over the monomial basis of
+the residual space and multiplying by the symmetric square root of the monomial
+Gram matrix of $\nu$ (which exists because the Gram matrix is positive
+semi-definite) turns the $\Ltwo{\nu}$ norms into Euclidean norms, giving
+$M^{(1)}_\theta$ and $M^{(2)}_\theta$; $L_\theta$ is their difference by
+\eqref{eq:bracket}. Assembling $C(\beta) = A(\beta)^{\!\top}A(\beta)$ with
+$A(\beta)_{\cdot p} = L_{e_p}\beta$ and $D(\beta)$ analogously,
+$\defect^2 = \theta^{\!\top}C\theta / \theta^{\!\top}D\theta$, whose minimum
+over $\theta \ne 0$ is the smallest generalised eigenvalue of $(C,D)$ whenever
+$D \succ 0$. \qed
+
+\subsection*{\Cref{prop:simultaneous}}
+On the event $E = \{\beta^\star \in \mathcal B\}$ we have, for every $\theta$,
+$\|L_\theta\beta^\star\| \le \sup_{\beta \in \mathcal B}\|L_\theta\beta\|$ and
+$\|M^{(j)}_\theta\beta^\star\| \ge \inf_{\beta\in\mathcal B}
+\|M^{(j)}_\theta\beta\|$ for $j = 1,2$, so
+$\defect_\nu(\xi_\theta;F_{\beta^\star}) \le U(\theta)$; the lower bound is
+symmetric. Since $\Prob(E) \ge 1-\alpha$ and $E$ does not depend on $\theta$,
+the statement holds simultaneously. For \eqref{eq:fwer}: on $E$, any $\xi$ with
+$U(\xi) \le \delta$ has $\defect_\nu(\xi;F_{\beta^\star}) \le \delta$,
+whatever rule produced it; so the bad event is contained in $E^c$. \qed
+
+\subsection*{\Cref{prop:closedform}}
+Writing $\mathcal B = \{\bhat + \hat\Sigma^{1/2}u : \|u\|\le R\}$, each
+extremum is $\max$ or $\min$ of $\|a + Bu\|$ over $\|u\| \le R$ with
+$a = L_\theta\bhat$ and $B = L_\theta\hat\Sigma^{1/2}$. Squaring, this is the
+optimisation of $u^{\!\top}Qu + 2c^{\!\top}u$ over a ball with $Q = B^{\!\top}B
+\succeq 0$ and $c = B^{\!\top}a$: the trust-region subproblem, whose solutions
+satisfy $(Q \mp \mu I)u = \mp c$ with the multiplier fixed by the secular
+equation $\sum_i \tilde c_i^2/(\mu \mp \lambda_i)^2 = R^2$ in the eigenbasis of
+$Q$, monotone in $\mu$ and solvable by bisection; the hard case ($c$ orthogonal
+to the extreme eigenspace) is handled by adding a component in that eigenspace
+\citep{gander1989constrained,more1983computing,conn2000trust}. For the exactness
+of the region: in model \eqref{eq:model}, $\bhat - \beta^\star \sim
+N(0, \sigma^2 \Sigma_0)$ with $\Sigma_0 = I_n \otimes (\Phi^{\!\top}\Phi)^{-1}$
+and $\mathrm{RSS}/\sigma^2 \sim \chi^2_{\mathrm{dof}}$ independent of $\bhat$,
+so $\|\hat\Sigma^{-1/2}(\bhat-\beta^\star)\|^2/Q$, with
+$\hat\Sigma = \hat\sigma^2\Sigma_0$, is exactly $F_{Q,\mathrm{dof}}$
+distributed. \qed
+
+\subsection*{\Cref{prop:lecam}}
+Fix $\xi$, and let $M_\xi$ stack $M^{(1)}_\xi$ and $M^{(2)}_\xi$. Choose
+$\Delta$ attaining $s_{\max}(\xi)$, normalised so
+$\|F_\Delta\|_{\Ltwo{\mu_N}} = 1$ where $\mu_N$ is the empirical design measure,
+and set $\beta^t = \beta^0 + t\Delta$. Since $L_\xi \beta^0 = 0$,
+$\|L_\xi\beta^t\| = t\,s_{\max}$ and
+$\|M_\xi \beta^t\| \le \|M_\xi\beta^0\| + t\|M_\xi\Delta\|$, so
+$\defect_\nu(\xi;F_{\beta^t}) \ge \delta$ for
+$t \ge t_\delta = \delta\|M_\xi\beta^0\|/(s_{\max}-\delta\|M_\xi\Delta\|)$.
+The Kullback--Leibler divergence between the two data distributions is
+$\mathrm{KL} = \tfrac{N t^2}{2\sigma^2}\|F_\Delta\|^2_{\Ltwo{\mu_N}}
+= Nt^2/(2\sigma^2)$, so by Pinsker's inequality the total variation distance is
+at most $t\sqrt N/(2\sigma)$. For any test $\varphi$,
+$\Prob_{\beta^0}(\varphi=1) \le \Prob_{\beta^{t}}(\varphi=1) +
+\mathrm{TV} \le \alpha + t\sqrt N/(2\sigma)$ for any $t$ slightly above
+$t_\delta$; taking $t \downarrow t_\delta$ and expanding
+$t_\delta = \delta\|M_\xi\beta^0\|/s_{\max} + O(\delta^2)$ gives the claim.
+The argument is the standard two-point (Le~Cam) method
+\citep[Ch.~2]{tsybakov2009introduction}. \qed
+
+\subsection*{\Cref{prop:kappa}}
+Both $\|r\|^2_{\Ltwo{\nu}}$ and $\|r\|^2_{\Ltwo{\mu}}$ are quadratic forms in
+the coefficient vector $c$ of $r \in \mathcal R$, equal to $c^{\!\top}G_\nu c$
+and $c^{\!\top}G_\mu c$; their ratio is a generalised Rayleigh quotient whose
+maximum is $\lambda_{\max}(G_\mu^{-1/2}G_\nu G_\mu^{-1/2})$, attained at the
+corresponding eigenvector, which is a legitimate element of $\mathcal R$. The
+defect statement follows by applying the bound to the numerator and its reverse
+to each denominator block. If $G_\mu$ is singular with null vector $c \ne 0$
+then $\|r_c\|_{\Ltwo{\mu}} = 0$ while $\|r_c\|_{\Ltwo{\nu}}>0$ (as $G_\nu \succ
+0$ for a measure with a density on an open set), so $\kappa = \infty$;
+conversely $\kappa = \infty$ forces $G_\mu$ to be singular. \qed
+
+\section{Construction of the tensors}
+\label{app:construction}
+
+Represent a polynomial vector field on $\R^n$ by an $n \times m$ array of
+coefficients over the monomials of total degree at most $D$. Multiplication and
+differentiation of monomials are index tables computed once. The bracket
+\eqref{eq:bracket} of two such fields is then exact integer/rational linear
+algebra. Fixing the candidate basis $\{\zeta_p\}$ and the model basis
+$\{x^a e_i\}$ and computing $[\zeta_p, x^a e_i]$ for every pair gives a
+three-index tensor $T \in \R^{K \times P \times Q}$ with
+$\mathrm{coef}([\xi_\theta,F_\beta]) = T \cdot \theta \cdot \beta$, and likewise
+$T^{(1)}, T^{(2)}$ for the two individual terms, with $T = T^{(1)}-T^{(2)}$.
+Multiplying the first index by $I_n \otimes g_\nu^{1/2}$, where $g_\nu$ is the
+monomial Gram matrix of $\nu$, converts Euclidean norms of contracted vectors
+into $\Ltwo{\nu}$ norms of the corresponding fields. Then
+$L_\theta = T_w \cdot \theta$ and $A(\beta) = T_w \cdot \beta$.
+
+$g_\nu$ is available in closed form for the uniform measure on a box, the
+Gaussian, and the uniform measure on a ball or annulus (the last two by
+separating radial and angular moments), so no quadrature error enters. For the
+\emph{data} measure we substitute the empirical Gram matrix of the same monomial
+basis; the difference between the two is exactly what \Cref{prop:kappa}
+measures.
+
+For the refutation bound we need
+$\min_{\theta \ne 0}\defect_\nu(\xi_\theta;F_{\beta^\star})$ from below.
+On the event $\{\beta^\star \in \mathcal B\}$,
+$\sigma_{\min}(A(\beta^\star)) \ge \sigma_{\min}(A(\bhat)) -
+\sup_{\beta \in \mathcal B}\|A(\beta - \bhat)\|_F$ and
+$\sigma_{\max}(M(\beta^\star)) \le \sigma_{\max}(M(\bhat)) +
+\sup_{\beta \in \mathcal B}\|M(\beta-\bhat)\|_F$, and each supremum is again a
+norm of a linear image of $\beta$, hence another trust-region maximum. The
+ratio of the two bounds is the reported lower bound. The subspace certificate
+is the same construction with $A$ and $M$ restricted to the subspace.
+
+\section{Baselines}
+\label{app:baselines}
+
+\paragraph{Fixed threshold.} Declare the span of all generalised eigenvectors of
+$(C(\bhat), D(\bhat))$ whose plug-in defect is at most $\tau$. Sweeping $\tau$
+traces the whole family of threshold rules, including the choice $\tau = \delta$
+that matches our tolerance.
+
+\paragraph{Eigengap.} Declare $d$ maximising the relative gap
+$\defect_{(d+1)}/\defect_{(d)}$ over $d \ge 1$. This rule cannot express ``no
+symmetry'', which is one reason its error rate is high; we report it because it
+is widely used, and we also report the threshold family, which can.
+
+\paragraph{Weyl perturbation certificate.} Bound
+$\lambda_k(C(\beta^\star)) \le \lambda_k(C(\bhat)) + \|C(\beta^\star)-C(\bhat)\|$
+with the perturbation bounded by
+$2\|A(\bhat)\|\,\|\Delta A\|_F + \|\Delta A\|_F^2$ and $\|\Delta A\|_F$
+maximised over the same confidence ellipsoid, then divide by a lower bound on
+$\lambda_{\min}(D)$. This is the natural singular-value perturbation answer
+\citep{bhatia1997matrix,davis1970rotation,yu2015useful}, the same route one would
+take with matrix concentration \citep{tropp2012user} if the Gram matrix were
+estimated by averaging over samples rather than integrated exactly; it is valid,
+and it is
+loose because it spends one global perturbation budget on every direction at
+once instead of bounding the ratio direction by direction.
+
+\paragraph{Rank test.} For each $d$, test $H_0$: the $d$ smallest plug-in
+directions span an exact nullspace, using the squared $\Ltwo{\nu}$ norm of the
+restricted bracket referred to a Welch--Satterthwaite approximation of its null
+distribution (a weighted sum of $\chi^2_1$ variables), and report the largest
+$d$ not rejected. This is a Wald-type rank test in the spirit of
+\citet{robin2000tests} and \citet{kleibergen2006generalized}.
+
+\paragraph{Split significance test.} Select the smallest-defect direction on one
+half of the data; on the other half test $H_0$: that direction is an exact
+symmetry, by the same Wald statistic; declare a symmetry when the test fails to
+reject. The selection is honest and the test is valid; the declaration is not.
+
+\section{Reproducibility}
+\label{app:repro}
+
+All experiments are deterministic given the seeds recorded in the code. The
+package, the experiment scripts, the figure scripts and the raw result files are
+released together. The full experiment suite takes the CPU time recorded in
+\texttt{results/compute\_log.json}; every number quoted in the paper is
+regenerated by \texttt{paper/make\_tables.py} directly from those files.
+
+The correctness of the mathematical core is checked by a test suite that
+verifies: the bracket against finite differences; the closed-form monomial
+moments of all four target measures against Monte-Carlo integration; the defect
+against Monte-Carlo evaluation of its defining integrals; the exact symmetry
+algebra of linear systems against the dimension of the commutant computed by an
+independent route; the trust-region extrema against brute-force search over the
+ball; the Welch--Satterthwaite approximation against simulation; and the
+empirical coverage of the certificate against its nominal level.

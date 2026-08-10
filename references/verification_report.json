@@ -1,0 +1,1769 @@
+{
+ "otto2025unified": {
+  "title_claimed": "A Unified Framework to Enforce, Discover, and Promote Symmetry in Machine Learning",
+  "crossref": {
+   "found": true,
+   "score": 0.531,
+   "title": "A unified framework for oral squamous cell carcinoma detection using machine learning and deep learning techniques",
+   "authors": [
+    "Ashutosh Mohapatra",
+    "Rasmita Dash"
+   ],
+   "year": 2026,
+   "venue": "Discover Computing",
+   "doi": "10.1007/s10791-026-10054-8",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "found": true,
+   "score": 1.0,
+   "title": "A Unified Framework to Enforce, Discover, and Promote Symmetry in Machine Learning",
+   "authors": [
+    "Samuel E. Otto",
+    "Nicholas Zolman",
+    "J. Nathan Kutz",
+    "Steven L. Brunton"
+   ],
+   "year": "2023",
+   "id": "http://arxiv.org/abs/2311.00212v3"
+  },
+  "dblp": {
+   "found": true,
+   "score": 0.994,
+   "title": "A Unified Framework to Enforce, Discover, and Promote Symmetry in Machine Learning.",
+   "authors": [
+    "Samuel E. Otto",
+    "Nicholas Zolman",
+    "J. Nathan Kutz",
+    "Steven L. Brunton"
+   ],
+   "year": "2023",
+   "venue": "CoRR",
+   "doi": "10.48550/ARXIV.2311.00212",
+   "type": "Informal and Other Publications"
+  },
+  "best_score": 1.0
+ },
+ "cahill2023liepca": {
+  "title_claimed": "Lie PCA: Density estimation for symmetric manifolds",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Lie PCA: Density estimation for symmetric manifolds",
+   "authors": [
+    "Jameson Cahill",
+    "Dustin G. Mixon",
+    "Hans Parshall"
+   ],
+   "year": 2023,
+   "venue": "Applied and Computational Harmonic Analysis",
+   "doi": "10.1016/j.acha.2023.03.001",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "found": true,
+   "score": 1.0,
+   "title": "Lie PCA: Density estimation for symmetric manifolds",
+   "authors": [
+    "Jameson Cahill",
+    "Dustin G. Mixon",
+    "Hans Parshall"
+   ],
+   "year": "2020",
+   "id": "http://arxiv.org/abs/2008.04278v2"
+  },
+  "dblp": {
+   "found": true,
+   "score": 0.99,
+   "title": "Lie PCA: Density estimation for symmetric manifolds.",
+   "authors": [
+    "Jameson Cahill",
+    "Dustin G. Mixon",
+    "Hans Parshall"
+   ],
+   "year": "2020",
+   "venue": "CoRR",
+   "doi": null,
+   "type": "Informal and Other Publications"
+  },
+  "best_score": 1.0
+ },
+ "moskalev2022liegg": {
+  "title_claimed": "LieGG: Studying Learned Lie Group Generators",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "LieGG: Studying Learned Lie Group Generators",
+   "authors": [
+    "Artem Moskalev",
+    "Anna Sepliarskaia",
+    "Ivan Sosnovik",
+    "Arnold Smeulders"
+   ],
+   "year": 2022,
+   "venue": "Advances in Neural Information Processing Systems 35",
+   "doi": "10.52202/068431-1828",
+   "type": "proceedings-article"
+  },
+  "arxiv": {
+   "found": true,
+   "score": 1.0,
+   "title": "LieGG: Studying Learned Lie Group Generators",
+   "authors": [
+    "Artem Moskalev",
+    "Anna Sepliarskaia",
+    "Ivan Sosnovik",
+    "Arnold Smeulders"
+   ],
+   "year": "2022",
+   "id": "http://arxiv.org/abs/2210.04345v3"
+  },
+  "dblp": {
+   "found": true,
+   "score": 0.989,
+   "title": "LieGG: Studying Learned Lie Group Generators.",
+   "authors": [
+    "Artem Moskalev",
+    "Anna Sepliarskaia",
+    "Ivan Sosnovik",
+    "Arnold W. M. Smeulders"
+   ],
+   "year": "2022",
+   "venue": "NeurIPS",
+   "doi": null,
+   "type": "Conference and Workshop Papers"
+  },
+  "best_score": 1.0
+ },
+ "gruver2023lie": {
+  "title_claimed": "The Lie Derivative for Measuring Learned Equivariance",
+  "crossref": {
+   "found": true,
+   "score": 0.407,
+   "title": "Lie Group Convolution Neural Networks with Scale-Rotation Equivariance",
+   "authors": [
+    "Weidong Qiao",
+    "Yang Xu",
+    "Hui Li"
+   ],
+   "year": 2024,
+   "venue": "",
+   "doi": "10.2139/ssrn.4719920",
+   "type": "posted-content"
+  },
+  "arxiv": {
+   "found": true,
+   "score": 1.0,
+   "title": "The Lie Derivative for Measuring Learned Equivariance",
+   "authors": [
+    "Nate Gruver",
+    "Marc Finzi",
+    "Micah Goldblum",
+    "Andrew Gordon Wilson"
+   ],
+   "year": "2022",
+   "id": "http://arxiv.org/abs/2210.02984v2"
+  },
+  "dblp": {
+   "error": "HTTP Error 429: Too Many Requests"
+  },
+  "best_score": 1.0
+ },
+ "kaiser2018discovering": {
+  "title_claimed": "Discovering conservation laws from data for control",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Discovering Conservation Laws from Data for Control",
+   "authors": [
+    "Eurika Kaiser",
+    "J. Nathan Kutz",
+    "Steven L. Brunton"
+   ],
+   "year": 2018,
+   "venue": "2018 IEEE Conference on Decision and Control (CDC)",
+   "doi": "10.1109/cdc.2018.8618963",
+   "type": "proceedings-article"
+  },
+  "arxiv": {
+   "found": true,
+   "score": 1.0,
+   "title": "Discovering conservation laws from data for control",
+   "authors": [
+    "Eurika Kaiser",
+    "J. Nathan Kutz",
+    "Steven L. Brunton"
+   ],
+   "year": "2018",
+   "id": "http://arxiv.org/abs/1811.00961v1"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "baddoo2023physics": {
+  "title_claimed": "Physics-informed dynamic mode decomposition",
+  "crossref": {
+   "found": true,
+   "score": 0.905,
+   "title": "Physics-Informed Dynamic Mode Decomposition (PI-DMD)",
+   "authors": [
+    "Peter Baddoo"
+   ],
+   "year": 2022,
+   "venue": "",
+   "doi": "10.52843/cassyni.9rxk86",
+   "type": "posted-content"
+  },
+  "arxiv": {
+   "found": true,
+   "score": 0.915,
+   "title": "Physics-informed dynamic mode decomposition (piDMD)",
+   "authors": [
+    "Peter J. Baddoo",
+    "Benjamin Herrmann",
+    "Beverley J. McKeon",
+    "J. Nathan Kutz",
+    "Steven L. Brunton"
+   ],
+   "year": "2021",
+   "id": "http://arxiv.org/abs/2112.04307v1"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 0.915
+ },
+ "yang2023liegan": {
+  "title_claimed": "Generative Adversarial Symmetry Discovery",
+  "crossref": {
+   "found": true,
+   "score": 0.562,
+   "title": "Review for \"Generative adversarial networks and diffusion models in material discovery\"",
+   "authors": [],
+   "year": 2023,
+   "venue": "",
+   "doi": "10.1039/d3dd00137g/v1/review3",
+   "type": "peer-review"
+  },
+  "arxiv": {
+   "found": true,
+   "score": 1.0,
+   "title": "Generative Adversarial Symmetry Discovery",
+   "authors": [
+    "Jianke Yang",
+    "Robin Walters",
+    "Nima Dehmamy",
+    "Rose Yu"
+   ],
+   "year": "2023",
+   "id": "http://arxiv.org/abs/2302.00236v4"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "yang2024latent": {
+  "title_claimed": "Latent Space Symmetry Discovery",
+  "crossref": {
+   "found": true,
+   "score": 0.568,
+   "title": "Leveraging latent space models for enzyme discovery and sampling",
+   "authors": [
+    "Chang-Hwa Chiang",
+    "Daniel Ong",
+    "Alison R. H. Narayan",
+    "Charles L. Brooks"
+   ],
+   "year": 2026,
+   "venue": "",
+   "doi": "10.26434/chemrxiv.15003868/v1",
+   "type": "posted-content"
+  },
+  "arxiv": {
+   "found": true,
+   "score": 1.0,
+   "title": "Latent Space Symmetry Discovery",
+   "authors": [
+    "Jianke Yang",
+    "Nima Dehmamy",
+    "Robin Walters",
+    "Rose Yu"
+   ],
+   "year": "2023",
+   "id": "http://arxiv.org/abs/2310.00105v3"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "yang2024symmetry": {
+  "title_claimed": "Symmetry-Informed Governing Equation Discovery",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Symmetry-Informed Governing Equation Discovery",
+   "authors": [
+    "Jianke Yang",
+    "Wang Rao",
+    "Nima Dehmamy",
+    "Robin Walters",
+    "Rose Yu"
+   ],
+   "year": 2024,
+   "venue": "Advances in Neural Information Processing Systems 37",
+   "doi": "10.52202/079017-2085",
+   "type": "proceedings-article"
+  },
+  "arxiv": {
+   "found": true,
+   "score": 1.0,
+   "title": "Symmetry-Informed Governing Equation Discovery",
+   "authors": [
+    "Jianke Yang",
+    "Wang Rao",
+    "Nima Dehmamy",
+    "Robin Walters",
+    "Rose Yu"
+   ],
+   "year": "2024",
+   "id": "http://arxiv.org/abs/2405.16756v2"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "desai2022symmetry": {
+  "title_claimed": "Symmetry discovery with deep learning",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Symmetry discovery with deep learning",
+   "authors": [
+    "Krish Desai",
+    "Benjamin Nachman",
+    "Jesse Thaler"
+   ],
+   "year": 2022,
+   "venue": "Physical Review D",
+   "doi": "10.1103/physrevd.105.096031",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "found": true,
+   "score": 0.851,
+   "title": "SymmetryGAN: Symmetry Discovery with Deep Learning",
+   "authors": [
+    "Krish Desai",
+    "Benjamin Nachman",
+    "Jesse Thaler"
+   ],
+   "year": "2021",
+   "id": "http://arxiv.org/abs/2112.05722v2"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "dehmamy2021automatic": {
+  "title_claimed": "Automatic Symmetry Discovery with Lie Algebra Convolutional Network",
+  "crossref": {
+   "found": true,
+   "score": 0.508,
+   "title": "Algebraic Inverses on Lie Algebra Comultiplications",
+   "authors": [
+    "Dae-Woong Lee"
+   ],
+   "year": 2020,
+   "venue": "Symmetry",
+   "doi": "10.3390/sym12040565",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "found": true,
+   "score": 1.0,
+   "title": "Automatic Symmetry Discovery with Lie Algebra Convolutional Network",
+   "authors": [
+    "Nima Dehmamy",
+    "Robin Walters",
+    "Yanchen Liu",
+    "Dashun Wang",
+    "Rose Yu"
+   ],
+   "year": "2021",
+   "id": "http://arxiv.org/abs/2109.07103v2"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "liu2022machine": {
+  "title_claimed": "Machine Learning Hidden Symmetries",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Machine Learning Hidden Symmetries",
+   "authors": [
+    "Ziming Liu",
+    "Max Tegmark"
+   ],
+   "year": 2022,
+   "venue": "Physical Review Letters",
+   "doi": "10.1103/physrevlett.128.180201",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "found": true,
+   "score": 1.0,
+   "title": "Machine-learning hidden symmetries",
+   "authors": [
+    "Ziming Liu",
+    "Max Tegmark"
+   ],
+   "year": "2021",
+   "id": "http://arxiv.org/abs/2109.09721v2"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "forestano2023deep": {
+  "title_claimed": "Deep learning symmetries and their Lie groups, algebras, and subalgebras from first principles",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Deep learning symmetries and their Lie groups, algebras, and subalgebras from first principles",
+   "authors": [
+    "Roy T Forestano",
+    "Konstantin T Matchev",
+    "Katia Matcheva",
+    "Alexander Roman",
+    "Eyup B Unlu",
+    "Sarunas Verner"
+   ],
+   "year": 2023,
+   "venue": "Machine Learning: Science and Technology",
+   "doi": "10.1088/2632-2153/acd989",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "found": true,
+   "score": 1.0,
+   "title": "Deep Learning Symmetries and Their Lie Groups, Algebras, and Subalgebras from First Principles",
+   "authors": [
+    "Roy T. Forestano",
+    "Konstantin T. Matchev",
+    "Katia Matcheva",
+    "Alexander Roman",
+    "Eyup Unlu",
+    "Sarunas Verner"
+   ],
+   "year": "2023",
+   "id": "http://arxiv.org/abs/2301.05638v1"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "krippendorf2020detecting": {
+  "title_claimed": "Detecting symmetries with neural networks",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Detecting symmetries with neural networks",
+   "authors": [
+    "Sven Krippendorf",
+    "Marc Syvaeri"
+   ],
+   "year": 2020,
+   "venue": "Machine Learning: Science and Technology",
+   "doi": "10.1088/2632-2153/abbd2d",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "found": true,
+   "score": 1.0,
+   "title": "Detecting Symmetries with Neural Networks",
+   "authors": [
+    "Sven Krippendorf",
+    "Marc Syvaeri"
+   ],
+   "year": "2020",
+   "id": "http://arxiv.org/abs/2003.13679v1"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "rao1999learning": {
+  "title_claimed": "Learning Lie Groups for Invariant Visual Perception",
+  "crossref": {
+   "found": true,
+   "score": 0.552,
+   "title": "Lie Groups with Bi-invariant Metrics",
+   "authors": [
+    "Marcos M. Alexandrino",
+    "Renato G. Bettiol"
+   ],
+   "year": 2015,
+   "venue": "Lie Groups and Geometric Aspects of Isometric Actions",
+   "doi": "10.1007/978-3-319-16613-1_2",
+   "type": "book-chapter"
+  },
+  "arxiv": {
+   "found": false
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 0.552
+ },
+ "miao2007learning": {
+  "title_claimed": "Learning the Lie Groups of Visual Invariance",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Learning the Lie Groups of Visual Invariance",
+   "authors": [
+    "Xu Miao",
+    "Rajesh P. N. Rao"
+   ],
+   "year": 2007,
+   "venue": "Neural Computation",
+   "doi": "10.1162/neco.2007.19.10.2665",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "found": false
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "cohen2016group": {
+  "title_claimed": "Group Equivariant Convolutional Networks",
+  "crossref": {
+   "found": true,
+   "score": 0.584,
+   "title": "Symmetry-Preserving Pruning of Group Equivariant Convolutional Networks via Representation Theory",
+   "authors": [
+    "Mohammed Alnemari",
+    "Osamah M. Al-Omair"
+   ],
+   "year": 2026,
+   "venue": "Symmetry",
+   "doi": "10.3390/sym18060983",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "found": true,
+   "score": 1.0,
+   "title": "Group Equivariant Convolutional Networks",
+   "authors": [
+    "Taco S. Cohen",
+    "Max Welling"
+   ],
+   "year": "2016",
+   "id": "http://arxiv.org/abs/1602.07576v3"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "kondor2018generalization": {
+  "title_claimed": "On the Generalization of Equivariance and Convolution in Neural Networks to the Action of Compact Groups",
+  "crossref": {
+   "found": true,
+   "score": 0.585,
+   "title": "Group Action Equivariance and Generalized Convolution in Multi-layer Neural Networks",
+   "authors": [
+    "Pan Zhong",
+    "Zhengdao Wang"
+   ],
+   "year": 2019,
+   "venue": "ICASSP 2019 - 2019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+   "doi": "10.1109/icassp.2019.8683278",
+   "type": "proceedings-article"
+  },
+  "arxiv": {
+   "found": true,
+   "score": 1.0,
+   "title": "On the Generalization of Equivariance and Convolution in Neural Networks to the Action of Compact Groups",
+   "authors": [
+    "Risi Kondor",
+    "Shubhendu Trivedi"
+   ],
+   "year": "2018",
+   "id": "http://arxiv.org/abs/1802.03690v3"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "finzi2021practical": {
+  "title_claimed": "A Practical Method for Constructing Equivariant Multilayer Perceptrons for Arbitrary Matrix Groups",
+  "crossref": {
+   "found": true,
+   "score": 0.67,
+   "title": "METHODS OF TRAINING AND CONSTRUCTING MULTILAYER PERCEPTRONS WITH ARBITRARY PATTERN SETS",
+   "authors": [
+    "XUN LIANG",
+    "SHAOWEI XIA"
+   ],
+   "year": 1995,
+   "venue": "International Journal of Neural Systems",
+   "doi": "10.1142/s0129065795000172",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "found": true,
+   "score": 1.0,
+   "title": "A Practical Method for Constructing Equivariant Multilayer Perceptrons for Arbitrary Matrix Groups",
+   "authors": [
+    "Marc Finzi",
+    "Max Welling",
+    "Andrew Gordon Wilson"
+   ],
+   "year": "2021",
+   "id": "http://arxiv.org/abs/2104.09459v1"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "bronstein2021geometric": {
+  "title_claimed": "Geometric Deep Learning: Grids, Groups, Graphs, Geodesics, and Gauges",
+  "crossref": {
+   "found": true,
+   "score": 0.618,
+   "title": "Geometric Deep Learning for Sulcal Graphs",
+   "authors": [
+    "R. Yadav",
+    "F.X. Dup\u00e9",
+    "S. Takerkart",
+    "G. Auzias"
+   ],
+   "year": 2024,
+   "venue": "2024 IEEE International Symposium on Biomedical Imaging (ISBI)",
+   "doi": "10.1109/isbi56570.2024.10635482",
+   "type": "proceedings-article"
+  },
+  "arxiv": {
+   "found": true,
+   "score": 1.0,
+   "title": "Geometric Deep Learning: Grids, Groups, Graphs, Geodesics, and Gauges",
+   "authors": [
+    "Michael M. Bronstein",
+    "Joan Bruna",
+    "Taco Cohen",
+    "Petar Veli\u010dkovi\u0107"
+   ],
+   "year": "2021",
+   "id": "http://arxiv.org/abs/2104.13478v2"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "benton2020learning": {
+  "title_claimed": "Learning Invariances in Neural Networks from Training Data",
+  "crossref": {
+   "found": true,
+   "score": 0.598,
+   "title": "Efficient Partition of Learning Data Sets for Neural Network Training",
+   "authors": [
+    "Igor V. Tetko",
+    "Alessandro E.P. Villa"
+   ],
+   "year": 1997,
+   "venue": "Neural Networks",
+   "doi": "10.1016/s0893-6080(97)00005-1",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 0.598
+ },
+ "vanderwilk2018learning": {
+  "title_claimed": "Learning Invariances using the Marginal Likelihood",
+  "crossref": {
+   "found": true,
+   "score": 0.537,
+   "title": "Learning invariances via correlation and marginal alignments for out-of-distribution generalization",
+   "authors": [
+    "Zong Guo",
+    "Bingpeng Ma"
+   ],
+   "year": 2026,
+   "venue": "Neurocomputing",
+   "doi": "10.1016/j.neucom.2026.132876",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 0.537
+ },
+ "immer2022invariance": {
+  "title_claimed": "Invariance Learning in Deep Neural Networks with Differentiable Laplace Approximations",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Invariance Learning in Deep Neural Networks with Differentiable Laplace Approximations",
+   "authors": [
+    "Alexander Immer",
+    "Tycho Van Der Ouderaa",
+    "Gunnar R\u00e4tsch",
+    "Vincent Fortuin",
+    "Mark Van Der Wilk"
+   ],
+   "year": 2022,
+   "venue": "Advances in Neural Information Processing Systems 35",
+   "doi": "10.52202/068431-0904",
+   "type": "proceedings-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "wang2022approximately": {
+  "title_claimed": "Approximately Equivariant Networks for Imperfectly Symmetric Dynamics",
+  "crossref": {
+   "found": true,
+   "score": 0.624,
+   "title": "Approximately Equivariant Graph Networks",
+   "authors": [
+    "Ningyuan Huang",
+    "Ron Levie",
+    "Soledad Villar"
+   ],
+   "year": 2023,
+   "venue": "Advances in Neural Information Processing Systems 36",
+   "doi": "10.52202/075280-1505",
+   "type": "proceedings-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 0.624
+ },
+ "romero2022learning": {
+  "title_claimed": "Learning Partial Equivariances from Data",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Learning Partial Equivariances from Data",
+   "authors": [
+    "David W. Romero",
+    "Suhas Lohit"
+   ],
+   "year": 2022,
+   "venue": "Advances in Neural Information Processing Systems 35",
+   "doi": "10.52202/068431-2642",
+   "type": "proceedings-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "brandstetter2022lie": {
+  "title_claimed": "Lie Point Symmetry Data Augmentation for Neural PDE Solvers",
+  "crossref": {
+   "found": true,
+   "score": 0.738,
+   "title": "Review of: \"Inverse Evolution Data Augmentation for Neural PDE Solvers\"",
+   "authors": [
+    "Filippo Gatti"
+   ],
+   "year": 2025,
+   "venue": "",
+   "doi": "10.32388/d3ihyg",
+   "type": "peer-review"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 0.738
+ },
+ "akhound2023lie": {
+  "title_claimed": "Lie Point Symmetry and Physics-Informed Networks",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Lie Point Symmetry and Physics-Informed Networks",
+   "authors": [
+    "Tara Akhound-Sadegh",
+    "Laurence Perreault-Levasseur",
+    "Johannes Brandstetter",
+    "Max Welling",
+    "Siamak Ravanbakhsh"
+   ],
+   "year": 2023,
+   "venue": "Advances in Neural Information Processing Systems 36",
+   "doi": "10.52202/075280-1842",
+   "type": "proceedings-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "raissi2019physics": {
+  "title_claimed": "Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations",
+   "authors": [
+    "M. Raissi",
+    "P. Perdikaris",
+    "G.E. Karniadakis"
+   ],
+   "year": 2019,
+   "venue": "Journal of Computational Physics",
+   "doi": "10.1016/j.jcp.2018.10.045",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "brunton2016discovering": {
+  "title_claimed": "Discovering governing equations from data by sparse identification of nonlinear dynamical systems",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Discovering governing equations from data by sparse identification of nonlinear dynamical systems",
+   "authors": [
+    "Steven L. Brunton",
+    "Joshua L. Proctor",
+    "J. Nathan Kutz"
+   ],
+   "year": 2016,
+   "venue": "Proceedings of the National Academy of Sciences",
+   "doi": "10.1073/pnas.1517384113",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "messenger2021weak": {
+  "title_claimed": "Weak SINDy: Galerkin-Based Data-Driven Model Selection",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Weak SINDy: Galerkin-Based Data-Driven Model Selection",
+   "authors": [
+    "Daniel A. Messenger",
+    "David M. Bortz"
+   ],
+   "year": 2021,
+   "venue": "Multiscale Modeling &amp; Simulation",
+   "doi": "10.1137/20m1343166",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "zhang2019convergence": {
+  "title_claimed": "On the Convergence of the SINDy Algorithm",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "On the Convergence of the SINDy Algorithm",
+   "authors": [
+    "Linan Zhang",
+    "Hayden Schaeffer"
+   ],
+   "year": 2019,
+   "venue": "Multiscale Modeling &amp; Simulation",
+   "doi": "10.1137/18m1189828",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "champion2020unified": {
+  "title_claimed": "A Unified Sparse Optimization Framework to Learn Parsimonious Physics-Informed Models From Data",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "A Unified Sparse Optimization Framework to Learn Parsimonious Physics-Informed Models From Data",
+   "authors": [
+    "Kathleen Champion",
+    "Peng Zheng",
+    "Aleksandr Y. Aravkin",
+    "Steven L. Brunton",
+    "J. Nathan Kutz"
+   ],
+   "year": 2020,
+   "venue": "IEEE Access",
+   "doi": "10.1109/access.2020.3023625",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "fasel2022ensemble": {
+  "title_claimed": "Ensemble-SINDy: Robust sparse model discovery in the low-data, high-noise limit, with active learning and control",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Ensemble-SINDy: Robust sparse model discovery in the low-data, high-noise limit, with active learning and control",
+   "authors": [
+    "U. Fasel",
+    "J. N. Kutz",
+    "B. W. Brunton",
+    "S. L. Brunton"
+   ],
+   "year": 2022,
+   "venue": "Proceedings of the Royal Society A: Mathematical, Physical and Engineering Sciences",
+   "doi": "10.1098/rspa.2021.0904",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "kaptanoglu2022pysindy": {
+  "title_claimed": "PySINDy: A comprehensive Python package for robust sparse system identification",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "PySINDy: A comprehensive Python package for robust sparse system identification",
+   "authors": [
+    "Alan Kaptanoglu",
+    "Brian de Silva",
+    "Urban Fasel",
+    "Kadierdan Kaheman",
+    "Andy Goldschmidt",
+    "Jared Callaham",
+    "Charles Delahunt",
+    "Zachary Nicolaou"
+   ],
+   "year": 2022,
+   "venue": "Journal of Open Source Software",
+   "doi": "10.21105/joss.03994",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "olver1993applications": {
+  "title_claimed": "Applications of Lie Groups to Differential Equations",
+  "crossref": {
+   "found": true,
+   "score": 0.71,
+   "title": "Symmetry Groups of Differential Equations",
+   "authors": [
+    "Peter J. Olver"
+   ],
+   "year": 1993,
+   "venue": "Graduate Texts in Mathematics",
+   "doi": "10.1007/978-1-4612-4350-2_2",
+   "type": "book-chapter"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 0.71
+ },
+ "lee2013smooth": {
+  "title_claimed": "Introduction to Smooth Manifolds",
+  "crossref": {
+   "found": true,
+   "score": 0.667,
+   "title": "Smooth Manifolds",
+   "authors": [
+    "John M. Lee"
+   ],
+   "year": 2003,
+   "venue": "Graduate Texts in Mathematics",
+   "doi": "10.1007/978-0-387-21752-9_1",
+   "type": "book-chapter"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 0.667
+ },
+ "bhatia1997matrix": {
+  "title_claimed": "Matrix Analysis",
+  "crossref": {
+   "found": true,
+   "score": 0.588,
+   "title": "Matrix Differential",
+   "authors": [],
+   "year": null,
+   "venue": "Matrix Analysis and Applications",
+   "doi": "10.1017/9781108277587.004",
+   "type": "book-chapter"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 0.588
+ },
+ "davis1970rotation": {
+  "title_claimed": "The Rotation of Eigenvectors by a Perturbation. III",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "The Rotation of Eigenvectors by a Perturbation. III",
+   "authors": [
+    "Chandler Davis",
+    "W. M. Kahan"
+   ],
+   "year": 1970,
+   "venue": "SIAM Journal on Numerical Analysis",
+   "doi": "10.1137/0707001",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "yu2015useful": {
+  "title_claimed": "A useful variant of the Davis--Kahan theorem for statisticians",
+  "crossref": {
+   "found": true,
+   "score": 0.992,
+   "title": "A useful variant of the Davis\u2013Kahan theorem for statisticians",
+   "authors": [
+    "Y. Yu",
+    "T. Wang",
+    "R. J. Samworth"
+   ],
+   "year": 2015,
+   "venue": "Biometrika",
+   "doi": "10.1093/biomet/asv008",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 0.992
+ },
+ "tropp2012user": {
+  "title_claimed": "User-Friendly Tail Bounds for Sums of Random Matrices",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "User-Friendly Tail Bounds for Sums of Random Matrices",
+   "authors": [
+    "Joel A. Tropp"
+   ],
+   "year": 2011,
+   "venue": "Foundations of Computational Mathematics",
+   "doi": "10.1007/s10208-011-9099-z",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "gander1989constrained": {
+  "title_claimed": "A constrained eigenvalue problem",
+  "crossref": {
+   "found": true,
+   "score": 0.557,
+   "title": "Matrix LSQR algorithms for solving constrained quadratic inverse eigenvalue problem",
+   "authors": [
+    "Masoud Hajarian"
+   ],
+   "year": 2021,
+   "venue": "Filomat",
+   "doi": "10.2298/fil2109105h",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 0.557
+ },
+ "more1983computing": {
+  "title_claimed": "Computing a Trust Region Step",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Computing a Trust Region Step",
+   "authors": [
+    "Jorge J. Mor\u00e9",
+    "D. C. Sorensen"
+   ],
+   "year": 1983,
+   "venue": "SIAM Journal on Scientific and Statistical Computing",
+   "doi": "10.1137/0904038",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "conn2000trust": {
+  "title_claimed": "Trust Region Methods",
+  "crossref": {
+   "found": true,
+   "score": 0.56,
+   "title": "7. The Trust-Region Subproblem",
+   "authors": [],
+   "year": 2000,
+   "venue": "Trust Region Methods",
+   "doi": "10.1137/1.9780898719857.ch7",
+   "type": "book-chapter"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 0.56
+ },
+ "boucheron2013concentration": {
+  "title_claimed": "Concentration Inequalities: A Nonasymptotic Theory of Independence",
+  "crossref": {
+   "found": true,
+   "score": 0.438,
+   "title": "Basic Information Inequalities",
+   "authors": [
+    "St\u00e9phane Boucheron",
+    "G\u00e1bor Lugosi",
+    "Pascal Massart"
+   ],
+   "year": 2013,
+   "venue": "Concentration Inequalities",
+   "doi": "10.1093/acprof:oso/9780199535255.003.0004",
+   "type": "book-chapter"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 0.438
+ },
+ "borell1975brunn": {
+  "title_claimed": "The Brunn--Minkowski inequality in Gauss space",
+  "crossref": {
+   "found": true,
+   "score": 0.989,
+   "title": "The Brunn-Minkowski inequality in Gauss space",
+   "authors": [
+    "Christer Borell"
+   ],
+   "year": 1975,
+   "venue": "Inventiones Mathematicae",
+   "doi": "10.1007/bf01425510",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 0.989
+ },
+ "cirelson1976norms": {
+  "title_claimed": "Norms of Gaussian sample functions",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Norms of Gaussian sample functions",
+   "authors": [
+    "B. S. Cirel'son",
+    "I. A. Ibragimov",
+    "V. N. Sudakov"
+   ],
+   "year": 1976,
+   "venue": "Lecture Notes in Mathematics",
+   "doi": "10.1007/bfb0077482",
+   "type": "book-chapter"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "tsybakov2009introduction": {
+  "title_claimed": "Introduction to Nonparametric Estimation",
+  "crossref": {
+   "found": true,
+   "score": 0.688,
+   "title": "Nonparametric estimators",
+   "authors": [
+    "Alexandre B. Tsybakov"
+   ],
+   "year": 2008,
+   "venue": "Springer Series in Statistics",
+   "doi": "10.1007/978-0-387-79052-7_1",
+   "type": "book-chapter"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 0.688
+ },
+ "schuirmann1987comparison": {
+  "title_claimed": "A comparison of the two one-sided tests procedure and the power approach for assessing the equivalence of average bioavailability",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "A comparison of the Two One-Sided Tests Procedure and the Power Approach for assessing the equivalence of average bioavailability",
+   "authors": [
+    "Donald J. Schuirmann"
+   ],
+   "year": 1987,
+   "venue": "Journal of Pharmacokinetics and Biopharmaceutics",
+   "doi": "10.1007/bf01068419",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "berger1996bioequivalence": {
+  "title_claimed": "Bioequivalence trials, intersection-union tests and equivalence confidence sets",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Bioequivalence trials, intersection-union tests and equivalence confidence sets",
+   "authors": [
+    "Roger L. Berger",
+    "Jason C. Hsu"
+   ],
+   "year": 1996,
+   "venue": "Statistical Science",
+   "doi": "10.1214/ss/1032280304",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "wellek2010testing": {
+  "title_claimed": "Testing Statistical Hypotheses of Equivalence and Noninferiority",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Testing Statistical Hypotheses of Equivalence and Noninferiority",
+   "authors": [
+    "Stefan Wellek"
+   ],
+   "year": 2010,
+   "venue": "",
+   "doi": "10.1201/ebk1439808184",
+   "type": "book"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "maurer2009empirical": {
+  "title_claimed": "Empirical Bernstein Bounds and Sample Variance Penalization",
+  "crossref": {
+   "found": true,
+   "score": 0.434,
+   "title": "Jackknife empirical likelihood for variance of two sample compound Poisson processes",
+   "authors": [
+    "Conghua Cheng"
+   ],
+   "year": 2023,
+   "venue": "",
+   "doi": "10.21203/rs.3.rs-3356839/v1",
+   "type": "posted-content"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 0.434
+ },
+ "berk2013valid": {
+  "title_claimed": "Valid post-selection inference",
+  "crossref": {
+   "found": true,
+   "score": 0.659,
+   "title": "PoSI: Valid Post-Selection Inference for Linear LS Regression",
+   "authors": [
+    "Andreas Buja",
+    "Kai Zhang"
+   ],
+   "year": 2017,
+   "venue": "CRAN: Contributed Packages",
+   "doi": "10.32614/cran.package.posi",
+   "type": "dataset"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 0.659
+ },
+ "lee2016exact": {
+  "title_claimed": "Exact post-selection inference, with application to the lasso",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Exact post-selection inference, with application to the lasso",
+   "authors": [
+    "Jason D. Lee",
+    "Dennis L. Sun",
+    "Yuekai Sun",
+    "Jonathan E. Taylor"
+   ],
+   "year": 2016,
+   "venue": "The Annals of Statistics",
+   "doi": "10.1214/15-aos1371",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "meinshausen2009pvalues": {
+  "title_claimed": "p-Values for High-Dimensional Regression",
+  "crossref": {
+   "found": true,
+   "score": 0.759,
+   "title": "On some problems in high-dimensional regression",
+   "authors": [
+    "Jianchang Hu"
+   ],
+   "year": null,
+   "venue": "",
+   "doi": "10.14711/thesis-b1251993",
+   "type": "dissertation"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 0.759
+ },
+ "chernozhukov2018double": {
+  "title_claimed": "Double/debiased machine learning for treatment and structural parameters",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Double/Debiased Machine Learning for Treatment and Structural Parameters",
+   "authors": [
+    "Victor Chernozhukov",
+    "Denis Chetverikov",
+    "Mert Demirer",
+    "Esther Duflo",
+    "Christian Hansen",
+    "Whitney Newey",
+    "James Robins"
+   ],
+   "year": 2017,
+   "venue": "",
+   "doi": "10.3386/w23564",
+   "type": "report"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "andrews2024inference": {
+  "title_claimed": "Inference on Winners",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Inference on winners",
+   "authors": [],
+   "year": 2020,
+   "venue": "",
+   "doi": "10.47004/wp.cem.2020.4320",
+   "type": "report"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "kleibergen2006generalized": {
+  "title_claimed": "Generalized reduced rank tests using the singular value decomposition",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Generalized Reduced Rank Tests Using the Singular Value Decomposition",
+   "authors": [
+    "Frank R. Kleibergen",
+    "Richard Paap"
+   ],
+   "year": 2003,
+   "venue": "",
+   "doi": "10.2139/ssrn.373420",
+   "type": "posted-content"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "robin2000tests": {
+  "title_claimed": "Tests of Rank",
+  "crossref": {
+   "found": true,
+   "score": 0.455,
+   "title": "Elementary theory of rank tests",
+   "authors": [
+    "Jaroslav H\u00e1jek",
+    "Zbyn\u011bk \u0160id\u00e1k",
+    "Pranab K. Sen"
+   ],
+   "year": 1999,
+   "venue": "Theory of Rank Tests",
+   "doi": "10.1016/b978-012642350-1/50021-7",
+   "type": "book-chapter"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 0.455
+ },
+ "cragg1997inferring": {
+  "title_claimed": "Inferring the rank of a matrix",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Inferring the rank of a matrix",
+   "authors": [
+    "John G. Cragg",
+    "Stephen G. Donald"
+   ],
+   "year": 1997,
+   "venue": "Journal of Econometrics",
+   "doi": "10.1016/0304-4076(95)01790-9",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "anderson1963asymptotic": {
+  "title_claimed": "Asymptotic Theory for Principal Component Analysis",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Asymptotic Theory for Principal Component Analysis",
+   "authors": [
+    "T. W. Anderson"
+   ],
+   "year": 1963,
+   "venue": "The Annals of Mathematical Statistics",
+   "doi": "10.1214/aoms/1177704248",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "johnstone2001distribution": {
+  "title_claimed": "On the distribution of the largest eigenvalue in principal components analysis",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "On the distribution of the largest eigenvalue in principal components analysis",
+   "authors": [
+    "Iain M. Johnstone"
+   ],
+   "year": 2001,
+   "venue": "The Annals of Statistics",
+   "doi": "10.1214/aos/1009210544",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "baik2005phase": {
+  "title_claimed": "Phase transition of the largest eigenvalue for nonnull complex sample covariance matrices",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Phase transition of the largest eigenvalue for nonnull complex sample covariance matrices",
+   "authors": [
+    "Jinho Baik",
+    "G\u00e9rard Ben Arous",
+    "Sandrine P\u00e9ch\u00e9"
+   ],
+   "year": 2005,
+   "venue": "The Annals of Probability",
+   "doi": "10.1214/009117905000000233",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "white1980heteroskedasticity": {
+  "title_claimed": "A Heteroskedasticity-Consistent Covariance Matrix Estimator and a Direct Test for Heteroskedasticity",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "A Heteroskedasticity-Consistent Covariance Matrix Estimator and a Direct Test for Heteroskedasticity",
+   "authors": [
+    "Halbert White"
+   ],
+   "year": 1980,
+   "venue": "Econometrica",
+   "doi": "10.2307/1912934",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "benjamini1995controlling": {
+  "title_claimed": "Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing",
+   "authors": [
+    "Yoav Benjamini",
+    "Yosef Hochberg"
+   ],
+   "year": 1995,
+   "venue": "Journal of the Royal Statistical Society Series B: Statistical Methodology",
+   "doi": "10.1111/j.2517-6161.1995.tb02031.x",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "efron1979bootstrap": {
+  "title_claimed": "Bootstrap Methods: Another Look at the Jackknife",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Bootstrap Methods: Another Look at the Jackknife",
+   "authors": [
+    "B. Efron"
+   ],
+   "year": 1979,
+   "venue": "The Annals of Statistics",
+   "doi": "10.1214/aos/1176344552",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "hansen1982large": {
+  "title_claimed": "Large Sample Properties of Generalized Method of Moments Estimators",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Large Sample Properties of Generalized Method of Moments Estimators",
+   "authors": [
+    "Lars Peter Hansen"
+   ],
+   "year": 1982,
+   "venue": "Econometrica",
+   "doi": "10.2307/1912775",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ },
+ "rosenbaum2002observational": {
+  "title_claimed": "Observational Studies",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Observational Studies",
+   "authors": [
+    "William G. Cochran"
+   ],
+   "year": 2015,
+   "venue": "Observational Studies",
+   "doi": "10.1353/obs.2015.0010",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "error": "HTTP Error 429: Unknown Error"
+  },
+  "dblp": {
+   "error": "Remote end closed connection without response"
+  },
+  "best_score": 1.0
+ }
+}
