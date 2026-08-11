@@ -37,7 +37,11 @@ echo "pages:    $(pdfinfo main.pdf | awk '/Pages/{print $2}')"
 
 if [ "${1:-}" = "zip" ]; then
   rm -f submission.zip
-  zip -qr submission.zip main.tex main.pdf sections tables figures refs.bib \
-      sn-jnl.cls sn-apacite.bst cover_letter.pdf
+  # main.bbl is included so the bundle typesets even where bibtex is not run.
+  # -x drops the AppleDouble and .DS_Store files that macOS leaves on this
+  # volume; a submission system would otherwise see them as stray sources.
+  zip -qr submission.zip main.tex main.bbl main.pdf sections tables figures \
+      refs.bib sn-jnl.cls sn-apacite.bst cover_letter.tex cover_letter.pdf \
+      README.md -x '._*' '*/._*' '.DS_Store' '*/.DS_Store' 
   echo "wrote $(pwd)/submission.zip"
 fi

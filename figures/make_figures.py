@@ -111,11 +111,11 @@ def figure1():
     c.plot([], [], "-o", color="k", markersize=3.6, label="SymCert (achieved)")
     c.plot([], [], "--", color="k", label="Le Cam limit (any procedure)")
     c.set_xscale("log"); c.set_yscale("log")
-    c.set_xlim(80, 3.2e4)
+    c.set_xlim(80, 3.2e4); c.set_ylim(top=6.0)
     c.set_xlabel("sample size $N$")
     c.set_ylabel(r"certifiable tolerance $\delta$")
     c.set_title("(c) The limit of what anyone can certify", loc="left")
-    c.legend(loc="lower left", fontsize=7)
+    c.legend(loc="upper right", fontsize=7)
     fig.tight_layout()
     fig.savefig(OUT / "fig1_headline.pdf", bbox_inches="tight")
     plt.close(fig)
@@ -190,7 +190,8 @@ def figure3():
     a.set_xscale("log"); a.set_xlabel("sample size $N$")
     a.set_ylabel("detection rate")
     a.set_title("(a) SymCert detects the true algebra\nas data accumulate", loc="left")
-    a.set_ylim(-0.03, 1.12); a.legend(loc="upper left", ncol=2, columnspacing=1.0)
+    a.set_ylim(-0.03, 1.42)
+    a.legend(loc="upper left", ncol=2, columnspacing=1.0, fontsize=7)
 
     b = ax[1]
     g = e6.groupby(["system", "degF", "gens"]).agg(
@@ -249,12 +250,13 @@ def figure4():
     a.set_ylim(0.45, 1.02); a.legend(loc="lower right")
 
     b = ax[1]
+    # Colour carries the nominal level, which the dotted reference lines already
+    # label, so the legend only has to distinguish the two procedures.
     for a_lvl, col in zip(sorted(bnd.alpha.unique()), ["#1b7837", "#762a83", "#b35806"]):
         sub = bnd[bnd.alpha == a_lvl].sort_values("tau")
-        b.plot(sub.true_defect / DELTA, sub.fc_direction, "-o", color=col,
-               label=rf"SymCert, $\alpha={a_lvl}$")
-        b.plot(sub.true_defect / DELTA, sub.fc_bootstrap, "--s", color=col, alpha=0.65,
-               markersize=4, label=rf"bootstrap, $\alpha={a_lvl}$")
+        b.plot(sub.true_defect / DELTA, sub.fc_direction, "-o", color=col)
+        b.plot(sub.true_defect / DELTA, sub.fc_bootstrap, "--s", color=col,
+               alpha=0.65, markersize=4)
         b.axhline(a_lvl, color=col, lw=0.7, ls=":", alpha=0.7)
         b.text(1.00, a_lvl + 0.012, rf"$\alpha={a_lvl}$", fontsize=6.2, color=col,
                ha="left")
@@ -262,8 +264,11 @@ def figure4():
     b.set_ylabel("false-certification rate")
     b.set_title("(b) ... even at the hardest boundary", loc="left")
     b.set_xlim(0.98, 1.56); b.set_ylim(-0.02, 0.56)
-    b.legend(fontsize=6.4, ncol=2, loc="upper right", columnspacing=1.0,
-             bbox_to_anchor=(1.0, 0.99))
+    from matplotlib.lines import Line2D
+    proxies = [Line2D([], [], color="0.25", ls="-", marker="o", markersize=5),
+               Line2D([], [], color="0.25", ls="--", marker="s", markersize=4)]
+    b.legend(proxies, ["SymCert (ours)", "bootstrap"], fontsize=7,
+             loc="center right", bbox_to_anchor=(1.0, 0.62), handlelength=2.0)
     fig.tight_layout()
     fig.savefig(OUT / "fig4_tightness.pdf", bbox_inches="tight")
     plt.close(fig)
@@ -292,22 +297,21 @@ def figure5():
 
     # (b) training inputs restricted to a sector: invariances that are not there
     b = ax[1]
-    styles = {"invariant": ("-", "o", "rotation-invariant target"),
-              "anisotropic": ("--", "^", "target with no invariance")}
-    for kind, (ls, m, lab) in styles.items():
+    styles = {"invariant": ("-", "o"), "anisotropic": ("--", "^")}
+    for i, (kind, (ls, m)) in enumerate(styles.items()):
         sub = e7[(e7.kind == kind) & (e7.sector) & (e7.sigma_rel == 0.05)].sort_values("N")
         b.plot(sub.N, sub.fc_naive_t, ls + m, color=C["naive"],
-               label=f"threshold, {lab}")
+               label="threshold" if i == 0 else None)
         b.plot(sub.N, sub.fc_sym, ls + m, color=C["sym"],
-               label=f"SymCert, {lab}")
+               label="SymCert (ours)" if i == 0 else None)
     b.axhline(ALPHA, ls=":", color=C["grey"], lw=1)
     b.text(1.2e3, ALPHA + 0.03, r"$\alpha=0.05$", fontsize=7, color=C["grey"])
     b.set_xscale("log"); b.set_xlabel("training-set size $N$")
     b.set_ylabel("false-certification rate")
-    b.set_ylim(-0.04, 1.0)
+    b.set_ylim(-0.04, 1.05)
     b.set_title("(b) Training inputs on a $120^\\circ$ sector:\ninvariances that are not there",
                 loc="left")
-    b.legend(fontsize=6.4, loc="center left", bbox_to_anchor=(0.02, 0.62))
+    b.legend(fontsize=7, loc="upper right", handlelength=1.8)
     fig.tight_layout()
     fig.savefig(OUT / "fig5_invariance.pdf", bbox_inches="tight")
     plt.close(fig)
@@ -327,19 +331,18 @@ def figure6():
         a.plot(sub.degree, sub.upper_sup_norm, "-^", color=C["naive"],
                label=r"paying for $\sup|h|$ and $\sup\|Dh\|$")
         a.plot(sub.degree, sub.true_defect, "k--", label="true defect")
-        a.axhline(DELTA, color=C["grey"], ls=":", lw=1.2)
-        a.text(sub.degree.min(), DELTA * 1.15, r"tolerance $\delta=0.05$",
-               fontsize=6.8, color=C["grey"])
+        a.axhline(DELTA, color=C["grey"], ls=":", lw=1.2,
+                  label=r"tolerance $\delta = 0.05$" if k == 0 else None)
         a.set_yscale("log"); a.set_xlabel("degree of the fitted polynomial class")
         a.set_ylabel("certified tolerance")
         a.set_title(("(a) exact rotational symmetry" if k == 0
                      else "(b) no continuous symmetry")
                     + f"\n({sysname.replace('_', ' ')}, not polynomial)", loc="left")
         a.set_xticks(sub.degree)
-        if k == 0:
-            a.legend(fontsize=6.6, loc="lower left", frameon=True,
-                     framealpha=0.92, edgecolor="none")
-    fig.tight_layout()
+    handles, labels = ax[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="lower center", ncol=5, fontsize=7.2,
+               bbox_to_anchor=(0.5, -0.02), columnspacing=1.4, handlelength=1.8)
+    fig.tight_layout(rect=(0, 0.05, 1, 1))
     fig.savefig(OUT / "fig6_modelerror.pdf", bbox_inches="tight")
     plt.close(fig)
 
@@ -397,8 +400,8 @@ def figure0():
                    (0.97, 0.05), xycoords="axes fraction", ha="right",
                    fontsize=8, color=C["sym"], weight="bold")
     ax[0].set_ylabel(r"relative equivariance defect $\rho$")
-    ax[0].legend(loc="center right", fontsize=6.6, framealpha=0.9,
-                 frameon=True, edgecolor="none")
+    ax[0].legend(loc="center right", bbox_to_anchor=(1.0, 0.40), fontsize=6.6,
+                 framealpha=0.9, frameon=True, edgecolor="none")
     fig.tight_layout()
     fig.savefig(OUT / "fig0_example.pdf", bbox_inches="tight")
     plt.close(fig)

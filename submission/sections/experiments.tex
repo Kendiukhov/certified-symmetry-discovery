@@ -290,7 +290,7 @@ treats numerator and denominator separately over the whole confidence ellipsoid.
 above the tolerance, observed at the sample size that puts the median certified
 bound exactly at the tolerance. \symcert{} (solid) never certifies falsely; a
 calibration-targeting bootstrap (dashed), which has no finite-sample guarantee,
-does.}
+does. Colour marks the nominal level, matching the dotted reference lines.}
 \label{fig:tightness}
 \end{figure}
 
@@ -302,9 +302,11 @@ does.}
 recover the one-dimensional rotational invariance of the target; certification
 costs roughly sixteen times more data at this noise level. \textbf{(b)} With
 training inputs confined to a $120^\circ$ sector, the fitted model is
-unconstrained elsewhere, and the threshold rule declares invariances of the
-target that the target does not have, for both an invariant and a
-non-invariant target. \symcert{} declines.}
+unconstrained elsewhere, and the threshold rule declares invariances that the
+target does not have. Solid lines are the rotation-invariant target, dashed the
+target with no invariance; the two are almost indistinguishable, which is the
+point, since the threshold rule fails the same way whether or not there is
+anything to find. \symcert{} declines in both cases.}
 \label{fig:invariance}
 \end{figure}
 
