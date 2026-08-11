@@ -34,12 +34,17 @@ src/hsd/            the library
   invariance.py     the same machinery for invariances of a learned function
   nonpoly.py        non-polynomial reference systems and Monte-Carlo ground truth
 experiments/        one script per experiment, plus the runner
-figures/            figure scripts and the compiled figures
-paper/              LaTeX source, bibliography, and the number-extraction script
-results/            raw result files (JSON) and the compute log
-references/         reference-verification script and its report
+figures/            figure script and the compiled figures
+paper/              LaTeX source, bibliography, table generator, number checker
+results/            raw result files (JSON), the compute log, reported numbers
+references/         reference-verification harness and its reports
 tests/              correctness tests for the mathematical core
+docs/               what each experiment establishes, and shared conventions
+notes/              research plan and the verification checklist
 ```
+
+The paper is `paper/main.pdf`; `paper/main.tex` builds it with `pdflatex`,
+`bibtex`, `pdflatex`, `pdflatex`.
 
 ## Quick start
 
