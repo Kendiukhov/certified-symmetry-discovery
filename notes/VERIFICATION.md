@@ -24,9 +24,10 @@ Everything the paper claims, and where it is checked.
 
 ## Numbers in the manuscript
 
-`paper/make_tables.py` prints every quoted number and writes each LaTeX table
-body from `results/*.json`. No number is transcribed by hand. Run it after any
-re-run and compare.
+`paper/make_tables.py` writes each LaTeX table body from `results/*.json`, so no
+table entry is transcribed by hand. `paper/check_numbers.py` asserts every
+number that appears in the running text against the same files; it currently
+verifies 31 claims and exits non-zero if any has drifted.
 
 ## References
 

@@ -46,9 +46,10 @@ tests/              correctness tests for the mathematical core
 ```bash
 pip install -e ".[experiments,dev]"         # the library alone needs only numpy/scipy/sympy
 pytest -q                                  # 30 correctness tests
-python experiments/run_all.py              # full suite, about 2.9 CPU-hours
+python experiments/run_all.py              # full suite; see results/compute_log.json
 python figures/make_figures.py             # rebuild every figure
-python paper/make_tables.py                # print every number quoted in the paper
+python paper/make_tables.py                # regenerate every table body in the paper
+python paper/check_numbers.py              # assert every number quoted in the prose
 ```
 
 ## Using it on your own problem
@@ -122,8 +123,10 @@ the observed right-hand sides; asymptotic with a sandwich covariance otherwise.
 
 Every experiment is deterministic given the seeds recorded in the scripts.
 `results/compute_log.json` records the CPU and wall time of each experiment;
-`results/*.json` are the raw outputs; `paper/make_tables.py` regenerates every
-number quoted in the paper from those files alone.
+`results/*.json` are the raw outputs. `paper/make_tables.py` regenerates every
+table body in the manuscript from those files, and `paper/check_numbers.py`
+asserts each of the 31 numbers quoted in the running text against them, so the
+text cannot drift away from the data unnoticed.
 
 Ground truth is exact, not approximate: the symmetry algebra of each benchmark
 system is the exact rational nullspace of the bracket map, computed with

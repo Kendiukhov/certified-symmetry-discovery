@@ -1,8 +1,9 @@
 # The experiments, and what each one establishes
 
-Every experiment writes a JSON file to `results/`; `paper/make_tables.py` prints
-every number the paper quotes, and writes the LaTeX table bodies, from those
-files alone. `experiments/run_all.py` runs them in order and appends to
+Every experiment writes a JSON file to `results/`. `paper/make_tables.py` writes
+the LaTeX table bodies from those files, and `paper/check_numbers.py` asserts
+every number quoted in the manuscript's running text against them.
+`experiments/run_all.py` runs the experiments in order and appends to
 `results/compute_log.json`.
 
 | script | question | headline outcome |
@@ -14,12 +15,16 @@ files alone. `experiments/run_all.py` runs them in order and appends to
 | `exp5_robustness.py` | What happens when the error model is wrong? | Coverage survives Student-t, Laplace and heteroskedastic errors, with and without a sandwich covariance. It is *not* claimed for noisy states with differenced derivatives, which is measured separately. |
 | `exp6_dimension.py` | How does the problem's size enter, and should one split the sample? | The model class costs; the candidate class is nearly free. The simultaneous certificate beats the split-sample one in every configuration. |
 | `exp7_invariance.py` | Does the machinery work for invariances of a *learned model*? | Yes, with the same guarantee. Training inputs on a sector make the threshold rule declare invariances the target does not have. |
-| `exp8_tightness.py` | Is the guarantee tight, or vacuous? | The interval over-covers; at the deliberately hardest boundary the error rate is still zero, and a calibration-targeting bootstrap is only about a fifth narrower. |
+| `exp8_tightness.py` | Is the guarantee tight, or vacuous? | The interval over-covers; at the deliberately hardest boundary the error rate is still zero, and a calibration-targeting bootstrap — which has no guarantee, and does err — is only 9% to 18% narrower. |
 | `exp9_modelerror.py` | What does honesty cost when the truth is not polynomial at all? | Paying for the error in supremum norm can be vacuous; paying in `L2` against a richer class is informative and improves with the fitted degree. |
 | `exp10_noise.py` | Does noise really not manufacture symmetry? | The plug-in defect is biased upward at every noise level tested; the selection optimism of the chosen direction is small and decays with `N`. |
-| `exp11_scaling.py` | Does it scale with the state dimension? | Validity is unaffected as the candidate space grows quadratically; the cost is the model class, and one certificate stays under two seconds at `n = 6`. |
+| `exp11_scaling.py` | Does it scale with the state dimension? | Validity is unaffected as the candidate space grows quadratically; the cost is the model class, and one certificate takes 0.031 CPU-seconds at `n = 6`. |
 | `exp12_realdata.py` | What does it say on real measurements? | On the Hudson's Bay lynx--hare series, nothing at all can be certified — the honest answer, and the one a threshold rule would not give. |
-| `exp13_tolerance.py` | Does the comparison depend on the tolerance? | No: the picture is the same across two decades of it. |
+| `exp13_tolerance.py` | Does the comparison depend on the tolerance? | SymCert's error control holds across two decades of it; its detection rises from 0.25 to 1.00 as the tolerance loosens. |
+
+`exp8_tightness.py` also accepts a stage argument --- `coverage`, `boundary` or
+`combine` --- so the two halves can be run separately on a machine where a long
+job is inconvenient.
 
 ## Conventions shared by all experiments
 

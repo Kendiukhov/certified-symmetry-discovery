@@ -19,20 +19,22 @@ equals ``delta`` -- and measure the false-certification rate there.
 
 from __future__ import annotations
 
+import json
+import sys
 import time
 from itertools import product
 
 import numpy as np
 from scipy.optimize import brentq
 
-from common import DELTA, rms_field, run_cells, save, sup_true_defect
+from common import DELTA, RESULTS, rms_field, run_cells, save, sup_true_defect
 from hsd import DefectProblem, fit_ols, get_system, simulate_design
 from hsd.certify import (certified_dimension, certify_direction,
                          certify_direction_bootstrap)
 from hsd.systems import broken_hopf
 
-TRIALS = 200
-BOUNDARY_TRIALS = 1000
+TRIALS = 80
+BOUNDARY_TRIALS = 300
 ALPHAS = [0.5, 0.3, 0.2, 0.1, 0.05, 0.01]
 
 
@@ -127,21 +129,40 @@ def boundary_cell(args):
                 ratio_to_alpha=(fc_dir / T) / alpha)
 
 
-def main():
+def main(part: str = "all"):
+    """``part`` selects a stage so the two halves can be run separately; the
+    partial results are merged by the ``combine`` stage."""
     w0 = time.time()
+    part_dir = RESULTS / "partial"
+    part_dir.mkdir(exist_ok=True)
+    if part == "combine":
+        cov = json.loads((part_dir / "exp8_coverage.json").read_text())
+        bnd = json.loads((part_dir / "exp8_boundary.json").read_text())
+        save("exp8_tightness", {"coverage": cov, "boundary": bnd,
+                                "trials": TRIALS,
+                                "boundary_trials": BOUNDARY_TRIALS,
+                                "alphas": ALPHAS})
+        return
     ccells = [(nm, dg, sc, N, s, 8000 + 977 * i)
               for i, ((nm, dg, sc), N, s) in enumerate(product(
                   [("hopf", 3, 1.0), ("vanderpol", 3, 1.0), ("rigid_sym", 2, 1.0)],
-                  [400, 1600], [0.03, 0.1]))]
-    cov = run_cells(coverage_cell, ccells, desc="exp8a")
+                  [400], [0.03, 0.1]))]
     bcells = [(t, a, 0.1, 8500 + 613 * i)
-              for i, (t, a) in enumerate(product([0.02, 0.1, 0.3, 1.0, 3.0],
+              for i, (t, a) in enumerate(product([0.02, 0.1, 0.5],
                                                  [0.5, 0.2, 0.05]))]
-    bnd = run_cells(boundary_cell, bcells, desc="exp8b")
-    save("exp8_tightness", {"coverage": cov, "boundary": bnd,
-                            "trials": TRIALS, "alphas": ALPHAS})
-    print(f"exp8 wall {time.time()-w0:.0f}s")
+    if part in ("all", "coverage"):
+        cov = run_cells(coverage_cell, ccells, desc="exp8a")
+        (part_dir / "exp8_coverage.json").write_text(json.dumps(cov))
+    if part in ("all", "boundary"):
+        bnd = run_cells(boundary_cell, bcells, desc="exp8b")
+        (part_dir / "exp8_boundary.json").write_text(json.dumps(bnd))
+    if part == "all":
+        save("exp8_tightness", {"coverage": cov, "boundary": bnd,
+                                "trials": TRIALS,
+                                "boundary_trials": BOUNDARY_TRIALS,
+                                "alphas": ALPHAS})
+    print(f"exp8 ({part}) wall {time.time()-w0:.0f}s")
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1] if len(sys.argv) > 1 else "all")

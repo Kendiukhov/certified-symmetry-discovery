@@ -53,9 +53,9 @@ def one_cell(args):
     n, N, seed = args
     rng = np.random.default_rng(seed)
     sys_ = rotation_block_system(n)
-    t_build = time.time()
+    t_build = time.process_time()
     prob = DefectProblem.build(n, 1, "linear", "box", scale=1.0)
-    t_build = time.time() - t_build
+    t_build = time.process_time() - t_build
     beta0 = sys_.beta(prob)
     dstar = exact_symmetry_algebra(sys_, prob).shape[1]
     sigma = SIGMA * rms_field(sys_, np.random.default_rng(0), 1.0)
@@ -64,17 +64,19 @@ def one_cell(args):
     for _ in range(TRIALS):
         X, Y = simulate_design(sys_, rng, N=N, sigma=sigma, sampler="box", scale=1.0)
         fit = fit_ols(prob, X, Y)
-        t0 = time.time()
+        # CPU time, not wall time: the machine may be shared, and the cost we
+        # want to report is the algorithm's, not the queue's.
+        t0 = time.process_time()
         dc, Vc = certified_dimension(prob, fit, DELTA, ALPHA)
         _, Theta = prob.spectrum(fit.beta)
         uppers.append(certify_direction(prob, Theta[:, 0], fit, ALPHA).upper)
-        t_cert += time.time() - t0
+        t_cert += time.process_time() - t0
         det += dc >= dstar
         fc += sup_true_defect(prob, Vc, beta0) > DELTA
     return dict(n=n, N=N, P=prob.P, Q=prob.Q, d_true=dstar,
                 detect=det / TRIALS, fc=fc / TRIALS,
                 upper_med=float(np.median(uppers)),
-                seconds_per_certificate=t_cert / TRIALS,
+                cpu_seconds_per_certificate=t_cert / TRIALS,
                 seconds_to_build=t_build)
 
 

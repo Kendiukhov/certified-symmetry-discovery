@@ -125,7 +125,7 @@ the model error for when it cannot.
   false-certification rate $\alpha$ can certify tolerances below
   $c\,\sigma/\sqrt{N}$ with the constant $c$ computable for the problem at hand;
   \symcert{} attains the same $\sigma/\sqrt N$ rate, within a constant factor
-  of $8.1$--$8.8$, of which a measured $18$--$21\%$ is our own conservatism.
+  of $8.1$--$8.8$, of which a measured $9$--$18\%$ is our own conservatism.
 \item A quantitative account of the three mechanisms that create apparently
   valid symmetries --- selection optimism, incomplete coverage, model truncation
   --- including the exact coverage factor $\kappa$ and the demonstration that
@@ -134,5 +134,7 @@ the model error for when it cannot.
   strictly counterproductive here: the simultaneous certificate is narrower than
   the split-sample one in all nine model configurations we tested.
 \item An open-source implementation, exact ground truth for every benchmark, and
-  a full record of the $2.7$ CPU-hours of experiments.
+  a full record of the compute: one pass of the thirteen experiments costs just
+  under two CPU-hours as timed by the runner, plus a few minutes for the two
+  experiments run outside it.
 \end{itemize}

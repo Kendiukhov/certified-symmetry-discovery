@@ -253,15 +253,17 @@ def figure4():
         sub = bnd[bnd.alpha == a_lvl].sort_values("tau")
         b.plot(sub.true_defect / DELTA, sub.fc_direction, "-o", color=col,
                label=rf"SymCert, $\alpha={a_lvl}$")
-        b.plot(sub.true_defect / DELTA, sub.fc_bootstrap, "--s", color=col, alpha=0.6,
+        b.plot(sub.true_defect / DELTA, sub.fc_bootstrap, "--s", color=col, alpha=0.65,
                markersize=4, label=rf"bootstrap, $\alpha={a_lvl}$")
         b.axhline(a_lvl, color=col, lw=0.7, ls=":", alpha=0.7)
-    b.set_xlabel(r"true defect / tolerance $\;\defectratio$".replace(
-        r"\defectratio", r"(\rho^\star/\delta)"))
+        b.text(1.00, a_lvl + 0.012, rf"$\alpha={a_lvl}$", fontsize=6.2, color=col,
+               ha="left")
+    b.set_xlabel(r"true defect, in units of the tolerance $(\rho^\star/\delta)$")
     b.set_ylabel("false-certification rate")
     b.set_title("(b) ... even at the hardest boundary", loc="left")
-    b.set_xscale("log")
-    b.legend(fontsize=6.6, ncol=1)
+    b.set_xlim(0.98, 1.56); b.set_ylim(-0.02, 0.56)
+    b.legend(fontsize=6.4, ncol=2, loc="upper right", columnspacing=1.0,
+             bbox_to_anchor=(1.0, 0.99))
     fig.tight_layout()
     fig.savefig(OUT / "fig4_tightness.pdf", bbox_inches="tight")
     plt.close(fig)
@@ -305,7 +307,7 @@ def figure5():
     b.set_ylim(-0.04, 1.0)
     b.set_title("(b) Training inputs on a $120^\\circ$ sector:\ninvariances that are not there",
                 loc="left")
-    b.legend(fontsize=6.4, loc="upper left")
+    b.legend(fontsize=6.4, loc="center left", bbox_to_anchor=(0.02, 0.62))
     fig.tight_layout()
     fig.savefig(OUT / "fig5_invariance.pdf", bbox_inches="tight")
     plt.close(fig)

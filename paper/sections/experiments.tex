@@ -240,8 +240,8 @@ grows continuously from zero. Over two decades of $N$ and three noise levels the
 certified tolerance follows the $\sigma/\sqrt N$ scaling of the Le~Cam bound of
 \Cref{prop:lecam}, exceeding it by a factor $8.1$, $8.3$ and $8.8$ at noise
 levels $0.03$, $0.1$ and $0.3$ --- essentially constant, so the achieved rate is
-optimal and only the constant is lost. \Cref{sec:tightness} decomposes that
-constant.
+optimal and only the constant is lost. \Cref{sec:tightness} measures the part of
+that constant that is ours rather than the bound's.
 
 The same experiment measures the opposite claim. At $N=1600$ and noise level
 $0.1$, the lower certificate rules out exact symmetry ($L > 0$) for $49.5\%$ of
@@ -312,10 +312,13 @@ non-invariant target. \symcert{} declines.}
 \includegraphics[width=0.78\textwidth]{../figures/fig6_modelerror.pdf}
 \caption{Certifying a system that is not in any polynomial class. Ignoring the
 approximation error (blue) gives a bound that is not valid; paying for it in
-supremum norm (orange) is valid but can be vacuous; paying for it in $L^2$
-against a richer polynomial class (green) is valid and informative, and improves
-as the fitted class grows. The dashed line is the true defect, obtained by
-Monte-Carlo integration of the analytic bracket.}
+supremum norm (orange) is valid but vacuous; paying for it in $L^2$ against a
+richer polynomial class (green) is valid and several times tighter, and improves
+as the fitted class grows --- but on the left-hand system it is still above the
+tolerance at degree $9$, so the exact rotational symmetry that is really there
+cannot be certified honestly at this sample size. The dashed line is the true
+defect, obtained by Monte-Carlo integration of the analytic bracket; the dotted
+line is the tolerance $\delta = 0.05$.}
 \label{fig:modelerror}
 \end{figure}
 
@@ -325,20 +328,22 @@ Monte-Carlo integration of the analytic bracket.}
 A certificate that certified nothing would also never certify anything false.
 \Cref{fig:tightness} shows that ours is conservative but not vacuous.
 Panel (a): the interval covers the true defect more often than its nominal level
-requires --- at nominal $0.5$ the observed coverage is $1.0$ --- because
-\eqref{eq:U} bounds numerator and denominator separately over the whole
-ellipsoid. Panel (b) constructs the worst case deliberately: a system whose true
-defect is $(1+\tau)\delta$ for $\tau$ as small as $0.02$, observed at the sample
-size that puts the median certified bound exactly at $\delta$. The
-false-certification rate remains $0$ at every $\alpha$ we tried.
+requires --- the observed coverage is $1.000$ at every nominal level from $0.50$
+to $0.99$ --- because \eqref{eq:U} bounds numerator and denominator separately
+over the whole ellipsoid. Panel (b) constructs the worst case deliberately: a
+system whose true defect is $(1+\tau)\delta$ for $\tau$ as small as $0.02$,
+observed at the sample size that puts the median certified bound exactly at
+$\delta$. Across nine such configurations and $2{,}700$ replications the
+false-certification rate is $0$.
 
 To quantify the slack, we compare against a calibration-\emph{targeting}
 alternative in the spirit of the parametric bootstrap
 \citep{efron1979bootstrap}: draw $\beta^* \sim N(\bhat, \hat\Sigma)$ and take
 the $(1-\alpha)$ quantile of $\defect(\theta;\beta^*)$. This has no finite-sample
-validity, and at $\alpha = 0.5$ in the boundary configuration it does certify
-falsely, at rate $0.18$. Its intervals are $18\%$--$21\%$ narrower than ours.
-That is the price of exactness on this problem: roughly a fifth of the width.
+validity, and in the boundary configuration it does certify falsely --- at rate
+$0.157$ at $\alpha = 0.5$ and $0.023$ at $\alpha = 0.2$. Its intervals are
+$9\%$ to $18\%$ narrower than ours. That is the measurable price of exactness on
+this problem: between a tenth and a fifth of the width.
 
 \subsection{Departures from the assumptions}
 \label{sec:robustness}
@@ -347,18 +352,23 @@ That is the price of exactness on this problem: roughly a fifth of the width.
 
 \Cref{tab:robustness} reports coverage under errors that are Student-$t_4$,
 Laplace, or heteroskedastic, with the exact Gaussian ellipsoid and with a
-sandwich covariance \citep{white1980heteroskedasticity}. Coverage never falls
-below nominal in any of the $24$ settings. The certificate is not fragile to the
-shape of the error distribution, because it depends on the errors only through a
-confidence ellipsoid for a least-squares estimator.
+sandwich covariance \citep{white1980heteroskedasticity}, and under trajectory
+data where the rows are strongly dependent. Coverage never falls below nominal
+in any of the $48$ settings, and no false certification occurs in any of them.
+The certificate is not fragile to the shape of the error distribution, because
+it depends on the errors only through a confidence ellipsoid for a least-squares
+estimator.
 
 The assumption that does bind is that the \emph{states} are observed without
-error. When derivatives are estimated by central differences from noisy states,
-the regressors themselves are noisy; the estimator is biased toward zero and no
-covariance correction repairs it. In our runs this bias happens to act
-conservatively --- it inflates the defect, so coverage held at $1.0$ while
-detection collapsed from $0.98$ to $0.06$ --- but that is a property of this
-attenuation, not a guarantee. For that regime the honest options are the weak or
+error. We test it on trajectory data --- twelve solution segments per replication,
+so the rows are strongly dependent as well --- in two modes: exact states with
+noisy right-hand sides, and noisy states with derivatives taken by central
+differences. With exact states the certified dimension on the Hopf system is
+$1.00$ at state-noise level $0.01$ and $0.98$ at $0.05$. With noisy states it is
+$0.07$ and $0.09$: the errors-in-variables bias attenuates the fitted
+coefficients, which inflates the defect and destroys detection. Coverage held at
+$1.0$ in all $24$ trajectory settings, but that is a property of this particular
+attenuation acting in the conservative direction, not a guarantee. For that regime the honest options are the weak or
 integral formulation of model discovery \citep{messenger2021weak}, ensemble
 resampling of the fit \citep{fasel2022ensemble}, or an explicit
 errors-in-variables treatment; we do not claim validity there.
@@ -399,9 +409,8 @@ What the growth costs is width: at $N = 12800$ the certified tolerance rises
 from $0.0017$ at $n=2$ ($Q=6$) to $0.0050$ at $n=6$ ($Q=42$), a factor $2.9$
 against the $\sqrt{Q}$ prediction of $2.6$. The whole $n$-dimensional algebra is
 recovered in every replication from $N = 800$ at $n = 4$ and from $N = 3200$ at
-$n = 6$. One certificate costs $0.15$ to $0.30$ seconds at these sizes, dominated
-by the $O(Q^3)$ eigendecomposition inside the trust-region solves; the timings
-were taken on a heavily loaded machine and should be read as upper bounds.
+$n = 6$. One certificate costs between $0.015$ and $0.031$ CPU-seconds across this range,
+dominated by the $O(Q^3)$ eigendecomposition inside the trust-region solves.
 
 \input{tables/scaling}
 

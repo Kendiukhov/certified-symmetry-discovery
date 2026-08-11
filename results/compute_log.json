@@ -27,7 +27,7 @@
   "cpu_seconds": 2503.8008959999997,
   "wall_seconds": 1030.424400806427
  },
- "total_cpu_hours": 1.9439976297222223,
+ "total_cpu_hours": 1.9566074505555555,
  "exp9_modelerror": {
   "cpu_seconds": 53.397375999999994,
   "wall_seconds": 468.51807403564453
@@ -41,7 +41,7 @@
   "wall_seconds": 599.2525360584259
  },
  "exp11_scaling": {
-  "cpu_seconds": 68.398839,
-  "wall_seconds": 183.57995104789734
+  "cpu_seconds": 113.794194,
+  "wall_seconds": 150.48188996315002
  }
 }

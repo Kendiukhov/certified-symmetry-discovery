@@ -128,7 +128,7 @@ if (RES/"exp10_noise.json").exists():
 if (RES/"exp11_scaling.json").exists():
     e11=pd.DataFrame(load("exp11_scaling")["rows"])
     print("\n=== EXP11 scaling ===")
-    print(e11[["n","P","Q","N","d_true","detect","fc","upper_med","seconds_per_certificate"]].round(4).to_string(index=False))
+    print(e11[["n","P","Q","N","d_true","detect","fc","upper_med","cpu_seconds_per_certificate"]].round(4).to_string(index=False))
     print("max FCR over all cells:", e11.fc.max())
 
 if (RES/"exp12_realdata.json").exists():
@@ -215,13 +215,13 @@ never certifies anything.}
             cells = " & ".join(f"{gi.upper_med.get(N, float('nan')):.4f}" for N in Ns)
             body.append(f"{n} & {int(gi.P.iloc[0])} & {int(gi.Q.iloc[0])} & "
                         f"{int(gi.d_true.iloc[0])} & {cells} & "
-                        f"{gi.seconds_per_certificate.max():.2f} \\\\")
+                        f"{gi.cpu_seconds_per_certificate.max():.3f} \\\\")
         hdr = " & ".join(rf"$N{{=}}{N}$" for N in Ns)
         (out / "scaling.tex").write_text(r"""\begin{table}[t]
 \centering\small
 \begin{tabular}{rrrrrrrr}
 \toprule
-$n$ & $P$ & $Q$ & true dim.\ & \multicolumn{3}{c}{certified tolerance (median)} & s / certificate \\
+$n$ & $P$ & $Q$ & true dim.\ & \multicolumn{3}{c}{certified tolerance (median)} & CPU-s / cert.\ \\
 \cmidrule(lr){5-7}
  & & & & """ + hdr + r""" & \\
 \midrule
@@ -238,32 +238,46 @@ class $Q$. False certification was zero in all """ + f"{len(e)}" + r""" cells.}
 
     # ---- Table: robustness ---------------------------------------------
     if (RES / "exp5_robustness.json").exists():
-        a = pd.DataFrame(load("exp5_robustness")["design"])
+        d5 = load("exp5_robustness")
+        a = pd.DataFrame(d5["design"])
+        t = pd.DataFrame(d5["trajectory"])
         name = {("gauss", 0.0): "Gaussian", ("t", 0.0): "Student $t_4$",
-                ("laplace", 0.0): "Laplace", ("gauss", 1.0): "Gaussian, heteroskedastic"}
+                ("laplace", 0.0): "Laplace",
+                ("gauss", 1.0): "Gaussian, heteroskedastic"}
         body = []
-        for (nz, het, rb), g in a.groupby(["noise", "hetero", "robust"]):
-            hi = g[g.N == g.N.max()]
-            body.append(f"{name[(nz, het)]} & {'sandwich' if rb else 'exact Gaussian'} & "
-                        f"{g.coverage.min():.3f} & {g.fc.max():.3f} & "
-                        f"{hi['dim'].mean():.2f} \\\\")
+        for (nz, het), g in a.groupby(["noise", "hetero"]):
+            ex = g[~g.robust]
+            rb = g[g.robust]
+            body.append(f"{name[(nz, het)]} & i.i.d.\\ design & "
+                        f"{ex.coverage.min():.3f} & {rb.coverage.min():.3f} & "
+                        f"{max(ex.fc.max(), rb.fc.max()):.3f} \\\\")
+        body.append(r"\midrule")
+        for mode, lab in (("clean_states", "trajectories, exact states"),
+                          ("noisy_states_fd", "trajectories, noisy states")):
+            g = t[t["mode"] == mode]
+            body.append(f"Gaussian & {lab} & --- & {g.coverage.min():.3f} & "
+                        f"{g.fc.max():.3f} \\\\")
+        n_design, n_traj = len(a), len(t)
         (out / "robustness.tex").write_text(r"""\begin{table}[t]
 \centering\small
 \begin{tabular}{llrrr}
 \toprule
-error distribution & covariance & worst coverage & worst false cert.\ & certified dim.\ \\
+& & \multicolumn{2}{c}{worst coverage} & worst false \\
+\cmidrule(lr){3-4}
+error distribution & design & exact Gaussian & sandwich & certification \\
 \midrule
 """ + "\n".join(body) + r"""
 \bottomrule
 \end{tabular}
-\caption{Coverage of the certificate under departures from the Gaussian
-homoskedastic model, at nominal $0.95$. Each row spans three systems and two
-regimes --- one where nothing is certifiable, so that coverage is all that is
-being tested, and one where the true algebra is recovered --- with 400
-replications each; the last column is the certified dimension in the informative
-regime. The certificate depends on the errors only through a confidence
-ellipsoid for a least-squares estimator, and is correspondingly insensitive to
-their shape.}
+\caption{Coverage of the certificate under departures from the homoskedastic
+Gaussian model, at nominal $0.95$, over """ + f"{n_design}" + r""" design settings
+and """ + f"{n_traj}" + r""" trajectory settings. The certificate depends on the errors
+only through a confidence ellipsoid for a least-squares estimator, and is
+correspondingly insensitive to their shape and to dependence between rows. The
+last block is the case the guarantee does \emph{not} cover: with noisy states and
+differenced derivatives the regressors carry error, and coverage held here only
+because the resulting bias happens to inflate the defect
+(\Cref{sec:robustness}).}
 \label{tab:robustness}
 \end{table}
 """)
