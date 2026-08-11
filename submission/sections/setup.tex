@@ -1,0 +1,148 @@
+\section{Setup: symmetry discovery as a nullspace problem}
+\label{sec:setup}
+
+\paragraph{Generators and the Lie derivative.} Let $\dot x = F(x)$ be a
+dynamical system on $\R^n$ and let $\xi$ be a vector field on $\R^n$. The flow
+of $\xi$ is a one-parameter group of state transformations, and it maps
+solutions of $\dot x = F(x)$ to solutions if and only if the Lie bracket
+\begin{equation}
+  \Lc_\xi F \;=\; [\xi, F] \;=\; DF\,\xi \;-\; D\xi\, F
+  \label{eq:bracket}
+\end{equation}
+vanishes identically \citep[Ch.~2]{olver1993applications}. Equation
+\eqref{eq:bracket} is the Lie derivative in the sense of
+\citet[Eq.~16]{otto2025unified}; the same expression, with $D\xi\,F$ replaced by
+the appropriate output action, governs symmetries of a learned map, and with
+$D\xi\,F$ deleted it governs invariances of a learned scalar function
+(\Cref{sec:invariance}). Everything below applies unchanged in those settings.
+
+We search inside a \emph{candidate class} $\mathcal V =
+\mathrm{span}\{\zeta_1, \dots,\zeta_P\}$ of vector fields, writing $\xi_\theta
+= \sum_p \theta_p \zeta_p$; in our experiments $\mathcal V$ is the set of
+affine generators $\xi(x) = Sx + b$, whose flows are the affine group, or all
+polynomial fields of degree at most two. Because \eqref{eq:bracket} is linear
+in $\xi$, the exact symmetry algebra inside $\mathcal V$ is the nullspace
+$\{\theta : [\xi_\theta,F] \equiv 0\}$, and it is standard to obtain it as the
+nullspace of the positive semi-definite Gram operator $\langle \eta,
+S\xi\rangle = \int (\Lc_\eta F)^{\!\top} (\Lc_\xi F)\, d\mu$
+\citep[\S7]{otto2025unified}.
+
+\paragraph{The target domain.} A symmetry is a statement about a region of
+state space. We therefore fix a \emph{target measure} $\nu$, the region over
+which the user wants the symmetry to hold, and define all norms as
+$\Ltwo{\nu}$ norms. In our experiments $\nu$ is uniform on a box, whose
+monomial moments are available in closed form, so \emph{the geometry carries
+no Monte-Carlo error}; all statistical uncertainty lives in the model. Keeping
+$\nu$ separate from the distribution $\mu$ of the observed states matters:
+their mismatch is the incomplete-coverage problem of \Cref{sec:coverage}.
+
+\paragraph{The defect.} Two quantities cancel in \eqref{eq:bracket}. Measuring
+the residual relative to their size gives a dimensionless number.
+
+\begin{definition}[Relative equivariance defect]
+\label{def:defect}
+For a generator $\xi$ and a field $F$,
+\begin{equation}
+  \defect_\nu(\xi; F) \;=\;
+  \frac{\bigl\| \,DF\,\xi - D\xi\,F\, \bigr\|_{\Ltwo{\nu}}}
+       {\bigl(\,\|DF\,\xi\|_{\Ltwo{\nu}}^{2}
+        + \|D\xi\,F\|_{\Ltwo{\nu}}^{2}\,\bigr)^{1/2}} .
+\end{equation}
+\end{definition}
+
+\begin{lemma}[Properties]
+\label{lem:props}
+$\defect_\nu \in [0,\sqrt 2]$ whenever the denominator is nonzero, and
+$\defect_\nu(\xi;F)=0$ if and only if $\xi$ generates a symmetry of $F$ on the
+support of $\nu$. It is invariant under $\xi \mapsto c\,\xi$ and $F \mapsto
+c'F$ for nonzero $c,c'$, hence under any invertible reparameterisation of the
+candidate class, and under similarity transformations $x \mapsto cQx$ of the
+state ($Q$ orthogonal, $c>0$) with $\nu$ transformed accordingly.
+\end{lemma}
+
+The proof is in \Cref{app:proofs}. $\defect$ is the fraction of the bracket's
+two terms that fails to cancel, so $\defect = 0.05$ means the two halves of
+the bracket agree to $5\%$ in root-mean-square over the target domain. A
+generator with $\defect_\nu(\xi;F) \le \delta$ is what we call a
+\emph{$\delta$-approximate symmetry}; $\delta$ plays the role that the
+singular-value tolerance played before, but now it is comparable across
+systems, across candidate bases, and across units.
+
+The denominator vanishes only if $DF\,\xi$ and $D\xi\,F$ both vanish
+$\nu$-almost everywhere, which for $\xi \neq 0$ requires a degenerate $F$; the
+implementation reports any such direction as uncertified rather than assigning
+it a defect.
+
+\begin{remark}[Small eigenvalues are hard to read]
+Even with a scale fixed, the smallest eigenvalue of an estimated Gram matrix is
+a delicate object: its fluctuations are of a different order from those of the
+bulk, and the classical asymptotics \citep{anderson1963asymptotic} and their
+random-matrix refinements \citep{johnstone2001distribution,baik2005phase} show
+that the map from ``small'' to ``zero in the population'' is not one a fixed
+threshold can implement. This is the statistical content of the problem, and it
+is why the certificate below is stated for the defect ratio directly rather than
+for eigenvalues.
+\end{remark}
+
+\begin{remark}[An average, not a supremum]
+$\defect_\nu$ is a mean-square quantity, so a generator can have a small defect
+while violating the symmetry badly on a small part of the domain, a property it shares with the Gram-operator formulation it refines and with every $L^2$-based criterion. Two responses are available, each with a cost. Choose
+$\nu$ to weight the region whose behaviour matters, which is the intended use of
+making $\nu$ explicit; or replace the numerator by a supremum norm, which for
+polynomials is bounded by a constant times the $L^2$ norm through a Markov-type
+inequality, at the cost of that constant. We use the $L^2$ form throughout and
+flag this as a modelling choice rather than a technical detail.
+\end{remark}
+
+\begin{remark}[Why the normalisation matters]
+Without it, the ``small singular value'' criterion is not even well posed:
+rescaling one basis generator $\zeta_p$ by $10^{3}$ rescales the corresponding
+row and column of the Gram matrix by $10^{3}$ and $10^{6}$, moving eigenvalues
+across any fixed threshold. $\defect$ is a functional of the vector field $\xi$
+itself and is immune to this.
+\end{remark}
+
+\paragraph{Model and data.} We take the standard measured-derivative design of
+data-driven model discovery \citep{brunton2016discovering}: pairs
+$(x_i, y_i)_{i=1}^N$ with $x_i \sim \mu$ and
+\begin{equation}
+  y_i \;=\; F(x_i) + \varepsilon_i , \qquad \varepsilon_i \sim N(0, \sigma^2 I_n)
+  \ \text{i.i.d.},
+  \label{eq:model}
+\end{equation}
+and a model class $F_\beta(x) = \sum_{i,a} \beta_{i,a}\, x^{a} e_i$ of
+polynomial fields of degree at most $d$, so that $\beta \in \R^Q$ with
+$Q = n\binom{n+d}{d}$. Ordinary least squares gives $\bhat$ and, in this
+homoskedastic Gaussian model, an \emph{exact} finite-sample confidence
+ellipsoid; \Cref{sec:robustness} replaces it with a sandwich form and reports
+what changes. Throughout, $\sigma$ is reported relative to the
+root-mean-square size of $F$ over the target domain, so ``noise level $0.1$''
+means the noise standard deviation is a tenth of the typical size of the
+right-hand side.
+
+\begin{lemma}[Bilinear structure]
+\label{lem:bilinear}
+For polynomial $F_\beta$ and polynomial candidate class, there are matrices
+$L_\theta, M^{(1)}_\theta, M^{(2)}_\theta \in \R^{K\times Q}$, linear in
+$\theta$ and independent of the data, such that
+\begin{equation}
+  \defect_\nu(\xi_\theta; F_\beta)^2
+  \;=\; \frac{\|L_\theta \beta\|^2}
+             {\|M^{(1)}_\theta \beta\|^2 + \|M^{(2)}_\theta \beta\|^2},
+  \qquad L_\theta = M^{(1)}_\theta - M^{(2)}_\theta ,
+  \label{eq:ratio}
+\end{equation}
+where $\|\cdot\|$ is the Euclidean norm and $K$ is the dimension of the space of
+possible brackets. Consequently
+$\min_{\theta \ne 0} \defect_\nu(\xi_\theta;F_\beta)^2$ is the smallest
+generalised eigenvalue of the pencil $(C(\beta), D(\beta))$ with
+$C = L^{\!\top}L$ and $D = M^{(1)\top}M^{(1)} + M^{(2)\top}M^{(2)}$ assembled
+over the basis of $\mathcal V$.
+\end{lemma}
+
+The matrices are obtained by expanding \eqref{eq:bracket} in a monomial basis
+and absorbing the $\Ltwo{\nu}$ moments into a symmetric square root; the
+construction is exact linear algebra and is given in \Cref{app:construction}.
+The reduction to a generalised eigenproblem is itself a small improvement on
+the standard recipe: the plug-in symmetry directions become independent of how
+the candidate basis is scaled.

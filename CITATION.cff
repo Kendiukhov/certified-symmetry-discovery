@@ -9,8 +9,12 @@ abstract: >-
 version: "1.0.0"
 license: MIT
 type: software
+repository-code: "https://github.com/Kendiukhov/certified-symmetry-discovery"
 authors:
-  - name: "Anonymous"
+  - given-names: Ihor
+    family-names: Kendiukhov
+    email: kenduhov.ig@gmail.com
+    affiliation: "Institute of Medical Genetics and Applied Genomics, University of Tübingen"
 keywords:
   - symmetry discovery
   - Lie algebra

@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering\small
+\begin{tabular}{rrrrrrrr}
+\toprule
+$n$ & $P$ & $Q$ & true dim.\ & \multicolumn{3}{c}{certified tolerance (median)} & CPU-s / cert.\ \\
+\cmidrule(lr){5-7}
+ & & & & $N{=}800$ & $N{=}3200$ & $N{=}12800$ & \\
+\midrule
+2 & 4 & 6 & 2 & 0.0072 & 0.0036 & 0.0017 & 0.015 \\
+3 & 9 & 12 & 3 & 0.0110 & 0.0054 & 0.0027 & 0.017 \\
+4 & 16 & 20 & 4 & 0.0122 & 0.0069 & 0.0031 & 0.019 \\
+5 & 25 & 30 & 5 & 0.0194 & 0.0097 & 0.0048 & 0.024 \\
+6 & 36 & 42 & 6 & 0.0210 & 0.0108 & 0.0050 & 0.031 \\
+\bottomrule
+\end{tabular}
+\caption{Scaling in the state dimension, on linear systems whose symmetry
+algebra is the commutant of the coefficient matrix. The candidate search space
+$P = n^2$ grows quadratically with no cost to validity; what costs is the model
+class $Q$. False certification was zero in all 20 cells.}
+\label{tab:scaling}
+\end{table}

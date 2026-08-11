@@ -1,0 +1,28 @@
+\begin{table}[t]
+\centering\small
+\begin{tabular}{llrrr}
+\toprule
+& & \multicolumn{2}{c}{worst coverage} & worst false \\
+\cmidrule(lr){3-4}
+error distribution & design & exact Gaussian & sandwich & certification \\
+\midrule
+Gaussian & i.i.d.\ design & 1.000 & 1.000 & 0.000 \\
+Gaussian, heteroskedastic & i.i.d.\ design & 1.000 & 1.000 & 0.000 \\
+Laplace & i.i.d.\ design & 1.000 & 1.000 & 0.000 \\
+Student $t_4$ & i.i.d.\ design & 1.000 & 1.000 & 0.000 \\
+\midrule
+Gaussian & trajectories, exact states & --- & 1.000 & 0.000 \\
+Gaussian & trajectories, noisy states & --- & 1.000 & 0.000 \\
+\bottomrule
+\end{tabular}
+\caption{Coverage of the certificate under departures from the homoskedastic
+Gaussian model, at nominal $0.95$, over 24 design settings
+and 24 trajectory settings. The certificate depends on the errors
+only through a confidence ellipsoid for a least-squares estimator, and is
+correspondingly insensitive to their shape and to dependence between rows. The
+last block is the case the guarantee does \emph{not} cover: with noisy states and
+differenced derivatives the regressors carry error, and coverage held here only
+because the resulting bias happens to inflate the defect
+(\Cref{sec:robustness}).}
+\label{tab:robustness}
+\end{table}

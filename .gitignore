@@ -22,3 +22,13 @@ paper/*.synctex.gz
 
 # The source PDF of the framework paper is not ours to redistribute.
 references/*.pdf
+
+# Submission build products (main.pdf and cover_letter.pdf are kept)
+submission/*.aux
+submission/*.bbl
+submission/*.blg
+submission/*.log
+submission/*.out
+submission/*.spl
+submission/build.log
+submission/submission.zip

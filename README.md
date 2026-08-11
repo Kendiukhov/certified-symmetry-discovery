@@ -2,6 +2,9 @@
 
 Confidence sets for Lie-algebra generators from noisy, limited data.
 
+Ihor Kendiukhov, Institute of Medical Genetics and Applied Genomics, University
+of Tübingen — `kenduhov.ig@gmail.com`
+
 Continuous symmetries of a dynamical system, or invariances of a learned model,
 can be found by linear algebra: a candidate generator `xi` is a symmetry exactly
 when the Lie derivative `L_xi F` vanishes, so the symmetries form the nullspace
@@ -41,10 +44,14 @@ references/         reference-verification harness and its reports
 tests/              correctness tests for the mathematical core
 docs/               what each experiment establishes, and shared conventions
 notes/              research plan and the verification checklist
+submission/         the same manuscript in the Springer Nature template
 ```
 
 The paper is `paper/main.pdf`; `paper/main.tex` builds it with `pdflatex`,
-`bibtex`, `pdflatex`, `pdflatex`.
+`bibtex`, `pdflatex`, `pdflatex`. `submission/` holds the same manuscript
+typeset with the Springer Nature template for *Machine Learning*, together with
+a cover letter; `submission/build.sh` regenerates it from the sources here, so
+the two cannot diverge.
 
 ## Quick start
 

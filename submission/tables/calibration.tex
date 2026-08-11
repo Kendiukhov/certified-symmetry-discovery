@@ -1,0 +1,32 @@
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+& \multicolumn{2}{c}{false certification} & detection & \\
+\cmidrule(lr){2-3}
+method & mean & worst setting & mean & settings above $\alpha$ \\
+\midrule
+fixed threshold $\tau=0.005$ & 0.005 & 0.633 & 0.418 & 3 / 240 \\
+fixed threshold $\tau=0.01$ & 0.005 & 0.633 & 0.523 & 3 / 240 \\
+fixed threshold $\tau=0.02$ & 0.005 & 0.633 & 0.635 & 3 / 240 \\
+fixed threshold $\tau=0.05$ & 0.005 & 0.633 & 0.784 & 3 / 240 \\
+fixed threshold $\tau=0.1$ & 0.017 & 0.633 & 0.886 & 18 / 240 \\
+fixed threshold $\tau=0.2$ & 0.139 & 1.000 & 0.960 & 52 / 240 \\
+fixed threshold $\tau=0.4$ & 0.551 & 1.000 & 0.990 & 142 / 240 \\
+largest eigengap & 0.650 & 1.000 & 0.842 & 166 / 240 \\
+nullspace rank test & 0.070 & 1.000 & 0.988 & 30 / 240 \\
+split significance test & 0.070 & 0.920 & 0.845 & 37 / 240 \\
+Weyl perturbation bound & 0.000 & 0.000 & 0.000 & 0 / 240 \\
+\midrule
+\symcert{} (ours) & \textbf{0.000} & \textbf{0.000} & 0.484 & \textbf{0 / 240} \\
+\symcert{} + sample splitting & \textbf{0.000} & \textbf{0.000} & 0.370 & \textbf{0 / 240} \\
+\bottomrule
+\end{tabular}
+\caption{Calibration and power over 240 settings, 300 replications each. ``Worst setting'' is the
+maximum false-certification rate over the settings; the last column counts those
+exceeding the nominal $\alpha = 0.05$. No fixed threshold controls the error,
+and the two significance-test procedures --- both valid tests --- are the worst
+offenders relative to their apparent rigour. The Weyl certificate is valid but
+never certifies anything.}
+\label{tab:calibration}
+\end{table}

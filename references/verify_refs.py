@@ -20,7 +20,7 @@ from difflib import SequenceMatcher
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-UA = "hsd-reference-checker/1.0 (mailto:anonymous@example.org)"
+UA = "hsd-reference-checker/1.0 (mailto:kenduhov.ig@gmail.com)"
 
 # Generated from paper/refs.bib by references/sync_entries.py.
 ENTRIES = [

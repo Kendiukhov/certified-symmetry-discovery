@@ -1,0 +1,98 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=blue!50!black, linkcolor=blue!50!black}
+\pagestyle{empty}
+\setlength{\parskip}{0.6em}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{flushright}
+Ihor Kendiukhov\\
+Institute of Medical Genetics and Applied Genomics\\
+University of T\"ubingen, T\"ubingen, Germany\\
+\href{mailto:kenduhov.ig@gmail.com}{kenduhov.ig@gmail.com}
+\end{flushright}
+
+\vspace{1em}
+
+To the Editors, \emph{Machine Learning}
+
+\vspace{0.5em}
+
+Dear Editors,
+
+I am submitting the manuscript \textbf{``Certified Symmetry Discovery:
+Confidence Sets for Lie-Algebra Generators from Noisy, Limited Data''} for
+consideration as a research article in \emph{Machine Learning}.
+
+\textbf{What the paper is about.} Symmetry is among the most reliable inductive
+biases in machine learning, and a growing literature discovers symmetries from
+data rather than assuming them. The dominant approach is linear-algebraic: a
+candidate generator is a symmetry exactly when a certain linear operator
+annihilates it, so the symmetries are that operator's nullspace. With real data
+the operator is estimated, no singular value is exactly zero, and a symmetry is
+declared when one of them is judged small. The paper shows that this practice
+has no error control, and that its logic is inverted: declaring a symmetry
+because a test failed to reject it controls the probability of \emph{missing} a
+symmetry, not of \emph{inventing} one. In our experiments a valid level-$0.05$
+nullspace rank test declares a symmetry that does not exist in up to $100\%$ of
+replications.
+
+The paper recasts symmetry discovery as an equivalence test and gives a
+procedure, SymCert, that carries it out in closed form. The two ingredients are
+a scale-free measure of symmetry violation, which makes a tolerance mean the
+same thing across systems and candidate bases, and the observation that this
+measure is a ratio of norms of linear images of the fitted model coefficients,
+so a confidence region propagates through it exactly by two trust-region
+subproblems. The resulting bound holds simultaneously for every candidate
+generator, so no multiplicity correction and no sample splitting are needed; we
+show that splitting, one of the two remedies usually suggested here, is in fact
+counterproductive.
+
+\textbf{Why \emph{Machine Learning}.} The work sits where the journal's
+readership sits: it is a methodological and theoretical contribution to a
+problem that the equivariant-learning and data-driven-modelling communities
+care about, evaluated empirically rather than only asserted. It also answers, in
+the specific direction of statistical validity, an open question raised in the
+concluding section of Otto, Zolman, Kutz and Brunton (JMLR, 2025), whose unified
+nullspace framework the paper builds on.
+
+\textbf{What may interest reviewers beyond the method.} Three empirical findings
+run against expectation. Additive noise does not manufacture false symmetries;
+it biases the measured violation upward and so destroys detection instead. The
+mechanisms that do manufacture them are incomplete coverage of the state space,
+for which we give a computable factor that says exactly when this is possible,
+and above all the fitted model class: sparse regression, the standard tool of
+data-driven model discovery, deletes the term that breaks a weak symmetry and
+reports an exact one. We report that our own guarantee does not survive that
+last failure, and show what restores it.
+
+\textbf{Reproducibility.} Ground truth in every benchmark is exact rather than
+tolerance-based: the symmetry algebras are computed as exact rational nullspaces.
+The implementation, all raw results, the figure and table generators, a test
+suite of thirty checks against independent characterisations, and a script that
+re-verifies all thirty-one numbers quoted in the running text are public at
+\url{https://github.com/Kendiukhov/certified-symmetry-discovery}.
+
+\textbf{Declarations.} This manuscript is original, has not been published
+previously, and is not under consideration by another journal. I am the sole
+author. I have no competing interests to declare. The work involves no human
+participants, no animals and no personal data.
+
+Thank you for considering the manuscript.
+
+\vspace{1em}
+
+Yours sincerely,
+
+\vspace{1.5em}
+
+Ihor Kendiukhov
+
+\end{document}
