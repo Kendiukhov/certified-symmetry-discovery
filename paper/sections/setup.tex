@@ -14,27 +14,27 @@ vanishes identically \citep[Ch.~2]{olver1993applications}. Equation
 \citet[Eq.~16]{otto2025unified}; the same expression, with $D\xi\,F$ replaced by
 the appropriate output action, governs symmetries of a learned map, and with
 $D\xi\,F$ deleted it governs invariances of a learned scalar function
-(\Cref{sec:invariance}). Everything below applies verbatim in those settings.
+(\Cref{sec:invariance}). Everything below applies unchanged in those settings.
 
-We search inside a \emph{candidate class} $\mathcal V = \mathrm{span}\{\zeta_1,
-\dots,\zeta_P\}$ of vector fields, writing $\xi_\theta = \sum_p \theta_p
-\zeta_p$; in our experiments $\mathcal V$ is the set of affine generators
-$\xi(x) = Sx + b$, whose flows are the affine group, or all polynomial fields of
-degree at most two. Because \eqref{eq:bracket} is linear in $\xi$, the exact
-symmetry algebra inside $\mathcal V$ is the nullspace
+We search inside a \emph{candidate class} $\mathcal V =
+\mathrm{span}\{\zeta_1, \dots,\zeta_P\}$ of vector fields, writing $\xi_\theta
+= \sum_p \theta_p \zeta_p$; in our experiments $\mathcal V$ is the set of
+affine generators $\xi(x) = Sx + b$, whose flows are the affine group, or all
+polynomial fields of degree at most two. Because \eqref{eq:bracket} is linear
+in $\xi$, the exact symmetry algebra inside $\mathcal V$ is the nullspace
 $\{\theta : [\xi_\theta,F] \equiv 0\}$, and it is standard to obtain it as the
-nullspace of the positive semi-definite Gram operator
-$\langle \eta, S\xi\rangle = \int (\Lc_\eta F)^{\!\top} (\Lc_\xi F)\, d\mu$
+nullspace of the positive semi-definite Gram operator $\langle \eta,
+S\xi\rangle = \int (\Lc_\eta F)^{\!\top} (\Lc_\xi F)\, d\mu$
 \citep[\S7]{otto2025unified}.
 
-\paragraph{The target domain.} A symmetry is a statement about a region of state
-space. We therefore fix a \emph{target measure} $\nu$ --- the region over which
-the user wants the symmetry to hold --- and define all norms as $\Ltwo{\nu}$
-norms. In our experiments $\nu$ is uniform on a box, whose monomial moments are
-available in closed form, so \emph{the geometry carries no Monte-Carlo error};
-all statistical uncertainty lives in the model. Keeping $\nu$ separate from the
-distribution $\mu$ of the observed states is not a technicality: their mismatch
-is precisely the incomplete-coverage problem of \Cref{sec:coverage}.
+\paragraph{The target domain.} A symmetry is a statement about a region of
+state space. We therefore fix a \emph{target measure} $\nu$, the region over
+which the user wants the symmetry to hold, and define all norms as
+$\Ltwo{\nu}$ norms. In our experiments $\nu$ is uniform on a box, whose
+monomial moments are available in closed form, so \emph{the geometry carries
+no Monte-Carlo error}; all statistical uncertainty lives in the model. Keeping
+$\nu$ separate from the distribution $\mu$ of the observed states matters:
+their mismatch is the incomplete-coverage problem of \Cref{sec:coverage}.
 
 \paragraph{The defect.} Two quantities cancel in \eqref{eq:bracket}. Measuring
 the residual relative to their size gives a dimensionless number.
@@ -60,13 +60,13 @@ candidate class, and under similarity transformations $x \mapsto cQx$ of the
 state ($Q$ orthogonal, $c>0$) with $\nu$ transformed accordingly.
 \end{lemma}
 
-The proof is in \Cref{app:proofs}. The interpretation is direct: $\defect$ is
-the fraction of the bracket's two terms that fails to cancel, so
-$\defect = 0.05$ means the two halves of the bracket agree to $5\%$ in
-root-mean-square over the target domain. A generator with $\defect_\nu(\xi;F)
-\le \delta$ is what we call a \emph{$\delta$-approximate symmetry}; $\delta$
-plays the role that the singular-value tolerance played before, but now it is
-comparable across systems, across candidate bases, and across units.
+The proof is in \Cref{app:proofs}. $\defect$ is the fraction of the bracket's
+two terms that fails to cancel, so $\defect = 0.05$ means the two halves of
+the bracket agree to $5\%$ in root-mean-square over the target domain. A
+generator with $\defect_\nu(\xi;F) \le \delta$ is what we call a
+\emph{$\delta$-approximate symmetry}; $\delta$ plays the role that the
+singular-value tolerance played before, but now it is comparable across
+systems, across candidate bases, and across units.
 
 The denominator vanishes only if $DF\,\xi$ and $D\xi\,F$ both vanish
 $\nu$-almost everywhere, which for $\xi \neq 0$ requires a degenerate $F$; the
@@ -86,9 +86,7 @@ for eigenvalues.
 
 \begin{remark}[An average, not a supremum]
 $\defect_\nu$ is a mean-square quantity, so a generator can have a small defect
-while violating the symmetry badly on a small part of the domain --- a property
-it shares with the Gram-operator formulation it refines, and with every
-$L^2$-based criterion. Two responses are available and neither is free: choose
+while violating the symmetry badly on a small part of the domain, a property it shares with the Gram-operator formulation it refines and with every $L^2$-based criterion. Two responses are available, each with a cost. Choose
 $\nu$ to weight the region whose behaviour matters, which is the intended use of
 making $\nu$ explicit; or replace the numerator by a supremum norm, which for
 polynomials is bounded by a constant times the $L^2$ norm through a Markov-type
@@ -122,8 +120,6 @@ root-mean-square size of $F$ over the target domain, so ``noise level $0.1$''
 means the noise standard deviation is a tenth of the typical size of the
 right-hand side.
 
-The last piece is the structure that makes everything closed-form.
-
 \begin{lemma}[Bilinear structure]
 \label{lem:bilinear}
 For polynomial $F_\beta$ and polynomial candidate class, there are matrices
@@ -144,8 +140,8 @@ $C = L^{\!\top}L$ and $D = M^{(1)\top}M^{(1)} + M^{(2)\top}M^{(2)}$ assembled
 over the basis of $\mathcal V$.
 \end{lemma}
 
-The matrices are obtained by expanding \eqref{eq:bracket} in a monomial basis and
-absorbing the $\Ltwo{\nu}$ moments into a symmetric square root; the
+The matrices are obtained by expanding \eqref{eq:bracket} in a monomial basis
+and absorbing the $\Ltwo{\nu}$ moments into a symmetric square root; the
 construction is exact linear algebra and is given in \Cref{app:construction}.
 The reduction to a generalised eigenproblem is itself a small improvement on
 the standard recipe: the plug-in symmetry directions become independent of how

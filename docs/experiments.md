@@ -19,11 +19,11 @@ every number quoted in the manuscript's running text against them.
 | `exp9_modelerror.py` | What does honesty cost when the truth is not polynomial at all? | Paying for the error in supremum norm can be vacuous; paying in `L2` against a richer class is informative and improves with the fitted degree. |
 | `exp10_noise.py` | Does noise really not manufacture symmetry? | The plug-in defect is biased upward at every noise level tested; the selection optimism of the chosen direction is small and decays with `N`. |
 | `exp11_scaling.py` | Does it scale with the state dimension? | Validity is unaffected as the candidate space grows quadratically; the cost is the model class, and one certificate takes 0.031 CPU-seconds at `n = 6`. |
-| `exp12_realdata.py` | What does it say on real measurements? | On the Hudson's Bay lynx--hare series, nothing at all can be certified — the honest answer, and the one a threshold rule would not give. |
+| `exp12_realdata.py` | What does it say on real measurements? | On the Hudson's Bay lynx--hare series, nothing at all can be certified, which is the answer a threshold rule would not give. |
 | `exp13_tolerance.py` | Does the comparison depend on the tolerance? | SymCert's error control holds across two decades of it; its detection rises from 0.25 to 1.00 as the tolerance loosens. |
 
-`exp8_tightness.py` also accepts a stage argument --- `coverage`, `boundary` or
-`combine` --- so the two halves can be run separately on a machine where a long
+`exp8_tightness.py` also accepts a stage argument (`coverage`, `boundary` or
+`combine`) so the two halves can be run separately on a machine where a long
 job is inconvenient.
 
 ## Conventions shared by all experiments

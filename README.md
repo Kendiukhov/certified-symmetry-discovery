@@ -76,7 +76,7 @@ prob = DefectProblem.build(
 # 2. Fit the model to pairs (x_i, y_i) with y_i a noisy observation of F(x_i).
 fit = fit_ols(prob, X, Y)
 
-# 3. Look before you leap: how much of the target domain did the data visit?
+# 3. How much of the target domain did the data actually visit?
 print(extrapolation_factor(prob, X))   # 'bound' is sqrt(kappa kappa')
 
 # 4. Certify, refute, and read off the tolerance the data actually support.
@@ -89,9 +89,9 @@ for k in range(V.shape[1]):
 ```
 
 `certify_direction` returns a `Certificate` with `upper`, `lower` and `plug_in`.
-The honest thing to report is `upper`: it is the smallest tolerance the data
-support for that generator, and it is the calibrated replacement for the
-singular value one would otherwise quote.
+Report `upper`: it is the smallest tolerance the data support for that
+generator, and the calibrated replacement for the singular value one would
+otherwise quote.
 
 ### Invariances of a learned model
 
@@ -108,7 +108,7 @@ the whole candidate space, so the selection rule may be arbitrary and
 data-dependent. Exact in finite samples under homoskedastic Gaussian errors on
 the observed right-hand sides; asymptotic with a sandwich covariance otherwise.
 
-**Assumptions, in the order they bind.**
+**Assumptions, most binding first.**
 
 1. *The model class contains the truth*, or you supply a bound on how far
    outside it lies (`eta` / `eta_l2` in `certify_direction`). This is the
@@ -136,9 +136,8 @@ text cannot drift away from the data unnoticed.
 Ground truth is exact, not approximate: the symmetry algebra of each benchmark
 system is the exact rational nullspace of the bracket map, computed with
 symbolic arithmetic, and the true defect of any generator follows in closed
-form from monomial moments. That matters here, because the quantity being
-estimated is itself a near-degeneracy, and a tolerance-based ground truth would
-beg the question.
+form from monomial moments. The quantity being estimated is itself a
+near-degeneracy, so a tolerance-based ground truth would beg the question.
 
 The test suite checks the mathematics rather than the plumbing: the bracket
 against finite differences, the closed-form moments against Monte-Carlo

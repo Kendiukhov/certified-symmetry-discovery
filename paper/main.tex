@@ -44,8 +44,8 @@ exactly zero, and a symmetry is declared when one of them is judged \emph{small}
 That judgement has no error control, and its logic runs backwards: declaring a
 symmetry because a test failed to reject it controls the chance of \emph{missing}
 a symmetry, not the chance of \emph{inventing} one. We recast symmetry discovery
-as an equivalence test --- a generator may be declared a $\delta$-approximate
-symmetry only when the data \emph{rule out} a defect larger than $\delta$ --- and
+as an equivalence test: a generator may be declared a $\delta$-approximate
+symmetry only when the data \emph{rule out} a defect larger than $\delta$. We
 give a procedure, \symcert, that does this in closed form. Two ingredients make
 it work: a scale-free defect functional, so that $\delta$ means the same thing
 across systems and candidate bases; and the observation that the defect is a
@@ -53,7 +53,7 @@ ratio of norms of linear images of the model coefficients, so a confidence
 region for those coefficients propagates through it exactly, by trust-region
 subproblems. The resulting bound holds \emph{simultaneously for every
 generator}, so no correction for selection or multiplicity and no sample
-splitting is needed --- and we show splitting is in fact counterproductive here.
+splitting is needed, and we show splitting is in fact counterproductive here.
 On ten benchmark systems whose symmetry algebras are known exactly, across $240$
 noise and sample-size settings and $72{,}000$ replications, \symcert{} never
 certifies a generator whose true defect exceeds the tolerance, while a fixed
@@ -65,10 +65,9 @@ the data lie on a single trajectory, and which correctly ruled out spurious
 symmetry in every setting where it applied; a Le~Cam lower bound showing that
 the certifiable tolerance must scale as $\sigma/\sqrt{N}$, a rate \symcert{}
 attains within a constant factor; and the finding that the largest source of
-false symmetry is not noise at all --- additive noise biases the defect
-\emph{upward} --- but the model class, with sparse regression on a weakly
-symmetry-breaking system deleting the term that breaks the symmetry and
-reporting an exact one.
+false symmetry is the model class rather than noise, which biases the defect
+\emph{upward}: sparse regression on a weakly symmetry-breaking system deletes
+the term that breaks the symmetry and reports an exact one.
 \end{abstract}
 
 \input{sections/intro}

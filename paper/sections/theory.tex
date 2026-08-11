@@ -8,8 +8,8 @@ target domain?
 \subsection{A resolution limit}
 
 Exact symmetry cannot be certified from noisy data: a system with zero defect
-and one with a defect just above zero generate almost the same data. The useful
-version of this statement is quantitative.
+and one with a defect just above zero generate almost the same data. The
+useful version of this statement is quantitative.
 
 \begin{proposition}[Le~Cam bound on the certifiable tolerance]
 \label{prop:lecam}
@@ -34,15 +34,15 @@ $\delta \gtrsim 2\sigma\,s_{\max}(\xi)\,(\gamma-\alpha)\,/\,
 
 The constants are computable for a given problem, so this is a numerical
 benchmark rather than a rate statement. \Cref{sec:resolution} evaluates it:
-\symcert's certified tolerance tracks the bound's $\sigma/\sqrt N$ scaling over
-two decades of $N$ and three noise levels, exceeding it by a factor of $8.1$ to
-$8.8$. Part of that gap is ours --- a calibration-targeting bootstrap is
-$9$--$18\%$ narrower (\Cref{sec:tightness}) --- and the rest is not attributable
-without a matching construction: \Cref{prop:lecam} is a lower bound obtained
-through Pinsker's inequality and a single two-point alternative, and we do not
-claim it is attained. What the comparison does establish is that the
-\emph{rate} is right: no procedure, however clever, can improve on \symcert{} by
-more than a constant factor.
+\symcert's certified tolerance tracks the bound's $\sigma/\sqrt N$ scaling
+over two decades of $N$ and three noise levels, exceeding it by a factor of
+$8.1$ to $8.8$. Part of that gap is ours, since a calibration-targeting
+bootstrap is $9$--$18\%$ narrower (\Cref{sec:tightness}); the rest is not
+attributable without a matching construction: \Cref{prop:lecam} is a lower
+bound obtained through Pinsker's inequality and a single two-point
+alternative, and we do not claim it is attained. What the comparison does
+establish is that the \emph{rate} is right: no procedure, however clever, can
+improve on \symcert{} by more than a constant factor.
 
 \subsection{The price of incomplete coverage}
 \label{sec:coverage-theory}
@@ -69,8 +69,8 @@ vanishes $\mu$-almost everywhere, i.e.\ the data lie in the zero set of a
 possible bracket.
 \end{proposition}
 
-Two readings. As a \emph{diagnostic}: $\kappa$ and $\kappa'$ are computable
-from the observed states alone, before any symmetry analysis, and
+As a \emph{diagnostic}, $\kappa$ and $\kappa'$ are computable from the observed
+states alone, before any symmetry analysis, and
 $\sqrt{\kappa\kappa'}\,\delta$ is the tolerance that a defect of $\delta$
 measured on the data can actually support on the target domain. As an
 \emph{explanation}: declaring a symmetry at tolerance $\delta$ from a defect
@@ -89,40 +89,38 @@ confirms both halves: no false certification anywhere below the threshold, and
 false certifications on some but not all settings above it.
 
 The infinite case is not exotic. A single trajectory of a planar system with a
-limit cycle eventually lies on an algebraic curve, and every bracket divisible by
-the curve's defining polynomial vanishes on the data. We observe exactly this
-(\Cref{tab:trajectory}).
+limit cycle eventually lies on an algebraic curve, and every bracket divisible
+by the curve's defining polynomial vanishes on the data. We observe exactly
+this (\Cref{tab:trajectory}).
 
 \subsection{Why noise alone does not manufacture symmetry}
 \label{sec:noise-theory}
 
 It is natural to expect that noise makes small singular values smaller. Under
-model \eqref{eq:model} the opposite happens. Since
-$\E\|L_\theta \bhat\|^2 = \|L_\theta\beta^\star\|^2 +
-\mathrm{tr}(L_\theta \Sigma L_\theta^{\!\top})$, and likewise for the
-denominator, estimation error inflates \emph{both} parts of \eqref{eq:ratio};
-for a direction that is close to a true symmetry the numerator is near zero, so
-its relative inflation is unbounded while the denominator's is not. The plug-in
-defect of a true symmetry is therefore biased upward and all directions are
-pulled toward a common noise-dominated value. The practical consequence is that
-a fixed tolerance loses \emph{detections} as the noise grows --- at a rate that
-depends on $\sigma$, $N$ and the design, none of which the tolerance knows ---
-rather than gaining false ones. \Cref{sec:calibration} measures this over
-$32{,}000$ replications spanning noise levels from $0.1$ to $1.0$ and sample
-sizes from $30$ to $400$ on four systems with no symmetry: the median smallest
-plug-in defect is $1.01$, $1.09$, $1.27$ and $1.64$ times the true one at the
-four noise levels, and in not one of the $32{,}000$ replications did it fall
-below $0.05$.
+model \eqref{eq:model} the opposite happens. Since $\E\|L_\theta \bhat\|^2 =
+\|L_\theta\beta^\star\|^2 + \mathrm{tr}(L_\theta \Sigma L_\theta^{\!\top})$,
+and likewise for the denominator, estimation error inflates \emph{both} parts
+of \eqref{eq:ratio}; for a direction that is close to a true symmetry the
+numerator is near zero, so its relative inflation is unbounded while the
+denominator's is not. The plug-in defect of a true symmetry is therefore
+biased upward and all directions are pulled toward a common noise-dominated
+value. The practical consequence is that a fixed tolerance loses
+\emph{detections} as the noise grows, at a rate that depends on $\sigma$, $N$
+and the design, none of which the tolerance knows, rather than gaining false
+ones. \Cref{sec:calibration} measures this over $32{,}000$ replications
+spanning noise levels from $0.1$ to $1.0$ and sample sizes from $30$ to $400$
+on four systems with no symmetry: the median smallest plug-in defect is
+$1.01$, $1.09$, $1.27$ and $1.64$ times the true one at the four noise levels,
+and in not one of the $32{,}000$ replications did it fall below $0.05$.
 
-A second effect pulls the other way. The generator chosen to \emph{minimise} the
-plug-in defect is selected for a small value, so its true defect tends to exceed
-its plug-in value --- the winner's curse. The two effects compete, and which wins
-is system-dependent: at noise level $0.2$ and $N=100$ the mean of
-$\defect_\nu(\hat\xi;\beta^\star) - \hat\defect(\hat\xi)$ is
-$+0.0150 \pm 0.0017$ on Van der Pol, $+0.0078 \pm 0.0004$ on Lotka--Volterra,
-$+0.0060 \pm 0.0021$ on Duffing and $-0.0073 \pm 0.0009$ on the asymmetric rigid
-body. Both effects decay with $N$ --- the Van der Pol gap falls to
-$0.0002 \pm 0.0002$ at $N = 6400$ --- and neither is large. But a selection effect
-of either sign is enough to invalidate a test evaluated on the data that chose
-the direction, and \Cref{prop:simultaneous} removes the need to reason about it
-at all.
+A second effect pulls the other way. The generator chosen to \emph{minimise}
+the plug-in defect is selected for a small value, so its true defect tends to
+exceed its plug-in value: the winner's curse. The two effects compete, and
+which wins is system-dependent: at noise level $0.2$ and $N=100$ the mean of
+$\defect_\nu(\hat\xi;\beta^\star) - \hat\defect(\hat\xi)$ is $+0.0150 \pm
+0.0017$ on Van der Pol, $+0.0078 \pm 0.0004$ on Lotka--Volterra, $+0.0060 \pm
+0.0021$ on Duffing and $-0.0073 \pm 0.0009$ on the asymmetric rigid body. Both
+effects decay with $N$ (the Van der Pol gap falls to $0.0002 \pm 0.0002$ at $N
+= 6400$), and neither is large. But a selection effect of either sign is
+enough to invalidate a test evaluated on the data that chose the direction,
+and \Cref{prop:simultaneous} removes the need to reason about it at all.
