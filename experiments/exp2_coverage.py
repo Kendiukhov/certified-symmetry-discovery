@@ -17,6 +17,7 @@ import numpy as np
 from scipy.integrate import solve_ivp
 
 from common import ALPHA, DELTA, run_cells, rms_field, save, sup_true_defect
+from common import trials
 from hsd import DefectProblem, exact_symmetry_algebra, fit_ols, get_system, simulate_design
 from hsd.certify import certified_dimension
 from hsd.coverage import extrapolation_factor
@@ -24,7 +25,7 @@ from hsd.coverage import extrapolation_factor
 SYSTEMS = [("hopf", 3, 1.0), ("vanderpol", 3, 1.0), ("lotka_volterra", 2, 1.0),
            ("rigid_asym", 2, 1.0), ("rigid_sym", 2, 1.0)]
 RADII = [1.0, 0.8, 0.6, 0.5, 0.4, 0.35, 0.3, 0.25, 0.2, 0.15]
-TRIALS = 200
+TRIALS = trials(200)
 N = 2000
 SIGMA_REL = 0.02
 
@@ -64,9 +65,13 @@ def one_cell(args):
     out = {k: v / TRIALS for k, v in acc.items()}
     rho_true = prob.spectrum(beta0)[0]
     above = rho_true[rho_true > DELTA]
-    # Prop. 8: a spurious delta-symmetry needs the extrapolation bound
-    # sqrt(kappa kappa') to reach rho*/delta, where rho* is the smallest true
-    # defect that is not already within tolerance.
+    # Extrapolation-factor proposition, eq. (kappacrit): at population level,
+    # declaring more than r* = d_true generators requires
+    # sqrt(kappa kappa') >= rho*/delta, where rho* is the square root of the
+    # (r*+1)-th smallest generalised eigenvalue of the true pencil (spectrum()
+    # returns square roots, sorted).  Computed here as the smallest true defect
+    # above delta, which coincides with that definition for every system in
+    # this experiment (exactly r* true defects lie at or below delta).
     out.update(system=name, radius=r, d_true=dstar,
                true_min_defect=float(rho_true[0]),
                rho_star=float(above[0]) if above.size else float("inf"),

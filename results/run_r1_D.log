@@ -1,0 +1,109 @@
+=== exp17_units_closure ===
+  [exp17a] 1/12 cells, 19s elapsed
+  [exp17a] 2/12 cells, 21s elapsed
+  [exp17a] 3/12 cells, 25s elapsed
+  [exp17a] 4/12 cells, 26s elapsed
+  [exp17a] 5/12 cells, 26s elapsed
+  [exp17a] 6/12 cells, 26s elapsed
+  [exp17a] 7/12 cells, 26s elapsed
+  [exp17a] 8/12 cells, 26s elapsed
+  [exp17a] 9/12 cells, 29s elapsed
+  [exp17a] 10/12 cells, 29s elapsed
+  [exp17a] 11/12 cells, 30s elapsed
+  [exp17a] 12/12 cells, 32s elapsed
+  [exp17b] 1/18 cells, 33s elapsed
+  [exp17b] 2/18 cells, 33s elapsed
+  [exp17b] 3/18 cells, 36s elapsed
+  [exp17b] 4/18 cells, 37s elapsed
+  [exp17b] 5/18 cells, 41s elapsed
+  [exp17b] 6/18 cells, 41s elapsed
+  [exp17b] 7/18 cells, 41s elapsed
+  [exp17b] 8/18 cells, 41s elapsed
+  [exp17b] 9/18 cells, 41s elapsed
+  [exp17b] 10/18 cells, 41s elapsed
+  [exp17b] 11/18 cells, 41s elapsed
+  [exp17b] 12/18 cells, 41s elapsed
+  [exp17b] 13/18 cells, 41s elapsed
+  [exp17b] 14/18 cells, 41s elapsed
+  [exp17b] 15/18 cells, 41s elapsed
+  [exp17b] 16/18 cells, 41s elapsed
+  [exp17b] 17/18 cells, 41s elapsed
+  [exp17b] 18/18 cells, 41s elapsed
+wrote /Volumes/Crucial X6/MacBook/Code/ml_papers/honest_symmetry_discovery/results/exp17_units_closure.json
+exp17 wall 76s
+=== exp17_units_closure: 93 CPU-s, 80 wall-s ===
+{
+ "exp1_calibration": {
+  "cpu_seconds": 1467.0,
+  "wall_seconds": 1041.0
+ },
+ "exp2_coverage": {
+  "cpu_seconds": 88.0,
+  "wall_seconds": 124.0
+ },
+ "exp3_modelclass": {
+  "cpu_seconds": 775.0,
+  "wall_seconds": 1401.0
+ },
+ "exp4_resolution": {
+  "cpu_seconds": 884.0,
+  "wall_seconds": 674.0
+ },
+ "exp5_robustness": {
+  "cpu_seconds": 708.973336,
+  "wall_seconds": 825.3997497558594
+ },
+ "exp6_dimension": {
+  "cpu_seconds": 275.775937,
+  "wall_seconds": 311.32369804382324
+ },
+ "exp7_invariance": {
+  "cpu_seconds": 2153.0950780000003,
+  "wall_seconds": 2047.0967779159546
+ },
+ "total_cpu_hours": 3.7269525080555552,
+ "exp9_modelerror": {
+  "cpu_seconds": 36.202689,
+  "wall_seconds": 191.50429916381836
+ },
+ "exp10_noise": {
+  "cpu_seconds": 42.41139000000001,
+  "wall_seconds": 37.64980506896973
+ },
+ "exp13_tolerance": {
+  "cpu_seconds": 201.16400799999997,
+  "wall_seconds": 147.41551899909973
+ },
+ "exp11_scaling": {
+  "cpu_seconds": 251.050481,
+  "wall_seconds": 242.33485507965088
+ },
+ "exp19_drifters": {
+  "cpu_seconds": 1520.8056130000002,
+  "wall_seconds": 984.5259239673615
+ },
+ "exp14_selection": {
+  "cpu_seconds": 3144.6878739999997,
+  "wall_seconds": 3216.559918165207
+ },
+ "exp8_tightness": {
+  "cpu_seconds": 386.4611990000003,
+  "wall_seconds": 379.9514899253845
+ },
+ "exp12_realdata": {
+  "cpu_seconds": 0.030468999999982316,
+  "wall_seconds": 0.03379416465759277
+ },
+ "exp15_dependence": {
+  "cpu_seconds": 1290.449455,
+  "wall_seconds": 1184.4339740276337
+ },
+ "exp16_dictionary": {
+  "cpu_seconds": 98.82470499999908,
+  "wall_seconds": 78.9636549949646
+ },
+ "exp17_units_closure": {
+  "cpu_seconds": 93.096795,
+  "wall_seconds": 80.41382193565369
+ }
+}

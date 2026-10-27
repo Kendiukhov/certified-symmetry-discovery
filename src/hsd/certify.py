@@ -5,25 +5,43 @@ we return bounds on the defect of the **true** system,
 
     rho(theta; beta_true) = || Lt(theta) beta_true || / || Mt(theta) beta_true ||,
 
-both of whose ingredients are norms of linear images of ``beta``.  Two regimes:
+both of whose ingredients are norms of linear images of ``beta``.  Three
+regimes:
 
-``simultaneous``
-    Propagate the ``1 - alpha`` confidence ellipsoid for ``beta`` through the
-    two norms with exact trust-region extrema.  The resulting upper bound
-    ``U(theta)`` is valid **for every generator simultaneously**, because the
-    single event ``{beta_true in ellipsoid}`` implies all of them at once.  No
-    multiplicity correction, no sample splitting.
+``simultaneous`` with ``ratio="sharp"`` (the default)
+    The supremum and infimum of the ratio over the ``1 - alpha`` confidence
+    ellipsoid for ``beta``, to a relative tolerance of ``1e-7`` with the
+    computed bounds rounded outward: Dinkelbach's iteration from inside and a
+    dual certificate from outside (bisection on the level as a fall-back),
+    with certified trust-region subproblems (:mod:`hsd.trs`).  The resulting upper
+    bound ``U(theta)`` is valid **for every generator simultaneously**,
+    because the single event ``{beta_true in ellipsoid}`` implies all of them
+    at once.  No multiplicity correction, no sample splitting.
+
+``simultaneous`` with ``ratio="separate"``
+    Numerator and denominator bounded independently over the same ellipsoid:
+    ``sup ||L beta|| / inf ||M beta||``.  Equally valid, never tighter, and
+    cheaper (two trust-region extrema).  Used when model error is admitted,
+    because the model-error terms add to the two norms separately.
 
 ``pointwise``
     For a generator chosen independently of the fit (e.g. selected on a held-out
     split), use Gaussian concentration of ``|| Lt(theta) (beta_hat - beta) ||``.
-    This is tighter -- its width scales with the *effective* dimension
-    ``tr(V)/||V||`` rather than with the full parameter count.
+    Its width is driven by the *effective* dimension ``tr(V)/||V||`` rather
+    than by the full parameter count.
 
 A generator is **certified at tolerance delta** iff its upper bound is at most
 ``delta``.  Because the bound covers the truth with probability ``1 - alpha``,
 the probability of certifying any generator whose true defect exceeds ``delta``
-is at most ``alpha`` -- a family-wise false-certification guarantee.
+is at most ``alpha`` -- a family-wise false-certification guarantee.  The
+statement is conditional on the confidence region: whatever its construction
+(exact Gaussian, sandwich, cluster-robust, HAC), the certificate inherits
+exactly its coverage.
+
+Conventions.  The defect is undefined where its denominator vanishes.  If the
+denominator can vanish somewhere on the confidence region the upper bound is
+``+inf`` (the generator cannot be certified); the lower bound is always
+finite.
 """
 
 from __future__ import annotations
@@ -33,7 +51,8 @@ from dataclasses import dataclass
 import numpy as np
 from scipy import stats
 
-from .trs import max_norm_over_ball, min_norm_over_ball
+from .trs import (ZERO_RTOL, max_norm_over_ball, min_norm_over_ball,
+                  ratio_inf_over_ball, ratio_sup_over_ball)
 
 __all__ = ["Certificate", "certify_direction", "certify_direction_bootstrap",
            "certify_subspace", "refute_all", "certified_dimension"]
@@ -55,13 +74,23 @@ def _sigma_upper(fit, alpha: float) -> float:
     return float(fit.dof / stats.chi2.ppf(alpha, fit.dof))
 
 
+def _unidentified(L: np.ndarray, fit) -> bool:
+    """True if ``L beta`` depends on coefficient directions that the design (or
+    a rank-deficient covariance estimate) leaves completely undetermined."""
+    if fit.null_basis is None or not fit.null_basis.size:
+        return False
+    return bool(np.linalg.norm(L @ fit.null_basis)
+                > 1e-10 * max(np.linalg.norm(L), 1e-300))
+
+
 def certify_direction(prob, theta: np.ndarray, fit, alpha: float = 0.05,
-                      mode: str = "simultaneous",
+                      mode: str = "simultaneous", ratio: str = "sharp",
                       eta: tuple[float, float] = (0.0, 0.0),
                       eta_l2: tuple[float, object] | None = None) -> Certificate:
     """Two-sided confidence bounds on ``rho(theta; beta_true)``.
 
-    Model error can be admitted in either of two ways.
+    Model error can be admitted in either of two ways (both force the
+    separate form of the bound).
 
     ``eta = (eta0, eta1)`` -- the truth is ``F = F_beta + h`` with
     ``sup |h| <= eta0`` and ``sup ||Dh||_F <= eta1`` on the target domain, ``h``
@@ -83,56 +112,83 @@ def certify_direction(prob, theta: np.ndarray, fit, alpha: float = 0.05,
     theta = np.asarray(theta, dtype=float)
     theta = theta / np.linalg.norm(theta)
     L = prob.L_theta(theta)
+    M = prob.M_theta(theta)
+    a_L, a_M = L @ fit.beta, M @ fit.beta
+    nM = float(np.linalg.norm(a_M))
+    plug = float(np.linalg.norm(a_L) / nM) if nM > 0 else np.inf
+
+    if _unidentified(L, fit) or _unidentified(M, fit):
+        return Certificate(np.inf, 0.0, plug, mode, alpha)
+
+    model_error = eta != (0.0, 0.0) or (eta_l2 is not None and eta_l2[0] > 0)
     M1, M2 = prob.M1_theta(theta), prob.M2_theta(theta)
-    a_L, a_1, a_2 = L @ fit.beta, M1 @ fit.beta, M2 @ fit.beta
-    plug = float(np.linalg.norm(a_L)
-                 / max(np.hypot(np.linalg.norm(a_1), np.linalg.norm(a_2)), 1e-300))
-
-    if fit.null_basis is not None and fit.null_basis.size:
-        # The design leaves some coefficient directions completely undetermined.
-        if np.linalg.norm(L @ fit.null_basis) > 1e-10 * max(np.linalg.norm(L), 1e-300):
-            return Certificate(np.inf, 0.0, plug, mode, alpha)
-
+    a_1, a_2 = M1 @ fit.beta, M2 @ fit.beta
     if mode == "simultaneous":
         R = fit.ellipsoid_radius(alpha)
         S = fit.cov_sqrt
         hi_num = max_norm_over_ball(a_L, L @ S, R)
         lo_num = min_norm_over_ball(a_L, L @ S, R)
-        hi_1 = max_norm_over_ball(a_1, M1 @ S, R)
-        lo_1 = min_norm_over_ball(a_1, M1 @ S, R)
-        hi_2 = max_norm_over_ball(a_2, M2 @ S, R)
-        lo_2 = min_norm_over_ball(a_2, M2 @ S, R)
+        hi_den = max_norm_over_ball(a_M, M @ S, R)
+        lo_den = min_norm_over_ball(a_M, M @ S, R)
+        den_scale = nM + R * float(np.linalg.norm(M @ S, 2))
+        if model_error:
+            # The two terms of the denominator are also bounded block by block,
+            # because model error perturbs them by different amounts.
+            blocks = [(max_norm_over_ball(a, B @ S, R), min_norm_over_ball(a, B @ S, R))
+                      for a, B in ((a_1, M1), (a_2, M2))]
     elif mode == "pointwise":
-        a_num, a_den, a_sig = 0.98 * alpha, 0.005 * alpha, 0.01 * alpha
+        a_num, a_den, a_sig = 0.98 * alpha, 0.01 * alpha, 0.01 * alpha
         cov = fit.cov * _sigma_upper(fit, a_sig)
         rL = _gauss_norm_bound(L, cov, a_num)
-        r1 = _gauss_norm_bound(M1, cov, a_den)
-        r2 = _gauss_norm_bound(M2, cov, a_den)
+        rM = _gauss_norm_bound(M, cov, a_den)
         hi_num, lo_num = np.linalg.norm(a_L) + rL, max(np.linalg.norm(a_L) - rL, 0.0)
-        hi_1, lo_1 = np.linalg.norm(a_1) + r1, max(np.linalg.norm(a_1) - r1, 0.0)
-        hi_2, lo_2 = np.linalg.norm(a_2) + r2, max(np.linalg.norm(a_2) - r2, 0.0)
+        hi_den, lo_den = nM + rM, max(nM - rM, 0.0)
+        den_scale = nM + rM
+        if model_error:
+            # Spend the denominator's budget on the two blocks instead of on
+            # the stacked norm, so the total error probability is unchanged.
+            hi_den, lo_den = np.inf, 0.0
+            blocks = []
+            for a, B in ((a_1, M1), (a_2, M2)):
+                r = _gauss_norm_bound(B, cov, a_den / 2)
+                blocks.append((np.linalg.norm(a) + r, max(np.linalg.norm(a) - r, 0.0)))
     else:
         raise ValueError(mode)
 
+    s_num = s_1 = s_2 = 0.0
     if eta != (0.0, 0.0):
+        if prob.metric is not None:
+            raise NotImplementedError("the supremum-norm model-error form assumes W = I")
         nxi, ndxi = prob.generator_norms(theta)
-        s_num, s_1, s_2 = eta[1] * nxi + eta[0] * ndxi, eta[1] * nxi, eta[0] * ndxi
-        hi_num, lo_num = hi_num + s_num, max(lo_num - s_num, 0.0)
-        lo_1, hi_1 = max(lo_1 - s_1, 0.0), hi_1 + s_1
-        lo_2, hi_2 = max(lo_2 - s_2, 0.0), hi_2 + s_2
-
+        s_num += eta[1] * nxi + eta[0] * ndxi
+        s_1 += eta[1] * nxi
+        s_2 += eta[0] * ndxi
     if eta_l2 is not None and eta_l2[0] > 0:
         eta2, big = eta_l2
         cL, c1, c2 = _model_error_gains(big, theta)
-        hi_num, lo_num = hi_num + cL * eta2, max(lo_num - cL * eta2, 0.0)
-        lo_1, hi_1 = max(lo_1 - c1 * eta2, 0.0), hi_1 + c1 * eta2
-        lo_2, hi_2 = max(lo_2 - c2 * eta2, 0.0), hi_2 + c2 * eta2
+        s_num += cL * eta2
+        s_1 += c1 * eta2
+        s_2 += c2 * eta2
+    if model_error:
+        hi_num, lo_num = hi_num + s_num, max(lo_num - s_num, 0.0)
+        (h1, l1), (h2, l2) = blocks
+        # Both constructions are valid; keep the tighter one on each side.
+        lo_den = max(lo_den - float(np.hypot(s_1, s_2)),
+                     float(np.hypot(max(l1 - s_1, 0.0), max(l2 - s_2, 0.0))))
+        hi_den = min(hi_den + float(np.hypot(s_1, s_2)), float(np.hypot(h1 + s_1, h2 + s_2)))
 
-    lo_den = float(np.hypot(lo_1, lo_2))
-    hi_den = float(np.hypot(hi_1, hi_2))
-    upper = np.inf if lo_den <= 0 else hi_num / lo_den
+    vanishes = lo_den <= ZERO_RTOL * max(den_scale, 1e-300)
+    upper = np.inf if vanishes else hi_num / lo_den
     lower = 0.0 if hi_den <= 0 else lo_num / hi_den
-    return Certificate(float(upper), float(lower), plug, mode, alpha)
+    if mode == "simultaneous" and ratio == "sharp" and not model_error:
+        if not vanishes:
+            upper = ratio_sup_over_ball(a_L, L @ S, a_M, M @ S, R, t_hi=upper)
+        lower = ratio_inf_over_ball(a_L, L @ S, a_M, M @ S, R, t_lo=lower)
+    elif ratio not in ("sharp", "separate"):
+        raise ValueError(ratio)
+    tag = mode if mode != "simultaneous" else ("simultaneous" if ratio == "sharp"
+                                               and not model_error else "separate")
+    return Certificate(float(upper), float(lower), plug, tag, alpha)
 
 
 def _model_error_gains(big, theta):
@@ -140,7 +196,8 @@ def _model_error_gains(big, theta):
     from ``L2(nu)`` on the model class of ``big`` to ``L2(nu)`` on fields."""
     from .polynomials import moment_matrix
     g = moment_matrix(big.alg, big.measure, big.scale, sub=big.beta_idx)
-    G = np.kron(np.eye(big.n), g)
+    W = np.eye(big.n) if big.metric is None else big.metric
+    G = np.kron(W, g)
     w, U = np.linalg.eigh((G + G.T) / 2)
     Gih = (U / np.sqrt(np.clip(w, 1e-300, None))) @ U.T
     out = []
@@ -153,9 +210,10 @@ def _gauss_norm_bound(L: np.ndarray, cov: np.ndarray, alpha: float) -> float:
     """Valid ``1 - alpha`` upper bound for ``||L z||``, ``z ~ N(0, cov)``.
 
     Borell--TIS / Gaussian concentration: for a Gaussian vector ``W = L z`` with
-    covariance ``V``, ``P(||W|| >= sqrt(tr V) + sqrt(2 ||V||_op log(1/alpha)))
-    <= alpha`` because ``E||W|| <= sqrt(tr V)`` and ``w -> ||w||`` is
-    1-Lipschitz.
+    covariance ``V = B B^T``, ``P(||W|| >= sqrt(tr V) + sqrt(2 ||V||_op
+    log(1/alpha))) <= alpha`` because ``E||W|| <= sqrt(tr V)`` and, writing
+    ``W = B g`` with ``g`` standard Gaussian, ``g -> ||B g||`` is Lipschitz with
+    constant ``||B||_op = ||V||_op^{1/2}``.
     """
     if L.shape[0] == 0:
         return 0.0
@@ -182,11 +240,6 @@ def certify_subspace(prob, V: np.ndarray, fit, alpha: float = 0.05) -> Certifica
     if d == 1:
         return certify_direction(prob, Vq[:, 0], fit, alpha, mode="simultaneous")
 
-    if fit.null_basis is not None and fit.null_basis.size:
-        TAn = np.einsum("kpq,pd->kdq", prob.Tw, Vq).reshape(-1, prob.Q) @ fit.null_basis
-        if np.linalg.norm(TAn) > 1e-10 * max(np.linalg.norm(prob.Tw), 1e-300):
-            return Certificate(np.inf, 0.0, np.inf, "subspace", alpha)
-
     R = fit.ellipsoid_radius(alpha)
     S = fit.cov_sqrt
     # A(beta) V  and  M(beta) V  are linear in beta; flatten to vectors so that
@@ -194,6 +247,8 @@ def certify_subspace(prob, V: np.ndarray, fit, alpha: float = 0.05) -> Certifica
     TA = np.einsum("kpq,pd->kdq", prob.Tw, Vq).reshape(-1, prob.Q)
     TM = np.concatenate([np.einsum("kpq,pd->kdq", prob.T1w, Vq).reshape(-1, prob.Q),
                          np.einsum("kpq,pd->kdq", prob.T2w, Vq).reshape(-1, prob.Q)], axis=0)
+    if _unidentified(TA, fit) or _unidentified(TM, fit):
+        return Certificate(np.inf, 0.0, np.inf, "subspace", alpha)
     radA = max_norm_over_ball(np.zeros(TA.shape[0]), TA @ S, R)
     radM = max_norm_over_ball(np.zeros(TM.shape[0]), TM @ S, R)
 
@@ -204,7 +259,8 @@ def certify_subspace(prob, V: np.ndarray, fit, alpha: float = 0.05) -> Certifica
     hi_num = smax + radA
     lo_den = max(smin - radM, 0.0)
     plug = float(smax / max(smin, 1e-300))
-    upper = np.inf if lo_den <= 0 else hi_num / lo_den
+    vanishes = lo_den <= ZERO_RTOL * max(float(np.linalg.norm(Mhat, 2)) + radM, 1e-300)
+    upper = np.inf if vanishes else hi_num / lo_den
     return Certificate(float(upper), 0.0, plug, "subspace", alpha)
 
 
@@ -230,13 +286,22 @@ def refute_all(prob, fit, alpha: float = 0.05) -> float:
 
 def certified_dimension(prob, fit, delta: float, alpha: float = 0.05,
                         max_dim: int | None = None) -> tuple[int, np.ndarray]:
-    """Largest ``d`` for which a ``d``-dimensional candidate subalgebra can be
-    certified at tolerance ``delta``.
+    """Dimension of the certified plug-in subspace at tolerance ``delta``.
 
-    The candidate nested subspaces are spanned by the generalised eigenvectors
-    of ``(C(beta_hat), D(beta_hat))`` with the smallest plug-in defects.  These
-    are data-dependent, which is exactly why the *simultaneous* certificate is
-    needed: its validity does not depend on how the subspace was chosen.
+    The candidate nested subspaces ``V_1 ⊂ V_2 ⊂ ...`` are spanned by the
+    generalised eigenvectors of ``(C(beta_hat), D(beta_hat))`` with the
+    smallest plug-in defects; by the Courant--Fischer theorem ``V_d``
+    minimises the largest *plug-in* defect among all ``d``-dimensional
+    subspaces.  We return the largest ``d`` such that every generator in
+    ``V_d`` is certified.  This is a lower bound on the largest dimension of
+    any certifiable subspace (another subspace could have a smaller upper
+    bound), and it certifies a subspace of approximate generators, not an
+    approximate Lie algebra: closure under the bracket is a separate question
+    (:func:`hsd.closure.closure_report`).
+
+    The subspaces are data-dependent, which is exactly why the *simultaneous*
+    certificate is needed: its validity does not depend on how the subspace
+    was chosen.
     """
     _, Theta = prob.spectrum(fit.beta)
     P = prob.P if max_dim is None else min(max_dim, prob.P)
@@ -252,14 +317,14 @@ def certified_dimension(prob, fit, delta: float, alpha: float = 0.05,
 
 def certify_direction_bootstrap(prob, theta: np.ndarray, fit, alpha: float = 0.05,
                                 n_draw: int = 400, rng=None) -> Certificate:
-    """Calibration-targeting alternative to the exact certificate.
+    """Calibration-targeting alternative to the simultaneous certificate.
 
     Draws ``beta* ~ N(beta_hat, Sigma_hat)`` and returns the ``1 - alpha``
     quantile of ``rho(theta; beta*)``.  This targets nominal coverage rather
     than guaranteeing it: it is first-order correct where ``rho`` is smooth, but
     it has no finite-sample validity, and none at all at ``rho = 0`` where the
     functional is not differentiable.  We include it only to measure how much of
-    the exact certificate's width is the price of validity.
+    the certificate's width is the price of validity.
     """
     rng = np.random.default_rng(0) if rng is None else rng
     theta = np.asarray(theta, float)

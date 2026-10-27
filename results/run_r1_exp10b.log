@@ -1,0 +1,152 @@
+=== exp10_noise ===
+  [exp10a] 3/64 cells, 2s elapsed
+  [exp10a] 6/64 cells, 2s elapsed
+  [exp10a] 9/64 cells, 2s elapsed
+  [exp10a] 12/64 cells, 2s elapsed
+  [exp10a] 15/64 cells, 2s elapsed
+  [exp10a] 18/64 cells, 2s elapsed
+  [exp10a] 21/64 cells, 2s elapsed
+  [exp10a] 24/64 cells, 3s elapsed
+  [exp10a] 27/64 cells, 3s elapsed
+  [exp10a] 30/64 cells, 3s elapsed
+  [exp10a] 33/64 cells, 3s elapsed
+  [exp10a] 36/64 cells, 3s elapsed
+  [exp10a] 39/64 cells, 3s elapsed
+  [exp10a] 42/64 cells, 3s elapsed
+  [exp10a] 45/64 cells, 3s elapsed
+  [exp10a] 48/64 cells, 4s elapsed
+  [exp10a] 51/64 cells, 4s elapsed
+  [exp10a] 54/64 cells, 4s elapsed
+  [exp10a] 57/64 cells, 4s elapsed
+  [exp10a] 60/64 cells, 4s elapsed
+  [exp10a] 63/64 cells, 4s elapsed
+  [exp10b] 1/28 cells, 2s elapsed
+  [exp10b] 2/28 cells, 2s elapsed
+  [exp10b] 3/28 cells, 2s elapsed
+  [exp10b] 4/28 cells, 2s elapsed
+  [exp10b] 5/28 cells, 2s elapsed
+  [exp10b] 6/28 cells, 3s elapsed
+  [exp10b] 7/28 cells, 5s elapsed
+  [exp10b] 8/28 cells, 5s elapsed
+  [exp10b] 9/28 cells, 5s elapsed
+  [exp10b] 10/28 cells, 5s elapsed
+  [exp10b] 11/28 cells, 5s elapsed
+  [exp10b] 12/28 cells, 5s elapsed
+  [exp10b] 13/28 cells, 5s elapsed
+  [exp10b] 14/28 cells, 5s elapsed
+  [exp10b] 15/28 cells, 5s elapsed
+  [exp10b] 16/28 cells, 5s elapsed
+  [exp10b] 17/28 cells, 5s elapsed
+  [exp10b] 18/28 cells, 5s elapsed
+  [exp10b] 19/28 cells, 5s elapsed
+  [exp10b] 20/28 cells, 5s elapsed
+  [exp10b] 21/28 cells, 6s elapsed
+  [exp10b] 22/28 cells, 6s elapsed
+  [exp10b] 23/28 cells, 6s elapsed
+  [exp10b] 24/28 cells, 6s elapsed
+  [exp10b] 25/28 cells, 6s elapsed
+  [exp10b] 26/28 cells, 6s elapsed
+  [exp10b] 27/28 cells, 6s elapsed
+  [exp10b] 28/28 cells, 7s elapsed
+  [exp10c] 3/60 cells, 4s elapsed
+  [exp10c] 6/60 cells, 4s elapsed
+  [exp10c] 9/60 cells, 6s elapsed
+  [exp10c] 12/60 cells, 6s elapsed
+  [exp10c] 15/60 cells, 6s elapsed
+  [exp10c] 18/60 cells, 8s elapsed
+  [exp10c] 21/60 cells, 9s elapsed
+  [exp10c] 24/60 cells, 9s elapsed
+  [exp10c] 27/60 cells, 11s elapsed
+  [exp10c] 30/60 cells, 11s elapsed
+  [exp10c] 33/60 cells, 12s elapsed
+  [exp10c] 36/60 cells, 13s elapsed
+  [exp10c] 39/60 cells, 13s elapsed
+  [exp10c] 42/60 cells, 15s elapsed
+  [exp10c] 45/60 cells, 16s elapsed
+  [exp10c] 48/60 cells, 17s elapsed
+  [exp10c] 51/60 cells, 20s elapsed
+  [exp10c] 54/60 cells, 20s elapsed
+  [exp10c] 57/60 cells, 20s elapsed
+  [exp10c] 60/60 cells, 20s elapsed
+wrote /Volumes/Crucial X6/MacBook/Code/ml_papers/honest_symmetry_discovery/results/exp10_noise.json
+exp10 wall 32s
+=== exp10_noise: 118 CPU-s, 33 wall-s ===
+{
+ "exp1_calibration": {
+  "cpu_seconds": 1467.0,
+  "wall_seconds": 1041.0
+ },
+ "exp2_coverage": {
+  "cpu_seconds": 88.0,
+  "wall_seconds": 124.0
+ },
+ "exp3_modelclass": {
+  "cpu_seconds": 775.0,
+  "wall_seconds": 1401.0
+ },
+ "exp4_resolution": {
+  "cpu_seconds": 884.0,
+  "wall_seconds": 674.0
+ },
+ "exp5_robustness": {
+  "cpu_seconds": 708.973336,
+  "wall_seconds": 825.3997497558594
+ },
+ "exp6_dimension": {
+  "cpu_seconds": 275.775937,
+  "wall_seconds": 311.32369804382324
+ },
+ "exp7_invariance": {
+  "cpu_seconds": 2153.0950780000003,
+  "wall_seconds": 2047.0967779159546
+ },
+ "total_cpu_hours": 3.6343974994444443,
+ "exp9_modelerror": {
+  "cpu_seconds": 36.202689,
+  "wall_seconds": 191.50429916381836
+ },
+ "exp10_noise": {
+  "cpu_seconds": 118.21841,
+  "wall_seconds": 32.92522406578064
+ },
+ "exp13_tolerance": {
+  "cpu_seconds": 201.16400799999997,
+  "wall_seconds": 147.41551899909973
+ },
+ "exp11_scaling": {
+  "cpu_seconds": 251.050481,
+  "wall_seconds": 242.33485507965088
+ },
+ "exp19_drifters": {
+  "cpu_seconds": 745.654738,
+  "wall_seconds": 3259.2309696674347
+ },
+ "exp14_selection": {
+  "cpu_seconds": 3144.6878739999997,
+  "wall_seconds": 3216.559918165207
+ },
+ "exp8_tightness": {
+  "cpu_seconds": 480.07483899999994,
+  "wall_seconds": 231.3488781452179
+ },
+ "exp12_realdata": {
+  "cpu_seconds": 0.030468999999982316,
+  "wall_seconds": 0.03379416465759277
+ },
+ "exp15_dependence": {
+  "cpu_seconds": 1290.449455,
+  "wall_seconds": 1184.4339740276337
+ },
+ "exp16_dictionary": {
+  "cpu_seconds": 98.82470499999908,
+  "wall_seconds": 78.9636549949646
+ },
+ "exp17_units_closure": {
+  "cpu_seconds": 93.096795,
+  "wall_seconds": 80.41382193565369
+ },
+ "exp18_eiv": {
+  "cpu_seconds": 272.5321839999997,
+  "wall_seconds": 272.798446893692
+ }
+}

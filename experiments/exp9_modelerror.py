@@ -12,6 +12,17 @@ implemented in :func:`hsd.certify.certify_direction`:
 and we sweep the degree of the fitted class to show how the price falls as the
 class grows.  The test systems are genuinely non-polynomial: one with an exact
 rotational symmetry, one with none.
+
+The model-error sizes ``eta`` used by those two forms are *measured from the
+known truth* (an oracle, unavailable in practice); they show what honest
+accounting would cost if the size of the error were known.  A third,
+non-oracle bound estimates the omitted part from the data themselves, under
+the assumption that a class four degrees larger contains the truth: the
+omitted part of the fitted class is then a linear image of the larger class's
+coefficients and is bounded by one trust-region maximum over that class's
+confidence region (``hsd.selection.omitted_part_bound``), with the error
+budget split equally between the two regions.  For these non-polynomial
+systems that assumption is itself only approximately true.
 """
 
 from __future__ import annotations
@@ -25,6 +36,7 @@ from hsd import DefectProblem, fit_ols
 from hsd.certify import certify_direction
 from hsd.defect import _deriv_field
 from hsd.nonpoly import SMOOTH_SYSTEMS, mc_defect
+from hsd.selection import omitted_part_bound
 
 DEGREES = [3, 5, 7, 9]
 N = 40_000
@@ -65,12 +77,16 @@ def main():
             c_none = certify_direction(prob, theta, fit, ALPHA)
             c_sup = certify_direction(prob, theta, fit, ALPHA, eta=(eta0, eta1))
             c_l2 = certify_direction(prob, theta, fit, ALPHA, eta_l2=(eta2, big))
+            fit_big = fit_ols(big, X, Y)
+            eta_dd = omitted_part_bound(prob, big, X, fit_big, ALPHA / 2)
+            c_dd = certify_direction(prob, theta, fit, ALPHA / 2, eta_l2=(eta_dd, big))
             rows.append(dict(system=key, degree=deg, Q=prob.Q, N=N,
                              true_defect=true_rho, true_defect_se=se,
                              plug_in=c_none.plug_in,
                              upper_no_model_error=c_none.upper,
                              upper_sup_norm=c_sup.upper,
                              upper_l2=c_l2.upper,
+                             upper_l2_datadriven=c_dd.upper, eta2_datadriven=eta_dd,
                              eta0=eta0, eta1=eta1, eta2=eta2,
                              rel_l2_error=eta2 / rms))
             print(rows[-1], flush=True)

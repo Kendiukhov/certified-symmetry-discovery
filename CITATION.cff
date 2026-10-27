@@ -1,12 +1,13 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite the accompanying paper."
-title: "Certified Symmetry Discovery: Confidence Sets for Lie-Algebra Generators from Noisy, Limited Data"
+title: "Certified symmetry discovery for polynomial and dictionary vector fields: confidence sets for Lie-algebra generators from noisy vector-field measurements"
 abstract: >-
   Symmetry discovery by nullspace computation has no error control and inverts
   the burden of proof. SymCert recasts it as an equivalence test and gives
-  closed-form confidence bounds on the equivariance defect that hold
-  simultaneously over every candidate generator.
-version: "1.0.0"
+  confidence bounds on the equivariance defect, computed exactly over a
+  confidence region for the model coefficients, that hold simultaneously over
+  every candidate generator.
+version: "2.0.0"
 license: MIT
 type: software
 repository-code: "https://github.com/Kendiukhov/certified-symmetry-discovery"

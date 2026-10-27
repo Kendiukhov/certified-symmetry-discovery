@@ -1,0 +1,20 @@
+\begin{table}[!htbp]
+\centering\small
+\begin{adjustbox}{max width=\textwidth, max totalheight=0.9\textheight}
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+family & $\varepsilon$ & rotation defect & min.\ defect & true dim.\ & \multicolumn{2}{c}{worst false cert.} & dim.\ & $U$ & refuted \\
+\cmidrule(lr){6-7}
+ & & & & & \symcert{} & threshold & & & \\
+\midrule
+radial flow & 0 & 0.000 & 0.000 & 1 & 0.000 & 0.003 & 1.00 & 0.008 & 0.00 \\
+radial flow & 0.03 & 0.024 & 0.022 & 0 & 0.000 & 0.010 & 1.00 & 0.028 & 0.00 \\
+radial flow & 0.06 & 0.048 & 0.044 & 0 & 0.000 & 0.063 & 0.47 & 0.050 & 0.00 \\
+radial flow & 0.12 & 0.096 & 0.088 & 0 & 0.000 & 0.000 & 0.00 & 0.094 & 0.00 \\
+damped pendulum & 0 & --- & 0.204 & 0 & 0.000 & 0.000 & 0.00 & 0.213 & 1.00 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption{\textbf{Non-polynomial systems fitted with dictionaries that contain them.} The planar radial flow $\dot r = r(1-r)$, $\dot\varphi = 1/(1+r^2)$ plus $\varepsilon x^2\partial_x$ (exactly rotation invariant at $\varepsilon = 0$), on the unit disc, is fitted with quadratic polynomials and four radial functions; the damped pendulum $\dot\theta = \omega$, $\dot\omega = -\sin\theta - 0.1\,\omega$, on $[-1.5, 1.5]^2$, with a polynomial and trigonometric library. Affine candidate generators; the target measure is uniform on the domain. Worst false-certification rates are over $N = 200, 800, 3200$ and noise levels $0.03, 0.1, 0.3$, 300 replications each; ``dim.''\ (the mean dimension of the certified plug-in subspace) and the median upper bound $U$ on the minimal-defect generator are at the largest sample size and smallest noise level; ``refuted'' is the largest fraction of replications in which the lower certificate excludes every $\delta$-approximate symmetry.}
+\label{stab:dictionary}
+\end{table}

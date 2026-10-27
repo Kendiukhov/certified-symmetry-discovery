@@ -1,0 +1,111 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=blue!50!black, linkcolor=blue!50!black}
+\pagestyle{empty}
+\setlength{\parskip}{0.6em}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{flushright}
+Ihor Kendiukhov\\
+Institute of Medical Genetics and Applied Genomics\\
+University of T\"ubingen, T\"ubingen, Germany\\
+\href{mailto:ihor.kendiukhov@student.uni-tuebingen.de}{ihor.kendiukhov@student.uni-tuebingen.de}
+\end{flushright}
+
+\vspace{1em}
+
+To the Editors, \emph{Scientific Reports}\\
+Submission ID: 43fb9b81-0ebd-4a9a-a390-5ba988a88425
+
+\vspace{0.5em}
+
+Dear Dr Li,
+
+Thank you for the opportunity to revise the manuscript previously titled
+``Certified Symmetry Discovery: Confidence Sets for Lie-Algebra Generators from
+Noisy, Limited Data''. I am submitting the revised version, now titled
+\textbf{``Certified symmetry discovery for polynomial and dictionary vector
+fields: confidence sets for Lie-algebra generators from noisy vector-field
+measurements''}, together
+with a point-by-point response to the three reviewers and a separate
+Supplementary Information file.
+
+The reviewers' central request, shared by the editorial assessment, was to align
+every practical and empirical claim with what the theorem actually guarantees.
+The revision does this through new theory, new code and new experiments rather
+than through rewording alone. In brief:
+\begin{itemize}\itemsep2pt
+\item a table listing each guarantee with the assumptions it needs, and a
+  separate treatment of a fixed, a data-selected and a misspecified model class,
+  with a new result quantifying how large a symmetry violation a lack-of-fit
+  test of given power can miss and a new procedure that remains valid when the
+  class is chosen from the data, provided the largest class considered
+  contains the truth; a new simulation study evaluates both;
+\item the certificate is now the supremum of the defect over the confidence
+  region, with the infimum as a lower bound, as one reviewer suggested,
+  computed with certified numerics;
+\item dependence-robust (cluster and Newey--West) regions, with a new study of
+  serially correlated errors that reports the coverage of the coefficient region
+  itself;
+\item an output metric which, when transported with the coordinates, makes the
+  defect, and hence the tolerance, invariant under every affine change of
+  coordinates, a non-asymptotic resolution bound, exact binomial intervals for
+  the worst-setting rates of the calibration table, for the zero
+  false-certification rate of the certificate and for selected rates in the
+  text, together with a stated bound on the Monte Carlo error of every other
+  rate, a recovery metric, a bracket-closure diagnostic, an extension to
+  non-polynomial dictionaries, a demonstration that noisy states can
+  manufacture false symmetries, and a study showing that, in the systems
+  tested, additive derivative noise only rarely makes a system without
+  symmetry look symmetric, and then only near the tolerance, although it
+  can tilt a real symmetry (the source of the threshold rule's 63\% worst
+  case);
+\item a second real data set, ocean drifter velocities in which rotation
+  invariance is physically expected, analysed as a case study under stated
+  assumptions;
+\item a redesigned tightness experiment, which also shows that a narrower
+  bootstrap bound fails for a generator selected from the data while the
+  certificate does not, the correction of an implementation error found while
+  revisiting the trajectory study, and a narrower title.
+\end{itemize}
+All experiments were re-run with the final code, and the numerical results in
+the text are checked automatically against the result files. The manuscript
+uses the journal's structure: an unstructured abstract of at most 200 words,
+Introduction, Results, Discussion and Methods, numbered references, eight
+display items, and the supporting material in a separate Supplementary
+Information file. The main text (Introduction, Results and Discussion, without
+figure legends) runs to about 12,500 words, and the reference list has 67
+entries (59 of them cited in the main text, the rest only in Methods), above
+the recommended 4,500 words and about 60 references, mainly because of the
+analyses requested in review (data-driven class selection, dependence-robust
+inference, the tightness and noisy-state studies and the second real data set)
+and the limitations that accompany them. Proofs and secondary analyses are
+already in the Methods and the Supplementary Information, and I would be glad
+to move further material there if you prefer.
+
+\textbf{Declarations.} This manuscript is original, has not been published
+previously, and is not under consideration by another journal. I am the sole
+author. I have no competing interests to declare. The work involves no human
+participants, no animals and no personal data. The implementation, raw results
+and scripts are released in the public repository
+\url{https://github.com/Kendiukhov/certified-symmetry-discovery}, where the
+version used for the revised manuscript will be tagged \texttt{v2.0.0}.
+
+Thank you for considering the revised manuscript.
+
+\vspace{1em}
+
+Yours sincerely,
+
+\vspace{1.5em}
+
+Ihor Kendiukhov
+
+\end{document}

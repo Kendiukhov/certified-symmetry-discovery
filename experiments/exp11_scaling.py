@@ -17,11 +17,12 @@ from itertools import product
 import numpy as np
 
 from common import ALPHA, DELTA, rms_field, run_cells, save, sup_true_defect
+from common import trials
 from hsd import DefectProblem, exact_symmetry_algebra, fit_ols, simulate_design
 from hsd.certify import certified_dimension, certify_direction
 from hsd.systems import System
 
-TRIALS = 200
+TRIALS = trials(200)
 DIMS = [2, 3, 4, 5, 6]
 NS = [200, 800, 3200, 12800]
 SIGMA = 0.05

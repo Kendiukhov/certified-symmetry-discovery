@@ -1,0 +1,140 @@
+\label{sec:related}
+In practice the procedure changes what is reported. Fix the region $\nu$ where
+the symmetry is supposed to hold, the scales of the state variables, the
+candidate class and a tolerance $\delta$ on the relative defect. Fit a model
+class that is assumed to contain the truth, or certify simultaneously over a
+nested family whose largest member is (\Cref{prop:classes}). Compute
+$U(\theta)$, certify what falls below $\delta$, and report $U$ itself rather
+than a binary verdict, because it is the smallest tolerance the data support
+and the honest analogue of the singular value that would otherwise be
+reported; report the extrapolation factor $\sqrt{\kappa\kappa'}$ of
+\Cref{prop:kappa} so the reader can see how much of the target domain
+the data actually visited. The reporting checklist in Methods lists every
+choice that gives the tolerance its meaning.
+
+The limitations follow from \Cref{tab:guarantees}. The model class is the
+binding assumption: validity requires the truth to lie in the fitted class, in
+the largest class of a nested family, or within an assumed distance of it.
+Paying for that distance can leave nothing to report: on a non-polynomial flow
+with an exact rotational symmetry the narrowest bound that accounted for model
+error was $0.27$, against a tolerance of $0.05$ (\SFmodelerror), so in practice the
+route is a class or dictionary that contains the truth (\STdictionary). A
+fitted model can be more symmetric than the system it models, and no analysis
+of that model alone can detect the difference. A lack-of-fit test that fails to
+reject does not establish correct specification: \Cref{prop:lof} quantifies
+the misspecification it misses, and in \Cref{sec:selection} misspecification
+missed with probability one half can produce true defects about $1.7$ times the
+tolerance. Exact coverage of the coefficient region needs Gaussian
+homoskedastic errors; the sandwich regions that allow heteroskedastic or
+dependent errors are valid only asymptotically, and in our designs they
+undercovered (White's region $0.77$ to $0.88$ at $N = 400$ under every error
+distribution tried, the cluster-robust region $0.73$ to $0.92$ with $48$
+trajectories under autocorrelated errors, the Newey--West region worse still
+on trajectories of at most $100$ points, where the certificate built on it
+covered in as few as $80\%$ of replications), so dependent data need many
+independent trajectories (\SFdependence, \STdependence). Noisy states are not covered: least squares then targets a
+pseudo-true field, which on the hardening Duffing oscillator at state noise
+$\sigma_x = 0.08$ is more symmetric than the system, so that the certificate concentrates
+on a spurious symmetry as data accumulate, while on the symmetric Hopf system
+state noise hides the symmetry instead; integral or weak formulations of
+model discovery \citep{messenger2021weak}, ensemble resampling
+\citep{fasel2022ensemble} and explicit errors-in-variables methods
+\citep{carroll2006measurement} are the natural routes, and none is part of the
+guarantee here. When its coefficient region covers, the certificate is
+conservative: in the tightness study its interval for the plug-in directions
+contained the true defect in every replication at every nominal level from
+$0.5$ to $0.99$, and for a generator fixed in advance at an exact symmetry its
+coverage was at least $0.93$ at nominal
+$0.80$ and $0.985$ at nominal $0.95$. In the degree-$3$ class its certified tolerance stayed a nearly
+constant factor of about $8$ above the Le~Cam lower bound across $N$ and
+$\sigma$; in the classes of degree $5$ and $7$, examined at one noise level,
+the median factor rose to $10.9$ and $13.2$, and the pointwise bound for a
+generator fixed in advance grew almost as much, so the gap is not mainly a
+cost of simultaneity; it reflects the model class and the looseness of the
+two-point bound
+(\Cref{sec:resolution}). We treat connected
+symmetry groups whose generators lie in a prescribed finite-dimensional class,
+excluding translations, for which the relative defect degenerates, and
+moderate problem sizes ($n \le 6$, $Q \le 210$, $P \le 36$). Discrete
+symmetries, and symmetries visible only after a nonlinear change of coordinates
+\citep{liu2022machine,yang2024latent}, are outside the framework, as they are
+outside the Lie-algebraic setting generally. Finally, the benchmarks are
+simulated deliberately, because measuring an error rate requires knowing the
+truth exactly, which a real system does not provide. Of the two real data sets
+we analyse, the lynx--hare records are too small to support any symmetry claim
+(\SNrealdata), and the drifter velocities certify a physically expected
+rotation invariance to a stated tolerance, but only under assumptions the data
+cannot check (a model class, an observation model, errors uncorrelated with the
+velocity although they contain the unmodelled wind forcing, independence
+between drifters, and an asymptotic region with $31$ clusters); neither replaces a setting in which symmetries are both real
+and known.
+
+The work sits among several lines of research. The idea that continuous
+symmetries are a nullspace runs through work on point clouds
+\citep{cahill2023liepca}, conserved quantities \citep{kaiser2018discovering},
+trained networks \citep{moskalev2022liegg,gruver2023lie} and dynamic mode
+decomposition \citep{baddoo2023physics}; Otto et al.~\citep{otto2025unified} unify these,
+extend them to nonlinear group actions on manifolds and to sections of vector
+bundles, and add convex penalties that promote symmetry during training. Their
+conclusion names our problem: it will be important ``to study the perturbative
+effects of noisy data in algorithms to discover and promote symmetry, with the
+goal of understanding the effects of problem dimension, noise level, and
+amount of data.'' We answer with confidence statements rather than with a
+perturbation analysis, because a perturbation bound alone does not tell a user
+what to declare; the Weyl-inequality baseline in our experiments is the
+perturbation answer, and it is valid but never certifies. They also ask whether
+their framework can ``find elements that are nearly symmetric, and to bound the
+degree of asymmetry''; \Cref{def:defect} is such a bound and \symcert{}
+supplies its confidence statement, in a setting where approximate symmetry is
+widely recognised in modelling \citep{wang2022approximately,romero2022learning}.
+An alternative line searches for generators by nonlinear optimisation or
+adversarial training \citep{desai2022symmetry,yang2023liegan,yang2024latent,
+dehmamy2021automatic,liu2022machine}, and a related line learns
+invariances as hyperparameters through augmentation or marginal likelihood
+\citep{benton2020learning,immer2022invariance}. These
+methods return a point estimate of a generator with no error control, and the
+question asked here, when a discovered generator may be declared and at what
+tolerance, applies to them too: whenever the Lie derivative is bilinear in the
+generator coordinates and the model coefficients the machinery transfers,
+provided the coefficient region is itself valid (for learned features, that
+requires features fixed independently of the data used for the region; see
+`Learned features' in \Cref{sec:guarantee}), and
+for a fully nonlinear model the ellipsoid must be replaced by a confidence
+region obtained some other way, with the logic of \Cref{prop:simultaneous}
+unchanged. Once a symmetry is in hand it is enforced as hard constraints or
+convex penalties \citep{otto2025unified}, as physics-informed losses
+\citep{raissi2019physics,akhound2023lie}, as data augmentation
+\citep{brandstetter2022lie}, or inside equation discovery itself
+\citep{yang2024symmetry}, and everything downstream inherits the reliability of
+the discovery step. On the statistical side, equivalence testing is standard
+wherever the interesting hypothesis is the null
+\citep{schuirmann1987comparison,berger1996bioequivalence,wellek2010testing};
+our contribution is not the idea but the observation that symmetry discovery is
+one of those settings, with a computable construction for this functional.
+Rank tests \citep{cragg1997inferring,robin2000tests,kleibergen2006generalized}
+attack the same nullspace-dimension question and place symmetry in the null.
+The selection of a generator is the issue addressed by post-selection and
+split-sample inference \citep{berk2013valid,lee2016exact,meinshausen2009pvalues,
+chernozhukov2018double,andrews2024inference}; here simultaneity over the whole
+candidate class dissolves it more cheaply than splitting, which we verify
+empirically, whereas selection of the model class needs the separate treatment
+of \Cref{prop:classes}, in line with the general difficulty of inference after
+model selection \citep{leeb2005model}. Because a single event covers all
+generators at once, no multiplicity correction of the Benjamini--Hochberg
+kind~\citep{benjamini1995controlling} is needed. Finally, the shape of the
+problem (many moment conditions, a low-dimensional parameter, and a test of
+whether they can all be satisfied) is that of a test of overidentifying
+restrictions \citep{hansen1982large}, with the difference that here the
+restriction of interest is the one we would like to accept rather than reject.
+
+Symmetry discovery is an instance of a pattern that recurs whenever a
+scientific claim takes the form ``this quantity is zero'': a rank, a
+conservation law, a conditional independence, a null effect. In each, an
+estimate is compared to a tolerance, and the tolerance is asked to carry
+statistical weight it cannot bear. The remedy is the same each time: state the
+tolerance in interpretable units, and require the data to \emph{exclude} the
+alternative instead of merely failing to detect it. Whether that remedy is
+cheap depends on the functional; for the Lie derivative of a model that is
+linear in its coefficients it costs a sequence of trust-region subproblems, and
+its reach is set by how honestly the model class and the observation model can
+be specified.

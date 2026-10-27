@@ -1,0 +1,10 @@
+{
+ "hopf": {
+  "refute": 0.0,
+  "n_cert": 1
+ },
+ "vanderpol": {
+  "refute": 0.13746320735639575,
+  "n_cert": 0
+ }
+}

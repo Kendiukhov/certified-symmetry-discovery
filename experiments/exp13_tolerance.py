@@ -15,6 +15,7 @@ from itertools import product
 import numpy as np
 
 from common import ALPHA, rms_field, run_cells, save, sup_true_defect
+from common import trials
 from hsd import DefectProblem, exact_symmetry_algebra, fit_ols, get_system, simulate_design
 from hsd.certify import certified_dimension
 
@@ -23,9 +24,7 @@ SYSTEMS = [("hopf", 3, 1.0), ("lin_rot2", 1, 1.0), ("rigid_sym", 2, 1.0),
            ("vanderpol", 3, 1.0), ("lotka_volterra", 2, 1.0), ("rigid_asym", 2, 1.0)]
 NS = [400, 3200]
 SIGMAS = [0.03, 0.10]
-TRIALS = 300
-
-
+TRIALS = trials(300)
 def one_cell(args):
     name, degF, scale, N, srel, seed = args
     rng = np.random.default_rng(seed)

@@ -1,0 +1,31 @@
+\begin{table}[!htbp]
+\centering\small
+\begin{adjustbox}{max width=\textwidth, max totalheight=0.9\textheight}
+\begin{tabular}{lrrrrrrr}
+\toprule
+system & $N$ & noise & mean dim.\ & runs dim.\ $\ge 2$ & closure (median) & closure (max) & commutators certified \\
+\midrule
+sphere flow, $\mathfrak{so}(3)$ & 800 & 0.01 & 3.00 & 100/100 & 0.001 & 0.003 & 1.00 \\
+sphere flow, $\mathfrak{so}(3)$ & 800 & 0.03 & 0.83 & 0/100 & --- & --- & --- \\
+sphere flow, $\mathfrak{so}(3)$ & 3200 & 0.01 & 3.00 & 100/100 & 0.001 & 0.001 & 1.00 \\
+sphere flow, $\mathfrak{so}(3)$ & 3200 & 0.03 & 3.00 & 100/100 & 0.002 & 0.003 & 1.00 \\
+sphere flow, $\mathfrak{so}(3)$ & 12800 & 0.01 & 3.00 & 100/100 & 0.000 & 0.001 & 1.00 \\
+sphere flow, $\mathfrak{so}(3)$ & 12800 & 0.03 & 3.00 & 100/100 & 0.001 & 0.002 & 1.00 \\
+symmetric top & 800 & 0.01 & 2.00 & 100/100 & 0.001 & 0.001 & negligible \\
+symmetric top & 800 & 0.03 & 2.00 & 100/100 & 0.002 & 0.004 & negligible \\
+symmetric top & 3200 & 0.01 & 2.00 & 100/100 & 0.000 & 0.000 & negligible \\
+symmetric top & 3200 & 0.03 & 2.00 & 100/100 & 0.001 & 0.002 & negligible \\
+symmetric top & 12800 & 0.01 & 2.00 & 100/100 & 0.000 & 0.000 & negligible \\
+symmetric top & 12800 & 0.03 & 2.00 & 100/100 & 0.000 & 0.001 & negligible \\
+planar rotation & 800 & 0.01 & 2.00 & 100/100 & 0.000 & 0.000 & negligible \\
+planar rotation & 800 & 0.03 & 2.00 & 100/100 & 0.000 & 0.000 & negligible \\
+planar rotation & 3200 & 0.01 & 2.00 & 100/100 & 0.000 & 0.000 & negligible \\
+planar rotation & 3200 & 0.03 & 2.00 & 100/100 & 0.000 & 0.000 & negligible \\
+planar rotation & 12800 & 0.01 & 2.00 & 100/100 & 0.000 & 0.000 & negligible \\
+planar rotation & 12800 & 0.03 & 2.00 & 100/100 & 0.000 & 0.000 & negligible \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption{\textbf{Closure of certified subspaces under the bracket.} ``Mean dim.'' is the mean dimension of the certified plug-in subspace. For each certified subspace of dimension at least two, the closure defect is the largest, over pairs of an $L^2(\nu)$-orthonormal basis, of the $L^2(\nu)$ norm of the part of the commutator outside the subspace relative to the size of its two terms (0 for a Lie subalgebra, at most $\sqrt 2$). Affine generators are closed under the bracket, so each commutator is itself a candidate generator; the last column is the fraction of those runs in which every commutator larger than $5\%$ of its two terms is certified at $\delta = 0.05$ (``negligible'': all commutators smaller, as for an abelian algebra; ``---'': no subspace of dimension two or more was certified). $100$ replications per row.}
+\label{stab:closure}
+\end{table}

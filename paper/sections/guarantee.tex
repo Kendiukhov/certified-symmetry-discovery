@@ -1,0 +1,206 @@
+\subsection{What the guarantee covers}
+\label{sec:guarantee}\label{sec:assumptions}
+
+\Cref{prop:simultaneous} is a conditional statement: if the coefficient region
+covers the true coefficients with probability $1-\alpha$, the certificate
+inherits that probability for every generator and every tolerance. Everything
+else is in the condition. \Cref{tab:guarantees} lists each guarantee in the
+paper with what it requires, and the rest of this subsection takes the
+requirements in turn.
+
+\begin{table}[!htbp]
+\centering\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.26\textwidth}>{\raggedright\arraybackslash}p{0.39\textwidth}>{\raggedright\arraybackslash}p{0.24\textwidth}}
+\toprule
+guarantee & requires & evidence \\
+\midrule
+False-certification rate $\le \alpha$, simultaneously over generators and
+tolerances (\Cref{prop:simultaneous}) &
+a region with coverage $\ge 1-\alpha$ for coefficients of a class that
+contains the truth; dictionary, candidate class, target measure $\nu$ and
+metric $W$ fixed without looking at the data &
+\cref{tab:calibration}, \cref{fig:headline}a \\
+\addlinespace
+Exact finite-sample coverage of the region &
+Gaussian homoskedastic errors on the right-hand side, independent of states
+that are observed exactly &
+\Cref{tab:robustness} \\
+\addlinespace
+Asymptotic coverage of the region &
+independent rows (White sandwich), independent trajectories with their number
+growing (cluster-robust), or long trajectories (Newey--West) &
+\Cref{tab:robustness}, \SFdependence \\
+\addlinespace
+Validity when the class is chosen from the data
+(\Cref{prop:classes}) &
+the largest class of a nested family contains the truth; regions of
+\Cref{prop:closedform}(iii) (Gaussian homoskedastic errors, fixed design,
+exactly observed states) &
+\Cref{sec:selection} \\
+\addlinespace
+Validity under a misspecified class &
+an externally justified bound on the omitted part (sensitivity parameter) &
+\SFmodelerror \\
+\addlinespace
+Coverage diagnostic $\kappa$ (\Cref{prop:kappa}) & none to compute it from
+the observed states; as a bound on the true defect, the fitted class contains
+the truth (a population-level statement; estimation error not included) &
+\cref{fig:headline}b, \STtrajectory \\
+\addlinespace
+Resolution limit (\Cref{prop:lecam}) & Gaussian errors, fixed design, one
+generator, fixed model class & \cref{fig:headline}c, \STqsweep \\
+\midrule
+\emph{Not covered} & noisy states (errors in variables); a class chosen by a
+lack-of-fit test on the same data; translation generators; discrete
+symmetries & \SFeiv, \Cref{sec:selection} \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{Guarantees and the assumptions they rest on.} Each row states
+what has to hold for the guarantee in the first column; the last column points
+to the experiments that probe it. The first row is the main result; all others
+qualify it.}
+\label{tab:guarantees}
+\end{table}
+
+\paragraph{The model class.} Validity needs a coefficient vector $\beta^\star$
+with $F = F_{\beta^\star}$, so the fitted class must contain the truth. Three
+situations have to be kept apart.
+
+\emph{(i) A class fixed in advance and correctly specified.} This is the
+setting of \Cref{prop:simultaneous}, and the false-certification rate is at
+most $\alpha$.
+
+\emph{(ii) A class selected from the data.} A natural workflow enlarges the
+class until a lack-of-fit $F$-test against a larger class stops rejecting, and
+then certifies in the chosen class on the same data. This has no guarantee, for
+two reasons. A non-rejection is not evidence that the class contains the truth
+(the test may simply lack power; this is the same inversion of the burden of
+proof that motivates the equivalence formulation), and the region in a
+data-selected class is not a post-selection confidence region. The first
+reason can be quantified.
+
+\begin{proposition}[What a lack-of-fit test cannot see]
+\label{prop:lof}
+Let the truth be $F = F_{\beta^\circ} + h$, where $F_{\beta^\circ}$ is the
+least-squares projection of $F$ on the fitted class over the design and $h$
+lies in a larger class $\mathcal H$ of $m_{\mathcal H}$ functions per
+component. The $F$-test of the fitted class ($m$ functions per component)
+against $\mathcal H$ has noncentrality $\lambda = N\|h\|^2_{\mu_N}/\sigma^2$,
+where $\|\cdot\|_{\mu_N}$ is the root-mean-square over the design, and power
+$\gamma(\lambda)$ given by the noncentral $F$ distribution with $n(m_{\mathcal
+H}-m)$ and $n(N-m_{\mathcal H})$ degrees of freedom. Let $\lambda_\gamma$ solve
+$\gamma(\lambda_\gamma)=\gamma$ and
+\begin{equation}
+  G(\xi) \;=\; \max_{h \in \mathcal H_\perp}
+  \frac{\|[\xi,h]\|_{\nu,W}}{\|h\|_{\mu_N}},
+  \label{eq:invisible-gain}
+\end{equation}
+with $\mathcal H_\perp$ the fields of $\mathcal H$ orthogonal to the fitted
+class over the design. Then every omitted part with
+$\|h\|_{\mu_N} \le \sigma(\lambda_\gamma/N)^{1/2}$ is detected with probability
+at most $\gamma$. Each such $h$ adds to the bracket $[\xi,F_{\beta^\circ}]$ a
+term with $\|[\xi,h]\|_{\nu,W} \le G(\xi)\,\sigma(\lambda_\gamma/N)^{1/2}$, so it
+changes the numerator of the defect of $\xi$ by at most this amount. One
+such part, $h^\star$, attains the bound on $\|[\xi,h]\|_{\nu,W}$; if $\xi$ is an
+exact symmetry of $F_{\beta^\circ}$, the numerator then changes by exactly this
+amount, and the truth $F = F_{\beta^\circ} + h^\star$ has
+\begin{equation}
+  \defect_\nu(\xi;F) \;=\; \frac{G(\xi)\,\sigma\,(\lambda_\gamma/N)^{1/2}}
+  {\bigl(\|DF\,\xi\|^2_{\nu,W} + \|D\xi\,F\|^2_{\nu,W}\bigr)^{1/2}}
+  \label{eq:invisible}
+\end{equation}
+while the test of the fitted class rejects with probability at most $\gamma$.
+\end{proposition}
+
+To first order in $h^\star$ the denominator of~\eqref{eq:invisible} is that of
+$F_{\beta^\circ}$. The invisible defect therefore scales like $\sigma/\sqrt N$, as the
+width of the certificate does, so whether a lack-of-fit gate protects the
+certificate is decided by constants: by the derivative amplification in
+$G(\xi)$, which grows with the degree of the omitted terms, and by the degrees
+of freedom of the test. \Cref{sec:selection} shows both regimes: one where the
+test is the more sensitive instrument, and one where misspecification that it
+misses with probability $0.5$ can produce true defects of about $1.7$ times the
+tolerance and the gate certifies falsely in nearly half of the replications. A
+valid procedure for case (ii) needs a class that is assumed to contain the
+truth. Given that assumption, choosing among its nested subclasses costs only a
+split of $\alpha$ (\Cref{prop:classes}); the assumption itself costs power,
+because a larger class widens the region (\Cref{sec:selection}).
+
+\begin{proposition}[Certifying simultaneously over a nested family]
+\label{prop:classes}
+Under model~\eqref{eq:model} with a fixed design, let $\mathcal F_1 \subset
+\dots \subset \mathcal F_K$ be nested linear model classes and assume $F \in
+\mathcal F_K$. Give each class the region $\mathcal B_k$ of
+\Cref{prop:closedform}(iii) at level $\alpha/K$, computed in that class. For $k < K$ write $h_k(\beta)$ for the part
+of $F_\beta \in \mathcal F_K$ omitted by the least-squares projection on
+$\mathcal F_k$ over the design, let $\bar\eta_k = \sup_{\beta \in \mathcal B_K}
+\|h_k(\beta)\|_{\nu,W}$, and let $U_k$ be the certificate computed in
+$\mathcal F_k$ with the $L^2$ model-error term $\bar\eta_k$ (and $U_K$ the
+certificate in $\mathcal F_K$). Then with probability at least $1-\alpha$,
+$\defect_\nu(\xi_\theta;F) \le \min_k U_k(\theta)$ for every $\theta$.
+\end{proposition}
+
+The reported bound is the smallest over the family. Each $\bar\eta_k$ is one
+trust-region maximum, because $h_k(\beta)$ is linear in $\beta$. Sample
+splitting, choosing the class on one half and certifying on the other, removes
+the reuse of the data but does not make a chosen class contain the truth.
+Certifying in the largest class alone, at level $\alpha$, is valid under the
+same assumption as \Cref{prop:classes}. The proposition's bound is never larger
+than that class's certificate at level $\alpha/K$; when the smaller classes do
+not help, it is slightly wider than certifying in the largest class at level
+$\alpha$, because it still pays for the split of $\alpha$.
+
+\emph{(iii) Misspecification bounded from outside.} When no available class
+contains the truth, replace $F$ by $F_\beta + h$ and pay for $h$ explicitly. In
+\emph{supremum form}, with $W = I$, if $\sup_{\operatorname{supp}\nu} \|h\| \le
+\eta_0$ and $\sup_{\operatorname{supp}\nu}\|Dh\|_F \le \eta_1$, then $[\xi,h]$
+moves the numerator by at most $\eta_1\|\xi\|_{\nu} + \eta_0\|D\xi\|_{\nu}$,
+where $\|\xi\|_\nu = \|\xi\|_{\nu,I}$ and $\|D\xi\|_\nu = (\int
+\|D\xi\|_F^2\,d\nu)^{1/2}$, and each denominator block by at most one of those
+terms; valid for any smooth $h$ and conservative, because it spends supremum
+norms. In \emph{$L^2$ form}, if the truth lies in a larger class and the
+omitted part has $\|h\|_{\nu,W} \le \eta_2$, the numerator moves by at most
+$\|\Lambda_\theta\|_{\mathrm{op}}\eta_2$, where $\|\Lambda_\theta\|_{\mathrm{op}}
+= \sup_h \|[\xi_\theta,h]\|_{\nu,W}/\|h\|_{\nu,W}$ over $h$ in the larger class
+is the largest gain of the linear map $h \mapsto [\xi_\theta,h]$, computed
+exactly as a matrix norm; the two denominator blocks are treated likewise. Both forms are expensive
+because the Lie derivative \emph{differentiates}: a model error that is small in
+size need not be small in slope, and the conversion constant grows with the
+degree of the class the error is allowed to occupy. None of the bounds
+$\eta_0$, $\eta_1$ and $\eta_2$ can be verified from the data alone, so we
+treat them as sensitivity parameters and report the certified tolerance as a
+function of them, in the manner standard for
+unverifiable assumptions \citep{rosenbaum2002observational}.
+
+\paragraph{The errors.} Exact coverage of the least-squares region needs
+Gaussian homoskedastic errors on the right-hand side, independent of states
+that are themselves observed without error. Any other construction of
+$\mathcal B$ can be supplied instead, and the certificate is then exactly as
+valid as that construction: White's sandwich \citep{white1980heteroskedasticity}
+for independent rows with arbitrary heteroskedasticity, asymptotically in the
+number of rows; the cluster-robust sandwich for independent trajectories with
+arbitrary dependence within each, asymptotically in the number of trajectories,
+which must exceed the number of coefficients for the region to be bounded in
+every direction, and in our experiments exceed it several times over before the
+coverage approaches its nominal level; the Newey--West sandwich \citep{newey1987simple} with an
+automatic bandwidth \citep{andrews1991heteroskedasticity} for serially
+correlated errors along long trajectories. Noisy \emph{states} are a different
+matter: the regressors then carry error, least squares estimates a
+pseudo-true field, and no covariance estimate repairs the bias. That case is
+not covered (\Cref{sec:robustness}).
+
+\paragraph{The target domain, the metric and the candidate class.} The claim
+is about the user's $\nu$ and $W$, and nothing is asserted outside $\nu$;
+coverage of $\nu$ by the data enters through the design and is quantified by
+\Cref{prop:kappa}. We find connected subgroups whose generators lie in
+$\mathcal V$, excluding translations, for which the relative defect
+degenerates (\Cref{sec:setup}). Discrete symmetries are outside this
+framework, as they are outside the Lie-algebraic framework generally.
+
+\paragraph{Learned features.} The construction applies verbatim to any model
+that is linear in its parameters given its features, including the last layer
+of a network. The classical region is valid only if the features are fixed
+independently of the data used for the region, either chosen in advance (as
+our polynomial and dictionary features are) or learned on separate data, with
+sample splitting or cross-fitting \citep{chernozhukov2018double}. Features
+learned on the same data need a region that accounts for that learning.

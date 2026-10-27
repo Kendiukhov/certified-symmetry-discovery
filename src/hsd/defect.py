@@ -14,6 +14,14 @@ target measure ``nu``.  The functional is invariant under rescaling of
 candidate space -- so a tolerance stated in terms of ``rho`` is meaningful
 across systems, unlike a raw singular value of the Lie-derivative operator.
 
+The norms of vector fields use an output metric ``W`` (positive definite,
+``||v||_W^2 = v' W v`` pointwise), the identity by default.  With ``W`` and
+``nu`` transported along, ``rho`` is invariant under every invertible affine
+change of state coordinates; with ``W = I`` only under similarity
+transformations, so state variables with different units should either be
+nondimensionalised or given a metric ``W = diag(1 / s_i^2)`` with
+characteristic scales ``s_i``.
+
 Both the numerator and the denominator are *squared norms of linear maps of the
 model coefficients* ``beta``:
 
@@ -93,6 +101,7 @@ class DefectProblem:
     T2w: np.ndarray
     measure: str
     scale: float
+    metric: np.ndarray | None = None      # output metric W (None = identity)
     _Gxi: np.ndarray | None = None
     _Gdxi: np.ndarray | None = None
 
@@ -100,7 +109,12 @@ class DefectProblem:
     @staticmethod
     def build(n: int, deg_F: int, generators: str = "affine",
               measure: str = "box", scale: float = 1.0, inner: float = 0.0,
-              deg_xi: int | None = None) -> "DefectProblem":
+              deg_xi: int | None = None,
+              metric: np.ndarray | None = None) -> "DefectProblem":
+        """``scale`` may be an array of per-coordinate half-widths for the box
+        measure.  ``metric`` is the output metric ``W`` (``(n, n)`` positive
+        definite, or a length-``n`` vector of characteristic scales ``s_i``
+        meaning ``W = diag(1/s_i^2)``)."""
         deg_xi = {"linear": 1, "affine": 1, "quadratic": 2}[generators] if deg_xi is None else deg_xi
         deg_res = deg_F + deg_xi - 1
         alg = poly_algebra(n, max(deg_F, deg_xi, deg_res))
@@ -133,14 +147,15 @@ class DefectProblem:
                     T2[:, p, q] = t2[:, res_idx].ravel()
         T = T1 - T2
 
+        Wm = _metric_matrix(metric, n)
         g = moment_matrix(alg, measure=measure, scale=scale, inner=inner, sub=res_idx)
-        gh = gram_sqrt(g)
-        W = np.kron(np.eye(n), gh)
+        W = np.kron(_sym_sqrt(Wm), gram_sqrt(g))
         Tw = np.einsum("ij,jpq->ipq", W, T)
         T1w = np.einsum("ij,jpq->ipq", W, T1)
         T2w = np.einsum("ij,jpq->ipq", W, T2)
         return DefectProblem(n, deg_F, deg_xi, alg, gen, names, beta_idx, res_idx,
-                             T, T1, T2, Tw, T1w, T2w, measure, scale)
+                             T, T1, T2, Tw, T1w, T2w, measure, scale,
+                             None if metric is None else Wm)
 
     def with_gram(self, g: np.ndarray, tag: str = "empirical") -> "DefectProblem":
         """Same tensors, re-weighted by a different residual Gram matrix.
@@ -150,14 +165,14 @@ class DefectProblem:
         states reproduces what a practitioner computes when the sample is taken
         to stand in for the domain of interest.
         """
-        W = np.kron(np.eye(self.n), gram_sqrt(g))
+        W = np.kron(_sym_sqrt(_metric_matrix(self.metric, self.n)), gram_sqrt(g))
         return DefectProblem(self.n, self.deg_F, self.deg_xi, self.alg,
                              self.gen_basis, self.gen_names, self.beta_idx,
                              self.res_idx, self.T, self.T1, self.T2,
                              np.einsum("ij,jpq->ipq", W, self.T),
                              np.einsum("ij,jpq->ipq", W, self.T1),
                              np.einsum("ij,jpq->ipq", W, self.T2),
-                             tag, self.scale)
+                             tag, self.scale, self.metric)
 
     def empirical(self, X: np.ndarray) -> "DefectProblem":
         """Version of the problem whose ``L2`` norms are empirical averages over
@@ -250,18 +265,59 @@ class DefectProblem:
         den = np.linalg.norm(self.M(beta) @ theta)
         return float(num / den) if den > 0 else np.inf
 
-    def spectrum(self, beta: np.ndarray, jitter: float = 1e-12):
-        """Generalised eigenpairs of ``(C, D)``: squared defects and directions.
+    def features(self, X: np.ndarray) -> np.ndarray:
+        """Model features ``phi_a(x)`` at the states ``X`` (``(N, m)``)."""
+        return self.alg.features(X)[:, self.beta_idx]
+
+    def spectrum(self, beta: np.ndarray, jitter: float = 1e-12, rank_tol: float = 1e-12):
+        """Generalised eigenpairs of ``(C, D)``: defects and directions.
 
         Returns ``(rho_sorted, Theta)`` where ``Theta[:, k]`` is the ``k``-th
         candidate generator, ``D``-normalised, with defect ``rho_sorted[k]``.
+
+        Directions with ``D theta = 0`` have a vanishing denominator and hence
+        an undefined defect (``C theta = 0`` there too).  If ``D`` is
+        numerically singular (smallest eigenvalue below ``rank_tol`` times the
+        largest), those directions are removed before the eigenproblem is
+        solved and appended last with defect ``+inf``: they are never declared
+        and never certified.  Otherwise a relative jitter of ``jitter`` keeps
+        the problem numerically definite.
         """
         C, D = self.C(beta), self.D(beta)
+        C, D = (C + C.T) / 2, (D + D.T) / 2
+        wD, UD = np.linalg.eigh(D)
+        null = wD <= rank_tol * max(wD.max(), 1e-300)
+        if null.any():
+            Ur, Un = UD[:, ~null], UD[:, null]
+            if Ur.shape[1] == 0:
+                return np.full(self.P, np.inf), UD
+            Cr, Dr = Ur.T @ C @ Ur, Ur.T @ D @ Ur
+            w, V = sla.eigh(Cr, Dr)
+            w = np.clip(w, 0.0, None)
+            order = np.argsort(w)
+            rho = np.concatenate([np.sqrt(w[order]), np.full(Un.shape[1], np.inf)])
+            return rho, np.hstack([Ur @ V[:, order], Un])
         D = D + jitter * np.trace(D) / D.shape[0] * np.eye(D.shape[0])
-        w, V = sla.eigh((C + C.T) / 2, (D + D.T) / 2)
+        w, V = sla.eigh(C, D)
         w = np.clip(w, 0.0, None)
         order = np.argsort(w)
         return np.sqrt(w[order]), V[:, order]
+
+
+def _metric_matrix(metric, n: int) -> np.ndarray:
+    if metric is None:
+        return np.eye(n)
+    W = np.asarray(metric, dtype=float)
+    if W.ndim == 1:
+        W = np.diag(1.0 / W ** 2)
+    if W.shape != (n, n) or np.linalg.eigvalsh((W + W.T) / 2).min() <= 0:
+        raise ValueError("the output metric must be an n x n positive definite matrix")
+    return (W + W.T) / 2
+
+
+def _sym_sqrt(W: np.ndarray) -> np.ndarray:
+    w, V = np.linalg.eigh(W)
+    return (V * np.sqrt(np.clip(w, 0.0, None))) @ V.T
 
 
 def _quadratic_generator_basis(n: int, alg: PolyAlgebra):

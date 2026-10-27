@@ -23,12 +23,13 @@ from itertools import product
 import numpy as np
 
 from common import ALPHA, DELTA, run_cells, save
+from common import trials
 from hsd.certify import certified_dimension, certify_direction
 from hsd.estimation import fit_ols_scalar
 from hsd.invariance import InvarianceProblem
 
 DEG = 6
-TRIALS = 300
+TRIALS = trials(300)
 NS = [1000, 4000, 16000, 64000]
 SIGMAS = [0.01, 0.05, 0.2]
 

@@ -1,0 +1,255 @@
+% Supplementary Information: notes, figures and tables. The numbering of every
+% item must agree with the macros in macros.tex; build.sh checks it.
+
+\section*{Supplementary Note 1: Invariances of a learned model}
+\label{sn:invariance}
+
+The same machinery applies where $F$ is a learned scalar function $f$ and $\xi$
+generates an invariance: the Lie derivative becomes $\nabla f \cdot \xi$, and
+in place of Definition~1 we measure the departure from invariance by
+\[
+\rho_\nu(\xi; f)^2 = \frac{\int (\nabla f\cdot\xi)^2\,d\nu}{\int
+|\nabla f|^2\,|\xi|^2\,d\nu} \in [0,1],
+\]
+the root-mean-square cosine of the angle between the model's gradient and the
+generator, weighted by $|\nabla f|^2|\xi|^2$. Like the defect of Definition~1,
+it is a ratio of norms of linear images of the coefficients. We fit degree-$6$
+polynomial regressions, with features fixed in advance, to noisy samples (noise
+levels $0.01$, $0.05$ and $0.2$; $N$ from $1000$ to $64{,}000$; $300$
+replications per setting) of five planar targets: the rotation-invariant
+$r^2 - r^4/2$, three perturbations of it by $\varepsilon x^3$ ($\varepsilon =
+0.02$, $0.05$ and $0.2$, with rotation defects $0.025$, $0.063$ and $0.23$
+against the tolerance $\delta = 0.05$), and an anisotropic quartic with no
+invariance. The candidate generators are the linear vector fields on the plane,
+and $\nu$ is uniform on the square $[-1,1]^2$. We then ask which invariances
+\emph{of the target} may be declared (\SFinvariance). With the training inputs
+drawn uniformly from the whole square, both the threshold rule and \symcert{}
+recover the one-dimensional invariance once $N$ is large enough: at noise level
+$0.05$ the threshold rule declares it from the smallest training set studied
+($N = 1000$) and \symcert{} certifies it in $97\%$ of replications at
+$N = 4000$ and in all of them from $N = 16{,}000$. For the perturbed targets,
+the invariance with defect $0.025$ is declared by the threshold rule at every
+noise level once $N$ is large enough (in at least $97\%$ of replications from
+$N = 16{,}000$) and certified by \symcert{} at noise level $0.01$ for every $N$
+and at $0.05$ from $N = 16{,}000$; at noise level $0.2$ \symcert{} certifies it
+in no replication up to $N = 16{,}000$ and in $8\%$ ($25$ of $300$) at
+$N = 64{,}000$. The two invariances with
+defects above the tolerance are declared by the threshold rule in at most
+$0.7\%$ of replications and never by \symcert{}. Even with inputs covering the
+square the threshold rule is not free of false declarations: at noise level
+$0.2$ and $N = 4000$ it declared a generator whose defect on the target exceeds
+$\delta$ in $3.3\%$ of replications for the target with defect $0.025$ and in
+$1.3\%$ for the invariant target, whereas \symcert{} never certified falsely
+with these inputs. With the training inputs confined to the
+part of the square within a $120^\circ$ sector ($|\arg x| < 60^\circ$), the
+threshold rule declares invariances that the target does not have, at rates up
+to $0.72$ at noise level $0.05$ (\SFinvariance b) and up to $0.76$ over the
+three noise levels, for both an invariant and a non-invariant target;
+\symcert{} never does.
+
+This is a second and distinct coverage mechanism. In the main text the
+\emph{integral} was extrapolated: the Gram matrix computed on the data stood in
+for the one on the target domain, and $\kappa$ measured the gap. Here the
+integral is exact and the \emph{model} is extrapolated: outside the sector the
+fit is unconstrained, and it drifts toward functions that happen to look
+invariant. A diagnostic on the inputs alone can only warn that this may
+happen: the extrapolation factor of the main text, computed from the sector
+inputs for the polynomials of degree at most $6$ in which the Lie derivatives
+lie, is between $2\times10^{4}$ and $3\times10^{4}$ ($\kappa$ between
+$1.4\times10^{8}$ and $2.6\times10^{8}$) at every $N$ studied, whereas for
+inputs covering the square the largest factor over settings is $2.2$, $1.5$,
+$1.2$ and $1.1$ at $N = 1000$, $4000$, $16{,}000$ and $64{,}000$ (training inputs
+of the first replication of each setting). It cannot tell
+whether the drift has produced a spurious invariance, because that depends on
+the responses. \symcert{} can,
+because the same lack of constraint that lets the fit drift also inflates
+$\hat\Sigma$ in exactly those directions, and the certificate is then too wide
+to clear any useful tolerance. The region used here is the classical one,
+which is valid because the polynomial features are fixed in advance; for
+features learned on the same data it would not be (main text, ``Learned
+features'').
+
+\section*{Supplementary Note 2: A case study on lynx--hare pelt records}
+\label{sn:realdata}
+
+The Hudson's Bay Company lynx and hare pelt records for 1900--1920 are the
+canonical real data for two-dimensional predator--prey model discovery: $21$
+annual counts, from which central differences give $19$ usable
+state--derivative pairs. Counts are expressed in units of the largest count
+($77.4$ thousand pelts), and the target measure $\nu$ is uniform on $[-1,1]^2$
+in these units; the states lie in $[0.10, 1]\times[0.08, 0.77]$. Fitting a
+quadratic vector field ($Q = 12$) and running the pipeline with White's
+sandwich gives the plug-in defect spectrum
+$(0.18,\ 0.33,\ 0.68,\ 1.17,\ 1.31,\ 1.40)$, an extrapolation factor
+$\sqrt{\kappa\kappa'} = 58$, and a smallest certified tolerance of $0.65$: the
+data support at best the statement that some generator's two bracket terms
+agree to within $65\%$. The target square is much larger than the region of the
+data; with the positive quadrant $[0,1]^2$ as target the factor is $7.2$, the
+plug-in spectrum begins $(0.20,\ 0.63,\ \dots)$ and the smallest certified
+tolerance is $0.84$, so the conclusions below do not depend on this choice.
+With nineteen observations, no useful symmetry claim is supported. The plug-in
+spectrum nonetheless \emph{looks} informative, and at a tolerance of $0.3$, not
+an unreasonable choice, a threshold rule would report a one-dimensional
+symmetry algebra. We present this as a case study rather than as a validity
+claim: with $19$ rows the sandwich region has no asymptotic justification, and
+derivatives differenced from noisy annual counts put error in the regressors,
+the departure the guarantee does not cover.
+
+\clearpage
+\section*{Supplementary Figures}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{\figdir figS1_dependence.pdf}
+\caption{\textbf{Serially correlated errors along trajectories.} Coverage of the
+coefficient region at nominal $0.95$ (horizontal black dotted line) when the errors on the
+right-hand side (noise level $0.05$) follow an AR(1) process with coefficient
+$\phi$ along each trajectory, for the Hopf normal form (\textbf{a}) and the
+asymmetric rigid body (\textbf{b}), with $12$ (dotted), $48$ (dashed) or $192$
+(solid) trajectories and four regions: OLS (exact under independence), White,
+cluster-robust over trajectories (jackknife form) and Newey--West within
+trajectories. States are exact; each trajectory starts from a uniform initial
+condition in the box and runs for $100$ steps of $0.01$, only its part inside
+the box is kept (at most $100$ points), and the AR(1) process restarts in each
+contiguous part. The cluster-robust region is not shown with $12$
+trajectories, fewer than the coefficients, where it leaves directions
+unidentified. $200$ replications per point. Region and certificate coverages
+for every setting are in \STdependence, and no
+region gave a false certification in any setting; Table~3 of the main text
+summarises the case of $192$ trajectories at $\phi = 0.9$ and $0.98$.}
+\label{sfig:dependence}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{\figdir figS2_modelerror.pdf}
+\caption{\textbf{Certifying a system that is not in any polynomial class.} Upper
+bounds on the defect of the selected generator (the minimal-defect direction of
+the fitted field) against the degree of the fitted polynomial class
+($N = 40{,}000$, noise level $0.02$; one data set per system and degree, not
+replicated), for the radial flow $r' = r(1-r)$, $\varphi' = 1/(1+r^2)$, which
+is exactly rotation invariant (\textbf{a}), and the damped pendulum, which has
+no continuous symmetry (\textbf{b}). Blue: model error ignored, which carries
+no guarantee. Green and orange: model error paid for in $L^2$ against a class
+four degrees larger (green) or in supremum norm (orange), with the size of the
+error \emph{measured from the known truth} (oracle curves, unavailable in
+practice). Yellow: the $L^2$ form with the size of the omitted part bounded
+from the data. Both $L^2$ curves assume that the class four degrees larger
+contains the truth, which holds only approximately for these systems, so only
+the orange curve is a guaranteed bound, and only if its oracle sizes bound the
+true suprema; here they are maxima over $4\times10^{5}$ uniform points, which
+approach the suprema from below. Dashed:
+true defect of the selected generator, by Monte Carlo integration over the
+target measure ($2\times10^{6}$ uniform points; standard errors below
+$2\times10^{-4}$) of the bracket of the true vector field, whose Jacobian is in
+closed form for the pendulum and by central differences (step $10^{-6}$) for
+the radial flow; in \textbf{a} it is small but not zero because
+the selected direction differs slightly from the rotation, whose true defect is
+$0$. Dotted: the tolerance $\delta = 0.05$.}
+\label{sfig:modelerror}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{\figdir figS3_eiv.pdf}
+\caption{\textbf{Noisy states can manufacture or hide symmetry.} States observed with
+independent Gaussian noise of standard deviation $\sigma_x$ (the target box has
+half-width $1$), right-hand side measured separately with noise level $0.02$;
+$200$ replications per point. \textbf{a}, Smallest defect in the affine class
+of the pseudo-true field that least squares estimates (from a reference fit to
+$10^6$ noisy states) for the hardening Duffing oscillator, against its true
+value and the tolerance. \textbf{b}, False-certification rate of \symcert{} at
+three sample sizes (colour and marker) and of the threshold rule (thick grey
+line, identical at every sample size): once the pseudo-true defect falls below
+the tolerance, both certify a false symmetry, the certificate as soon as $N$ is
+large enough for it to be narrow. \textbf{c}, On the symmetric Hopf system
+state noise instead raises the pseudo-true defect of the rotation and, from
+$\sigma_x = 0.08$, destroys detection (solid); the coefficient region (thin
+dotted lines, same colours) misses the true coefficients whenever
+$\sigma_x > 0$.}
+\label{sfig:eiv}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.78\textwidth]{\figdir figS4_tolerance.pdf}
+\caption{\textbf{Sweeping the tolerance.} A smaller grid than the main
+calibration study: three symmetric systems (Hopf normal form, planar rotation,
+symmetric top) and three without symmetry (Van der Pol, Lotka--Volterra,
+asymmetric rigid body), $N = 400$ and $3200$, noise levels $0.03$ and $0.1$,
+$\delta \in \{0.01, 0.02, 0.05, 0.1, 0.2, 0.4\}$, $300$ replications each; it
+omits $N < 400$ and noise level $0.3$, where detection is lower in the main
+study. \textbf{a}, Worst-case false-certification rate.
+\symcert{}'s is zero at every tolerance; the threshold rule matched to the same
+$\delta$ exceeds the nominal level at the tightest tolerance and happens to
+stay below it at the others on this grid (on the full grid of the main
+calibration study its worst case is $0.63$ at every threshold up to $0.1$).
+\textbf{b}, Detection rate on the three symmetric systems: accepting a larger
+approximation makes symmetry easier to certify, from $0.25$ at $\delta=0.01$
+to $1.00$ at $\delta=0.2$.}
+\label{sfig:tolerance}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{\figdir figS5_tightness.pdf}
+\caption{\textbf{How conservative is the certificate, and what does a
+finite-sample guarantee cost?} \textbf{a}, Observed against nominal coverage
+for the certificate interval (blue; all plug-in directions jointly) and the
+coefficient region (grey), one line per setting (three
+systems, $N = 400$, noise levels $0.03$ and $0.1$, $80$ replications each).
+Pooled over the settings, the region's coverage is within $0.02$ of nominal at
+every level; single lines scatter by up to $0.15$, consistent with Monte Carlo
+error (standard error up to $0.056$ per point).
+\textbf{b}, Median excess of the upper bound over the plug-in defect at
+$\alpha = 0.05$, for the sharp certificate $U$ (dark blue), the separate bound
+$U_{\mathrm{sep}}$ of Proposition~2(i) of the main text (light blue) and the
+parametric bootstrap (brown), for the
+rotation generator of the broken-Hopf family at noise level $0.1$ ($200$
+replications), for true defects $0$ (solid), $1.02\delta$ (dashed) and
+$2\delta$ (dotted). \textbf{c}, Coverage of the bootstrap interval
+$[q_\alpha, q_{1-\alpha}]$ (nominal $1-2\alpha$, dotted) as the true defect
+approaches zero ($200$ replications); the certificate's coverage is
+at least $0.93$ throughout. \textbf{d}, False-certification rate at true defect
+$1.02\delta$ for the rotation generator fixed in advance ($300$
+replications); dotted: nominal levels. \textbf{e}, Coverage of the upper bound for
+the generator with the smallest plug-in defect, selected and bounded on the
+same data, on four systems without symmetry, at nominal $0.80$ (left) and
+$0.95$ (right), nominal levels dotted: bootstrap at noise levels $0.5$ (solid,
+filled) and $0.2$ (dashed, open); the certificate's coverage (thick light-blue
+line, lowest over systems and noise levels) is $1$ in every setting; $300$
+replications per point, points offset slightly along $N$.}
+\label{sfig:tightness}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.78\textwidth]{\figdir figS6_invariance.pdf}
+\caption{\textbf{Invariances of a learned model} (Supplementary Note~1).
+Both panels: noise level $0.05$, degree-$6$ polynomial features, $300$
+replications per point. \textbf{a}, With training inputs covering the whole
+square $[-1,1]^2$ on which the defect is defined, both rules eventually recover
+the one-dimensional rotational invariance of the target; certification needs
+about four times more data.
+\textbf{b}, With training inputs confined to the part of that square within a
+$120^\circ$ sector, the fitted
+model is unconstrained elsewhere, and the threshold rule declares invariances
+that the target does not have. Solid lines: rotation-invariant target; dashed:
+target with no invariance. The two are almost indistinguishable, which is the
+point, since the threshold rule fails the same way whether or not there is
+anything to find. \symcert{} declines in both cases.}
+\label{sfig:invariance}
+\end{figure}
+
+\clearpage
+\section*{Supplementary Tables}
+
+\input{\tabdir units}
+\input{\tabdir closure}
+\input{\tabdir trajectory}
+\input{\tabdir qsweep}
+\input{\tabdir selection}
+\input{\tabdir dictionary}
+\input{\tabdir scaling}
+\input{\tabdir drifters}
+\input{\tabdir dependence}

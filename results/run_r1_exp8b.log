@@ -1,0 +1,182 @@
+=== exp8_tightness ===
+  [exp8coverage] 1/6 cells, 23s elapsed
+  [exp8coverage] 2/6 cells, 24s elapsed
+  [exp8coverage] 3/6 cells, 24s elapsed
+  [exp8coverage] 4/6 cells, 24s elapsed
+  [exp8coverage] 5/6 cells, 52s elapsed
+  [exp8coverage] 6/6 cells, 55s elapsed
+  [exp8width] 1/24 cells, 18s elapsed
+  [exp8width] 2/24 cells, 18s elapsed
+  [exp8width] 3/24 cells, 20s elapsed
+  [exp8width] 4/24 cells, 20s elapsed
+  [exp8width] 5/24 cells, 22s elapsed
+  [exp8width] 6/24 cells, 22s elapsed
+  [exp8width] 7/24 cells, 30s elapsed
+  [exp8width] 8/24 cells, 30s elapsed
+  [exp8width] 9/24 cells, 30s elapsed
+  [exp8width] 10/24 cells, 30s elapsed
+  [exp8width] 11/24 cells, 30s elapsed
+  [exp8width] 12/24 cells, 30s elapsed
+  [exp8width] 13/24 cells, 30s elapsed
+  [exp8width] 14/24 cells, 30s elapsed
+  [exp8width] 15/24 cells, 35s elapsed
+  [exp8width] 16/24 cells, 35s elapsed
+  [exp8width] 17/24 cells, 35s elapsed
+  [exp8width] 18/24 cells, 35s elapsed
+  [exp8width] 19/24 cells, 35s elapsed
+  [exp8width] 20/24 cells, 35s elapsed
+  [exp8width] 21/24 cells, 35s elapsed
+  [exp8width] 22/24 cells, 35s elapsed
+  [exp8width] 23/24 cells, 40s elapsed
+  [exp8width] 24/24 cells, 40s elapsed
+  [exp8small] 1/24 cells, 20s elapsed
+  [exp8small] 2/24 cells, 20s elapsed
+  [exp8small] 3/24 cells, 20s elapsed
+  [exp8small] 4/24 cells, 20s elapsed
+  [exp8small] 5/24 cells, 20s elapsed
+  [exp8small] 6/24 cells, 20s elapsed
+  [exp8small] 7/24 cells, 21s elapsed
+  [exp8small] 8/24 cells, 21s elapsed
+  [exp8small] 9/24 cells, 32s elapsed
+  [exp8small] 10/24 cells, 32s elapsed
+  [exp8small] 11/24 cells, 34s elapsed
+  [exp8small] 12/24 cells, 34s elapsed
+  [exp8small] 13/24 cells, 35s elapsed
+  [exp8small] 14/24 cells, 35s elapsed
+  [exp8small] 15/24 cells, 35s elapsed
+  [exp8small] 16/24 cells, 35s elapsed
+  [exp8small] 17/24 cells, 37s elapsed
+  [exp8small] 18/24 cells, 37s elapsed
+  [exp8small] 19/24 cells, 37s elapsed
+  [exp8small] 20/24 cells, 37s elapsed
+  [exp8small] 21/24 cells, 37s elapsed
+  [exp8small] 22/24 cells, 37s elapsed
+  [exp8small] 23/24 cells, 37s elapsed
+  [exp8small] 24/24 cells, 37s elapsed
+  [exp8boundary] 1/24 cells, 10s elapsed
+  [exp8boundary] 2/24 cells, 10s elapsed
+  [exp8boundary] 3/24 cells, 10s elapsed
+  [exp8boundary] 4/24 cells, 11s elapsed
+  [exp8boundary] 5/24 cells, 11s elapsed
+  [exp8boundary] 6/24 cells, 11s elapsed
+  [exp8boundary] 7/24 cells, 16s elapsed
+  [exp8boundary] 8/24 cells, 17s elapsed
+  [exp8boundary] 9/24 cells, 24s elapsed
+  [exp8boundary] 10/24 cells, 47s elapsed
+  [exp8boundary] 11/24 cells, 47s elapsed
+  [exp8boundary] 12/24 cells, 47s elapsed
+  [exp8boundary] 13/24 cells, 47s elapsed
+  [exp8boundary] 14/24 cells, 47s elapsed
+  [exp8boundary] 15/24 cells, 47s elapsed
+  [exp8boundary] 16/24 cells, 47s elapsed
+  [exp8boundary] 17/24 cells, 47s elapsed
+  [exp8boundary] 18/24 cells, 47s elapsed
+  [exp8boundary] 19/24 cells, 47s elapsed
+  [exp8boundary] 20/24 cells, 47s elapsed
+  [exp8boundary] 21/24 cells, 47s elapsed
+  [exp8boundary] 22/24 cells, 60s elapsed
+  [exp8boundary] 23/24 cells, 60s elapsed
+  [exp8boundary] 24/24 cells, 66s elapsed
+  [exp8selected] 3/64 cells, 8s elapsed
+  [exp8selected] 6/64 cells, 10s elapsed
+  [exp8selected] 9/64 cells, 10s elapsed
+  [exp8selected] 12/64 cells, 10s elapsed
+  [exp8selected] 15/64 cells, 12s elapsed
+  [exp8selected] 18/64 cells, 12s elapsed
+  [exp8selected] 21/64 cells, 14s elapsed
+  [exp8selected] 24/64 cells, 16s elapsed
+  [exp8selected] 27/64 cells, 16s elapsed
+  [exp8selected] 30/64 cells, 18s elapsed
+  [exp8selected] 33/64 cells, 19s elapsed
+  [exp8selected] 36/64 cells, 19s elapsed
+  [exp8selected] 39/64 cells, 21s elapsed
+  [exp8selected] 42/64 cells, 21s elapsed
+  [exp8selected] 45/64 cells, 22s elapsed
+  [exp8selected] 48/64 cells, 23s elapsed
+  [exp8selected] 51/64 cells, 25s elapsed
+  [exp8selected] 54/64 cells, 26s elapsed
+  [exp8selected] 57/64 cells, 28s elapsed
+  [exp8selected] 60/64 cells, 29s elapsed
+  [exp8selected] 63/64 cells, 30s elapsed
+wrote /Volumes/Crucial X6/MacBook/Code/ml_papers/honest_symmetry_discovery/results/exp8_tightness.json
+exp8 (all) wall 230s
+=== exp8_tightness: 480 CPU-s, 231 wall-s ===
+{
+ "exp1_calibration": {
+  "cpu_seconds": 1467.0,
+  "wall_seconds": 1041.0
+ },
+ "exp2_coverage": {
+  "cpu_seconds": 88.0,
+  "wall_seconds": 124.0
+ },
+ "exp3_modelclass": {
+  "cpu_seconds": 775.0,
+  "wall_seconds": 1401.0
+ },
+ "exp4_resolution": {
+  "cpu_seconds": 884.0,
+  "wall_seconds": 674.0
+ },
+ "exp5_robustness": {
+  "cpu_seconds": 708.973336,
+  "wall_seconds": 825.3997497558594
+ },
+ "exp6_dimension": {
+  "cpu_seconds": 275.775937,
+  "wall_seconds": 311.32369804382324
+ },
+ "exp7_invariance": {
+  "cpu_seconds": 2153.0950780000003,
+  "wall_seconds": 2047.0967779159546
+ },
+ "total_cpu_hours": 3.613339993888889,
+ "exp9_modelerror": {
+  "cpu_seconds": 36.202689,
+  "wall_seconds": 191.50429916381836
+ },
+ "exp10_noise": {
+  "cpu_seconds": 42.41139000000001,
+  "wall_seconds": 37.64980506896973
+ },
+ "exp13_tolerance": {
+  "cpu_seconds": 201.16400799999997,
+  "wall_seconds": 147.41551899909973
+ },
+ "exp11_scaling": {
+  "cpu_seconds": 251.050481,
+  "wall_seconds": 242.33485507965088
+ },
+ "exp19_drifters": {
+  "cpu_seconds": 745.654738,
+  "wall_seconds": 3259.2309696674347
+ },
+ "exp14_selection": {
+  "cpu_seconds": 3144.6878739999997,
+  "wall_seconds": 3216.559918165207
+ },
+ "exp8_tightness": {
+  "cpu_seconds": 480.07483899999994,
+  "wall_seconds": 231.3488781452179
+ },
+ "exp12_realdata": {
+  "cpu_seconds": 0.030468999999982316,
+  "wall_seconds": 0.03379416465759277
+ },
+ "exp15_dependence": {
+  "cpu_seconds": 1290.449455,
+  "wall_seconds": 1184.4339740276337
+ },
+ "exp16_dictionary": {
+  "cpu_seconds": 98.82470499999908,
+  "wall_seconds": 78.9636549949646
+ },
+ "exp17_units_closure": {
+  "cpu_seconds": 93.096795,
+  "wall_seconds": 80.41382193565369
+ },
+ "exp18_eiv": {
+  "cpu_seconds": 272.5321839999997,
+  "wall_seconds": 272.798446893692
+ }
+}

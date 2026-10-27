@@ -1,5 +1,6 @@
-\begin{table}[t]
+\begin{table}[!htbp]
 \centering\small
+\begin{adjustbox}{max width=\textwidth, max totalheight=0.9\textheight}
 \begin{tabular}{llrrrrr}
 \toprule
 system & design & points & $\sqrt{\kappa\kappa'}$ & true dim.\ & nullspace dim.\ & \symcert{} dim.\ \\
@@ -15,9 +16,7 @@ Lorenz & 8 trajectories & 3200 & 84.4 & 0 & 0 & 0 \\
 Lorenz & uniform design & 3000 & 1.1 & 0 & 0 & 0 \\
 \bottomrule
 \end{tabular}
-\caption{Trajectory data. A single trajectory that settles onto an attractor
-gives an infinite or large extrapolation factor: the data lie in, or near, the
-zero set of a possible bracket, so a defect measured on them says little about
-the target domain. \symcert{} declines to certify exactly there.}
-\label{tab:trajectory}
+\end{adjustbox}
+\caption{\textbf{Trajectory data and the extrapolation factor.} One realisation per row. Target measure uniform on $[-3,3]^2$ (Van der Pol, degree-3 class), $[-1.5,1.5]^2$ (Hopf, degree 3) and $[-20,20]^3$ (Lorenz, degree 2); right-hand side measured with noise level $0.02$, states exact. The single trajectory starts at $0.7$ times the half-width in every coordinate ($(1,1,20)$ for Lorenz) and is sampled at $4000$ times over $[0,60]$ ($[0,40]$ for Lorenz), the first $1000$ discarded as transient; the eight trajectories start uniformly in the box and are sampled at $400$ times over $[0,8]$; the uniform design has $3000$ points drawn from the target measure. The single Hopf trajectory converges onto the unit circle, an algebraic curve of low degree, so every field divisible by $x^2 + y^2 - 1$ in the space that contains every bracket vanishes on the data to within the eigenvalue threshold, and the factor is reported as infinite; on the Van der Pol limit cycle and the Lorenz attractor the data lie only near the zero sets of other nonzero fields of that space, and the factor is finite but large. Either way a defect measured on them says little about the target domain. The nullspace rule happens to give the right dimension on every row here, but on the single Hopf trajectory it does so without support from the data; \symcert{} declines to certify exactly there.}
+\label{stab:trajectory}
 \end{table}

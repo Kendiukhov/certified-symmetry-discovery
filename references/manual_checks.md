@@ -25,6 +25,8 @@ page range and year in `paper/refs.bib` were taken from the DOI record itself.
 | `berk2013valid` | Crossref DOI 10.1214/12-AOS1077, Ann. Statist. 41(2):802--837 |
 | `meinshausen2009pvalues` | Crossref DOI 10.1198/jasa.2009.tm08647, JASA 104(488):1671--1681 |
 | `robin2000tests` | Crossref DOI 10.1017/S0266466600162012, Econometric Theory 16(2):151--175 |
+| `carroll2006measurement` | Crossref DOI 10.1201/9781420010138 (Chapman and Hall/CRC, 2nd ed., 2006; four authors match) |
+| `elipot2022hourly` | DataCite DOI 10.25921/x46c-3620 (NOAA NCEI dataset, 2022; five creators match); "Version v2.01" in the ERDDAP `history` attribute of `drifter_hourly_qc` |
 
 Two entries were corrected as a result of this process: the page range of
 `cahill2023liepca` (279--295, not 236--253) and the venue of

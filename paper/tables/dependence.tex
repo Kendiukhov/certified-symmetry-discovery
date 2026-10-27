@@ -1,0 +1,40 @@
+\begin{table}[!htbp]
+\centering\footnotesize
+\begin{adjustbox}{max width=\textwidth, max totalheight=0.9\textheight}
+\begin{tabular}{lrrrrrrrrrr}
+\toprule
+system & $\phi$ & trajectories & \multicolumn{4}{c}{region coverage} & \multicolumn{4}{c}{certificate coverage} \\
+\cmidrule(lr){4-7}\cmidrule(lr){8-11}
+ & & & OLS & White & cluster & N--W & OLS & White & cluster & N--W \\
+\midrule
+Hopf ($Q = 20$) & 0 & 12 & 0.980 & 0.955 & --- & 0.915 & 1.000 & 1.000 & --- & 1.000 \\
+ & 0 & 48 & 0.960 & 0.955 & 0.900 & 0.965 & 1.000 & 1.000 & 1.000 & 1.000 \\
+ & 0 & 192 & 0.940 & 0.940 & 0.930 & 0.940 & 1.000 & 1.000 & 1.000 & 1.000 \\
+ & 0.5 & 12 & 0.065 & 0.050 & --- & 0.460 & 0.975 & 0.960 & --- & 1.000 \\
+ & 0.5 & 48 & 0.035 & 0.030 & 0.915 & 0.810 & 0.975 & 0.970 & 1.000 & 1.000 \\
+ & 0.5 & 192 & 0.040 & 0.040 & 0.940 & 0.795 & 0.990 & 0.990 & 1.000 & 1.000 \\
+ & 0.9 & 12 & 0.000 & 0.000 & --- & 0.015 & 0.190 & 0.140 & --- & 0.980 \\
+ & 0.9 & 48 & 0.000 & 0.000 & 0.895 & 0.330 & 0.145 & 0.135 & 1.000 & 0.995 \\
+ & 0.9 & 192 & 0.000 & 0.000 & 0.910 & 0.505 & 0.155 & 0.150 & 1.000 & 1.000 \\
+ & 0.98 & 12 & 0.000 & 0.000 & --- & 0.000 & 0.020 & 0.010 & --- & 0.795 \\
+ & 0.98 & 48 & 0.000 & 0.000 & 0.870 & 0.130 & 0.025 & 0.010 & 1.000 & 0.990 \\
+ & 0.98 & 192 & 0.000 & 0.000 & 0.950 & 0.470 & 0.010 & 0.010 & 1.000 & 1.000 \\
+\addlinespace
+asymmetric rigid body ($Q = 30$) & 0 & 12 & 0.940 & 0.885 & --- & 0.865 & 1.000 & 1.000 & --- & 1.000 \\
+ & 0 & 48 & 0.930 & 0.925 & 0.790 & 0.920 & 1.000 & 1.000 & 1.000 & 1.000 \\
+ & 0 & 192 & 0.945 & 0.940 & 0.915 & 0.930 & 1.000 & 1.000 & 1.000 & 1.000 \\
+ & 0.5 & 12 & 0.025 & 0.015 & --- & 0.305 & 1.000 & 0.995 & --- & 1.000 \\
+ & 0.5 & 48 & 0.005 & 0.005 & 0.810 & 0.630 & 0.995 & 0.995 & 1.000 & 1.000 \\
+ & 0.5 & 192 & 0.000 & 0.000 & 0.905 & 0.745 & 0.995 & 0.995 & 1.000 & 1.000 \\
+ & 0.9 & 12 & 0.000 & 0.000 & --- & 0.005 & 0.265 & 0.220 & --- & 1.000 \\
+ & 0.9 & 48 & 0.000 & 0.000 & 0.730 & 0.110 & 0.235 & 0.220 & 1.000 & 1.000 \\
+ & 0.9 & 192 & 0.000 & 0.000 & 0.915 & 0.400 & 0.240 & 0.225 & 1.000 & 1.000 \\
+ & 0.98 & 12 & 0.000 & 0.000 & --- & 0.000 & 0.015 & 0.010 & --- & 0.910 \\
+ & 0.98 & 48 & 0.000 & 0.000 & 0.785 & 0.010 & 0.015 & 0.015 & 1.000 & 1.000 \\
+ & 0.98 & 192 & 0.000 & 0.000 & 0.910 & 0.135 & 0.015 & 0.010 & 1.000 & 1.000 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption{\textbf{Serially correlated errors along trajectories.} Errors on the right-hand side follow a stationary AR(1) process with coefficient $\phi$ along each trajectory, with exact states and noise level 0.05; each trajectory starts from a uniform initial condition in the box and runs for 100 steps of 0.01, only its part inside the box is kept, and the process restarts in each contiguous part. Regions: OLS (exact under independence), White, cluster-robust over trajectories (jackknife form) and Newey--West (N--W) within trajectories; nominal coverage $0.95$, 200 replications per row. Region coverage is the fraction of replications in which the coefficient region contains the true coefficients; certificate coverage the fraction in which the interval contains the true defect of every plug-in direction. ``---'': with fewer trajectories than coefficients the cluster-robust region is not identified and certifies nothing. No region gave a false certification in any setting.}
+\label{stab:dependence}
+\end{table}

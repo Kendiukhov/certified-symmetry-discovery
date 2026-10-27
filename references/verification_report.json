@@ -28,19 +28,7 @@
    "id": "http://arxiv.org/abs/2311.00212v3"
   },
   "dblp": {
-   "found": true,
-   "score": 0.994,
-   "title": "A Unified Framework to Enforce, Discover, and Promote Symmetry in Machine Learning.",
-   "authors": [
-    "Samuel E. Otto",
-    "Nicholas Zolman",
-    "J. Nathan Kutz",
-    "Steven L. Brunton"
-   ],
-   "year": "2023",
-   "venue": "CoRR",
-   "doi": "10.48550/ARXIV.2311.00212",
-   "type": "Informal and Other Publications"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -73,18 +61,7 @@
    "id": "http://arxiv.org/abs/2008.04278v2"
   },
   "dblp": {
-   "found": true,
-   "score": 0.99,
-   "title": "Lie PCA: Density estimation for symmetric manifolds.",
-   "authors": [
-    "Jameson Cahill",
-    "Dustin G. Mixon",
-    "Hans Parshall"
-   ],
-   "year": "2020",
-   "venue": "CoRR",
-   "doi": null,
-   "type": "Informal and Other Publications"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -119,19 +96,7 @@
    "id": "http://arxiv.org/abs/2210.04345v3"
   },
   "dblp": {
-   "found": true,
-   "score": 0.989,
-   "title": "LieGG: Studying Learned Lie Group Generators.",
-   "authors": [
-    "Artem Moskalev",
-    "Anna Sepliarskaia",
-    "Ivan Sosnovik",
-    "Arnold W. M. Smeulders"
-   ],
-   "year": "2022",
-   "venue": "NeurIPS",
-   "doi": null,
-   "type": "Conference and Workshop Papers"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -165,7 +130,7 @@
    "id": "http://arxiv.org/abs/2210.02984v2"
   },
   "dblp": {
-   "error": "HTTP Error 429: Too Many Requests"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -198,7 +163,7 @@
    "id": "http://arxiv.org/abs/1811.00961v1"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -231,7 +196,7 @@
    "id": "http://arxiv.org/abs/2112.04307v1"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 0.915
  },
@@ -244,7 +209,7 @@
    "authors": [],
    "year": 2023,
    "venue": "",
-   "doi": "10.1039/d3dd00137g/v1/review3",
+   "doi": "10.1039/d3dd00137g/v2/review2",
    "type": "peer-review"
   },
   "arxiv": {
@@ -261,7 +226,7 @@
    "id": "http://arxiv.org/abs/2302.00236v4"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -269,18 +234,17 @@
   "title_claimed": "Latent Space Symmetry Discovery",
   "crossref": {
    "found": true,
-   "score": 0.568,
-   "title": "Leveraging latent space models for enzyme discovery and sampling",
+   "score": 0.433,
+   "title": "Latent space climber: progressive latent space exploration for desirable sample discovery",
    "authors": [
-    "Chang-Hwa Chiang",
-    "Daniel Ong",
-    "Alison R. H. Narayan",
-    "Charles L. Brooks"
+    "Hongyang Wang",
+    "Zhangnan Wang",
+    "Jie Li"
    ],
    "year": 2026,
-   "venue": "",
-   "doi": "10.26434/chemrxiv.15003868/v1",
-   "type": "posted-content"
+   "venue": "Frontiers of Computer Science",
+   "doi": "10.1007/s11704-026-51649-0",
+   "type": "journal-article"
   },
   "arxiv": {
    "found": true,
@@ -296,7 +260,7 @@
    "id": "http://arxiv.org/abs/2310.00105v3"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -333,7 +297,7 @@
    "id": "http://arxiv.org/abs/2405.16756v2"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -366,7 +330,7 @@
    "id": "http://arxiv.org/abs/2112.05722v2"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -374,15 +338,15 @@
   "title_claimed": "Automatic Symmetry Discovery with Lie Algebra Convolutional Network",
   "crossref": {
    "found": true,
-   "score": 0.508,
-   "title": "Algebraic Inverses on Lie Algebra Comultiplications",
+   "score": 0.452,
+   "title": "Lie Group Algebra Convolutional Filters_supp1-3365950.pdf",
    "authors": [
-    "Dae-Woong Lee"
+    "Harshat Kumar"
    ],
-   "year": 2020,
-   "venue": "Symmetry",
-   "doi": "10.3390/sym12040565",
-   "type": "journal-article"
+   "year": null,
+   "venue": "",
+   "doi": "10.1109/tsp.2024.3365950/mm1",
+   "type": "component"
   },
   "arxiv": {
    "found": true,
@@ -399,7 +363,7 @@
    "id": "http://arxiv.org/abs/2109.07103v2"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -430,123 +394,7 @@
    "id": "http://arxiv.org/abs/2109.09721v2"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
-  },
-  "best_score": 1.0
- },
- "forestano2023deep": {
-  "title_claimed": "Deep learning symmetries and their Lie groups, algebras, and subalgebras from first principles",
-  "crossref": {
-   "found": true,
-   "score": 1.0,
-   "title": "Deep learning symmetries and their Lie groups, algebras, and subalgebras from first principles",
-   "authors": [
-    "Roy T Forestano",
-    "Konstantin T Matchev",
-    "Katia Matcheva",
-    "Alexander Roman",
-    "Eyup B Unlu",
-    "Sarunas Verner"
-   ],
-   "year": 2023,
-   "venue": "Machine Learning: Science and Technology",
-   "doi": "10.1088/2632-2153/acd989",
-   "type": "journal-article"
-  },
-  "arxiv": {
-   "found": true,
-   "score": 1.0,
-   "title": "Deep Learning Symmetries and Their Lie Groups, Algebras, and Subalgebras from First Principles",
-   "authors": [
-    "Roy T. Forestano",
-    "Konstantin T. Matchev",
-    "Katia Matcheva",
-    "Alexander Roman",
-    "Eyup Unlu",
-    "Sarunas Verner"
-   ],
-   "year": "2023",
-   "id": "http://arxiv.org/abs/2301.05638v1"
-  },
-  "dblp": {
-   "error": "Remote end closed connection without response"
-  },
-  "best_score": 1.0
- },
- "krippendorf2020detecting": {
-  "title_claimed": "Detecting symmetries with neural networks",
-  "crossref": {
-   "found": true,
-   "score": 1.0,
-   "title": "Detecting symmetries with neural networks",
-   "authors": [
-    "Sven Krippendorf",
-    "Marc Syvaeri"
-   ],
-   "year": 2020,
-   "venue": "Machine Learning: Science and Technology",
-   "doi": "10.1088/2632-2153/abbd2d",
-   "type": "journal-article"
-  },
-  "arxiv": {
-   "found": true,
-   "score": 1.0,
-   "title": "Detecting Symmetries with Neural Networks",
-   "authors": [
-    "Sven Krippendorf",
-    "Marc Syvaeri"
-   ],
-   "year": "2020",
-   "id": "http://arxiv.org/abs/2003.13679v1"
-  },
-  "dblp": {
-   "error": "Remote end closed connection without response"
-  },
-  "best_score": 1.0
- },
- "rao1999learning": {
-  "title_claimed": "Learning Lie Groups for Invariant Visual Perception",
-  "crossref": {
-   "found": true,
-   "score": 0.552,
-   "title": "Lie Groups with Bi-invariant Metrics",
-   "authors": [
-    "Marcos M. Alexandrino",
-    "Renato G. Bettiol"
-   ],
-   "year": 2015,
-   "venue": "Lie Groups and Geometric Aspects of Isometric Actions",
-   "doi": "10.1007/978-3-319-16613-1_2",
-   "type": "book-chapter"
-  },
-  "arxiv": {
-   "found": false
-  },
-  "dblp": {
-   "error": "Remote end closed connection without response"
-  },
-  "best_score": 0.552
- },
- "miao2007learning": {
-  "title_claimed": "Learning the Lie Groups of Visual Invariance",
-  "crossref": {
-   "found": true,
-   "score": 1.0,
-   "title": "Learning the Lie Groups of Visual Invariance",
-   "authors": [
-    "Xu Miao",
-    "Rajesh P. N. Rao"
-   ],
-   "year": 2007,
-   "venue": "Neural Computation",
-   "doi": "10.1162/neco.2007.19.10.2665",
-   "type": "journal-article"
-  },
-  "arxiv": {
-   "found": false
-  },
-  "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -554,16 +402,18 @@
   "title_claimed": "Group Equivariant Convolutional Networks",
   "crossref": {
    "found": true,
-   "score": 0.584,
-   "title": "Symmetry-Preserving Pruning of Group Equivariant Convolutional Networks via Representation Theory",
+   "score": 0.769,
+   "title": "Group Equivariant Convolutional Networks for Pathloss Estimation",
    "authors": [
-    "Mohammed Alnemari",
-    "Osamah M. Al-Omair"
+    "Ziyue Yang",
+    "Feng Liu",
+    "Yifei Jin",
+    "Konstantinos Vandikas"
    ],
-   "year": 2026,
-   "venue": "Symmetry",
-   "doi": "10.3390/sym18060983",
-   "type": "journal-article"
+   "year": 2025,
+   "venue": "2025 4th International Conference on 6G Networking (6GNet)",
+   "doi": "10.1109/6gnet68413.2025.11314083",
+   "type": "proceedings-article"
   },
   "arxiv": {
    "found": true,
@@ -577,38 +427,7 @@
    "id": "http://arxiv.org/abs/1602.07576v3"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
-  },
-  "best_score": 1.0
- },
- "kondor2018generalization": {
-  "title_claimed": "On the Generalization of Equivariance and Convolution in Neural Networks to the Action of Compact Groups",
-  "crossref": {
-   "found": true,
-   "score": 0.585,
-   "title": "Group Action Equivariance and Generalized Convolution in Multi-layer Neural Networks",
-   "authors": [
-    "Pan Zhong",
-    "Zhengdao Wang"
-   ],
-   "year": 2019,
-   "venue": "ICASSP 2019 - 2019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
-   "doi": "10.1109/icassp.2019.8683278",
-   "type": "proceedings-article"
-  },
-  "arxiv": {
-   "found": true,
-   "score": 1.0,
-   "title": "On the Generalization of Equivariance and Convolution in Neural Networks to the Action of Compact Groups",
-   "authors": [
-    "Risi Kondor",
-    "Shubhendu Trivedi"
-   ],
-   "year": "2018",
-   "id": "http://arxiv.org/abs/1802.03690v3"
-  },
-  "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -640,7 +459,7 @@
    "id": "http://arxiv.org/abs/2104.09459v1"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -675,7 +494,7 @@
    "id": "http://arxiv.org/abs/2104.13478v2"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -683,47 +502,23 @@
   "title_claimed": "Learning Invariances in Neural Networks from Training Data",
   "crossref": {
    "found": true,
-   "score": 0.598,
-   "title": "Efficient Partition of Learning Data Sets for Neural Network Training",
+   "score": 0.549,
+   "title": "Learning Invariances for High-Dimensional Data Analysis",
    "authors": [
-    "Igor V. Tetko",
-    "Alessandro E.P. Villa"
+    "Mahsa Baktashmotlagh"
    ],
-   "year": 1997,
-   "venue": "Neural Networks",
-   "doi": "10.1016/s0893-6080(97)00005-1",
-   "type": "journal-article"
+   "year": null,
+   "venue": "",
+   "doi": "10.14264/uql.2014.183",
+   "type": "dissertation"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": false
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
-  "best_score": 0.598
- },
- "vanderwilk2018learning": {
-  "title_claimed": "Learning Invariances using the Marginal Likelihood",
-  "crossref": {
-   "found": true,
-   "score": 0.537,
-   "title": "Learning invariances via correlation and marginal alignments for out-of-distribution generalization",
-   "authors": [
-    "Zong Guo",
-    "Bingpeng Ma"
-   ],
-   "year": 2026,
-   "venue": "Neurocomputing",
-   "doi": "10.1016/j.neucom.2026.132876",
-   "type": "journal-article"
-  },
-  "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
-  },
-  "dblp": {
-   "error": "Remote end closed connection without response"
-  },
-  "best_score": 0.537
+  "best_score": 0.549
  },
  "immer2022invariance": {
   "title_claimed": "Invariance Learning in Deep Neural Networks with Differentiable Laplace Approximations",
@@ -744,10 +539,21 @@
    "type": "proceedings-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": true,
+   "score": 1.0,
+   "title": "Invariance Learning in Deep Neural Networks with Differentiable Laplace Approximations",
+   "authors": [
+    "Alexander Immer",
+    "Tycho F. A. van der Ouderaa",
+    "Gunnar R\u00e4tsch",
+    "Vincent Fortuin",
+    "Mark van der Wilk"
+   ],
+   "year": "2022",
+   "id": "http://arxiv.org/abs/2202.10638v3"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -768,12 +574,21 @@
    "type": "proceedings-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": true,
+   "score": 1.0,
+   "title": "Approximately Equivariant Networks for Imperfectly Symmetric Dynamics",
+   "authors": [
+    "Rui Wang",
+    "Robin Walters",
+    "Rose Yu"
+   ],
+   "year": "2022",
+   "id": "http://arxiv.org/abs/2201.11969v4"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
-  "best_score": 0.624
+  "best_score": 1.0
  },
  "romero2022learning": {
   "title_claimed": "Learning Partial Equivariances from Data",
@@ -791,10 +606,18 @@
    "type": "proceedings-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": true,
+   "score": 1.0,
+   "title": "Learning Partial Equivariances from Data",
+   "authors": [
+    "David W. Romero",
+    "Suhas Lohit"
+   ],
+   "year": "2021",
+   "id": "http://arxiv.org/abs/2110.10211v3"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -813,12 +636,21 @@
    "type": "peer-review"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": true,
+   "score": 1.0,
+   "title": "Lie Point Symmetry Data Augmentation for Neural PDE Solvers",
+   "authors": [
+    "Johannes Brandstetter",
+    "Max Welling",
+    "Daniel E. Worrall"
+   ],
+   "year": "2022",
+   "id": "http://arxiv.org/abs/2202.07643v2"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
-  "best_score": 0.738
+  "best_score": 1.0
  },
  "akhound2023lie": {
   "title_claimed": "Lie Point Symmetry and Physics-Informed Networks",
@@ -839,10 +671,21 @@
    "type": "proceedings-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": true,
+   "score": 1.0,
+   "title": "Lie Point Symmetry and Physics Informed Networks",
+   "authors": [
+    "Tara Akhound-Sadegh",
+    "Laurence Perreault-Levasseur",
+    "Johannes Brandstetter",
+    "Max Welling",
+    "Siamak Ravanbakhsh"
+   ],
+   "year": "2023",
+   "id": "http://arxiv.org/abs/2311.04293v1"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -863,10 +706,10 @@
    "type": "journal-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": false
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -887,10 +730,10 @@
    "type": "journal-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": false
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -910,10 +753,18 @@
    "type": "journal-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": true,
+   "score": 1.0,
+   "title": "Weak SINDy: Galerkin-Based Data-Driven Model Selection",
+   "authors": [
+    "Daniel A. Messenger",
+    "David M. Bortz"
+   ],
+   "year": "2020",
+   "id": "http://arxiv.org/abs/2005.04339v3"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -933,36 +784,18 @@
    "type": "journal-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
-  },
-  "dblp": {
-   "error": "Remote end closed connection without response"
-  },
-  "best_score": 1.0
- },
- "champion2020unified": {
-  "title_claimed": "A Unified Sparse Optimization Framework to Learn Parsimonious Physics-Informed Models From Data",
-  "crossref": {
    "found": true,
    "score": 1.0,
-   "title": "A Unified Sparse Optimization Framework to Learn Parsimonious Physics-Informed Models From Data",
+   "title": "On the Convergence of the SINDy Algorithm",
    "authors": [
-    "Kathleen Champion",
-    "Peng Zheng",
-    "Aleksandr Y. Aravkin",
-    "Steven L. Brunton",
-    "J. Nathan Kutz"
+    "Linan Zhang",
+    "Hayden Schaeffer"
    ],
-   "year": 2020,
-   "venue": "IEEE Access",
-   "doi": "10.1109/access.2020.3023625",
-   "type": "journal-article"
-  },
-  "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "year": "2018",
+   "id": "http://arxiv.org/abs/1805.06445v1"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -984,10 +817,20 @@
    "type": "journal-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": true,
+   "score": 1.0,
+   "title": "Ensemble-SINDy: Robust sparse model discovery in the low-data, high-noise limit, with active learning and control",
+   "authors": [
+    "Urban Fasel",
+    "J. Nathan Kutz",
+    "Bingni W. Brunton",
+    "Steven L. Brunton"
+   ],
+   "year": "2021",
+   "id": "http://arxiv.org/abs/2111.10992v1"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -1013,10 +856,24 @@
    "type": "journal-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": true,
+   "score": 1.0,
+   "title": "PySINDy: A comprehensive Python package for robust sparse system identification",
+   "authors": [
+    "Alan A. Kaptanoglu",
+    "Brian M. de Silva",
+    "Urban Fasel",
+    "Kadierdan Kaheman",
+    "Andy J. Goldschmidt",
+    "Jared L. Callaham",
+    "Charles B. Delahunt",
+    "Zachary G. Nicolaou"
+   ],
+   "year": "2021",
+   "id": "http://arxiv.org/abs/2111.08481v2"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -1035,10 +892,10 @@
    "type": "book-chapter"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": false
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 0.71
  },
@@ -1051,16 +908,16 @@
    "authors": [
     "John M. Lee"
    ],
-   "year": 2003,
+   "year": 2013,
    "venue": "Graduate Texts in Mathematics",
-   "doi": "10.1007/978-0-387-21752-9_1",
+   "doi": "10.1007/978-1-4419-9982-5_1",
    "type": "book-chapter"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": false
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 0.667
  },
@@ -1077,12 +934,19 @@
    "type": "book-chapter"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": true,
+   "score": 0.667,
+   "title": "A Journey into Matrix Analysis",
+   "authors": [
+    "Jean-Christophe Bourin"
+   ],
+   "year": "2023",
+   "id": "http://arxiv.org/abs/2307.03064v1"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
-  "best_score": 0.588
+  "best_score": 0.667
  },
  "davis1970rotation": {
   "title_claimed": "The Rotation of Eigenvectors by a Perturbation. III",
@@ -1100,10 +964,10 @@
    "type": "journal-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": false
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -1124,32 +988,19 @@
    "type": "journal-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
-  },
-  "dblp": {
-   "error": "Remote end closed connection without response"
-  },
-  "best_score": 0.992
- },
- "tropp2012user": {
-  "title_claimed": "User-Friendly Tail Bounds for Sums of Random Matrices",
-  "crossref": {
    "found": true,
    "score": 1.0,
-   "title": "User-Friendly Tail Bounds for Sums of Random Matrices",
+   "title": "A useful variant of the Davis--Kahan theorem for statisticians",
    "authors": [
-    "Joel A. Tropp"
+    "Yi Yu",
+    "Tengyao Wang",
+    "Richard J. Samworth"
    ],
-   "year": 2011,
-   "venue": "Foundations of Computational Mathematics",
-   "doi": "10.1007/s10208-011-9099-z",
-   "type": "journal-article"
-  },
-  "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "year": "2014",
+   "id": "http://arxiv.org/abs/1405.0680v1"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -1168,12 +1019,20 @@
    "type": "journal-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": true,
+   "score": 0.703,
+   "title": "A symplectic perspective on constrained eigenvalue problems",
+   "authors": [
+    "Graham Cox",
+    "Jeremy L. Marzuola"
+   ],
+   "year": "2017",
+   "id": "http://arxiv.org/abs/1709.06906v1"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
-  "best_score": 0.557
+  "best_score": 0.703
  },
  "more1983computing": {
   "title_claimed": "Computing a Trust Region Step",
@@ -1191,10 +1050,10 @@
    "type": "journal-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": false
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -1211,36 +1070,46 @@
    "type": "book-chapter"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": true,
+   "score": 0.645,
+   "title": "Trust-Region Methods for Sparse Relaxation",
+   "authors": [
+    "Lasith Adhikari",
+    "Jennifer B. Erway",
+    "Shelby Lockhart",
+    "Roummel F. Marcia"
+   ],
+   "year": "2016",
+   "id": "http://arxiv.org/abs/1602.08813v1"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
-  "best_score": 0.56
+  "best_score": 0.645
  },
  "boucheron2013concentration": {
   "title_claimed": "Concentration Inequalities: A Nonasymptotic Theory of Independence",
   "crossref": {
    "found": true,
-   "score": 0.438,
-   "title": "Basic Information Inequalities",
+   "score": 0.565,
+   "title": "Concentration Inequalities",
    "authors": [
     "St\u00e9phane Boucheron",
     "G\u00e1bor Lugosi",
     "Pascal Massart"
    ],
    "year": 2013,
-   "venue": "Concentration Inequalities",
-   "doi": "10.1093/acprof:oso/9780199535255.003.0004",
-   "type": "book-chapter"
+   "venue": "",
+   "doi": "10.1093/acprof:oso/9780199535255.001.0001",
+   "type": "monograph"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": false
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
-  "best_score": 0.438
+  "best_score": 0.565
  },
  "borell1975brunn": {
   "title_claimed": "The Brunn--Minkowski inequality in Gauss space",
@@ -1257,10 +1126,18 @@
    "type": "journal-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": true,
+   "score": 0.874,
+   "title": "The dimensional Brunn-Minkowski inequality in Gauss space",
+   "authors": [
+    "Alexandros Eskenazis",
+    "Georgios Moschidis"
+   ],
+   "year": "2020",
+   "id": "http://arxiv.org/abs/2004.07146v2"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 0.989
  },
@@ -1281,10 +1158,10 @@
    "type": "book-chapter"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": false
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -1303,10 +1180,10 @@
    "type": "book-chapter"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": false
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 0.688
  },
@@ -1325,10 +1202,10 @@
    "type": "journal-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": false
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -1348,10 +1225,10 @@
    "type": "journal-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": false
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -1370,34 +1247,12 @@
    "type": "book"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": false
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
- },
- "maurer2009empirical": {
-  "title_claimed": "Empirical Bernstein Bounds and Sample Variance Penalization",
-  "crossref": {
-   "found": true,
-   "score": 0.434,
-   "title": "Jackknife empirical likelihood for variance of two sample compound Poisson processes",
-   "authors": [
-    "Conghua Cheng"
-   ],
-   "year": 2023,
-   "venue": "",
-   "doi": "10.21203/rs.3.rs-3356839/v1",
-   "type": "posted-content"
-  },
-  "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
-  },
-  "dblp": {
-   "error": "Remote end closed connection without response"
-  },
-  "best_score": 0.434
  },
  "berk2013valid": {
   "title_claimed": "Valid post-selection inference",
@@ -1415,12 +1270,23 @@
    "type": "dataset"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": true,
+   "score": 1.0,
+   "title": "Valid post-selection inference",
+   "authors": [
+    "Richard Berk",
+    "Lawrence Brown",
+    "Andreas Buja",
+    "Kai Zhang",
+    "Linda Zhao"
+   ],
+   "year": "2013",
+   "id": "http://arxiv.org/abs/1306.1059v1"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
-  "best_score": 0.659
+  "best_score": 1.0
  },
  "lee2016exact": {
   "title_claimed": "Exact post-selection inference, with application to the lasso",
@@ -1440,10 +1306,20 @@
    "type": "journal-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": true,
+   "score": 1.0,
+   "title": "Exact post-selection inference, with application to the lasso",
+   "authors": [
+    "Jason D. Lee",
+    "Dennis L. Sun",
+    "Yuekai Sun",
+    "Jonathan E. Taylor"
+   ],
+   "year": "2013",
+   "id": "http://arxiv.org/abs/1311.6238v8"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -1462,12 +1338,21 @@
    "type": "dissertation"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": true,
+   "score": 1.0,
+   "title": "P-values for high-dimensional regression",
+   "authors": [
+    "Nicolai Meinshausen",
+    "Lukas Meier",
+    "Peter B\u00fchlmann"
+   ],
+   "year": "2008",
+   "id": "http://arxiv.org/abs/0811.2177v3"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
-  "best_score": 0.759
+  "best_score": 1.0
  },
  "chernozhukov2018double": {
   "title_claimed": "Double/debiased machine learning for treatment and structural parameters",
@@ -1490,10 +1375,10 @@
    "type": "report"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": false
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -1506,14 +1391,24 @@
    "authors": [],
    "year": 2020,
    "venue": "",
-   "doi": "10.47004/wp.cem.2020.4320",
+   "doi": "10.47004/10.47004/wp.cem.2020.4320",
    "type": "report"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": true,
+   "score": 0.5,
+   "title": "Flexible Inference for Winners with Conditional Validity",
+   "authors": [
+    "Soham Bakshi",
+    "Lingjun Gao",
+    "Zijun Gao",
+    "Snigdha Panigrahi"
+   ],
+   "year": "2026",
+   "id": "http://arxiv.org/abs/2607.18545v1"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -1533,10 +1428,10 @@
    "type": "posted-content"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": false
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -1557,12 +1452,22 @@
    "type": "book-chapter"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": true,
+   "score": 0.465,
+   "title": "Testing Matrix Rank, Optimally",
+   "authors": [
+    "Maria-Florina Balcan",
+    "Yi Li",
+    "David P. Woodruff",
+    "Hongyang Zhang"
+   ],
+   "year": "2018",
+   "id": "http://arxiv.org/abs/1810.08171v1"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
-  "best_score": 0.455
+  "best_score": 0.465
  },
  "cragg1997inferring": {
   "title_claimed": "Inferring the rank of a matrix",
@@ -1580,10 +1485,10 @@
    "type": "journal-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": false
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -1602,10 +1507,18 @@
    "type": "journal-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": true,
+   "score": 0.662,
+   "title": "Asymptotic Theory of Principal Component Analysis for Time Series Data with Cautionary Comments",
+   "authors": [
+    "Xinyu Zhang",
+    "Howell Tong"
+   ],
+   "year": "2020",
+   "id": "http://arxiv.org/abs/2008.01496v2"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -1624,34 +1537,10 @@
    "type": "journal-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": false
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
-  },
-  "best_score": 1.0
- },
- "baik2005phase": {
-  "title_claimed": "Phase transition of the largest eigenvalue for nonnull complex sample covariance matrices",
-  "crossref": {
-   "found": true,
-   "score": 1.0,
-   "title": "Phase transition of the largest eigenvalue for nonnull complex sample covariance matrices",
-   "authors": [
-    "Jinho Baik",
-    "G\u00e9rard Ben Arous",
-    "Sandrine P\u00e9ch\u00e9"
-   ],
-   "year": 2005,
-   "venue": "The Annals of Probability",
-   "doi": "10.1214/009117905000000233",
-   "type": "journal-article"
-  },
-  "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
-  },
-  "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -1670,10 +1559,10 @@
    "type": "journal-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": false
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -1693,10 +1582,10 @@
    "type": "journal-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": false
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -1707,18 +1596,18 @@
    "score": 1.0,
    "title": "Bootstrap Methods: Another Look at the Jackknife",
    "authors": [
-    "B. Efron"
+    "David Hinkley"
    ],
-   "year": 1979,
-   "venue": "The Annals of Statistics",
-   "doi": "10.1214/aos/1176344552",
-   "type": "journal-article"
+   "year": null,
+   "venue": "Springer Series in Statistics",
+   "doi": "10.1007/978-0-387-75692-9_9",
+   "type": "book-chapter"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": false
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -1737,10 +1626,10 @@
    "type": "journal-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": false
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
  },
@@ -1759,11 +1648,256 @@
    "type": "journal-article"
   },
   "arxiv": {
-   "error": "HTTP Error 429: Unknown Error"
+   "found": true,
+   "score": 0.689,
+   "title": "Effect Aliasing in Observational Studies",
+   "authors": [
+    "Paul R. Rosenbaum",
+    "Jose R. Zubizarreta"
+   ],
+   "year": "2024",
+   "id": "http://arxiv.org/abs/2408.16708v1"
   },
   "dblp": {
-   "error": "Remote end closed connection without response"
+   "error": "Expecting value: line 1 column 1 (char 0)"
   },
   "best_score": 1.0
+ },
+ "newey1987simple": {
+  "title_claimed": "A Simple, Positive Semi-Definite, Heteroskedasticity and Autocorrelation Consistent Covariance Matrix",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "A Simple, Positive Semi-Definite, Heteroskedasticity and Autocorrelation Consistent Covariance Matrix",
+   "authors": [
+    "Whitney K. Newey",
+    "Kenneth D. West"
+   ],
+   "year": 1987,
+   "venue": "Econometrica",
+   "doi": "10.2307/1913610",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "found": false
+  },
+  "dblp": {
+   "error": "Expecting value: line 1 column 1 (char 0)"
+  },
+  "best_score": 1.0
+ },
+ "andrews1991heteroskedasticity": {
+  "title_claimed": "Heteroskedasticity and Autocorrelation Consistent Covariance Matrix Estimation",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Heteroskedasticity and Autocorrelation Consistent Covariance Matrix Estimation",
+   "authors": [
+    "Donald W. K. Andrews"
+   ],
+   "year": 1991,
+   "venue": "Econometrica",
+   "doi": "10.2307/2938229",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "found": false
+  },
+  "dblp": {
+   "error": "Expecting value: line 1 column 1 (char 0)"
+  },
+  "best_score": 1.0
+ },
+ "clopper1934use": {
+  "title_claimed": "The Use of Confidence or Fiducial Limits Illustrated in the Case of the Binomial",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "THE USE OF CONFIDENCE OR FIDUCIAL LIMITS ILLUSTRATED IN THE CASE OF THE BINOMIAL",
+   "authors": [
+    "C. J. CLOPPER",
+    "E. S. PEARSON"
+   ],
+   "year": 1934,
+   "venue": "Biometrika",
+   "doi": "10.1093/biomet/26.4.404",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "found": false
+  },
+  "dblp": {
+   "error": "Expecting value: line 1 column 1 (char 0)"
+  },
+  "best_score": 1.0
+ },
+ "leeb2005model": {
+  "title_claimed": "Model Selection and Inference: Facts and Fiction",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "MODEL SELECTION AND INFERENCE: FACTS AND FICTION",
+   "authors": [
+    "Hannes Leeb",
+    "Benedikt M. P\u00f6tscher"
+   ],
+   "year": 2005,
+   "venue": "Econometric Theory",
+   "doi": "10.1017/s0266466605050036",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "found": false
+  },
+  "dblp": {
+   "error": "Expecting value: line 1 column 1 (char 0)"
+  },
+  "best_score": 1.0
+ },
+ "carroll2006measurement": {
+  "title_claimed": "Measurement Error in Nonlinear Models: A Modern Perspective",
+  "crossref": {
+   "found": true,
+   "score": 0.301,
+   "title": "Longitudinal Data and Mixed Models",
+   "authors": [],
+   "year": 2006,
+   "venue": "C&amp;H/CRC Monographs on Statistics &amp; Applied Probability",
+   "doi": "10.1201/9781420010138.ch11",
+   "type": "book-chapter"
+  },
+  "arxiv": {
+   "found": false
+  },
+  "dblp": {
+   "error": "Expecting value: line 1 column 1 (char 0)"
+  },
+  "best_score": 0.301
+ },
+ "pollard1970comparison": {
+  "title_claimed": "Comparison between observed and simulated wind-generated inertial oscillations",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "Comparison between observed and simulated wind-generated inertial oscillations",
+   "authors": [
+    "R.T. Pollard",
+    "R.C. Millard"
+   ],
+   "year": 1970,
+   "venue": "Deep Sea Research and Oceanographic Abstracts",
+   "doi": "10.1016/0011-7471(70)90043-4",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "found": false
+  },
+  "dblp": {
+   "error": "Expecting value: line 1 column 1 (char 0)"
+  },
+  "best_score": 1.0
+ },
+ "elipot2016global": {
+  "title_claimed": "A global surface drifter data set at hourly resolution",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "A global surface drifter data set at hourly resolution",
+   "authors": [
+    "Shane Elipot",
+    "Rick Lumpkin",
+    "Renellys C. Perez",
+    "Jonathan M. Lilly",
+    "Jeffrey J. Early",
+    "Adam M. Sykulski"
+   ],
+   "year": 2016,
+   "venue": "Journal of Geophysical Research: Oceans",
+   "doi": "10.1002/2016jc011716",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "found": false
+  },
+  "dblp": {
+   "error": "Expecting value: line 1 column 1 (char 0)"
+  },
+  "best_score": 1.0
+ },
+ "elipot2022hourly": {
+  "title_claimed": "Hourly location, current velocity, and temperature collected from Global Drifter Program drifters world-wide, version 2.01",
+  "crossref": {
+   "found": true,
+   "score": 0.486,
+   "title": "Water following characteristics of Global Drifter Program drifters with and without subsurface float",
+   "authors": [
+    "Dong-Kyu Lee",
+    "Luca Centurioni"
+   ],
+   "year": 2018,
+   "venue": "Deep Sea Research Part I: Oceanographic Research Papers",
+   "doi": "10.1016/j.dsr.2018.05.003",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "found": false
+  },
+  "dblp": {
+   "error": "Expecting value: line 1 column 1 (char 0)"
+  },
+  "best_score": 0.486
+ },
+ "cameron2015practitioner": {
+  "title_claimed": "A Practitioner's Guide to Cluster-Robust Inference",
+  "crossref": {
+   "found": true,
+   "score": 1.0,
+   "title": "A Practitioner\u2019s Guide to Cluster-Robust Inference",
+   "authors": [
+    "A. Colin Cameron",
+    "Douglas L. Miller"
+   ],
+   "year": 2015,
+   "venue": "Journal of Human Resources",
+   "doi": "10.3368/jhr.50.2.317",
+   "type": "journal-article"
+  },
+  "arxiv": {
+   "found": false
+  },
+  "dblp": {
+   "error": "Expecting value: line 1 column 1 (char 0)"
+  },
+  "best_score": 1.0
+ },
+ "dinkelbach1967nonlinear": {
+  "title_claimed": "On Nonlinear Fractional Programming",
+  "crossref": {
+   "found": true,
+   "score": 0.955,
+   "title": "Nonlinear Fractional Programming",
+   "authors": [
+    "I. M. Stancu-Minasian"
+   ],
+   "year": 1997,
+   "venue": "Fractional Programming",
+   "doi": "10.1007/978-94-009-0035-6_5",
+   "type": "book-chapter"
+  },
+  "arxiv": {
+   "found": true,
+   "score": 0.648,
+   "title": "Chance constrained nonlinear fractional programming with random benchmark",
+   "authors": [
+    "Tian Xia",
+    "Jia Liu"
+   ],
+   "year": "2023",
+   "id": "http://arxiv.org/abs/2312.15315v1"
+  },
+  "dblp": {
+   "error": "Expecting value: line 1 column 1 (char 0)"
+  },
+  "best_score": 0.955
  }
 }

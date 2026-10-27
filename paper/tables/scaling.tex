@@ -1,21 +1,20 @@
-\begin{table}[t]
+\begin{table}[!htbp]
 \centering\small
-\begin{tabular}{rrrrrrrr}
+\begin{adjustbox}{max width=\textwidth, max totalheight=0.9\textheight}
+\begin{tabular}{rrrrrrrrrrrrr}
 \toprule
-$n$ & $P$ & $Q$ & true dim.\ & \multicolumn{3}{c}{certified tolerance (median)} & CPU-s / cert.\ \\
-\cmidrule(lr){5-7}
- & & & & $N{=}800$ & $N{=}3200$ & $N{=}12800$ & \\
+$n$ & $P$ & $Q$ & true dim.\ & \multicolumn{4}{c}{median $U$, minimal-defect direction} & \multicolumn{4}{c}{detection rate} & CPU-s / cert.\ \\
+\cmidrule(lr){5-8}\cmidrule(lr){9-12}
+ & & & & $N{=}200$ & $N{=}800$ & $N{=}3200$ & $N{=}12800$ & $N{=}200$ & $N{=}800$ & $N{=}3200$ & $N{=}12800$ & \\
 \midrule
-2 & 4 & 6 & 2 & 0.0072 & 0.0036 & 0.0017 & 0.015 \\
-3 & 9 & 12 & 3 & 0.0110 & 0.0054 & 0.0027 & 0.017 \\
-4 & 16 & 20 & 4 & 0.0122 & 0.0069 & 0.0031 & 0.019 \\
-5 & 25 & 30 & 5 & 0.0194 & 0.0097 & 0.0048 & 0.024 \\
-6 & 36 & 42 & 6 & 0.0210 & 0.0108 & 0.0050 & 0.031 \\
+2 & 4 & 6 & 2 & 0.0143 & 0.0072 & 0.0036 & 0.0017 & 1.00 & 1.00 & 1.00 & 1.00 & 0.031 \\
+3 & 9 & 12 & 3 & 0.0222 & 0.0109 & 0.0054 & 0.0027 & 1.00 & 1.00 & 1.00 & 1.00 & 0.038 \\
+4 & 16 & 20 & 4 & 0.0272 & 0.0120 & 0.0068 & 0.0031 & 0.00 & 1.00 & 1.00 & 1.00 & 0.048 \\
+5 & 25 & 30 & 5 & 0.0392 & 0.0192 & 0.0096 & 0.0048 & 0.00 & 0.79 & 1.00 & 1.00 & 0.067 \\
+6 & 36 & 42 & 6 & 0.0420 & 0.0206 & 0.0107 & 0.0050 & 0.00 & 0.00 & 1.00 & 1.00 & 0.111 \\
 \bottomrule
 \end{tabular}
-\caption{Scaling in the state dimension, on linear systems whose symmetry
-algebra is the commutant of the coefficient matrix. The candidate search space
-$P = n^2$ grows quadratically with no cost to validity; what costs is the model
-class $Q$. False certification was zero in all 20 cells.}
-\label{tab:scaling}
+\end{adjustbox}
+\caption{\textbf{Scaling in the state dimension.} Linear systems built from rotation blocks, whose symmetry algebra is the commutant of the coefficient matrix and has dimension $n$; noise level $0.05$, 200 replications per cell. The first block is the median certified upper bound $U$ on the defect of the plug-in direction with the smallest defect; the detection rate is the fraction of replications in which the dimension of the certified subspace is at least $n$. The candidate search space $P = n^2$ grows quadratically with no cost to validity; the width grows, but because $P$ and $Q$ grow together this design does not separate their effects. False certification was zero in all 20 cells (five dimensions, four sample sizes). CPU time is per certificate of the plug-in subspace, on one core.}
+\label{stab:scaling}
 \end{table}

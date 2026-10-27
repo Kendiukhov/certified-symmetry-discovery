@@ -1,0 +1,179 @@
+=== exp5_robustness ===
+  [exp5a] 2/48 cells, 51s elapsed
+  [exp5a] 4/48 cells, 52s elapsed
+  [exp5a] 6/48 cells, 52s elapsed
+  [exp5a] 8/48 cells, 53s elapsed
+  [exp5a] 10/48 cells, 97s elapsed
+  [exp5a] 12/48 cells, 97s elapsed
+  [exp5a] 14/48 cells, 102s elapsed
+  [exp5a] 16/48 cells, 102s elapsed
+  [exp5a] 18/48 cells, 142s elapsed
+  [exp5a] 20/48 cells, 142s elapsed
+  [exp5a] 22/48 cells, 148s elapsed
+  [exp5a] 24/48 cells, 148s elapsed
+  [exp5a] 26/48 cells, 191s elapsed
+  [exp5a] 28/48 cells, 191s elapsed
+  [exp5a] 30/48 cells, 199s elapsed
+  [exp5a] 32/48 cells, 206s elapsed
+  [exp5a] 34/48 cells, 367s elapsed
+  [exp5a] 36/48 cells, 367s elapsed
+  [exp5a] 38/48 cells, 384s elapsed
+  [exp5a] 40/48 cells, 384s elapsed
+  [exp5a] 42/48 cells, 567s elapsed
+  [exp5a] 44/48 cells, 567s elapsed
+  [exp5a] 46/48 cells, 583s elapsed
+  [exp5a] 48/48 cells, 583s elapsed
+  [exp5b] 1/12 cells, 134s elapsed
+  [exp5b] 2/12 cells, 134s elapsed
+  [exp5b] 3/12 cells, 134s elapsed
+  [exp5b] 4/12 cells, 134s elapsed
+  [exp5b] 5/12 cells, 134s elapsed
+  [exp5b] 6/12 cells, 134s elapsed
+  [exp5b] 7/12 cells, 134s elapsed
+  [exp5b] 8/12 cells, 134s elapsed
+  [exp5b] 9/12 cells, 197s elapsed
+  [exp5b] 10/12 cells, 197s elapsed
+  [exp5b] 11/12 cells, 208s elapsed
+  [exp5b] 12/12 cells, 210s elapsed
+wrote /Volumes/Crucial X6/MacBook/Code/ml_papers/honest_symmetry_discovery/results/exp5_robustness.json
+exp5 wall 796s
+=== exp5_robustness: 735 CPU-s, 799 wall-s ===
+=== exp6_dimension ===
+  [exp6] 2/54 cells, 16s elapsed
+  [exp6] 4/54 cells, 20s elapsed
+  [exp6] 6/54 cells, 30s elapsed
+  [exp6] 8/54 cells, 30s elapsed
+  [exp6] 10/54 cells, 41s elapsed
+  [exp6] 12/54 cells, 66s elapsed
+  [exp6] 14/54 cells, 66s elapsed
+  [exp6] 16/54 cells, 66s elapsed
+  [exp6] 18/54 cells, 66s elapsed
+  [exp6] 20/54 cells, 73s elapsed
+  [exp6] 22/54 cells, 82s elapsed
+  [exp6] 24/54 cells, 116s elapsed
+  [exp6] 26/54 cells, 116s elapsed
+  [exp6] 28/54 cells, 124s elapsed
+  [exp6] 30/54 cells, 169s elapsed
+  [exp6] 32/54 cells, 169s elapsed
+  [exp6] 34/54 cells, 169s elapsed
+  [exp6] 36/54 cells, 169s elapsed
+  [exp6] 38/54 cells, 169s elapsed
+  [exp6] 40/54 cells, 179s elapsed
+  [exp6] 42/54 cells, 189s elapsed
+  [exp6] 44/54 cells, 189s elapsed
+  [exp6] 46/54 cells, 189s elapsed
+  [exp6] 48/54 cells, 201s elapsed
+  [exp6] 50/54 cells, 248s elapsed
+  [exp6] 52/54 cells, 272s elapsed
+  [exp6] 54/54 cells, 310s elapsed
+wrote /Volumes/Crucial X6/MacBook/Code/ml_papers/honest_symmetry_discovery/results/exp6_dimension.json
+exp6 wall 311s
+=== exp6_dimension: 276 CPU-s, 311 wall-s ===
+=== exp7_invariance ===
+  [exp7] 4/84 cells, 149s elapsed
+  [exp7] 8/84 cells, 241s elapsed
+  [exp7] 12/84 cells, 630s elapsed
+  [exp7] 16/84 cells, 630s elapsed
+  [exp7] 20/84 cells, 630s elapsed
+  [exp7] 24/84 cells, 1056s elapsed
+  [exp7] 28/84 cells, 1056s elapsed
+  [exp7] 32/84 cells, 1056s elapsed
+  [exp7] 36/84 cells, 1230s elapsed
+  [exp7] 40/84 cells, 1230s elapsed
+  [exp7] 44/84 cells, 1230s elapsed
+  [exp7] 48/84 cells, 1484s elapsed
+  [exp7] 52/84 cells, 1484s elapsed
+  [exp7] 56/84 cells, 1484s elapsed
+  [exp7] 60/84 cells, 1669s elapsed
+  [exp7] 64/84 cells, 1669s elapsed
+  [exp7] 68/84 cells, 1669s elapsed
+  [exp7] 72/84 cells, 1845s elapsed
+  [exp7] 76/84 cells, 1845s elapsed
+  [exp7] 80/84 cells, 1845s elapsed
+  [exp7] 84/84 cells, 2046s elapsed
+wrote /Volumes/Crucial X6/MacBook/Code/ml_papers/honest_symmetry_discovery/results/exp7_invariance.json
+exp7 wall 2047s
+=== exp7_invariance: 2153 CPU-s, 2047 wall-s ===
+=== exp8_tightness ===
+  [exp8coverage] 1/6 cells, 36s elapsed
+  [exp8coverage] 2/6 cells, 36s elapsed
+  [exp8coverage] 3/6 cells, 36s elapsed
+  [exp8coverage] 4/6 cells, 38s elapsed
+  [exp8coverage] 5/6 cells, 91s elapsed
+  [exp8coverage] 6/6 cells, 93s elapsed
+  [exp8width] 1/24 cells, 35s elapsed
+  [exp8width] 2/24 cells, 35s elapsed
+  [exp8width] 3/24 cells, 35s elapsed
+  [exp8width] 4/24 cells, 35s elapsed
+  [exp8width] 5/24 cells, 39s elapsed
+  [exp8width] 6/24 cells, 39s elapsed
+  [exp8width] 7/24 cells, 54s elapsed
+  [exp8width] 8/24 cells, 54s elapsed
+  [exp8width] 9/24 cells, 54s elapsed
+  [exp8width] 10/24 cells, 54s elapsed
+  [exp8width] 11/24 cells, 54s elapsed
+  [exp8width] 12/24 cells, 54s elapsed
+  [exp8width] 13/24 cells, 54s elapsed
+  [exp8width] 14/24 cells, 54s elapsed
+  [exp8width] 15/24 cells, 61s elapsed
+  [exp8width] 16/24 cells, 62s elapsed
+  [exp8width] 17/24 cells, 62s elapsed
+  [exp8width] 18/24 cells, 62s elapsed
+  [exp8width] 19/24 cells, 62s elapsed
+  [exp8width] 20/24 cells, 62s elapsed
+  [exp8width] 21/24 cells, 62s elapsed
+  [exp8width] 22/24 cells, 62s elapsed
+  [exp8width] 23/24 cells, 71s elapsed
+  [exp8width] 24/24 cells, 73s elapsed
+  [exp8small] 1/24 cells, 36s elapsed
+  [exp8small] 2/24 cells, 36s elapsed
+  [exp8small] 3/24 cells, 36s elapsed
+  [exp8small] 4/24 cells, 36s elapsed
+  [exp8small] 5/24 cells, 36s elapsed
+  [exp8small] 6/24 cells, 36s elapsed
+  [exp8small] 7/24 cells, 37s elapsed
+  [exp8small] 8/24 cells, 37s elapsed
+  [exp8small] 9/24 cells, 58s elapsed
+  [exp8small] 10/24 cells, 58s elapsed
+  [exp8small] 11/24 cells, 60s elapsed
+  [exp8small] 12/24 cells, 60s elapsed
+  [exp8small] 13/24 cells, 63s elapsed
+  [exp8small] 14/24 cells, 63s elapsed
+  [exp8small] 15/24 cells, 63s elapsed
+  [exp8small] 16/24 cells, 63s elapsed
+  [exp8small] 17/24 cells, 68s elapsed
+  [exp8small] 18/24 cells, 68s elapsed
+  [exp8small] 19/24 cells, 68s elapsed
+  [exp8small] 20/24 cells, 68s elapsed
+  [exp8small] 21/24 cells, 68s elapsed
+  [exp8small] 22/24 cells, 68s elapsed
+  [exp8small] 23/24 cells, 68s elapsed
+  [exp8small] 24/24 cells, 68s elapsed
+  [exp8boundary] 1/24 cells, 18s elapsed
+  [exp8boundary] 2/24 cells, 20s elapsed
+  [exp8boundary] 3/24 cells, 21s elapsed
+  [exp8boundary] 4/24 cells, 23s elapsed
+  [exp8boundary] 5/24 cells, 23s elapsed
+  [exp8boundary] 6/24 cells, 23s elapsed
+  [exp8boundary] 7/24 cells, 35s elapsed
+  [exp8boundary] 8/24 cells, 35s elapsed
+  [exp8boundary] 9/24 cells, 46s elapsed
+  [exp8boundary] 10/24 cells, 94s elapsed
+  [exp8boundary] 11/24 cells, 95s elapsed
+  [exp8boundary] 12/24 cells, 95s elapsed
+  [exp8boundary] 13/24 cells, 95s elapsed
+  [exp8boundary] 14/24 cells, 95s elapsed
+  [exp8boundary] 15/24 cells, 95s elapsed
+  [exp8boundary] 16/24 cells, 95s elapsed
+  [exp8boundary] 17/24 cells, 95s elapsed
+  [exp8boundary] 18/24 cells, 95s elapsed
+  [exp8boundary] 19/24 cells, 95s elapsed
+  [exp8boundary] 20/24 cells, 95s elapsed
+  [exp8boundary] 21/24 cells, 95s elapsed
+  [exp8boundary] 22/24 cells, 125s elapsed
+  [exp8boundary] 23/24 cells, 125s elapsed
+  [exp8boundary] 24/24 cells, 141s elapsed
+wrote /Volumes/Crucial X6/MacBook/Code/ml_papers/honest_symmetry_discovery/results/exp8_tightness.json
+exp8 (all) wall 380s
+=== exp8_tightness: 386 CPU-s, 380 wall-s ===
+=== exp9_modelerror ===

@@ -1,6 +1,7 @@
 # Certified Symmetry Discovery
 
-Confidence sets for Lie-algebra generators from noisy, limited data.
+Confidence sets for Lie-algebra generators of polynomial and dictionary vector
+fields from noisy data.
 
 Ihor Kendiukhov, Institute of Medical Genetics and Applied Genomics, University
 of Tübingen — `kenduhov.ig@gmail.com`
@@ -16,9 +17,10 @@ declaring a symmetry because a test failed to reject it controls the chance of
 
 This repository implements **SymCert**, which turns symmetry discovery into an
 equivalence test — a generator may be declared a `delta`-approximate symmetry
-only when the data *rule out* a defect larger than `delta` — and does so in
-closed form, with a guarantee that holds simultaneously for every candidate
-generator.
+only when the data *rule out* a defect larger than `delta` — by computing the
+exact range of the defect over a confidence region for the model coefficients,
+with certified numerics, so that the guarantee holds simultaneously for every
+candidate generator and every tolerance.
 
 ---
 
@@ -29,10 +31,18 @@ src/hsd/            the library
   polynomials.py    exact polynomial vector-field algebra and closed-form moments
   defect.py         the relative equivariance defect and its bilinear structure
   certify.py        SymCert: simultaneous and pointwise certificates, refutation
-  trs.py            exact trust-region extrema of ||a + Bu|| over a ball
+  trs.py            certified trust-region extrema and sharp ratio bounds
+                    (Dinkelbach iteration with Lagrangian dual certificates)
   coverage.py       the extrapolation factor kappa
   baselines.py      threshold, eigengap, Weyl bound, rank test, split test
-  estimation.py     least squares, confidence ellipsoids, lack-of-fit test
+  estimation.py     least squares; OLS, White, cluster-robust (CR3) and
+                    Newey-West confidence regions; lack-of-fit test
+  selection.py      model-class selection: lack-of-fit gate, certificates
+                    simultaneous over nested classes, what a test cannot see
+  closure.py        how far a certified subspace is from a Lie subalgebra
+  dictionary.py     arbitrary linear-in-parameter dictionaries with quadrature
+  dict_systems.py   dictionary benchmark families (radial flow, pendulum)
+  trajectories.py   RK4 trajectories cut into contiguous in-domain segments
   systems.py        benchmark systems with exactly known symmetry algebras
   invariance.py     the same machinery for invariances of a learned function
   nonpoly.py        non-polynomial reference systems and Monte-Carlo ground truth
@@ -40,24 +50,28 @@ experiments/        one script per experiment, plus the runner
 figures/            figure script and the compiled figures
 paper/              LaTeX source, bibliography, table generator, number checker
 results/            raw result files (JSON), the compute log, reported numbers
+data/               processed Global Drifter Program subset (CC BY 4.0)
 references/         reference-verification harness and its reports
 tests/              correctness tests for the mathematical core
 docs/               what each experiment establishes, and shared conventions
 notes/              research plan and the verification checklist
-submission/         the same manuscript in the Springer Nature template
+submission_srep/    the manuscript in the Scientific Reports format, with the
+                    Supplementary Information, cover letter and response
+submission/         an earlier typesetting for the journal Machine Learning
 ```
 
-The paper is `paper/main.pdf`; `paper/main.tex` builds it with `pdflatex`,
-`bibtex`, `pdflatex`, `pdflatex`. `submission/` holds the same manuscript
-typeset with the Springer Nature template for *Machine Learning*, together with
-a cover letter; `submission/build.sh` regenerates it from the sources here, so
-the two cannot diverge.
+The paper is `paper/main.pdf` (with the Supplementary Information appended);
+`paper/main.tex` builds it with `pdflatex`, `bibtex`, `pdflatex`, `pdflatex`.
+`submission_srep/` holds the same manuscript typeset with the Springer Nature
+template for *Scientific Reports*, with a separate Supplementary Information
+file; `submission_srep/build.sh` regenerates everything from the sources in
+`paper/`, so the versions cannot diverge.
 
 ## Quick start
 
 ```bash
 pip install -e ".[experiments,dev]"         # the library alone needs only numpy/scipy/sympy
-pytest -q                                  # 30 correctness tests
+pytest -q                                  # 59 correctness tests
 python experiments/run_all.py              # full suite; see results/compute_log.json
 python figures/make_figures.py             # rebuild every figure
 python paper/make_tables.py                # regenerate every table body in the paper
@@ -81,14 +95,17 @@ prob = DefectProblem.build(
 )
 
 # 2. Fit the model to pairs (x_i, y_i) with y_i a noisy observation of F(x_i).
-fit = fit_ols(prob, X, Y)
+#    The region must match the error structure: cov="ols" (exact under Gaussian
+#    homoskedastic errors), "hc0" (White), "cluster" with groups=trajectory_ids,
+#    or "hac" (Newey-West) for serially correlated errors.
+fit = fit_ols(prob, X, Y, cov="ols")
 
 # 3. How much of the target domain did the data actually visit?
 print(extrapolation_factor(prob, X))   # 'bound' is sqrt(kappa kappa')
 
 # 4. Certify, refute, and read off the tolerance the data actually support.
 d, V = certified_dimension(prob, fit, delta=0.05, alpha=0.05)
-print(f"certified symmetry dimension: {d}")
+print(f"dimension of the certified plug-in subspace: {d}")
 print("no delta-symmetry exists for delta below:", refute_all(prob, fit, 0.05))
 for k in range(V.shape[1]):
     c = certify_direction(prob, V[:, k], fit, alpha=0.05)
@@ -98,7 +115,17 @@ for k in range(V.shape[1]):
 `certify_direction` returns a `Certificate` with `upper`, `lower` and `plug_in`.
 Report `upper`: it is the smallest tolerance the data support for that
 generator, and the calibrated replacement for the singular value one would
-otherwise quote.
+otherwise quote. If the coordinates carry different units, pass characteristic
+scales as `metric=[s_1, ..., s_n]` to `DefectProblem.build`; with the default
+Euclidean metric the defect, and hence the tolerance, depends on the units.
+
+To choose the polynomial degree from the data, use
+`hsd.selection.simultaneous_over_classes(probs, X, Y, delta)` with a nested
+list of problems; it is valid when the largest class contains the truth. A
+lack-of-fit test that fails to reject is not evidence that a class is right.
+`hsd.closure.closure_report(prob, V, fit)` measures how far a certified
+subspace is from being closed under the bracket. `hsd.dictionary` replaces
+polynomials by any dictionary that is linear in its coefficients.
 
 ### Invariances of a learned model
 
@@ -109,27 +136,37 @@ generator. Every certificate and baseline works unchanged.
 
 ## What the guarantee says, and what it needs
 
-**Guarantee.** With probability at least `1 - alpha`, *no* generator whose true
-defect on the target domain exceeds `delta` is certified — simultaneously over
-the whole candidate space, so the selection rule may be arbitrary and
-data-dependent. Exact in finite samples under homoskedastic Gaussian errors on
-the observed right-hand sides; asymptotic with a sandwich covariance otherwise.
+**Guarantee.** If the coefficient region covers the true coefficients with
+probability at least `1 - alpha`, then with at least that probability *no*
+generator whose true defect on the target domain exceeds `delta` is certified —
+simultaneously over the whole candidate space and every tolerance, so the
+selection rule may be arbitrary and data-dependent. The certificate inherits
+the region's coverage and nothing more: exact in finite samples for the OLS
+region under homoskedastic Gaussian errors on the observed right-hand sides;
+asymptotic for the White, cluster-robust and Newey-West regions, which need
+enough independent rows, trajectories or series length respectively.
 
 **Assumptions, most binding first.**
 
 1. *The model class contains the truth*, or you supply a bound on how far
    outside it lies (`eta` / `eta_l2` in `certify_direction`). This is the
    binding assumption. A model fitted in too small a class is *more* symmetric
-   than the system it models, and no analysis of that model can tell. Use the
-   lack-of-fit test in `hsd.estimation.lack_of_fit_pvalue`, and prefer a class
-   that is too large — the certificate then widens rather than breaking.
+   than the system it models, and no analysis of that model can tell. A
+   lack-of-fit test (`hsd.estimation.lack_of_fit_pvalue`) can miss
+   misspecification that matters, so gating on it carries no guarantee; prefer
+   a class that is too large, or certify simultaneously over a nested family
+   (`hsd.selection.simultaneous_over_classes`) — the certificate then widens
+   rather than breaking.
 2. *Errors are on the right-hand side, not on the states.* If derivatives are
    differenced from noisy states, the regressors are noisy and the estimator is
-   biased; no covariance correction repairs that.
+   biased, and the fitted model can look more symmetric than the system; no
+   covariance correction repairs that.
 3. *The claim is about the target domain you chose.* Nothing is asserted
    outside it, and `extrapolation_factor` tells you how far the data are from
    supporting it.
-4. *Connected symmetry groups only*, with generators in the class you specify.
+4. *The tolerance depends on units* unless the output metric is declared.
+5. *Connected symmetry groups only*, with generators in the class you specify;
+   translations are excluded because the relative defect degenerates for them.
 
 ## Reproducibility
 
@@ -137,8 +174,8 @@ Every experiment is deterministic given the seeds recorded in the scripts.
 `results/compute_log.json` records the CPU and wall time of each experiment;
 `results/*.json` are the raw outputs. `paper/make_tables.py` regenerates every
 table body in the manuscript from those files, and `paper/check_numbers.py`
-asserts each of the 31 numbers quoted in the running text against them, so the
-text cannot drift away from the data unnoticed.
+asserts the numerical claims in the running text (113 checks) against them,
+so the text cannot drift away from the data unnoticed.
 
 Ground truth is exact, not approximate: the symmetry algebra of each benchmark
 system is the exact rational nullspace of the bracket map, computed with
@@ -150,8 +187,11 @@ The test suite checks the mathematics rather than the plumbing: the bracket
 against finite differences, the closed-form moments against Monte-Carlo
 integration, the defect against Monte-Carlo evaluation of its defining
 integrals, the exact symmetry algebras against an independent characterisation,
-the trust-region extrema against brute-force search, and the certificate's
-empirical coverage against its nominal level.
+the trust-region extrema and sharp ratio bounds against brute-force search,
+the invariance of the defect under changes of units with a transported metric,
+the dictionary construction against the polynomial one, the coverage of the
+coefficient regions and of the certificate against their nominal levels, and
+the closure diagnostic on exact Lie algebras.
 
 ## References
 

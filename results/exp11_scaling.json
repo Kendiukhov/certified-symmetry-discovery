@@ -8,9 +8,9 @@
    "d_true": 2,
    "detect": 1.0,
    "fc": 0.0,
-   "upper_med": 0.014449858005830513,
-   "cpu_seconds_per_certificate": 0.015335975000000016,
-   "seconds_to_build": 0.003233999999999959
+   "upper_med": 0.014268001419871612,
+   "cpu_seconds_per_certificate": 0.030983120000000017,
+   "seconds_to_build": 0.0014939999999999953
   },
   {
    "n": 2,
@@ -20,9 +20,9 @@
    "d_true": 2,
    "detect": 1.0,
    "fc": 0.0,
-   "upper_med": 0.007209783714801537,
-   "cpu_seconds_per_certificate": 0.015214034999999999,
-   "seconds_to_build": 0.0027479999999999727
+   "upper_med": 0.007164387237294132,
+   "cpu_seconds_per_certificate": 0.030901879999999958,
+   "seconds_to_build": 0.0021780000000000133
   },
   {
    "n": 2,
@@ -32,9 +32,9 @@
    "d_true": 2,
    "detect": 1.0,
    "fc": 0.0,
-   "upper_med": 0.0036314953002028827,
-   "cpu_seconds_per_certificate": 0.015286310000000004,
-   "seconds_to_build": 0.004153000000000073
+   "upper_med": 0.003620118321053665,
+   "cpu_seconds_per_certificate": 0.029361270000000005,
+   "seconds_to_build": 0.001542999999999961
   },
   {
    "n": 2,
@@ -44,9 +44,9 @@
    "d_true": 2,
    "detect": 1.0,
    "fc": 0.0,
-   "upper_med": 0.001719171274833208,
-   "cpu_seconds_per_certificate": 0.015360594999999994,
-   "seconds_to_build": 0.0031079999999998886
+   "upper_med": 0.0017165016042802058,
+   "cpu_seconds_per_certificate": 0.030070854999999994,
+   "seconds_to_build": 0.001555000000000084
   },
   {
    "n": 3,
@@ -56,9 +56,9 @@
    "d_true": 3,
    "detect": 1.0,
    "fc": 0.0,
-   "upper_med": 0.022886964758716412,
-   "cpu_seconds_per_certificate": 0.015913965000000016,
-   "seconds_to_build": 0.01990100000000017
+   "upper_med": 0.02223958906413681,
+   "cpu_seconds_per_certificate": 0.03665492,
+   "seconds_to_build": 0.013206000000000051
   },
   {
    "n": 3,
@@ -68,9 +68,9 @@
    "d_true": 3,
    "detect": 1.0,
    "fc": 0.0,
-   "upper_med": 0.011023656598024251,
-   "cpu_seconds_per_certificate": 0.016309935000000008,
-   "seconds_to_build": 0.018473000000000184
+   "upper_med": 0.01087785029242003,
+   "cpu_seconds_per_certificate": 0.035220484999999975,
+   "seconds_to_build": 0.009287999999999963
   },
   {
    "n": 3,
@@ -80,9 +80,9 @@
    "d_true": 3,
    "detect": 1.0,
    "fc": 0.0,
-   "upper_med": 0.005420752480532249,
-   "cpu_seconds_per_certificate": 0.016548764999999976,
-   "seconds_to_build": 0.020092
+   "upper_med": 0.005385743506354455,
+   "cpu_seconds_per_certificate": 0.037685425000000036,
+   "seconds_to_build": 0.009476999999999958
   },
   {
    "n": 3,
@@ -92,9 +92,9 @@
    "d_true": 3,
    "detect": 1.0,
    "fc": 0.0,
-   "upper_med": 0.002679760356144926,
-   "cpu_seconds_per_certificate": 0.016486660000000007,
-   "seconds_to_build": 0.017610000000000126
+   "upper_med": 0.002670386418249947,
+   "cpu_seconds_per_certificate": 0.03691574,
+   "seconds_to_build": 0.009334000000000064
   },
   {
    "n": 4,
@@ -104,9 +104,9 @@
    "d_true": 4,
    "detect": 0.0,
    "fc": 0.0,
-   "upper_med": 0.027751051170117468,
-   "cpu_seconds_per_certificate": 0.016793640000000068,
-   "seconds_to_build": 0.08710600000000035
+   "upper_med": 0.027166555872432774,
+   "cpu_seconds_per_certificate": 0.04590792000000003,
+   "seconds_to_build": 0.0474730000000001
   },
   {
    "n": 4,
@@ -116,9 +116,9 @@
    "d_true": 4,
    "detect": 1.0,
    "fc": 0.0,
-   "upper_med": 0.012174142797143109,
-   "cpu_seconds_per_certificate": 0.01864323500000005,
-   "seconds_to_build": 0.08187799999999967
+   "upper_med": 0.012040800237323512,
+   "cpu_seconds_per_certificate": 0.04806843999999995,
+   "seconds_to_build": 0.06334199999999957
   },
   {
    "n": 4,
@@ -128,9 +128,9 @@
    "d_true": 4,
    "detect": 1.0,
    "fc": 0.0,
-   "upper_med": 0.006857218774844187,
-   "cpu_seconds_per_certificate": 0.018578959999999936,
-   "seconds_to_build": 0.09332999999999991
+   "upper_med": 0.006819389736322216,
+   "cpu_seconds_per_certificate": 0.047622104999999984,
+   "seconds_to_build": 0.043687999999999505
   },
   {
    "n": 4,
@@ -140,9 +140,9 @@
    "d_true": 4,
    "detect": 1.0,
    "fc": 0.0,
-   "upper_med": 0.0031237631665731774,
-   "cpu_seconds_per_certificate": 0.018959350000000014,
-   "seconds_to_build": 0.09429599999999994
+   "upper_med": 0.0031150695087539884,
+   "cpu_seconds_per_certificate": 0.04764717500000008,
+   "seconds_to_build": 0.052522999999999875
   },
   {
    "n": 5,
@@ -152,9 +152,9 @@
    "d_true": 5,
    "detect": 0.0,
    "fc": 0.0,
-   "upper_med": 0.040232013649413145,
-   "cpu_seconds_per_certificate": 0.017981870000000035,
-   "seconds_to_build": 0.2945310000000001
+   "upper_med": 0.03915535309232546,
+   "cpu_seconds_per_certificate": 0.0632054900000001,
+   "seconds_to_build": 0.16994700000000051
   },
   {
    "n": 5,
@@ -164,9 +164,9 @@
    "d_true": 5,
    "detect": 0.79,
    "fc": 0.0,
-   "upper_med": 0.0194174728352736,
-   "cpu_seconds_per_certificate": 0.02311804000000003,
-   "seconds_to_build": 0.30762
+   "upper_med": 0.019157130156421474,
+   "cpu_seconds_per_certificate": 0.065814005,
+   "seconds_to_build": 0.15301400000000065
   },
   {
    "n": 5,
@@ -176,9 +176,9 @@
    "d_true": 5,
    "detect": 1.0,
    "fc": 0.0,
-   "upper_med": 0.009713213964744161,
-   "cpu_seconds_per_certificate": 0.023663995000000028,
-   "seconds_to_build": 0.2981170000000004
+   "upper_med": 0.009645279379632402,
+   "cpu_seconds_per_certificate": 0.065756385,
+   "seconds_to_build": 0.1837459999999993
   },
   {
    "n": 5,
@@ -188,9 +188,9 @@
    "d_true": 5,
    "detect": 1.0,
    "fc": 0.0,
-   "upper_med": 0.004817573510666631,
-   "cpu_seconds_per_certificate": 0.022359730000000005,
-   "seconds_to_build": 0.3079270000000003
+   "upper_med": 0.004801022509606367,
+   "cpu_seconds_per_certificate": 0.06689660500000011,
+   "seconds_to_build": 0.18726999999999983
   },
   {
    "n": 6,
@@ -200,9 +200,9 @@
    "d_true": 6,
    "detect": 0.0,
    "fc": 0.0,
-   "upper_med": 0.04350491882596445,
-   "cpu_seconds_per_certificate": 0.01988824999999994,
-   "seconds_to_build": 0.7925070000000005
+   "upper_med": 0.041986600539894725,
+   "cpu_seconds_per_certificate": 0.09891809500000003,
+   "seconds_to_build": 0.4811160000000001
   },
   {
    "n": 6,
@@ -212,9 +212,9 @@
    "d_true": 6,
    "detect": 0.0,
    "fc": 0.0,
-   "upper_med": 0.020997892034918905,
-   "cpu_seconds_per_certificate": 0.024706154999999983,
-   "seconds_to_build": 0.773553999999999
+   "upper_med": 0.02061160666405929,
+   "cpu_seconds_per_certificate": 0.10491193500000025,
+   "seconds_to_build": 0.45459299999999914
   },
   {
    "n": 6,
@@ -224,9 +224,9 @@
    "d_true": 6,
    "detect": 1.0,
    "fc": 0.0,
-   "upper_med": 0.010765581654000857,
-   "cpu_seconds_per_certificate": 0.031270830000000076,
-   "seconds_to_build": 0.7663139999999995
+   "upper_med": 0.010658192745117558,
+   "cpu_seconds_per_certificate": 0.11062328000000023,
+   "seconds_to_build": 0.4813369999999999
   },
   {
    "n": 6,
@@ -236,9 +236,9 @@
    "d_true": 6,
    "detect": 1.0,
    "fc": 0.0,
-   "upper_med": 0.005029081561362997,
-   "cpu_seconds_per_certificate": 0.03078584999999995,
-   "seconds_to_build": 0.7937239999999992
+   "upper_med": 0.005002764867502505,
+   "cpu_seconds_per_certificate": 0.11062514500000024,
+   "seconds_to_build": 0.5067340000000016
   }
  ],
  "trials": 200,
@@ -246,7 +246,7 @@
  "_meta": {
   "python": "3.11.9",
   "numpy": "1.26.4",
-  "platform": "macOS-26.3-arm64-arm-64bit",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
   "cpu_count": 10,
   "cpu_seconds": null,
   "alpha": 0.05,

@@ -38,7 +38,7 @@
    "fc_sym": 0.0,
    "dim_naive_data": 1.0,
    "dim_naive_target": 1.0,
-   "dim_sym": 0.02,
+   "dim_sym": 0.06,
    "kappa": 13.293888927120138,
    "log_kappa": 1.1235152183744905,
    "system": "hopf",
@@ -172,9 +172,9 @@
    "system": "vanderpol",
    "radius": 1.0,
    "d_true": 0,
-   "true_min_defect": 0.24829459246909438,
-   "rho_star": 0.24829459246909438,
-   "bound_critical": 4.9658918493818875
+   "true_min_defect": 0.24829459246909436,
+   "rho_star": 0.24829459246909436,
+   "bound_critical": 4.965891849381887
   },
   {
    "fc_naive_data": 0.0,
@@ -188,9 +188,9 @@
    "system": "vanderpol",
    "radius": 0.8,
    "d_true": 0,
-   "true_min_defect": 0.24829459246909438,
-   "rho_star": 0.24829459246909438,
-   "bound_critical": 4.9658918493818875
+   "true_min_defect": 0.24829459246909436,
+   "rho_star": 0.24829459246909436,
+   "bound_critical": 4.965891849381887
   },
   {
    "fc_naive_data": 0.0,
@@ -204,9 +204,9 @@
    "system": "vanderpol",
    "radius": 0.6,
    "d_true": 0,
-   "true_min_defect": 0.24829459246909438,
-   "rho_star": 0.24829459246909438,
-   "bound_critical": 4.9658918493818875
+   "true_min_defect": 0.24829459246909436,
+   "rho_star": 0.24829459246909436,
+   "bound_critical": 4.965891849381887
   },
   {
    "fc_naive_data": 0.0,
@@ -220,9 +220,9 @@
    "system": "vanderpol",
    "radius": 0.5,
    "d_true": 0,
-   "true_min_defect": 0.24829459246909438,
-   "rho_star": 0.24829459246909438,
-   "bound_critical": 4.9658918493818875
+   "true_min_defect": 0.24829459246909436,
+   "rho_star": 0.24829459246909436,
+   "bound_critical": 4.965891849381887
   },
   {
    "fc_naive_data": 1.0,
@@ -236,9 +236,9 @@
    "system": "vanderpol",
    "radius": 0.4,
    "d_true": 0,
-   "true_min_defect": 0.24829459246909438,
-   "rho_star": 0.24829459246909438,
-   "bound_critical": 4.9658918493818875
+   "true_min_defect": 0.24829459246909436,
+   "rho_star": 0.24829459246909436,
+   "bound_critical": 4.965891849381887
   },
   {
    "fc_naive_data": 1.0,
@@ -252,9 +252,9 @@
    "system": "vanderpol",
    "radius": 0.35,
    "d_true": 0,
-   "true_min_defect": 0.24829459246909438,
-   "rho_star": 0.24829459246909438,
-   "bound_critical": 4.9658918493818875
+   "true_min_defect": 0.24829459246909436,
+   "rho_star": 0.24829459246909436,
+   "bound_critical": 4.965891849381887
   },
   {
    "fc_naive_data": 1.0,
@@ -268,9 +268,9 @@
    "system": "vanderpol",
    "radius": 0.3,
    "d_true": 0,
-   "true_min_defect": 0.24829459246909438,
-   "rho_star": 0.24829459246909438,
-   "bound_critical": 4.9658918493818875
+   "true_min_defect": 0.24829459246909436,
+   "rho_star": 0.24829459246909436,
+   "bound_critical": 4.965891849381887
   },
   {
    "fc_naive_data": 1.0,
@@ -284,9 +284,9 @@
    "system": "vanderpol",
    "radius": 0.25,
    "d_true": 0,
-   "true_min_defect": 0.24829459246909438,
-   "rho_star": 0.24829459246909438,
-   "bound_critical": 4.9658918493818875
+   "true_min_defect": 0.24829459246909436,
+   "rho_star": 0.24829459246909436,
+   "bound_critical": 4.965891849381887
   },
   {
    "fc_naive_data": 1.0,
@@ -300,9 +300,9 @@
    "system": "vanderpol",
    "radius": 0.2,
    "d_true": 0,
-   "true_min_defect": 0.24829459246909438,
-   "rho_star": 0.24829459246909438,
-   "bound_critical": 4.9658918493818875
+   "true_min_defect": 0.24829459246909436,
+   "rho_star": 0.24829459246909436,
+   "bound_critical": 4.965891849381887
   },
   {
    "fc_naive_data": 1.0,
@@ -316,9 +316,9 @@
    "system": "vanderpol",
    "radius": 0.15,
    "d_true": 0,
-   "true_min_defect": 0.24829459246909438,
-   "rho_star": 0.24829459246909438,
-   "bound_critical": 4.9658918493818875
+   "true_min_defect": 0.24829459246909436,
+   "rho_star": 0.24829459246909436,
+   "bound_critical": 4.965891849381887
   },
   {
    "fc_naive_data": 0.0,
@@ -492,9 +492,9 @@
    "system": "rigid_asym",
    "radius": 1.0,
    "d_true": 0,
-   "true_min_defect": 0.20628424925161412,
-   "rho_star": 0.20628424925161412,
-   "bound_critical": 4.125684985032282
+   "true_min_defect": 0.2062842492516141,
+   "rho_star": 0.2062842492516141,
+   "bound_critical": 4.125684985032281
   },
   {
    "fc_naive_data": 0.0,
@@ -508,9 +508,9 @@
    "system": "rigid_asym",
    "radius": 0.8,
    "d_true": 0,
-   "true_min_defect": 0.20628424925161412,
-   "rho_star": 0.20628424925161412,
-   "bound_critical": 4.125684985032282
+   "true_min_defect": 0.2062842492516141,
+   "rho_star": 0.2062842492516141,
+   "bound_critical": 4.125684985032281
   },
   {
    "fc_naive_data": 0.0,
@@ -524,9 +524,9 @@
    "system": "rigid_asym",
    "radius": 0.6,
    "d_true": 0,
-   "true_min_defect": 0.20628424925161412,
-   "rho_star": 0.20628424925161412,
-   "bound_critical": 4.125684985032282
+   "true_min_defect": 0.2062842492516141,
+   "rho_star": 0.2062842492516141,
+   "bound_critical": 4.125684985032281
   },
   {
    "fc_naive_data": 0.0,
@@ -540,9 +540,9 @@
    "system": "rigid_asym",
    "radius": 0.5,
    "d_true": 0,
-   "true_min_defect": 0.20628424925161412,
-   "rho_star": 0.20628424925161412,
-   "bound_critical": 4.125684985032282
+   "true_min_defect": 0.2062842492516141,
+   "rho_star": 0.2062842492516141,
+   "bound_critical": 4.125684985032281
   },
   {
    "fc_naive_data": 0.0,
@@ -556,9 +556,9 @@
    "system": "rigid_asym",
    "radius": 0.4,
    "d_true": 0,
-   "true_min_defect": 0.20628424925161412,
-   "rho_star": 0.20628424925161412,
-   "bound_critical": 4.125684985032282
+   "true_min_defect": 0.2062842492516141,
+   "rho_star": 0.2062842492516141,
+   "bound_critical": 4.125684985032281
   },
   {
    "fc_naive_data": 0.0,
@@ -572,9 +572,9 @@
    "system": "rigid_asym",
    "radius": 0.35,
    "d_true": 0,
-   "true_min_defect": 0.20628424925161412,
-   "rho_star": 0.20628424925161412,
-   "bound_critical": 4.125684985032282
+   "true_min_defect": 0.2062842492516141,
+   "rho_star": 0.2062842492516141,
+   "bound_critical": 4.125684985032281
   },
   {
    "fc_naive_data": 0.0,
@@ -588,9 +588,9 @@
    "system": "rigid_asym",
    "radius": 0.3,
    "d_true": 0,
-   "true_min_defect": 0.20628424925161412,
-   "rho_star": 0.20628424925161412,
-   "bound_critical": 4.125684985032282
+   "true_min_defect": 0.2062842492516141,
+   "rho_star": 0.2062842492516141,
+   "bound_critical": 4.125684985032281
   },
   {
    "fc_naive_data": 0.0,
@@ -604,9 +604,9 @@
    "system": "rigid_asym",
    "radius": 0.25,
    "d_true": 0,
-   "true_min_defect": 0.20628424925161412,
-   "rho_star": 0.20628424925161412,
-   "bound_critical": 4.125684985032282
+   "true_min_defect": 0.2062842492516141,
+   "rho_star": 0.2062842492516141,
+   "bound_critical": 4.125684985032281
   },
   {
    "fc_naive_data": 0.0,
@@ -620,9 +620,9 @@
    "system": "rigid_asym",
    "radius": 0.2,
    "d_true": 0,
-   "true_min_defect": 0.20628424925161412,
-   "rho_star": 0.20628424925161412,
-   "bound_critical": 4.125684985032282
+   "true_min_defect": 0.2062842492516141,
+   "rho_star": 0.2062842492516141,
+   "bound_critical": 4.125684985032281
   },
   {
    "fc_naive_data": 0.0,
@@ -636,9 +636,9 @@
    "system": "rigid_asym",
    "radius": 0.15,
    "d_true": 0,
-   "true_min_defect": 0.20628424925161412,
-   "rho_star": 0.20628424925161412,
-   "bound_critical": 4.125684985032282
+   "true_min_defect": 0.2062842492516141,
+   "rho_star": 0.2062842492516141,
+   "bound_critical": 4.125684985032281
   },
   {
    "fc_naive_data": 0.0,
@@ -710,7 +710,7 @@
    "fc_sym": 0.0,
    "dim_naive_data": 2.0,
    "dim_naive_target": 2.0,
-   "dim_sym": 0.245,
+   "dim_sym": 0.31,
    "kappa": 22.984266708188958,
    "log_kappa": 1.3613683680002076,
    "system": "rigid_sym",
@@ -938,7 +938,7 @@
  "_meta": {
   "python": "3.11.9",
   "numpy": "1.26.4",
-  "platform": "macOS-26.3-arm64-arm-64bit",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
   "cpu_count": 10,
   "cpu_seconds": null,
   "alpha": 0.05,

@@ -1,0 +1,688 @@
+\subsection{Experimental design}
+\label{sec:experiments}
+
+Ten polynomial systems on $\R^2$ and $\R^3$ serve as the main benchmarks, four
+with a nonzero symmetry algebra inside the affine candidate class and six with
+none (Methods). Their symmetry algebras are exact rational nullspaces and the
+true defect of any generator is available in closed form, so \textbf{ground
+truth involves no tolerance and no sampling}, which matters because the
+quantity being estimated is itself a near-degeneracy. Every method is scored
+identically, by the rate of \emph{false certification} (the declared subspace
+contains a generator whose true defect exceeds $\delta$), of \emph{detection}
+(the declared dimension is at least the true one) and of \emph{recovery}
+(detection, with the declared subspace containing the true algebra to within
+$10^\circ$). The worst-setting rates of \cref{tab:calibration}, the zero rate
+of \symcert{} and selected rates in the text are given with exact binomial
+intervals for their Monte Carlo error; Methods bounds that error for every
+other rate. Unless stated
+otherwise $\delta = \alpha = 0.05$ and the region is the exact least-squares
+ellipsoid.
+
+The framework we build on does not prescribe a threshold for declaring a
+symmetry (it establishes that the symmetries are a nullspace), so there is no
+single baseline, and we sweep the threshold instead of picking one, judging
+false certification at $\delta = 0.05$ throughout. We give the threshold rule
+the advantage of the \emph{exact} target-domain Gram matrix, which isolates the
+statistical question from the coverage effect studied separately. The methods
+are (i) a fixed threshold on the plug-in defect, swept over $\tau \in [0.005,
+0.4]$; (ii) the largest relative eigengap; (iii) a Wald rank test for the
+nullspace dimension; (iv) a split-sample significance test that selects a
+direction on one half and tests $H_0$: exact symmetry on the other, declaring a
+symmetry when it fails to reject; (v) a Weyl-inequality certificate, the
+natural singular-value perturbation answer; (vi) \symcert; (vii) \symcert{}
+with sample splitting, which chooses the plug-in directions on one half of the
+data and certifies them with the simultaneous certificate on the other
+(Methods).
+
+\subsection{Calibration and power}
+\label{sec:calibration}
+
+\Cref{tab:calibration} and \cref{fig:headline}a summarise $240$ settings ($10$
+systems $\times$ $6$ sample sizes $\times$ $4$ noise levels, $300$ replications
+each; $72{,}000$ replications in total).
+
+\input{\tabdir calibration}
+
+\begin{figure}[!tbp]
+\centering
+\includegraphics[width=\textwidth]{\figdir fig2_headline.pdf}
+\caption{\textbf{Calibration, coverage and resolution.} \textbf{a}, Every
+method of \Cref{tab:calibration} placed by the rate at which it recovers the
+true symmetry algebra (horizontal; averaged over the four symmetric systems)
+against its largest false-certification rate over the $240$ settings
+(vertical; $300$ replications each). The line traces the fixed-threshold rule
+as its threshold $\tau$ is swept from $0.005$ to $0.4$ ($\tau = 0.005$, $0.1$
+and $0.4$ labelled), with false certification always judged at the tolerance
+$\delta = 0.05$; none of these thresholds brings the worst case near the
+nominal level (dashed). The rank test (hollow triangle, on the $\tau = 0.4$
+point) and the split-sample significance test are valid level-$0.05$ tests of
+exact symmetry and still poor discovery rules. \symcert{} and its
+sample-splitting variant are both at zero, the variant with lower recovery;
+the Weyl perturbation bound is also at zero but never certifies. \textbf{b},
+Shrinking the region the data occupy while the claim stays about the full
+domain ($50$ settings, five systems, $200$ replications each). The horizontal
+axis is the extrapolation bound of \Cref{prop:kappa} (mean over replications)
+divided by the value $\defect^\star/\delta$ of \eqref{eq:kappacrit}; in the
+shaded region the bound rules out, at population level, declaring more
+generators than the true algebra has, and no false certification occurred in
+any of the $13$ settings there. Orange solid: nullspace computed on the
+observed data; blue dotted: \symcert{}. Markers identify the system (circle,
+Van der Pol; square, Hopf; up-triangle, symmetric top; down-triangle,
+Lotka--Volterra; diamond, asymmetric rigid body). \textbf{c}, Median certified
+tolerance of the rotation generator for the exactly symmetric member
+($\varepsilon = 0$) of the
+broken-Hopf family $F_\varepsilon = F_{\mathrm{Hopf}} + \varepsilon
+x^2\partial_x$ (solid with markers; degree-3 class, $200$ replications per
+point; colours give the noise level) against the non-asymptotic Le~Cam bound
+of \Cref{prop:lecam} at power $0.5$ evaluated on each design (dashed). Both
+scale as $\sigma/\sqrt N$; the gap is a factor of about $8$ at this model
+class and grows with the class (\STqsweep).}
+\label{fig:headline}
+\end{figure}
+
+\symcert{} \emph{never certified a false symmetry.} In none of the $72{,}000$
+replications did the certified subspace contain a generator whose true defect
+exceeds the tolerance. With $300$ replications per setting this bounds the
+false-certification rate of every setting by $0.010$ (one-sided $95\%$), and
+simultaneously over all $240$ settings by $0.028$. The guarantee itself comes
+from \Cref{prop:simultaneous}; the simulation checks the implementation and
+shows how far below $\alpha$ the realised rate is.
+
+\emph{None of the non-trivial thresholds we examined controls the error.} A
+threshold of zero, or one so small that it never certifies, controls false
+certification trivially and has no power; among the thresholds from $0.005$ to
+$0.4$ on this grid, every one has a worst-setting rate of at least $0.63$
+($95\%$ interval $0.58$ to $0.69$), even though the average over settings is as
+low as $0.005$ for small thresholds. Lowering $\tau$ does not help: at $\tau =
+0.005$ detection has already fallen to $0.42$. For every threshold up to $0.1$
+the worst setting is the planar rotation at the highest noise level with $N =
+100$, and for thresholds up to the tolerance the only settings above $\alpha$
+are that system at that noise level with $N = 100$, $200$ and $400$ (rates
+$0.63$, $0.34$ and $0.12$). There the threshold declares the right number of
+generators, and the declared subspace even lies within $10^\circ$ of the true
+algebra, so the error counts as a recovery; but the noise has tilted it just
+enough to contain generators whose true defect exceeds the tolerance, because
+the defect grows linearly with the tilt. The remaining errors at $\tau =
+\delta$, at rates of at most $0.04$, also occur on symmetric systems at noise
+levels $0.1$ and $0.3$, where a tilted subspace of too small a dimension can
+contain such a generator as well. Thresholds above the tolerance fail more
+simply: they certify, on systems without symmetry such as the Lorenz system,
+directions whose defect lies between $\delta$ and $\tau$. Averaged over the
+symmetric settings, recovery and detection therefore differ by less than
+$0.002$ for every rule in \Cref{tab:calibration} except the split-sample test,
+and not at all for \symcert{}. That test declares at most one direction, which
+is counted as a detection whenever it is declared; it detects at a rate of
+$0.84$ but recovers at only $0.22$, because a single direction can neither
+contain a two- or three-dimensional algebra nor be relied on to point along a
+one-dimensional one.
+
+\emph{Valid tests are not safe either.} The rank test and the split-sample
+significance test are correct level-$0.05$ tests of ``this is an exact
+symmetry''. Used as discovery rules they reach worst-setting false-certification
+rates of $1.00$ and $0.92$ (mean rate $0.070$ for each). This is the inverted
+burden of proof made quantitative: their power is lowest exactly where the data
+are least informative, and low power is read as evidence for symmetry.
+
+\emph{The tolerance is a choice.} Repeating the comparison across $\delta \in
+[0.01, 0.4]$ on a smaller grid (six of the systems, $N = 400$ and $3200$, noise
+levels $0.03$ and $0.1$; \SFtolerance), \symcert{}'s worst-case error is zero
+at every tolerance, and its detection rate on the three symmetric systems
+climbs from $0.25$ at $\delta = 0.01$ to $1.00$ at $\delta = 0.2$: with data of
+this quality, a user who will accept a $20\%$ relative defect can have both
+error control and full detection, and one who insists on $1\%$ cannot. The grid
+leaves out the small samples and the highest noise level, where detection at
+$\delta = 0.05$ is lower (\cref{fig:power}a).
+
+\emph{Validity is not free, and neither is it vacuous.} \symcert{} detects
+less often than a threshold at the same tolerance ($0.485$ against $0.784$;
+for both rules recovery equals detection). \Cref{fig:power}a shows
+where the cost falls: at noise level $0.01$ detection reaches $1.00$ by
+$N = 400$; at noise level $0.3$ it does not, because the data at that noise
+level do not support the claim. The Weyl certificate shows the alternative
+failure: valid, and never certifying anything.
+
+\begin{figure}[!tbp]
+\centering
+\includegraphics[width=\textwidth]{\figdir fig3_power.pdf}
+\caption{\textbf{The price of validity, and whether to split the sample.}
+\textbf{a}, Detection (solid) and recovery (dotted, coinciding here) of the true
+algebra by \symcert{} on the four symmetric systems, against sample size, for
+four noise levels (colours): at noise level $0.01$ the full algebra is found in
+every replication from $N = 400$; at noise level $0.3$ it is not, because the
+data do not support the claim. \textbf{b}, Certified tolerance of the
+simultaneous certificate (blue circles) and of the split-sample pointwise
+bound (green squares) in nine model configurations, one row each, ordered by
+the number of model coefficients $Q$ (noise level $0.05$; median over $300$
+replications at each of $N = 200, 400, \dots, 6400$, averaged over the six
+sample sizes). \textbf{c}, Rate at which each rule certifies the minimal-defect
+plug-in direction, averaged over the same six sample sizes. Both rules
+certify that single direction only, so in the six configurations whose true
+algebra has dimension $2$ or $3$ this is not detection in the sense of
+Methods. The simultaneous certificate is narrower, by factors of $1.6$ to
+$2.6$, and certifies that direction at least as often in all nine: splitting
+protects against a selection effect that simultaneity already removes, and
+pays for it with half the data.}
+\label{fig:power}
+\end{figure}
+
+\subsection{Noise, coverage, and the model class}
+\label{sec:coverage}\label{sec:modelclass}
+
+\Cref{fig:mechanisms} isolates the candidate mechanisms.
+
+\begin{figure}[!tbp]
+\centering
+\includegraphics[width=0.85\textwidth]{\figdir fig4_mechanisms.pdf}
+\caption{\textbf{Where false symmetries come from.} Largest false-certification
+rate, at tolerance $\delta = 0.05$, of a threshold rule on the fitted
+nullspace (orange) and of \symcert{} (blue) under five mechanisms: additive
+noise on the derivative with finite samples ($240$ settings; the threshold's
+errors all occur on symmetric systems at noise levels $0.1$ and $0.3$, where
+the noise tilts the declared subspace); incomplete coverage of the target
+domain (settings with
+the data in at most $30\%$ of the box width); a model class too small to
+contain the truth (linear or quadratic fits to cubic systems); sparse
+regression that deletes a weak symmetry-breaking term (threshold $0.25$); and
+noisy states (hardening Duffing oscillator, state-noise standard deviation up
+to $0.12$). \symcert{} controls the first two by construction. Its guarantee
+does not cover the truncated class or noisy states, because its validity is
+conditional on a class that contains the truth and on exactly observed states.
+In the sparse-regression group the orange bar is the threshold rule on the
+STLSQ fit and the blue bar is \symcert{} on the unpruned least-squares fit,
+which certified nothing false; certifying from the pruned model would rest on a
+class that no longer contains the truth. A zero rate is drawn as a short bar;
+the dashed line marks $\alpha = 0.05$.}
+\label{fig:mechanisms}
+\end{figure}
+
+\paragraph{Additive derivative noise.} In the calibration study, where the
+model class is correct, the states exact and the data cover the target domain,
+the threshold rule at the tolerance never certified falsely on a system without
+symmetry. We push this hard: four systems with no symmetry (Van der Pol,
+Lotka--Volterra, Duffing and the asymmetric rigid body, with smallest true
+defects of $0.21$ to $0.29$, at least four times the tolerance), noise levels
+$0.1$, $0.3$, $0.5$ and $1.0$, $N = 30$, $60$, $120$ and $400$, $500$
+replications per cell, $32{,}000$ in all. On Van der Pol, Duffing and the rigid
+body the median smallest plug-in defect rises with the noise, to between $2.0$
+and $2.4$ times its true value at noise level $1.0$ and $N = 30$ (pooled over
+systems and sample sizes, $1.01$, $1.09$, $1.27$ and $1.64$ times at the four
+noise levels); on Lotka--Volterra it stays within $1.00$ to $1.14$ times, with
+$31\%$ to $59\%$ of replications below the true value. The smallest value
+observed, $0.066$ (Lotka--Volterra, true value $0.271$), was still above the
+tolerance, which reflects the margin to $\delta$ rather than an upward bias;
+the argument for an upward bias holds only for directions near a true
+symmetry (\Cref{sec:limits}). A
+second study on the same four systems, at noise level $0.2$ with $N$ doubling
+from $100$ to $6400$ and $500$ replications per cell, measures the competing
+selection effect, which at this noise level is small and decays with $N$: at
+$N=100$ the mean of $\defect_\nu(\hat\xi;F_{\beta^\star}) -
+\defect_\nu(\hat\xi;F_{\bhat})$ for the selected direction is $+0.0150 \pm
+0.0017$ on Van der Pol, $+0.0078 \pm 0.0004$ on Lotka--Volterra, $+0.0060 \pm
+0.0021$ on Duffing and $-0.0073 \pm 0.0009$ on the asymmetric rigid body (means
+$\pm$ standard errors), and the Van der Pol gap falls to $0.0002 \pm 0.0002$ at
+$N = 6400$. With fewer samples and more noise it is larger, up to $0.15$ on
+average in the selected-generator study of \Cref{sec:tightness}.
+
+A false symmetry requires the noise to carry the smallest defect down to
+$\delta$, so a third study uses systems near the tolerance: broken-Hopf members
+whose smallest true defect is $1.2$, $1.5$, $2$ or $4$ times $\delta$, and the
+hardening Duffing oscillator of the state-noise study below ($0.102$), on
+$[-1,1]^2$, with $N = 100$, $400$ and $1600$, noise levels $0.05$, $0.1$, $0.2$
+and $0.3$ and $300$ replications per setting ($18{,}000$ in all). No generator
+is within the tolerance, so every declaration is false. The threshold rule at
+the tolerance declared one in up to $3.7\%$ of replications at $1.2\delta$ ($N
+= 100$, noise level $0.05$; $95\%$ interval $1.8\%$ to $6.5\%$), at most
+$0.7\%$ at $1.5\delta$, $0.3\%$ at $2\delta$ and on the hardening Duffing
+oscillator, and never at $4\delta$; \symcert{} certified nothing in any of the
+$18{,}000$ replications. The smallest plug-in defect fell below its true value
+in up to $52\%$ of replications, and at high noise and small $N$ it was
+inflated (median up to $3.7$ times the true value). Additive noise therefore
+does create false symmetries near the tolerance, but rarely in these tests, and
+only when the smallest true defect is within about a factor of two of $\delta$;
+the dominant noise-driven failure of a threshold rule is the tilt of the
+estimated algebra of a symmetric system.
+
+\paragraph{Coverage.} We shrink the region the data occupy from the full target
+box to a box of $0.15$ times the half-width, keeping $N=2000$ and noise level
+$0.02$, and run the nullspace computation on the empirical measure of the data,
+which is what one does when the sample is taken to stand for the domain of
+interest. \Cref{fig:headline}b plots the false-certification rate against the
+extrapolation bound $\sqrt{\kappa\kappa'}$ (mean over replications) divided by
+the value $\defect^\star/\delta$ of \eqref{eq:kappacrit}. Of the $50$ settings,
+$13$ fall below this threshold, where \Cref{prop:kappa} rules out, at
+population level, declaring more generators than the true algebra has (any
+declaration, for the six settings of systems without symmetry). In all $13$ the
+observed rate is exactly zero; this is an observation, not a consequence, since
+the bound concerns the noise-free field and does not exclude a tilted
+declaration of the right dimension. Of the $37$ beyond the threshold, $14$ (six
+on Van der Pol, five on Hopf and three on the symmetric top) do produce false
+certifications, rising to a rate of $1.0$. \symcert{}, which measures the
+defect on the target domain and inherits the design's uncertainty through
+$\hat\Sigma$, never certifies falsely and instead reduces the dimension of its
+certified subspace to zero as coverage degrades: on the Hopf system it
+certifies the true one-dimensional algebra when the data cover the domain and
+almost never once the data occupy less than half of it. On trajectory data
+(\STtrajectory) a single trajectory of the Hopf system converges to the unit
+circle, an algebraic curve, so some bracket vanishes on the data to within the
+eigenvalue threshold and the computed extrapolation factor is infinite; single
+trajectories of the Van der Pol and Lorenz systems, whose attractors are not
+such curves, give large but finite factors ($34.9$ and $231.3$), eight Hopf
+trajectories bring the factor down to $24$ and a uniform design to $1.1$.
+
+\paragraph{The truncated model class.} Fitting a linear or quadratic model to
+four cubic systems (design in Methods) produces a fitted field with exact or
+approximate symmetries the system does not have (\cref{fig:mechanisms}). An
+affine field $Ax + c$ always has a symmetry algebra of dimension at least $n$
+in the affine class (exactly $n$ for a generic fit); the threshold rule
+declares these in every replication and \symcert{} certifies them in up to
+$100\%$. A quadratic fit is less constrained, but its smallest plug-in defect
+still falls within the tolerance often enough that the threshold rule declares
+a false symmetry in $70\%$ to $100\%$ of replications; \symcert{} certifies one
+in a single setting (Van der Pol, $N = 1600$). This is a failure of the
+model-class assumption, not of the certificate. In these gross truncations a
+lack-of-fit $F$-test against the correct class rejects in $100\%$ of
+replications, so gating on it would have prevented every false certification
+here; the next subsection shows that this does not generalise.
+
+The same failure arises without anyone choosing to truncate. Sequentially
+thresholded least squares, the sparse regression at the core of data-driven
+model discovery \citep{brunton2016discovering,kaptanoglu2022pysindy} and the
+object of its own convergence theory \citep{zhang2019convergence}, deletes
+small coefficients. On the broken-Hopf family $F_\varepsilon =
+F_{\mathrm{Hopf}} + \varepsilon x^2\partial_x$ (design in Methods), whose
+rotation defect is $0.064$ at $\varepsilon = 0.1$, above the tolerance, a
+sparsity threshold of $0.25$ deletes the breaking term, after which the
+threshold rule (plug-in defect at most $\delta$) declares the rotation a
+symmetry in $100\%$ of replications, against $17\%$ for the same rule on the
+unthresholded least-squares fit. Certifying from the unpruned least-squares fit
+gives zero.
+
+\subsection{Choosing the model class from the data}
+\label{sec:selection}
+
+Here the truth is the Hopf normal form plus $\varepsilon P_k(x)\,\partial_x$,
+with $P_k$ the Legendre polynomial of degree $k \in \{5,7\}$. Because $P_k$ is
+orthogonal to every polynomial of lower degree on the target box, a degree-$3$
+fit sees (up to sampling error) the exactly symmetric Hopf field, while the
+true rotation defect grows linearly in $\varepsilon$; the family of degrees
+$\{3, k\}$ contains the truth in its largest member. \Cref{fig:selection}
+compares five procedures at noise level $0.1$ (Methods).
+
+\begin{figure}[!tbp]
+\centering
+\includegraphics[width=\textwidth]{\figdir fig5_selection.pdf}
+\caption{\textbf{Choosing the model class from the data.} The truth is the Hopf
+normal form plus a Legendre term of degree 5 (\textbf{a}) or 7 (\textbf{b}) that a
+degree-3 fit cannot see; noise level $0.1$, $N = 3200$, $300$ replications per
+point. Lines with markers give the false-certification rate of five procedures
+(certifying in degree 3; the lack-of-fit gate; the gate applied to one half of
+the data and certification on the other; the largest class; certificates
+simultaneous over both classes), where curves at zero overlap; the dotted line
+gives the observed rejection rate of the lack-of-fit test, and black crosses
+give its power from the noncentral $F$ distribution. The shaded region is where
+certifying is correct (true defect at most $\delta$); the setting with a
+rotation defect exactly equal to $\delta$ is omitted from the plot. The
+dash-dotted line marks the true defect, to first order in the omitted part,
+that a misspecification detected with probability $0.5$ can produce
+(\Cref{prop:lof}). \textbf{c}, Mean dimension of the certified subspace when the truth is exactly
+symmetric, as a function of $N$, for the two valid procedures (largest class;
+simultaneous over both classes) and, for comparison, the lack-of-fit gate and
+the gate on a split (colours as in \textbf{a} and \textbf{b}; solid: omitted
+term of degree 5; dashed: degree 7). All $56$ settings are in \STselection.}
+\label{fig:selection}
+\end{figure}
+
+When the omitted term has degree $5$ the lack-of-fit test is the more sensitive
+instrument. At $N = 3200$ a misspecification that it detects with probability
+only $0.5$ can produce a true rotation defect of about $0.039$ (to first order
+in the omitted part), below the tolerance, and the gate never certified falsely
+when the rotation defect differed from the tolerance (\cref{fig:selection}a);
+with the rotation defect exactly $\delta$ it certified, in $6\%$ of
+replications at $N = 3200$ ($95\%$ interval $3\%$ to $9\%$), a direction whose
+true defect lay just above $\delta$. When the omitted term has degree $7$ the
+bracket amplifies it more and the test spreads its power over more degrees of
+freedom: misspecification invisible at power $0.5$ can produce defects of about
+$0.087$, about $1.7$ times the tolerance, and at $N = 3200$ the gate certifies
+falsely in $46\%$ of replications ($95\%$ interval $40\%$ to $52\%$) at a
+rotation defect of $1.25\delta$, in $27\%$ ($22\%$ to $33\%$) at $1.5\delta$
+and in $39\%$ ($33\%$ to $45\%$) at exactly $\delta$, precisely in the range
+that \Cref{prop:lof} marks out (\cref{fig:selection}b). The observed rejection
+rates agree with the noncentral-$F$ power throughout (largest difference
+$0.049$, less than two Monte Carlo standard errors). Choosing the class on one
+half of the data and certifying on the other does not remove the problem: it
+certifies falsely in up to $11\%$ of replications ($8\%$ to $15\%$) when the
+rotation defect exceeds $\delta$ (degree $7$, $N = 12{,}800$, $1.25\delta$) and
+in $19\%$ ($15\%$ to $24\%$) when it equals $\delta$ (degree $7$, $N =
+12{,}800$), because a class chosen by a test with half the data is more often
+too small. The two valid procedures, certifying in the largest class and
+certifying simultaneously over both classes, never certified falsely in any of
+the $56$ settings. Their price is power (\cref{fig:selection}c): when the truth
+is exactly symmetric they certify almost nothing below $N = 51{,}200$ (mean
+dimension of the certified subspace at most $0.02$) if the largest class has
+degree $5$, and nothing at all in the range studied if it has degree $7$,
+whereas the gate certifies the rotation from $N = 3200$. This power is the
+price of assuming the larger class, which spares one from trusting a test that
+failed to reject; choosing among the nested classes adds only a split of
+$\alpha$ (\Cref{prop:classes}).
+
+\subsection{Certified tolerance against the Le~Cam bound}
+\label{sec:resolution}
+
+\Cref{fig:headline}c tracks the certified tolerance of the rotation generator
+for the exactly symmetric
+member ($\varepsilon = 0$) of the broken-Hopf family, whose rotation defect
+grows continuously from zero with $\varepsilon$ (the broken members are used
+below), against the bound of \Cref{prop:lecam} evaluated on the design of each
+replication. Over two decades of $N$ and three noise levels the certified
+tolerance follows the $\sigma/\sqrt N$ scaling of the bound (fitted log--log
+slopes between $-0.49$ and $-0.52$), exceeding it by a median factor of $8.0$
+at each of the noise levels $0.03$, $0.1$ and $0.3$ in the degree-$3$ class
+($Q = 20$). In this class the factor is nearly constant in $N$ and $\sigma$,
+but it is not constant across model classes: fitting the same symmetric
+system in classes of degree $5$ and $7$ ($Q = 42$ and $72$) raises it to
+$10.9$ and $13.2$ (medians over $N = 800$ to $12{,}800$, where every bound is
+finite and below $1$; \STqsweep). The pointwise bound, valid here because the
+rotation is fixed in advance, gives median factors of $8.0$, $10.7$ and $12.9$
+over the same range; it is much wider at small $N$ (infinite for degree $7$ at
+$N \le 200$) and slightly narrower from $N = 3200$ on (at $N = 12{,}800$,
+factors of $7.7$, $10.1$ and $11.6$ against $7.9$, $11.0$ and $13.2$). The
+growth of the gap with $Q$ is therefore shared by a bound that is not
+simultaneous, so it is not mainly a cost of simultaneity. It reflects the
+model class itself, since the bound for one generator depends on every
+coefficient that enters its bracket, together with the looseness of the
+two-point lower bound, and we cannot apportion it between the two. The
+comparison therefore supports the scaling in $N$ and $\sigma$ at a fixed model
+class; it does not show that the constant, or the dependence on $Q$, is
+optimal.
+
+The same experiment measures the opposite claim. At $N=1600$ and noise level
+$0.1$, the lower certificate rules out exact symmetry ($L > 0$) for
+$49.5\%$ of replications when the true rotation defect is $0.013$ and for
+$100\%$ when it is $0.032$; when the system really is symmetric it does so in
+$1.0\%$ of replications (2 of 200; $95\%$ interval $0.1\%$ to $3.6\%$), below
+the nominal $5\%$.
+
+\subsection{Problem dimension, and whether to split the sample}
+\label{sec:dimension}
+
+The width of the simultaneous certificate is governed by the number of model
+coefficients $Q$, through the radius of the confidence ellipsoid; the width of
+the split-sample pointwise bound is governed by an effective dimension of the
+generator being tested, but it sees half the data. \Cref{fig:power}b,c
+settles which wins here: \textbf{the simultaneous certificate is narrower in all
+nine configurations}, by factors of $1.6$ to $2.6$, and it certifies the
+minimal-defect plug-in direction at least as often in all nine (both averaged
+over $N = 200$ to $6400$). Sample splitting, the standard remedy
+for the selection effect, is counterproductive here, because the selection
+effect it protects against is already handled by simultaneity. Increasing the
+\emph{candidate generator} class is nearly free: moving from the
+$6$-dimensional affine class to the $12$-dimensional class of all quadratic
+generators on the Hopf system changes the certified tolerance (median over
+replications, averaged over $N = 200$ to $6400$, as in \cref{fig:power}b) from
+$0.0454$ to $0.0447$. Increasing the \emph{model} class is not: raising the
+polynomial degree from $3$ to $5$ ($Q$ from $20$ to $42$) widens it from
+$0.045$ to $0.122$. Search widely over generators, and spend the
+sample-size budget on the model class.
+
+\subsection{Is the guarantee tight?}
+\label{sec:tightness}
+
+A certificate that certified nothing would also never certify anything false,
+so we measured how conservative ours is (\SFtightness). The coefficient region
+covers the true coefficients at close to its nominal level, as
+\Cref{prop:closedform} says it should: pooled over the six settings, within
+$0.02$ of nominal at every level from $0.50$ to $0.99$ ($0.94$ to $0.96$ in
+every setting at nominal $0.95$); single settings, with $80$ replications each,
+scatter more widely, from $0.35$ to $0.59$ at nominal $0.50$, within Monte
+Carlo error over the $36$ setting-level combinations. The certificate interval
+contains the true defect of every plug-in direction in all replications at
+every nominal level from $0.50$ to $0.99$. Each bound is a worst case over a
+region for all $Q$ coefficients, and the pointwise bound for a generator fixed
+in advance is nearly as wide (\Cref{sec:resolution}), so this conservatism is
+not mainly a cost of simultaneity over generators.
+
+To see what a finite-sample guarantee costs, we compared the certificate with a
+calibration-\emph{targeting} alternative, the parametric bootstrap that draws
+$\beta^* \sim N(\bhat,\hat\Sigma)$ and reports the $\alpha$ and $1-\alpha$
+quantiles of $\defect_\nu(\xi_\theta;F_{\beta^*})$ \citep{efron1979bootstrap},
+on the rotation generator of the broken-Hopf family. Its upper bound is $5\%$
+to $42\%$ lower than the certificate's at $\alpha = 0.05$ and up to $47\%$
+lower at $\alpha = 0.2$, the gap being largest at a true symmetry and shrinking
+with $N$ when the defect is not zero. For this generator, fixed in advance, the
+bootstrap upper bound held: with the true defect just above the tolerance
+($1.02\delta$) and sample sizes from $800$ to $51{,}200$, it certified falsely
+in at most $15\%$ of replications at nominal $\alpha = 0.5$ ($95\%$ interval
+$11\%$ to $20\%$), $4.3\%$ at $0.2$ ($2.3\%$ to $7.3\%$) and $0.7\%$ at $0.05$
+($0.1\%$ to $2.4\%$), all within its nominal levels, while \symcert{} never
+did. Near a symmetry, where the defect, a norm, is not a smooth function of the
+coefficients and its plug-in value is biased upward, the bootstrap fails in its
+lower quantile, which lies above the true defect: its interval covered the
+truth in at most one of $200$ replications at either level ($\alpha = 0.05$ and
+$0.2$, nominal $90\%$ and $60\%$) whenever the true defect was $0.01$ or less,
+and at $0.02$ ($N = 3200$) in $36\%$ ($29\%$ to $43\%$) against a nominal
+$90\%$ and $8.5\%$ ($5.0\%$ to $13.3\%$) against $60\%$, so it would wrongly
+exclude exact symmetry.
+The certificate's coverage never fell below $0.93$ (nominal $0.80$) or $0.985$
+(nominal $0.95$). The bootstrap upper bound itself fails for a generator
+selected from the data (\SFtightness e). On four systems without symmetry (Van
+der Pol, Duffing, Lotka--Volterra and Sel'kov, all on the box $[-1,1]^2$,
+smallest true defects $0.25$ to $0.64$; $N = 50$ to $400$, noise levels $0.2$
+and $0.5$, $300$ replications per setting), with the generator of smallest
+plug-in defect bounded as if it had been fixed in advance, its coverage was
+below nominal in $9$ of $32$ settings at nominal $0.80$ and in $8$ of $32$ at
+$0.95$, with the whole $95\%$ interval below nominal in $5$ settings at each
+level, nine of these ten on the Duffing oscillator (worst $0.59$, $95\%$
+interval $0.54$ to $0.65$, and $0.90$, $0.86$ to $0.93$, at $N = 50$ and noise
+level $0.5$): selection biases the plug-in defect downward, by up to $0.15$ on
+average, and a bootstrap centred at it does not see the selection. The
+certificate's upper bound contained the true defect in every replication. With
+true defects far above $\delta$, the failure shows as an understated tolerance,
+not as a false certification at $0.05$. The extra width is therefore the price
+of a guarantee that holds by theorem, in finite samples, simultaneously over
+generators and for both bounds, and the experiment with a data-selected
+generator, on the Duffing oscillator in particular, shows a case in which a
+bound without this guarantee fails.
+
+\subsection{Departures from the assumptions}
+\label{sec:robustness}
+
+\input{\tabdir robustness}
+
+\Cref{tab:robustness} separates the two coverages that matter: that of the
+coefficient region, the event on which every certificate rests, and that of the
+certificate itself. With independent rows, the exact least-squares region keeps
+close to its nominal level under Student-$t_4$ and Laplace errors (at least
+$0.938$) but not under heteroskedastic errors ($0.82$), and White's sandwich
+undercovers at the smaller sample size ($0.77$ to $0.88$ at $N = 400$, a
+known small-sample weakness of the plain sandwich with a chi-square reference)
+and approaches its nominal level at $N = 3200$ ($0.93$ to $0.96$). The
+certificate covered the true defect of every plug-in direction in every one of
+these replications and never certified falsely. Its own conservatism absorbed
+the region's shortfall here, but that margin is not part of any guarantee, and
+the region is what should be chosen to match the error structure.
+
+On trajectory data the rows are dependent through the design, but with exact
+states and independent errors the regression is still a correctly specified
+least-squares problem, and White's region covers ($0.90$ to $0.98$). The
+cluster-robust region, which also allows dependent errors within a trajectory,
+covers less well with $48$ trajectories ($0.76$ to $0.91$): its covariance
+estimate has about as many degrees of freedom as there are trajectories, here
+only $1.6$ to $2.4$ times the number of coefficients ($Q = 30$ or $20$), even
+in the jackknife form that corrects the leverage bias of the plain cluster
+sandwich. With noisy states and central differences inside each trajectory,
+state noise of $0.05\%$ to $0.5\%$ of the box half-width barely biases the
+fit; differencing multiplies it into large derivative noise, which costs
+detection, and makes neighbouring errors negatively correlated, which the
+cluster-robust region accounts for and White's overestimates.
+
+Genuinely dependent errors are another matter (\SFdependence{} and
+\STdependence). With errors
+following an AR(1) process along each trajectory, the OLS and White regions,
+which assume independent errors, contained the true coefficients in at most
+$7\%$ of replications once the autocorrelation $\phi$ reached $0.5$, and for
+$\phi \ge 0.9$ the certificate built on them failed as well, its interval
+covering the true defects in only $1\%$ to $27\%$ of replications; in these
+two systems the failure happened not to produce a false certification, but
+nothing guarantees that. The cluster-robust region, designed for this case,
+covered in $73\%$ to $92\%$ of replications with $48$ trajectories and $91\%$
+to $95\%$ with $192$, and the certificate built on it covered in every
+replication; with $12$ trajectories, fewer than the coefficients, it leaves
+directions unidentified and certifies nothing. The Newey--West region, whose
+justification is asymptotic in the length of each series, was not adequate
+for trajectories of at most $100$ points: for $\phi \ge 0.5$ its coverage was
+$0.14$ to $0.80$ with $192$ trajectories, $0.01$ to $0.81$ with $48$ and $0$
+to $0.46$ with $12$, and it fell short already at $\phi = 0.5$, where the
+correlation time is only a few steps ($0.75$ to $0.80$ with $192$). The
+certificate built on it covered in at least $98\%$ of replications in every
+other setting, but with $12$ trajectories at $\phi = 0.98$ in only $80\%$
+(Hopf) and $91\%$ (rigid body), though without a false certification. Dependent
+data therefore need both the right estimator and enough independent
+trajectories.
+
+Noise in the states is not covered, and it can manufacture symmetry
+(\SFeiv). We observed the states with independent noise of standard deviation
+$\sigma_x$ and the right-hand side separately with small independent noise.
+Least squares then estimates a pseudo-true field whose nonlinear terms are
+attenuated. For the hardening Duffing oscillator $\dot x = y$,
+$\dot y = -x - 0.3x^3 - 0.2y$, whose smallest true defect is $0.102$, state
+noise of $\sigma_x = 0.08$ lowers the smallest defect of the pseudo-true field
+to $0.038$. As data accumulate the region concentrates on that field, not on
+the truth (it contained the true coefficients in none of the replications), and
+\symcert{} certified a false symmetry in every replication at
+$N = 25{,}600$ and $204{,}800$; at $N = 3200$ it was still too wide to certify.
+The threshold rule did so at every sample size. State noise of $0.04$ or $0.12$
+left the pseudo-true defect above the tolerance and produced no false
+certification, and on the symmetric Hopf system state noise of $0.08$ or more
+destroyed detection instead. Whether errors in the states inflate or deflate the
+apparent symmetry depends on the system, which is why the guarantee cannot
+extend to them without a model of those errors.
+
+\SFmodelerror{} turns to systems that no polynomial class contains (one data
+set of $N = 40{,}000$ points per system and degree, noise level $0.02$). On a
+non-polynomial planar flow with an exact rotational symmetry, on the box
+$[-1,1]^2$, a degree-$5$ fit gives an upper bound of $0.050$ if model error is
+ignored, a bound with no guarantee. Paying for the error in $L^2$ against a
+degree-$9$ class, with its size taken from the known truth (an oracle,
+unavailable in practice), gives $0.65$, and paying in supremum norm $2.65$.
+Bounding the omitted part from the data instead gives $0.68$, close to the
+oracle $L^2$ value. Both $L^2$ values assume that the omitted part lies in the
+degree-$9$ class, which for this flow holds only approximately, so they are
+sensitivity values rather than guaranteed bounds; only the supremum-norm
+value is a guaranteed bound, provided its oracle sizes bound the true suprema
+(here they are maxima over $4\times10^{5}$ points, which can fall slightly
+short of them). All three are vacuous at
+$\delta = 0.05$. Raising the fitted degree to $9$ shrinks the relative $L^2$
+model error to $0.5\%$ and the data-driven bound to $0.27$, still too wide to
+be useful: the bracket differentiates, so the constant converting a bound on
+$\|h\|$ into a bound on $\|[\xi,h]\|$ grows with the degree of the class faster
+than the error falls. On the damped pendulum, which has no continuous symmetry,
+the same accounting is cheap (true defect $0.204$, bounds between $0.23$ and
+$0.39$ across degrees and forms, with the same caveat for the $L^2$ forms)
+because a degree-$5$ polynomial reproduces $\sin$ on the target domain to a
+relative $L^2$ error of $0.07\%$.
+
+When a dictionary that contains the truth is available, no model-error term is
+needed (\STdictionary). We fitted the same planar flow, with the unit disc as
+target domain, with quadratic polynomials and four radial functions, with
+and without the symmetry-breaking term $\varepsilon x^2\partial_x$, and the
+damped pendulum with a polynomial and trigonometric library. Across $45$
+settings ($300$ replications each) \symcert{} never certified falsely, while a
+threshold at the tolerance did so in up to $6.3\%$ of replications. With the
+exact rotational symmetry present, it was certified in every replication at
+noise level $0.03$, with a median upper bound of $0.008$ at $N = 3200$; the
+polynomial fits above, on the box $[-1,1]^2$ with $N = 40{,}000$ and noise
+level $0.02$, gave only vacuous bounds once model error was paid for. With a
+breaking term giving the rotation a defect of $0.024$ \symcert{} certified
+that approximate symmetry from $N = 800$ at the same noise level, and with a
+defect of $0.096$ it certified nothing. On the pendulum the lower certificate
+excluded every $0.05$-approximate symmetry in all replications at $N = 3200$
+for noise levels up to $0.1$, and the upper bound on the minimal defect
+($0.213$ at noise level $0.03$) was within $5\%$ of its true value ($0.204$).
+
+\subsection{Scaling, units and closure}
+\label{sec:scaling}
+
+The state dimension enters twice: through the number of model coefficients $Q$,
+which sets the radius of the confidence region, and through the number of
+candidate generators $P$, which sets how many directions are searched. On
+linear systems in $n = 2,\dots,6$ built from rotation blocks, whose symmetry
+algebra is the commutant of the coefficient matrix and has dimension $n$, false
+certification is zero in all $20$ cells (\STscaling; five dimensions, $N = 200$, $800$,
+$3200$ and $12{,}800$) while the search space $P = n^2$ grows from $4$ to $36$.
+What the growth costs is width: at $N = 12{,}800$ the median upper bound of the
+minimal-defect plug-in direction rises from $0.0017$ at $n=2$ ($Q=6$) to
+$0.0050$ at $n=6$ ($Q=42$), a factor $2.9$, somewhat more than the $\sqrt{Q}$
+factor of $2.6$. Because $P$ and $Q$ grow together in this design, it does not
+show which of the two the width depends on; at a fixed model class, enlarging
+the candidate class barely changes the width (\Cref{sec:dimension}). The
+dimension of the certified subspace reaches $n$ (detection) in every
+replication from $N = 800$ at $n = 4$ and from $N = 3200$ at $n = 6$, and one
+certified plug-in subspace costs between $0.03$ and $0.11$ CPU-seconds across
+this range.
+
+Units matter exactly as \Cref{lem:props} predicts (\STunits). Re-expressing one
+coordinate of the broken-Hopf system in units $c$ times larger, for $c$ from
+$0.01$ to $100$, moves the Euclidean defect of the rotation between $0.051$ and
+$0.076$ (it is $0.064$ in the original units), and lowers the smallest
+Euclidean defect in the class for Lotka--Volterra from $0.27$ to $0.0035$; with
+the nondimensional metric neither number moves. Certifying in the rescaled
+Lotka--Volterra coordinates with the Euclidean metric at $N = 12{,}800$
+certified a generator in every replication, and every one of those
+certifications was false when judged by the unit-free defect of the system;
+with the declared metric nothing was certified.
+
+Certified subspaces of dimension two or more were close to closed under the
+bracket (\STclosure). For the radial sphere flow, whose symmetry algebra is the
+non-abelian $\mathfrak{so}(3)$, the certified subspace had dimension three in
+every replication except at the smallest sample size with the larger noise,
+the part of each commutator outside it was at most $0.4\%$ of the size of its
+two terms, and every commutator was itself certified. For the two
+abelian algebras the commutators were negligible.
+
+\subsection{A physically expected symmetry in ocean measurements}
+\label{sec:drifters}
+
+Near-inertial currents in the upper ocean follow, to first order, the damped
+slab model $\dot u = f v - r u$, $\dot v = -f u - r v$ plus wind forcing
+\citep{pollard1970comparison}, where $(u,v)$ is the horizontal velocity and $f$
+the local Coriolis parameter. With time measured in units of $1/f$ the
+right-hand side is $(v - (r/f)\,u,\; -u - (r/f)\,v)$, a uniform damping plus a
+quarter-turn rotation of the velocity, both of which commute with the rotation
+generator: the dynamics are rotation invariant. We asked whether hourly
+velocities of drogued drifters of the Global Drifter Program
+\citep{elipot2016global,elipot2022hourly} certify that symmetry, using
+$46{,}733$ velocity--acceleration pairs from $31$ drifters in the North Pacific
+(30--45$^\circ$N, 180--140$^\circ$W, June to September 2016--2019) after
+isolating the near-inertial band (Methods, \STdrifters). The fitted linear
+field is $\dot u = 0.994\,v$, $\dot v = -1.028\,u$ in units of $f$, the
+textbook inertial oscillation, and the plug-in defect of the rotation generator
+is $0.025$. Because rows along a trajectory are serially dependent, we use the
+cluster-robust region over drifters, which needs no bandwidth: the rotation is
+then certified as a $0.074$-approximate symmetry of the linear model ($0.067$
+to $0.074$ across filter windows, so not at $\delta = 0.05$), and exact
+rotation invariance is not excluded ($L = 0$). The OLS region, which ignores
+the dependence, and the Newey--West region, which allows serial correlation
+within each drifter's record, would both certify at $\delta = 0.05$ and exclude
+exact invariance (upper bounds $0.040$ and $0.045$, lower bounds $0.010$ and
+$0.005$). We report the Newey--West result as a sensitivity result only,
+because it depends on an estimated bandwidth and on asymptotics in the length
+of each record, whereas the cluster-robust region assumes nothing about the
+form or range of the dependence within a drifter. The dependence study above,
+in which Newey--West undercovered, used series of at most $100$ points, much
+shorter than most drifter records here (median $1{,}486$ pairs), so it is only
+indirect evidence. The verdict at $\delta = 0.05$ depends on this choice.
+Quadratic or cubic terms widen the cluster-robust bound to $0.11$ and $0.21$,
+and the construction of \Cref{prop:classes} applied over degrees $1$ to $3$
+with cluster-robust regions gives $0.25$ (the proposition is proved for the
+exact regions; with these regions the bound holds only asymptotically). The
+result rests on assumptions the data cannot check: a linear model class;
+velocities without measurement error (their median standard error is
+$0.014$~m\,s$^{-1}$ against a root-mean-square of $0.109$~m\,s$^{-1}$); errors
+uncorrelated with the velocity, although they contain the unmodelled wind
+forcing, which also drives the velocity (rotation-invariant forcing statistics
+would bias the fit without creating a defect; anisotropic forcing could create
+or hide one); independence between drifters, which share wind forcing within a
+region and season; and an asymptotic region with $31$ clusters, five times the
+$6$ coefficients of the linear class but only $2.6$ and $1.6$ times those of
+the quadratic and cubic classes. We report it as a case study within those
+assumptions.

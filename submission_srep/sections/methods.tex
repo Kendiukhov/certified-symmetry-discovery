@@ -1,0 +1,531 @@
+\section{Methods}
+\label{sec:methods}
+
+\subsection{Construction of the bilinear forms}
+\label{app:construction}
+
+\paragraph{Polynomial models.} Represent a polynomial vector field on $\R^n$ by
+an $n \times m$ array of coefficients over the monomials of total degree at
+most $d$. Multiplication and differentiation of monomials are index tables
+computed once, so the bracket~\eqref{eq:bracket} of two such fields is exact
+integer and rational linear algebra. Fixing the candidate basis
+$\zeta_1,\dots,\zeta_P$ and the model basis $\{x^a e_i\}$ and computing the
+bracket of every pair gives a three-index tensor $T \in \R^{J \times P \times
+Q}$, with $J$ the number of coefficients of a bracket, such that
+$\mathrm{coef}([\xi_\theta,F_\beta]) = T \cdot \theta \cdot \beta$, and likewise
+$T^{(1)}, T^{(2)}$ for the two individual terms, with $T = T^{(1)}-T^{(2)}$.
+Multiplying the first index by $W^{1/2} \otimes g_\nu^{1/2}$, where $g_\nu$ is
+the monomial Gram matrix of $\nu$ and $W$ the output metric, converts Euclidean
+norms of contracted vectors into the norms $\|\cdot\|_{\nu,W}$ of the
+corresponding fields. Then $L_\theta = T_w \cdot \theta$, and the columns of
+$A(\beta) = T_w \cdot \beta$ give $C(\beta) = A(\beta)^{\!\top}A(\beta)$.
+The matrix $M(\beta)$, defined by $M(\beta)\theta = M_\theta\beta$, stacks
+$T^{(1)}_w\cdot\beta$ and $T^{(2)}_w\cdot\beta$ and gives $D(\beta) =
+M(\beta)^{\!\top}M(\beta)$. The matrix
+$g_\nu$ is available in closed form for the uniform measure on a box (with
+equal or unequal half-widths), the Gaussian, and the uniform measure on a ball
+or annulus (the last two by separating radial and angular moments), so no
+quadrature error enters. For the \emph{data} measure we substitute the
+empirical Gram matrix of the same monomial basis; the difference between the
+two is exactly what \Cref{prop:kappa} measures. To evaluate the extrapolation
+factor, $G_\mu$ is symmetrised and treated as singular when its smallest
+eigenvalue is at most $10^{-10}$ times its largest, in which case
+$\sqrt{\kappa\kappa'}$ is reported as infinite; otherwise $\kappa$ and
+$\kappa'$ are computed with symmetric inverse square roots. No pseudoinverse or
+ridge is used.
+
+\paragraph{Dictionary models.} For $F_\beta = \sum_{i,a}\beta_{i,a}\phi_a e_i$
+with differentiable $\phi_a$, the two terms of the bracket of $\xi$ with
+$\phi_a e_i$ are $(\nabla\phi_a\cdot\xi)\,e_i$ and $\phi_a\,(D\xi)\,e_i$, both
+linear in $\beta$ pointwise. Evaluating them at the nodes $x_k$ of a quadrature
+rule with weights $w_k$ for $\nu$ and stacking $\sqrt{w_k}\,W^{1/2}$ times
+their values gives tensors with the same role as $T^{(1)}_w, T^{(2)}_w$; their
+output index is compressed by an orthonormal basis of the span of all
+contracted vectors, which leaves every norm unchanged. A uniform grid of $p$
+points per angle integrates trigonometric polynomials of degree below $p$
+exactly, and a Gauss--Legendre rule with $p$ nodes integrates polynomials of
+degree up to $2p-1$ exactly. For the radial library we integrate in polar
+coordinates, Gauss--Legendre (40 nodes) in the radius with the area weight and
+a uniform grid (24 points) in the angle, and for the pendulum library a
+$32 \times 32$ Gauss--Legendre product rule. For the radial family and the
+pendulum the test suite checks that doubling both rules changes no defect by
+more than a relative $10^{-10}$, and that Monte Carlo integration of the
+analytic bracket over the target measure ($10^{6}$ points) agrees with the
+quadrature defects to within three standard errors. With a monomial dictionary and an exact rule the construction
+reproduces the closed-form tensors to $10^{-10}$, which the test suite also
+checks.
+
+\subsection{Certified numerics}
+\label{sec:numerics}
+
+All extrema are over the ball $\|u\| \le R$ that parameterises the ellipsoid.
+For $\max\|a + Bu\|$ we use the dual bound $\|a+Bu\|^2 \le a^{\!\top}a + \omega R^2
++ c^{\!\top}(\omega I - B^{\!\top}B)^{-1}c$, valid for every multiplier $\omega >
+\lambda_{\max}(B^{\!\top}B)$ with $c = B^{\!\top}a$; for $\min\|a+Bu\|$ the bound
+$\|a+Bu\|^2 \ge a^{\!\top}a - c^{\!\top}(B^{\!\top}B + \omega I)^{-1}c - \omega R^2$,
+valid for every $\omega \ge 0$ with the matrix positive definite (and the
+least-squares residual when the unconstrained minimiser lies in the ball). For
+the indefinite problems of \Cref{prop:closedform}(ii) we use the dual function
+$\psi(\omega) = s_0 - g^{\!\top}(H + \omega I)^{-1}g - \omega R^2$ of
+$\min\,u^{\!\top}Hu + 2g^{\!\top}u + s_0$, valid and concave for every
+$\omega \ge 0$ with $H + \omega I$ positive definite (at the end point $\omega =
+-\lambda_{\min}(H) > 0$ it remains valid when $g$ is orthogonal to the bottom
+eigenspace of $H$; otherwise that end point is approached as a limit). In each case the multiplier is located by a safeguarded Newton iteration
+on the derivative of the dual (the secular equation), in the reciprocal form of
+Mor\'e and Sorensen, which is concave and nearly linear, with bisection as a
+fall-back \citep{gander1989constrained,more1983computing,conn2000trust};
+whatever multiplier is returned, the value is a valid bound, and the minimiser
+of the subproblem (with a component along the bottom eigenvector in the hard
+case) is a feasible point. The sharp certificate uses this in Dinkelbach's
+iteration for fractional programmes \citep{dinkelbach1967nonlinear}: starting
+from the plug-in defect, each step solves the indefinite subproblem at the
+current level $t$ and moves $t$ to the squared ratio at its minimiser, a
+feasible point, so the iterates increase to $U(\theta)^2$ from inside; the
+square root of the final value, inflated by a relative $10^{-7}$, is accepted
+only when the dual
+bound certifies $\min_u\, t\|M_\theta\beta(u)\|^2 - \|L_\theta\beta(u)\|^2 > 0$
+there, and bisection between the attained value and the separate bound takes
+over otherwise. A further relative margin of $10^{-9}$ covers rounding, and the
+analogous construction from above gives $L(\theta)$. A denominator whose lower
+bound is below $10^{-12}$ of its scale is treated as vanishing, and the
+generator as not certifiable. The separate bound uses
+$\sup_{\mathcal B}\|L_\theta\beta\|$ and $\inf_{\mathcal B}\|M_\theta\beta\|$ (and,
+when model error is admitted, the two denominator blocks separately, because
+the model-error terms perturb them by different amounts). One sharp
+certificate costs about $3$~ms of CPU time for $Q = 20$ and $10$~ms for
+$Q = 60$ on one core.
+
+For subspaces, with $V$ also denoting a matrix whose orthonormal columns span
+the subspace and $\theta$ ranging over its unit vectors, we bound
+$\sup_{\theta}\|A(\beta)\theta\| \le
+\sigma_{\max}(A(\bhat)V) + \sup_{\mathcal B}\|(A(\beta)-A(\bhat))V\|_F$ and
+$\inf_{\theta}\|M(\beta)\theta\| \ge \sigma_{\min}(M(\bhat)V) -
+\sup_{\mathcal B}\|(M(\beta)-M(\bhat))V\|_F$, each supremum being the norm of a
+linear image of $\beta$ and hence one more trust-region maximum. The refutation
+bound uses the same construction with $V = I$, the whole candidate class:
+$\min_\theta\defect_\nu \ge (\sigma_{\min}(A(\bhat)) - r_A)_+ /
+(\sigma_{\max}(M(\bhat)) + r_M)$ on $\{\beta^\star \in \mathcal B\}$, with $r_A =
+\sup_{\mathcal B}\|A(\beta)-A(\bhat)\|_F$ and $r_M = \sup_{\mathcal
+B}\|M(\beta)-M(\bhat)\|_F$. Generalised eigenproblems are solved on the range
+of $D(\bhat)$; directions in its null space (relative eigenvalue at most
+$10^{-12}$) have an undefined defect and are never declared or certified.
+
+\paragraph{Pointwise bound.} For a generator fixed in advance, or chosen on
+one half of the data and bounded with the fit to the other half, the error
+probability is split into $0.98\alpha$ for the numerator, $0.01\alpha$ for the
+denominator and $0.01\alpha$ for the noise scale: $\hat\Sigma$ is multiplied by
+the upper confidence factor $\mathrm{dof}/\chi^2_{\mathrm{dof};\,0.01\alpha}$
+(1 for the asymptotic regions), and $\|L_\theta\bhat\|$ and $\|M_\theta\bhat\|$ are each moved up and down by
+the Gaussian-concentration width $(\mathrm{tr}\,\Gamma)^{1/2} +
+(2\|\Gamma\|_{\mathrm{op}}\log(1/\alpha'))^{1/2}$ at their share $\alpha'$,
+with $\Gamma$ the inflated covariance of $L_\theta\bhat$ or $M_\theta\bhat$.
+The bounds on the defect are the ratios of these bounds. When model error is
+admitted, the denominator's share is spent on its two blocks, $0.005\alpha$
+each.
+
+\paragraph{Closure diagnostic.} For a certified plug-in subspace $V_r$ with
+$r \ge 2$ we take a basis $\xi_1,\dots,\xi_r$ that is orthonormal in the
+$\|\cdot\|_{\nu,W}$ geometry of generator fields and compute each commutator
+$[\xi_a,\xi_b] = D\xi_b\,\xi_a - D\xi_a\,\xi_b$ exactly. For affine generators
+it lies in the candidate class, which is closed under the bracket. The
+reported closure defect is the largest over pairs of
+\[
+  c(a,b) = \frac{\|P_\perp[\xi_a,\xi_b]\|_{\nu,W}}
+  {\bigl(\|D\xi_b\,\xi_a\|^2_{\nu,W} + \|D\xi_a\,\xi_b\|^2_{\nu,W}\bigr)^{1/2}},
+\]
+with $P_\perp$ the orthogonal projection, in the same geometry, onto the
+complement of $V_r$ in the candidate class. For a class closed under the
+bracket, as here, $c = 0$ for every pair exactly when $V_r$ is a Lie
+subalgebra, and $c \le \sqrt 2$. A commutator whose norm
+exceeds $5\%$ of the same denominator is itself a candidate generator, and its
+defect is bounded by the sharp certificate from the same region at the same
+level; the commutators count as certified when every such bound is at most
+$\delta$. Smaller commutators, as in an abelian algebra, are reported as
+negligible. For a candidate class that is not closed under the bracket
+(quadratic generators, for example), a commutator need not be a candidate
+generator and then cannot be certified, and $c$ measures only its part inside
+the class: the part outside it must be reported alongside $c$, and $c = 0$
+alone does not establish closure.
+
+\subsection{Confidence regions}
+\label{sec:regions}
+
+Unless stated otherwise the region is the exact least-squares ellipsoid of
+\Cref{prop:closedform}(iii) (``OLS'' below). The sandwich regions use
+$\hat\Sigma = (I_n\otimes (\Phi^{\!\top}\Phi)^{-1})\,\Omega\,(I_n \otimes
+(\Phi^{\!\top}\Phi)^{-1})$ with scores $z_t = r_t \otimes \phi(x_t)$, where $r_t \in \R^n$ is the
+least-squares residual of row $t$. White's
+estimator (HC0) takes $\Omega = \sum_t z_t z_t^{\!\top}$ and the radius $R^2 =
+\chi^2_{Q;\,1-\alpha}$. The cluster-robust estimator is the jackknife (CR3) form
+recommended when clusters are few \citep{cameron2015practitioner}: with $n_{\mathrm c}$
+trajectories, $\Omega = \frac{n_{\mathrm c}-1}{n_{\mathrm c}}\sum_g s_g s_g^{\!\top}$, where $s_g =
+\Phi_g^{\!\top}(I - H_{gg})^{-1} r_g$ collects the residuals of trajectory $g$
+inflated by its leverage block $H_{gg} =
+\Phi_g(\Phi^{\!\top}\Phi)^{-1}\Phi_g^{\!\top}$; it uses the small-sample radius
+$R^2 = Q\,\frac{n_{\mathrm c}-1}{n_{\mathrm c}-Q}\,\mathrm{F}_{Q,\,n_{\mathrm c}-Q;\,1-\alpha}$,
+the Hotelling form, which tends to the chi-square quantile as $n_{\mathrm c}$
+grows. The Newey--West estimator adds, within each trajectory, the products of
+scores at lags $j = 1,\dots,\ell$ with Bartlett weights $1 - j/(\ell+1)$, with
+$\ell$ chosen by Andrews' AR(1) plug-in rule from the pooled lag-one
+autocorrelation of the residuals, and uses the chi-square radius
+\citep{newey1987simple,andrews1991heteroskedasticity}. Directions outside the
+range of $\hat\Sigma$ (relative eigenvalue at most $10^{-12}$), such as those
+missed by a cluster-robust estimate with fewer trajectories than coefficients,
+and the coefficient directions that a rank-deficient design cannot see are
+treated as unidentified, and any certificate that depends on them is
+infinite. Region coverage is checked by evaluating
+$(\bhat-\beta^\star)^{\!\top}\hat\Sigma^{-1}(\bhat-\beta^\star) \le R^2$ against
+the known $\beta^\star$. The estimators used are: OLS in every experiment
+except the following; White and OLS for the error-distribution study; White and
+cluster-robust for the trajectory study; OLS, White, cluster-robust and
+Newey--West for the serial-dependence study and for the drifter case study;
+White for the lynx--hare case study, where with $19$ rows it carries no
+asymptotic justification.
+
+\subsection{Model-class procedures}
+\label{sec:classproc}
+
+The lack-of-fit test is the $F$-test of the smaller class against the larger
+on the same rows, with residual sums of squares from both fits,
+$n(m_{\mathcal H}-m)$ and $n(N - m_{\mathcal H})$ degrees of freedom, and
+level $0.05$. Its denominator is the residual mean square of the largest
+class, and the certificate uses the residual variance of the class in which it
+is computed, so the two share one estimate when the gate selects the largest
+class and use different estimates from the same rows otherwise; under
+\emph{Split} they use disjoint halves of the rows, and \emph{Largest} and
+\emph{Simultaneous} run no test. The
+\emph{gate} chooses the smallest class whose test against the largest does not
+reject and certifies there; no error budget is allocated to the test, because
+the gate carries no guarantee. \emph{Split} applies the gate to the first half
+of the rows and certifies on the second. \emph{Largest} certifies in the
+largest class at level $\alpha$. \emph{Simultaneous} implements
+\Cref{prop:classes} with $\alpha/K$ per class; the omitted part of class $k$
+is computed from the least-squares projection of the largest class on class
+$k$ over the design, and its $\|\cdot\|_{\nu,W}$ norm is maximised over the
+largest-class region. The invisible defect of \Cref{prop:lof} is evaluated
+with $\mathcal H$ the largest class, $\mu_N$ replaced by $\nu$ (the designs are
+uniform on the target box), $\gamma = 0.5$ and the denominator
+of~\eqref{eq:invisible} evaluated at $F_{\beta^\circ}$ (the degree-3 Hopf
+field), that is, to first order in $h$. The resulting values describe one
+omitted part, $h^\star$, and are not upper bounds; evaluating the denominator
+exactly at $F_{\beta^\circ} \pm h^\star$ gives $0.039$--$0.040$ (degree 5) and
+$0.085$--$0.089$ (degree 7) at $N = 3200$, depending on the sign of $h^\star$.
+
+\subsection{Baselines}
+\label{app:baselines}
+
+\emph{Fixed threshold}: declare the span of all generalised eigenvectors of
+$(C(\bhat), D(\bhat))$ whose plug-in defect is at most $\tau$; sweeping $\tau$
+traces the whole family, including $\tau = \delta$. \emph{Eigengap}: declare
+the $r$ maximising $\defect_{(r+1)}/\defect_{(r)}$ over $r \ge 1$; this rule
+cannot express ``no symmetry'', which is one reason its error rate is high.
+\emph{Weyl perturbation certificate}: bound $\lambda_k(C(\beta^\star)) \le
+\lambda_k(C(\bhat)) + \|C(\beta^\star)-C(\bhat)\|$ with the perturbation
+bounded by $2\|A(\bhat)\|\,\|\Delta A\|_F + \|\Delta A\|_F^2$, $\|\Delta A\|_F$
+maximised over the same region, and divide by a lower bound on
+$\lambda_{\min}(D)$; this is the natural singular-value perturbation answer
+\citep{bhatia1997matrix,davis1970rotation,yu2015useful}, valid
+and loose because it spends one global perturbation budget on every direction.
+\emph{Rank test}: for each $r$, test $H_0$: the $r$ smallest plug-in directions
+span an exact nullspace, using the squared norm of the restricted bracket
+referred to a Welch--Satterthwaite approximation of its null distribution, and
+report the largest $r$ not rejected, a Wald-type rank test in the spirit of
+Robin and Smith~\citep{robin2000tests} and Kleibergen and Paap~\citep{kleibergen2006generalized}. \emph{Split
+significance test}: select the smallest-defect direction on one half of the
+data, test $H_0$: exact symmetry on the other half by the same statistic, and
+declare a symmetry when the test fails to reject. \emph{\symcert{} with sample
+splitting}: fit the first and the second half of the rows separately, take the
+plug-in generalised eigenvectors of the first-half fit in order of plug-in
+defect, certify the span of the first $r = 1, 2, \dots$ of them with the
+simultaneous certificate computed from the second-half region (the sharp
+certificate for $r = 1$, the subspace bound otherwise), and declare the
+largest $r$ before the first span whose bound exceeds $\delta$. In the
+dimension study only the first direction is bounded, with the pointwise bound.
+\emph{Parametric bootstrap}: draw $\beta^* \sim N(\bhat,\hat\Sigma)$ $400$
+times and report the $\alpha$ and $1-\alpha$ quantiles of
+$\defect_\nu(\xi_\theta;F_{\beta^*})$ \citep{efron1979bootstrap}.
+
+\subsection{Benchmarks, metrics and Monte Carlo uncertainty}
+\label{sec:benchmarks}
+
+Ten polynomial systems on $\R^2$ and $\R^3$ serve as the main benchmarks (all
+defined in the released code). Four have a nonzero symmetry algebra inside the
+affine class, of dimension $r^\star$: the Hopf normal form $\dot x = x - y -
+x(x^2+y^2)$, $\dot y = x + y - y(x^2+y^2)$ ($r^\star = 1$), the planar rotation
+$\dot x = -y$, $\dot y = x$ ($r^\star = 2$), the Euler equations of a symmetric
+top with moments of inertia $(1,1,2)$ ($r^\star = 2$) and the radial flow onto
+the sphere $\dot x = x(1-|x|^2)$ on $\R^3$ ($r^\star = 3$,
+$\mathfrak{so}(3)$). Six have none: Van der Pol ($\dot x = y$, $\dot y = -x + y
+- x^2y$), Duffing ($\dot x = y$, $\dot y = x - x^3 - y/5$), Lotka--Volterra
+($\dot x = x - xy$, $\dot y = xy - y$), Sel'kov ($\dot x = 1/10 - x + y/2 +
+x^2y$, $\dot y = -y/2 - x^2y$), the Euler equations of an asymmetric rigid body
+with moments $(1,2,3)$, and Lorenz with parameters $10$, $28$ and $8/3$. Each is
+fitted in the polynomial class of its own degree (1 for the rotation, 2 for the
+rigid bodies, Lotka--Volterra and Lorenz, 3 otherwise) with affine candidate
+generators. The target measure $\nu$ is uniform on the box $[-s,s]^n$, with $s
+= 2$ for Duffing and Sel'kov, $s = 20$ for Lorenz and $s = 1$ otherwise
+(except in the selected-generator study of \SFtightness e, where all four
+systems are on $[-1,1]^2$, and in the trajectory study of \STtrajectory, where
+Van der Pol is on $[-3,3]^2$ and Hopf on $[-1.5,1.5]^2$); the states are drawn from $\nu$ and the errors are
+Gaussian. The calibration grid
+crosses $N \in \{100, 200, 400, 800, 1600, 3200\}$ with noise levels $\{0.01,
+0.03, 0.1, 0.3\}$. The broken-Hopf family is $F_\varepsilon = F_{\mathrm{Hopf}}
++ \varepsilon x^2\partial_x$ (the term $\varepsilon x^2$ enters $\dot x$ only);
+the rotation defect grows continuously from zero with $\varepsilon$. Every system has rational coefficients, so its exact symmetry
+algebra is the exact rational nullspace of the bracket map, computed with
+symbolic arithmetic, and the true defect of any generator follows in closed
+form from monomial moments; the algebra dimensions are cross-checked against
+an independent characterisation (for linear systems, the dimension of the
+commutant of the coefficient matrix). For the dictionary families the true
+algebra is the numerical nullspace of the exact bracket map, with a gap of
+more than ten orders of magnitude between its zero and nonzero singular values.
+
+The truncation study fits Van der Pol, Duffing, Hopf and Sel'kov on their
+boxes in the polynomial classes of degree 1, 2 and 3 (the correct class, as a
+control), with $N \in \{400, 1600\}$, noise level $0.02$ and $300$
+replications per setting; the lack-of-fit test compares each fit with the
+cubic class. The sparsity study fits the broken-Hopf members with $\varepsilon
+\in \{0, 0.02, 0.05, 0.1, 0.2, 0.4\}$ on $[-1,1]^2$ in the cubic class by
+sequentially thresholded least squares (STLSQ): a least-squares fit followed
+by ten rounds in which every monomial coefficient of magnitude below the
+threshold is set to zero and each component is refitted on the remaining
+monomials, with thresholds $0$ (plain least squares), $0.05$, $0.1$ and
+$0.25$, $N = 1000$, noise level $0.05$ and $300$ replications per setting; the
+threshold rule is applied to the STLSQ fit and \symcert{} to the unpruned
+least-squares fit of the same data. The noise study near the tolerance uses
+broken-Hopf members with $\varepsilon$ tuned so that the smallest true defect
+in the affine class is $1.2$, $1.5$, $2$ or $4$ times $\delta$, and the
+hardening Duffing oscillator $\dot x = y$, $\dot y = -x - 0.3x^3 - 0.2y$
+(smallest true defect $0.102$), all on $[-1,1]^2$ in the cubic class, with $N
+\in \{100, 400, 1600\}$, noise levels $\{0.05, 0.1, 0.2, 0.3\}$ and $300$
+replications in each of the $60$ settings; as no generator is within
+tolerance, every declaration by the threshold rule at $\delta$ and every
+certification is false.
+
+\emph{False certification} is the event that the declared subspace contains a
+generator whose true defect exceeds $\delta$; because the declared object is a
+subspace, this is evaluated as a generalised eigenvalue of the true forms
+restricted to it, not by sampling directions. \emph{Detection} is the event
+that the declared dimension is at least the true one, and \emph{recovery} the
+event that, in addition, the declared subspace contains the true algebra up to
+a largest principal angle of $10^\circ$ in the $L^2(\nu)$ geometry of generator
+fields. Unless stated otherwise $\delta = \alpha = 0.05$.
+
+Where an interval is given for a rate estimated from $k$ events in $T$
+replications, it is the exact Clopper--Pearson interval
+\citep{clopper1934use}; when no event occurs, the one-sided $95\%$ upper bound
+is $1 - 0.05^{1/T}$ ($0.010$ for $T = 300$). For a rate given without an
+interval, the $95\%$ Clopper--Pearson interval extends at most $0.058$ from the
+estimate for $T \ge 300$, $0.072$ for $T \ge 200$ and $0.116$ for $T \ge 80$,
+the smallest number of replications used.
+Simultaneous statements over $S$ settings use the Bonferroni level $0.05/S$
+per setting. These intervals quantify Monte Carlo error only. The validity of
+the certificate rests on \Cref{prop:simultaneous}; the simulations check that
+the implementation and the assumptions behave as the theorem says, and probe
+what happens when the assumptions fail.
+
+\subsection{Ocean drifter data}
+\label{sec:driftermethods}
+
+Hourly positions and velocities are from the Global Drifter Program product of
+Elipot et al.~\citep{elipot2016global}, version 2.01~\citep{elipot2022hourly}, obtained from
+the NOAA AOML ERDDAP server on 26 October 2026 for 30--45$^\circ$N,
+180--140$^\circ$W and 1 June to 30 September of 2016--2019. We kept rows
+recorded before the loss of the drogue and with interpolation gaps of at most
+six hours, split each drifter's record into contiguous hourly segments of at
+least $150$ hours, removed a centred running mean ($49$ hours unless stated) to
+isolate the near-inertial band, and took central differences for the
+acceleration, dividing by the local Coriolis parameter so that time is measured
+in units of $1/f$; velocities are expressed in units of their root-mean-square.
+Every step acts identically on both velocity components and commutes with
+rotations, so the processing introduces no preferred direction and cannot
+remove a rotation invariance that the data have. Removing the running mean
+does discard the sub-inertial flow (mean, geostrophic and Ekman currents),
+which need not be rotation invariant, so the certificate concerns the dynamics
+of the high-passed, near-inertial velocities, not of the full flow. The model classes are polynomials of degree 1 to 3 in the velocity
+with affine candidate generators, the target measure is the standard Gaussian
+in the normalised velocity (extrapolation factor $1.02$ for the linear class),
+and the regions are OLS, White, cluster-robust over drifters ($31$ clusters)
+and Newey--West within drifters, applied to each drifter's segments
+concatenated in time order. The processed subset is distributed with the
+code.
+
+\subsection{Reporting checklist}
+\label{sec:checklist}
+
+A certificate is interpretable only together with the choices that give the
+tolerance its meaning. We recommend reporting, in this order:
+\begin{enumerate}\itemsep1pt
+\item the target measure $\nu$ (the region the claim is about) and the output
+  metric $W$, or the characteristic scales used to nondimensionalise the state;
+\item the candidate class of generators;
+\item the model class or dictionary, how it was chosen (fixed in advance, by
+  \Cref{prop:classes}, or by a heuristic), and any model-error bound with its
+  justification;
+\item the observation model and the confidence region used (exact, White,
+  cluster-robust, Newey--West), with the regime in which it is valid;
+\item the extrapolation factor $\sqrt{\kappa\kappa'}$ of the observed states;
+\item $U(\theta)$ for every generator reported, the tolerance $\delta$ and
+  whether it was fixed before the analysis, the dimension of the certified
+  plug-in subspace, and, if it is at least two, its closure diagnostic;
+\item the lower bound $\min_\theta L(\theta)$ when the claim is that no
+  symmetry exists.
+\end{enumerate}
+
+\subsection{Proofs}
+\label{app:proofs}
+
+\paragraph{\Cref{lem:props}.} Write $u = DF\,\xi$ and $v = D\xi\,F$ as elements
+of $L^2(\nu)$ with the inner product induced by $W$. Then $\defect^2 =
+\|u-v\|^2/(\|u\|^2+\|v\|^2)$. The inequality $\|u-v\|^2 \le
+2(\|u\|^2+\|v\|^2)$ gives $\defect \le \sqrt 2$; $\defect = 0$ iff $u = v$,
+i.e.\ $[\xi,F]=0$ $\nu$-almost everywhere, which for continuous fields means on
+the support of $\nu$. When the support is the closure of an open set, the
+bracket vanishes on its interior, which is equivalent to the flow of $\xi$
+mapping solutions to solutions there \citep[Ch.~9]{lee2013smooth}; for
+polynomial or other analytic fields a bracket that vanishes on an open set
+vanishes identically. On a lower-dimensional support no such conclusion
+follows. Under
+$\xi \mapsto c\xi$ both $u$ and $v$ scale by $c$, under $F \mapsto c'F$ by
+$c'$, so the ratio is invariant, and hence also under any invertible linear
+reparameterisation of the candidate class, because $\defect$ depends on
+$\theta$ only through $\xi_\theta$. For $x = Az+b$ the pulled-back fields are
+$\tilde F(z) = A^{-1}F(Az+b)$ and $\tilde\xi(z) = A^{-1}\xi(Az+b)$, with
+$D\tilde F(z) = A^{-1}DF(Az+b)A$ and likewise for $\xi$, so $\tilde u(z) =
+A^{-1}u(Az+b)$ and $\tilde v(z) = A^{-1}v(Az+b)$. With $\tilde\nu$ the
+transported measure and $\tilde W = A^{\!\top}WA$, $\int \tilde u^{\!\top}\tilde
+W\tilde u\,d\tilde\nu = \int u^{\!\top}Wu\,d\nu$ and likewise for $v$ and $u-v$,
+so the ratio is unchanged. With $\tilde W = W = I$ this requires
+$A^{\!\top}A \propto I$, i.e.\ a similarity; for any other $A$ the scalings of
+the components differ and the ratio changes in general (\STunits). \qed
+
+\paragraph{\Cref{lem:bilinear}.} $DF_\beta$ and $F_\beta$ are linear in $\beta$,
+and $\xi_\theta$ and $D\xi_\theta$ are linear in $\theta$, so each of
+$DF_\beta\,\xi_\theta$ and $D\xi_\theta F_\beta$ is bilinear in $(\theta,\beta)$
+pointwise. Their $\|\cdot\|_{\nu,W}$ norms are therefore quadratic forms in
+$\beta$ for fixed $\theta$ and in $\theta$ for fixed $\beta$, and the symmetric
+square roots of the Gram matrices give the matrices of the lemma.
+$\defect^2 = \theta^{\!\top}C\theta / \theta^{\!\top}D\theta$; if $D\theta = 0$
+then $M_\theta\beta = 0$, both terms vanish, $L_\theta\beta = 0$ and the defect
+is undefined. On the range of $D$ the minimum of the Rayleigh quotient is the
+smallest generalised eigenvalue. \qed
+
+\paragraph{\Cref{prop:simultaneous}.} On the event $E = \{\beta^\star \in
+\mathcal B\}$ we have $L(\theta) \le \defect_\nu(\xi_\theta;F_{\beta^\star}) \le
+U(\theta)$ for every $\theta$ with a defined defect, by definition of the
+infimum and supremum. Since $\Prob(E) \ge 1-\alpha$ and $E$ depends neither on
+$\theta$ nor on $\delta$, the statement holds simultaneously. For
+\eqref{eq:fwer}: on $E$, any $\theta$ and $\delta$ with $U(\theta) \le \delta$
+have $\defect_\nu(\xi_\theta;F_{\beta^\star}) \le \delta$, whatever rule
+produced them, so the bad event is contained in $E^c$. \qed
+
+\paragraph{\Cref{prop:closedform}.} (i) With $\beta = \bhat + \hat\Sigma^{1/2}u$
+each norm is $\|a + Bu\|$ with $a = L_\theta\bhat$, $B =
+L_\theta\hat\Sigma^{1/2}$ (or the same with $M_\theta$), and its extrema over
+the ball are trust-region subproblems; dividing the supremum of the numerator
+by the infimum of the denominator bounds the supremum of the ratio. (ii) The
+denominator being positive on the ball, $\sup_u
+\|L_\theta\beta(u)\|^2/\|M_\theta\beta(u)\|^2 \le t$ iff
+$t\|M_\theta\beta(u)\|^2 - \|L_\theta\beta(u)\|^2 \ge 0$ for all $u$ in the
+ball, iff its minimum over the ball is non-negative; the minimum of a
+quadratic over a ball has no duality gap, even when the quadratic is
+indefinite \citep{more1983computing,conn2000trust}, so the dual bound decides
+the sign up to the bisection tolerance. The lower bound $L(\theta)$ is obtained
+in the same way from the sign of the minimum of $\|L_\theta\beta(u)\|^2 -
+t\|M_\theta\beta(u)\|^2$. (iii) In model~\eqref{eq:model} with a fixed design
+$\Phi$ of full column rank, $\bhat -
+\beta^\star \sim N(0, \sigma^2 \Sigma_0)$ with $\Sigma_0 = I_n \otimes
+(\Phi^{\!\top}\Phi)^{-1}$ and $\mathrm{RSS}/\sigma^2 \sim
+\chi^2_{\mathrm{dof}}$ independent of $\bhat$, so
+$\|\hat\Sigma^{-1/2}(\bhat-\beta^\star)\|^2/Q$, with $\hat\Sigma =
+\hat\sigma^2\Sigma_0$, is exactly $\mathrm{F}_{Q,\mathrm{dof}}$ distributed. \qed
+
+\paragraph{\Cref{prop:lof}.} The $F$-statistic compares the drop in residual
+sum of squares from the fitted class to $\mathcal H$ with the residual mean
+square of $\mathcal H$; with Gaussian errors and the truth in $\mathcal H$ its
+numerator is a noncentral chi-square with noncentrality equal to the squared
+norm, summed over rows and components and divided by $\sigma^2$, of the part
+of $F$ in $\mathcal H$ orthogonal to the fitted class over the design, which is
+$N\|h\|^2_{\mu_N}/\sigma^2$. The power is increasing in $\lambda$, which gives
+the first claim. Because $F_{\beta^\circ}$ is the least-squares projection over
+the design, $h$ lies in $\mathcal H_\perp$, so $\|[\xi,h]\|_{\nu,W} \le
+G(\xi)\|h\|_{\mu_N}$ by~\eqref{eq:invisible-gain}, and by the triangle
+inequality the numerator $\|[\xi,F_{\beta^\circ}+h]\|_{\nu,W}$ differs from
+$\|[\xi,F_{\beta^\circ}]\|_{\nu,W}$ by at most this amount. Let $h^\star$
+attain the maximum in
+\eqref{eq:invisible-gain} and scale it to $\|h^\star\|_{\mu_N} =
+\sigma(\lambda_\gamma/N)^{1/2}$; then $\|[\xi,h^\star]\|_{\nu,W} =
+G(\xi)\sigma(\lambda_\gamma/N)^{1/2}$, and the truth $F_{\beta^\circ}+h^\star$
+has the same projection $F_{\beta^\circ}$ and noncentrality $\lambda_\gamma$.
+If $[\xi,F_{\beta^\circ}]=0$, the numerator of the defect of the truth is
+exactly $\|[\xi,h^\star]\|_{\nu,W}$, which gives~\eqref{eq:invisible}. \qed
+
+\paragraph{\Cref{prop:classes}.} Work in model~\eqref{eq:model} and fix the
+design. In class $k < K$ the
+least-squares estimate satisfies $\bhat_k - \beta_k^\circ \sim N(0,
+\sigma^2\Sigma_{0,k})$, where $\beta^\circ_k$ are the coefficients of the
+least-squares projection of $F$ on $\mathcal F_k$ over the design; the residual
+sum of squares is $\sigma^2$ times a noncentral chi-square (the noncentrality
+coming from the omitted part), independent of $\bhat_k$ and stochastically
+larger than the central one. The $F$-statistic of
+\Cref{prop:closedform}(iii) is therefore stochastically smaller than
+$\mathrm{F}_{Q_k,\mathrm{dof}_k}$, and $\mathcal B_k$ covers $\beta^\circ_k$ with
+probability at least $1-\alpha/K$; $\mathcal B_K$ covers $\beta^\star$ with
+probability $1-\alpha/K$. On the intersection of these $K$ events, which has
+probability at least $1-\alpha$, $F = F_{\beta^\circ_k} + h_k(\beta^\star)$ with
+$\|h_k(\beta^\star)\|_{\nu,W} \le \bar\eta_k$ for every $k$, and the $L^2$
+model-error bound in class $k$ gives $\defect_\nu(\xi_\theta;F) \le
+U_k(\theta)$. \qed
+
+\paragraph{\Cref{prop:lecam}.} With $L_\xi$, $M_\xi$ and $\Delta^\star$ as in the
+statement, set $\beta^t =
+\beta^0 + t\Delta^\star$. Since $L_\xi \beta^0 = 0$, $\|L_\xi\beta^t\| =
+t\,s_{\max}$, and $\|M_\xi \beta^t\| \le \|M_\xi\beta^0\| +
+t\|M_\xi\Delta^\star\|$, so $\defect_\nu(\xi;F_{\beta^t}) \ge t s_{\max}/
+(\|M_\xi\beta^0\| + t\|M_\xi\Delta^\star\|)$, which exceeds $\delta$ for every
+$t > t_\delta = \delta\|M_\xi\beta^0\|/(s_{\max}-\delta\|M_\xi\Delta^\star\|)$.
+The Kullback--Leibler divergence between the two data distributions is
+$\tfrac{N t^2}{2\sigma^2}\|F_{\Delta^\star}\|^2_{\mu_N} = Nt^2/(2\sigma^2)$, so
+by Pinsker's inequality the total variation distance is at most
+$t\sqrt N/(2\sigma)$. For any rule, $\Prob_{\beta^0}(\varphi=1) \le
+\Prob_{\beta^{t}}(\varphi=1) + t\sqrt N/(2\sigma) \le \alpha + t\sqrt
+N/(2\sigma)$ for every $t > t_\delta$; letting $t \downarrow t_\delta$ gives
+\eqref{eq:lecam}, with no remainder term. This is the two-point method
+\citep[Ch.~2]{tsybakov2009introduction}. \qed
+
+\paragraph{\Cref{prop:kappa}.} Both $\|q\|^2_{\nu}$ and $\|q\|^2_{\mu}$ are
+quadratic forms in the coefficient vector $c$ of $q \in \mathcal R$, equal to
+$c^{\!\top}G_\nu c$ and $c^{\!\top}G_\mu c$; their ratio is a generalised
+Rayleigh quotient whose maximum is
+$\lambda_{\max}(G_\mu^{-1/2}G_\nu G_\mu^{-1/2})$, attained at the corresponding
+eigenvector. The defect statement follows by applying the bound
+$\|q\|^2_\nu \le \kappa\|q\|^2_\mu$ to the numerator, since the bracket lies in
+$\mathcal R$, and the reverse bound $\|q\|^2_\mu \le \kappa'\|q\|^2_\nu$ to
+each of the two terms of the denominator, both of which lie in $\mathcal R$.
+If $G_\mu$ is singular with null
+vector $c \ne 0$ then $\|q_c\|_{\mu} = 0$ while $\|q_c\|_{\nu}>0$, so $\kappa =
+\infty$; conversely $\kappa = \infty$ forces $G_\mu$ to be singular. \qed
+
+\subsection{Software, reproducibility and compute}
+\label{app:repro}
+
+The implementation (Python, NumPy, SciPy and SymPy) and all experiment and
+figure scripts are released together with the raw result files (Code
+availability). All experiments are deterministic given the seeds recorded in
+the code. Every table of numerical results in the manuscript and the
+Supplementary Information is written by a script directly from the result
+files, and the numerical
+results quoted in the running text are asserted against those files by a
+checking script, which fails if any has drifted. A test suite verifies the bracket against finite
+differences, the closed-form moments against Monte Carlo integration, the
+defect against Monte Carlo evaluation of its defining integrals, the exact
+symmetry algebra of linear systems against the dimension of the commutant, the
+certified trust-region bounds and the sharp ratio bounds against brute-force
+search over the ball, the invariance of the defect under changes of units with
+a transported metric, the dictionary construction against the closed-form one,
+the coverage of the coefficient region and of the certificate against their
+nominal levels, and the closure diagnostic on exact Lie algebras. One complete
+pass of the experiments costs about $3.6$ CPU-hours as recorded by the
+experiment runner. A large language model (Claude, Anthropic) was used to
+assist with writing the code, running and analysing the experiments and
+drafting the text; the author takes responsibility for the content.

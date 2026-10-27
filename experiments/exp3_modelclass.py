@@ -25,6 +25,7 @@ import time
 import numpy as np
 
 from common import ALPHA, DELTA, run_cells, rms_field, save, sup_true_defect
+from common import trials
 from hsd import DefectProblem, exact_symmetry_algebra, fit_ols, get_system, simulate_design
 from hsd.certify import certified_dimension, certify_direction
 from hsd.estimation import lack_of_fit_pvalue
@@ -32,9 +33,7 @@ from hsd.nonpoly import SMOOTH_SYSTEMS, mc_defect
 from hsd.defect import _deriv_field as _dcol
 from hsd.systems import broken_hopf
 
-TRIALS = 300
-
-
+TRIALS = trials(300)
 # ------------------------------------------------------------------ (a)
 def truncation_cell(args):
     name, true_deg, fit_deg, scale, N, srel, seed = args

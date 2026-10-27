@@ -1,0 +1,482 @@
+{
+ "units": [
+  {
+   "system": "broken_hopf",
+   "unit_factor": 0.01,
+   "defect_reference": 0.06436306016707537,
+   "defect_euclidean": 0.07553794918320224,
+   "defect_transported": 0.06436721792005581,
+   "defect_nondimensional": 0.06436721792005579,
+   "min_defect_euclidean": 0.06173242197319631,
+   "min_defect_nondimensional": 0.052497180372356234
+  },
+  {
+   "system": "broken_hopf",
+   "unit_factor": 0.1,
+   "defect_reference": 0.06436306016707537,
+   "defect_euclidean": 0.07532649649483489,
+   "defect_transported": 0.06436306016849229,
+   "defect_nondimensional": 0.06436306016849228,
+   "min_defect_euclidean": 0.06157115431057258,
+   "min_defect_nondimensional": 0.05249419698432285
+  },
+  {
+   "system": "broken_hopf",
+   "unit_factor": 0.5,
+   "defect_reference": 0.06436306016707537,
+   "defect_euclidean": 0.07127841844193121,
+   "defect_transported": 0.0643630601670753,
+   "defect_nondimensional": 0.0643630601670753,
+   "min_defect_euclidean": 0.05840143168006606,
+   "min_defect_nondimensional": 0.05249419702385341
+  },
+  {
+   "system": "broken_hopf",
+   "unit_factor": 1.0,
+   "defect_reference": 0.06436306016707537,
+   "defect_euclidean": 0.06436306016707537,
+   "defect_transported": 0.06436306016707537,
+   "defect_nondimensional": 0.06436306016707538,
+   "min_defect_euclidean": 0.05249419702394474,
+   "min_defect_nondimensional": 0.0524941970239442
+  },
+  {
+   "system": "broken_hopf",
+   "unit_factor": 2.0,
+   "defect_reference": 0.06436306016707537,
+   "defect_euclidean": 0.05659349533266373,
+   "defect_transported": 0.06436306016707534,
+   "defect_nondimensional": 0.06436306016707533,
+   "min_defect_euclidean": 0.0446169601208876,
+   "min_defect_nondimensional": 0.05249419702374951
+  },
+  {
+   "system": "broken_hopf",
+   "unit_factor": 10.0,
+   "defect_reference": 0.06436306016707537,
+   "defect_euclidean": 0.05105292412779561,
+   "defect_transported": 0.06436306016711989,
+   "defect_nondimensional": 0.0643630601671199,
+   "min_defect_euclidean": 0.03748330854013806,
+   "min_defect_nondimensional": 0.052494196913859106
+  },
+  {
+   "system": "broken_hopf",
+   "unit_factor": 100.0,
+   "defect_reference": 0.06436306016707537,
+   "defect_euclidean": 0.05075068277422189,
+   "defect_transported": 0.06436306040602875,
+   "defect_nondimensional": 0.06436306040602877,
+   "min_defect_euclidean": 0.03703310837754503,
+   "min_defect_nondimensional": 0.0524931115554779
+  },
+  {
+   "system": "lotka_volterra",
+   "unit_factor": 0.01,
+   "defect_reference": 0.2713321605511747,
+   "defect_euclidean": 0.27133216059096116,
+   "defect_transported": 0.27133216059092374,
+   "defect_nondimensional": 0.2713321605909238,
+   "min_defect_euclidean": 0.00353526683725639,
+   "min_defect_nondimensional": 0.27133212045938404
+  },
+  {
+   "system": "lotka_volterra",
+   "unit_factor": 0.1,
+   "defect_reference": 0.2713321605511747,
+   "defect_euclidean": 0.2713321605511685,
+   "defect_transported": 0.2713321605511696,
+   "defect_nondimensional": 0.2713321605511696,
+   "min_defect_euclidean": 0.035120120090325335,
+   "min_defect_nondimensional": 0.2713321605450257
+  },
+  {
+   "system": "lotka_volterra",
+   "unit_factor": 0.5,
+   "defect_reference": 0.2713321605511747,
+   "defect_euclidean": 0.2713321605511739,
+   "defect_transported": 0.2713321605511746,
+   "defect_nondimensional": 0.27133216055117454,
+   "min_defect_euclidean": 0.16465293629088235,
+   "min_defect_nondimensional": 0.2713321605510105
+  },
+  {
+   "system": "lotka_volterra",
+   "unit_factor": 1.0,
+   "defect_reference": 0.2713321605511747,
+   "defect_euclidean": 0.2713321605511747,
+   "defect_transported": 0.2713321605511747,
+   "defect_nondimensional": 0.27133216055117465,
+   "min_defect_euclidean": 0.27133216055104264,
+   "min_defect_nondimensional": 0.2713321605510422
+  },
+  {
+   "system": "lotka_volterra",
+   "unit_factor": 2.0,
+   "defect_reference": 0.2713321605511747,
+   "defect_euclidean": 0.27133216055117537,
+   "defect_transported": 0.27133216055117465,
+   "defect_nondimensional": 0.27133216055117465,
+   "min_defect_euclidean": 0.1646529362908391,
+   "min_defect_nondimensional": 0.27133216055090614
+  },
+  {
+   "system": "lotka_volterra",
+   "unit_factor": 10.0,
+   "defect_reference": 0.2713321605511747,
+   "defect_euclidean": 0.27133216055117876,
+   "defect_transported": 0.27133216055117826,
+   "defect_nondimensional": 0.27133216055117826,
+   "min_defect_euclidean": 0.03512012009020533,
+   "min_defect_nondimensional": 0.2713321605410964
+  },
+  {
+   "system": "lotka_volterra",
+   "unit_factor": 100.0,
+   "defect_reference": 0.2713321605511747,
+   "defect_euclidean": 0.271332160546653,
+   "defect_transported": 0.27133216054664266,
+   "defect_nondimensional": 0.27133216054664266,
+   "min_defect_euclidean": 0.0035352668361231074,
+   "min_defect_nondimensional": 0.2713321079848633
+  }
+ ],
+ "units_sim": [
+  {
+   "system": "broken_hopf",
+   "unit_factor": 0.01,
+   "metric": "euclidean",
+   "certify_rate": 0.0,
+   "fc": 0.0,
+   "count_fc": 0,
+   "trials": 300
+  },
+  {
+   "system": "broken_hopf",
+   "unit_factor": 0.01,
+   "metric": "nondimensional",
+   "certify_rate": 0.0,
+   "fc": 0.0,
+   "count_fc": 0,
+   "trials": 300
+  },
+  {
+   "system": "broken_hopf",
+   "unit_factor": 1.0,
+   "metric": "euclidean",
+   "certify_rate": 0.0,
+   "fc": 0.0,
+   "count_fc": 0,
+   "trials": 300
+  },
+  {
+   "system": "broken_hopf",
+   "unit_factor": 1.0,
+   "metric": "nondimensional",
+   "certify_rate": 0.0,
+   "fc": 0.0,
+   "count_fc": 0,
+   "trials": 300
+  },
+  {
+   "system": "broken_hopf",
+   "unit_factor": 100.0,
+   "metric": "euclidean",
+   "certify_rate": 0.0,
+   "fc": 0.0,
+   "count_fc": 0,
+   "trials": 300
+  },
+  {
+   "system": "broken_hopf",
+   "unit_factor": 100.0,
+   "metric": "nondimensional",
+   "certify_rate": 0.0,
+   "fc": 0.0,
+   "count_fc": 0,
+   "trials": 300
+  },
+  {
+   "system": "lotka_volterra",
+   "unit_factor": 0.01,
+   "metric": "euclidean",
+   "certify_rate": 1.0,
+   "fc": 1.0,
+   "count_fc": 300,
+   "trials": 300
+  },
+  {
+   "system": "lotka_volterra",
+   "unit_factor": 0.01,
+   "metric": "nondimensional",
+   "certify_rate": 0.0,
+   "fc": 0.0,
+   "count_fc": 0,
+   "trials": 300
+  },
+  {
+   "system": "lotka_volterra",
+   "unit_factor": 1.0,
+   "metric": "euclidean",
+   "certify_rate": 0.0,
+   "fc": 0.0,
+   "count_fc": 0,
+   "trials": 300
+  },
+  {
+   "system": "lotka_volterra",
+   "unit_factor": 1.0,
+   "metric": "nondimensional",
+   "certify_rate": 0.0,
+   "fc": 0.0,
+   "count_fc": 0,
+   "trials": 300
+  },
+  {
+   "system": "lotka_volterra",
+   "unit_factor": 100.0,
+   "metric": "euclidean",
+   "certify_rate": 1.0,
+   "fc": 1.0,
+   "count_fc": 300,
+   "trials": 300
+  },
+  {
+   "system": "lotka_volterra",
+   "unit_factor": 100.0,
+   "metric": "nondimensional",
+   "certify_rate": 0.0,
+   "fc": 0.0,
+   "count_fc": 0,
+   "trials": 300
+  }
+ ],
+ "closure": [
+  {
+   "system": "sphere_flow3",
+   "N": 800,
+   "sigma_rel": 0.01,
+   "runs": 100,
+   "runs_dim_ge2": 100,
+   "mean_dim": 3.0,
+   "median_closure": 0.001293682135727314,
+   "max_closure": 0.003341388902022063,
+   "runs_with_commutators": 100,
+   "commutators_certified": 1.0
+  },
+  {
+   "system": "sphere_flow3",
+   "N": 800,
+   "sigma_rel": 0.03,
+   "runs": 100,
+   "runs_dim_ge2": 0,
+   "mean_dim": 0.83,
+   "median_closure": null,
+   "max_closure": null,
+   "runs_with_commutators": 0,
+   "commutators_certified": null
+  },
+  {
+   "system": "sphere_flow3",
+   "N": 3200,
+   "sigma_rel": 0.01,
+   "runs": 100,
+   "runs_dim_ge2": 100,
+   "mean_dim": 3.0,
+   "median_closure": 0.0006335111850752899,
+   "max_closure": 0.0011973797133976389,
+   "runs_with_commutators": 100,
+   "commutators_certified": 1.0
+  },
+  {
+   "system": "sphere_flow3",
+   "N": 3200,
+   "sigma_rel": 0.03,
+   "runs": 100,
+   "runs_dim_ge2": 100,
+   "mean_dim": 3.0,
+   "median_closure": 0.0020610887861279396,
+   "max_closure": 0.0034669655851682444,
+   "runs_with_commutators": 100,
+   "commutators_certified": 1.0
+  },
+  {
+   "system": "sphere_flow3",
+   "N": 12800,
+   "sigma_rel": 0.01,
+   "runs": 100,
+   "runs_dim_ge2": 100,
+   "mean_dim": 3.0,
+   "median_closure": 0.0003517922826693164,
+   "max_closure": 0.0006444798976076825,
+   "runs_with_commutators": 100,
+   "commutators_certified": 1.0
+  },
+  {
+   "system": "sphere_flow3",
+   "N": 12800,
+   "sigma_rel": 0.03,
+   "runs": 100,
+   "runs_dim_ge2": 100,
+   "mean_dim": 3.0,
+   "median_closure": 0.001005168749151441,
+   "max_closure": 0.0019521428001170623,
+   "runs_with_commutators": 100,
+   "commutators_certified": 1.0
+  },
+  {
+   "system": "rigid_sym",
+   "N": 800,
+   "sigma_rel": 0.01,
+   "runs": 100,
+   "runs_dim_ge2": 100,
+   "mean_dim": 2.0,
+   "median_closure": 0.0005229867298795249,
+   "max_closure": 0.0011639896725195937,
+   "runs_with_commutators": 0,
+   "commutators_certified": null
+  },
+  {
+   "system": "rigid_sym",
+   "N": 800,
+   "sigma_rel": 0.03,
+   "runs": 100,
+   "runs_dim_ge2": 100,
+   "mean_dim": 2.0,
+   "median_closure": 0.0015401094564237868,
+   "max_closure": 0.004121398254577492,
+   "runs_with_commutators": 0,
+   "commutators_certified": null
+  },
+  {
+   "system": "rigid_sym",
+   "N": 3200,
+   "sigma_rel": 0.01,
+   "runs": 100,
+   "runs_dim_ge2": 100,
+   "mean_dim": 2.0,
+   "median_closure": 0.00024641818070314975,
+   "max_closure": 0.0004960305785888161,
+   "runs_with_commutators": 0,
+   "commutators_certified": null
+  },
+  {
+   "system": "rigid_sym",
+   "N": 3200,
+   "sigma_rel": 0.03,
+   "runs": 100,
+   "runs_dim_ge2": 100,
+   "mean_dim": 2.0,
+   "median_closure": 0.0008113408696989192,
+   "max_closure": 0.0022096162402208287,
+   "runs_with_commutators": 0,
+   "commutators_certified": null
+  },
+  {
+   "system": "rigid_sym",
+   "N": 12800,
+   "sigma_rel": 0.01,
+   "runs": 100,
+   "runs_dim_ge2": 100,
+   "mean_dim": 2.0,
+   "median_closure": 0.0001358713880333007,
+   "max_closure": 0.00028430024879700185,
+   "runs_with_commutators": 0,
+   "commutators_certified": null
+  },
+  {
+   "system": "rigid_sym",
+   "N": 12800,
+   "sigma_rel": 0.03,
+   "runs": 100,
+   "runs_dim_ge2": 100,
+   "mean_dim": 2.0,
+   "median_closure": 0.0003788069691948048,
+   "max_closure": 0.001300356512812502,
+   "runs_with_commutators": 0,
+   "commutators_certified": null
+  },
+  {
+   "system": "lin_rot2",
+   "N": 800,
+   "sigma_rel": 0.01,
+   "runs": 100,
+   "runs_dim_ge2": 100,
+   "mean_dim": 2.0,
+   "median_closure": 2.788249242739114e-16,
+   "max_closure": 8.409070462567298e-16,
+   "runs_with_commutators": 0,
+   "commutators_certified": null
+  },
+  {
+   "system": "lin_rot2",
+   "N": 800,
+   "sigma_rel": 0.03,
+   "runs": 100,
+   "runs_dim_ge2": 100,
+   "mean_dim": 2.0,
+   "median_closure": 3.3422181954591007e-16,
+   "max_closure": 8.073759115057228e-16,
+   "runs_with_commutators": 0,
+   "commutators_certified": null
+  },
+  {
+   "system": "lin_rot2",
+   "N": 3200,
+   "sigma_rel": 0.01,
+   "runs": 100,
+   "runs_dim_ge2": 100,
+   "mean_dim": 2.0,
+   "median_closure": 2.4214105797926237e-16,
+   "max_closure": 6.853335062878017e-16,
+   "runs_with_commutators": 0,
+   "commutators_certified": null
+  },
+  {
+   "system": "lin_rot2",
+   "N": 3200,
+   "sigma_rel": 0.03,
+   "runs": 100,
+   "runs_dim_ge2": 100,
+   "mean_dim": 2.0,
+   "median_closure": 2.970135815538298e-16,
+   "max_closure": 7.341276112063967e-16,
+   "runs_with_commutators": 0,
+   "commutators_certified": null
+  },
+  {
+   "system": "lin_rot2",
+   "N": 12800,
+   "sigma_rel": 0.01,
+   "runs": 100,
+   "runs_dim_ge2": 100,
+   "mean_dim": 2.0,
+   "median_closure": 2.709545388204736e-16,
+   "max_closure": 7.463252759213144e-16,
+   "runs_with_commutators": 0,
+   "commutators_certified": null
+  },
+  {
+   "system": "lin_rot2",
+   "N": 12800,
+   "sigma_rel": 0.03,
+   "runs": 100,
+   "runs_dim_ge2": 100,
+   "mean_dim": 2.0,
+   "median_closure": 2.522388406899523e-16,
+   "max_closure": 6.400907043589331e-16,
+   "runs_with_commutators": 0,
+   "commutators_certified": null
+  }
+ ],
+ "trials": 300,
+ "_meta": {
+  "python": "3.11.9",
+  "numpy": "1.26.4",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "cpu_count": 10,
+  "cpu_seconds": null,
+  "alpha": 0.05,
+  "delta": 0.05
+ }
+}

@@ -193,6 +193,29 @@ def broken_hopf(eps) -> System:
                   tags=("nonlinear", "family"))
 
 
+def hidden_break_hopf(eps) -> System:
+    """Hopf normal form plus ``eps P5(x) d/dx``, with ``P5`` the Legendre
+    polynomial of degree five.
+
+    ``P5`` is orthogonal to every polynomial of degree at most four under the
+    uniform measure on ``[-1, 1]``, so on a uniform design over the unit box a
+    degree-three fit sees (up to sampling error) the exactly symmetric Hopf
+    field, while the true rotation defect grows linearly with ``eps``.  The
+    breaking is therefore invisible to the truncated class and detectable
+    only by a lack-of-fit test against degree five, whose power grows with
+    ``eps^2 N / sigma^2``.
+    """
+    e = Fraction(eps).limit_denominator(10 ** 9)
+    terms = dict(get_system("hopf").terms)
+    for a, c in (((5, 0), Fraction(63, 8)), ((3, 0), Fraction(-70, 8)),
+                 ((1, 0), Fraction(15, 8))):
+        terms[(0, a)] = terms.get((0, a), Fraction(0)) + e * c
+    terms = {k: v for k, v in terms.items() if v != 0}
+    return System(f"hopf_p5_{float(eps):g}", 2, 5, terms,
+                  f"Hopf normal form with a hidden P5 breaking term of size {float(eps):g}.",
+                  tags=("nonlinear", "family"))
+
+
 def truncate(sys_: System, deg: int) -> System:
     """Drop all terms of total degree above ``deg`` (model-class truncation)."""
     terms = {k: v for k, v in sys_.terms.items() if sum(k[1]) <= deg}

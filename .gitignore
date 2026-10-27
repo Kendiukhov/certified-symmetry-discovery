@@ -32,3 +32,19 @@ submission/*.out
 submission/*.spl
 submission/build.log
 submission/submission.zip
+revision/session_state/
+
+# Working notes and correspondence with the journal (the response quotes the
+# confidential reviews); kept locally, not published.
+revision/
+submission_srep/response_body.tex
+submission_srep/response_to_reviewers.*
+submission_srep/submission.zip
+
+# Scientific Reports build products (main.pdf, supplementary.pdf and
+# cover_letter.pdf are kept)
+submission_srep/*.aux
+submission_srep/*.bbl
+submission_srep/*.blg
+submission_srep/*.log
+submission_srep/*.out

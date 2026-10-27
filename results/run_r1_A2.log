@@ -1,0 +1,196 @@
+=== exp9_modelerror ===
+{'system': 'rot_nonpoly', 'degree': 3, 'Q': 20, 'N': 40000, 'true_defect': 0.011222813744468874, 'true_defect_se': 4.150417628319714e-06, 'plug_in': 0.0812462266906461, 'upper_no_model_error': 0.08701965979346896, 'upper_sup_norm': 7.324600295005183, 'upper_l2': 1.4962926407960815, 'upper_l2_datadriven': 1.5018873650092086, 'eta2_datadriven': 0.0375034860361466, 'eta0': 0.2103525451376049, 'eta1': 1.2596592319020041, 'eta2': 0.037375355973822334, 'rel_l2_error': 0.07647575291323457}
+{'system': 'rot_nonpoly', 'degree': 5, 'Q': 42, 'N': 40000, 'true_defect': 0.002633167871065883, 'true_defect_se': 9.948170268530972e-07, 'plug_in': 0.04390761315751172, 'upper_no_model_error': 0.050224556498788764, 'upper_sup_norm': 2.6501185710945503, 'upper_l2': 0.6535945489477818, 'upper_l2_datadriven': 0.6764138294010766, 'eta2_datadriven': 0.012052171264502025, 'eta0': 0.08756853287573364, 'eta1': 0.9879067225895414, 'eta2': 0.011697204454910364, 'rel_l2_error': 0.023934287563598198}
+{'system': 'rot_nonpoly', 'degree': 7, 'Q': 72, 'N': 40000, 'true_defect': 0.0009222116248246628, 'true_defect_se': 4.15014220015816e-07, 'plug_in': 0.027348745138413212, 'upper_no_model_error': 0.038094005220349905, 'upper_sup_norm': 1.750853921620512, 'upper_l2': 0.3668787951076305, 'upper_l2_datadriven': 0.4040803536075714, 'eta2_datadriven': 0.005390135473132896, 'eta0': 0.044346140641550534, 'eta1': 0.8032028718962271, 'eta2': 0.0049261776188962375, 'rel_l2_error': 0.010079720515659526}
+{'system': 'rot_nonpoly', 'degree': 9, 'Q': 110, 'N': 40000, 'true_defect': 0.0018309301773682964, 'true_defect_se': 7.649671328198331e-07, 'plug_in': 0.018435783879608824, 'upper_no_model_error': 0.03776870660203291, 'upper_sup_norm': 1.461898998942772, 'upper_l2': 0.2673070849871593, 'upper_l2_datadriven': 0.2676661178442408, 'eta2_datadriven': 0.002624899131967729, 'eta0': 0.027148450635943667, 'eta1': 0.7262962367350854, 'eta2': 0.002626191966336566, 'rel_l2_error': 0.005373594516690222}
+{'system': 'pendulum', 'degree': 3, 'Q': 20, 'N': 40000, 'true_defect': 0.2041207223251022, 'true_defect_se': 0.00014709035293964014, 'plug_in': 0.21189163443235962, 'upper_no_model_error': 0.21393890501306237, 'upper_sup_norm': 0.2951525925921566, 'upper_l2': 0.2505178118509419, 'upper_l2_datadriven': 0.26928340205136675, 'eta2_datadriven': 0.003359114213393055, 'eta0': 0.007882726151777267, 'eta1': 0.0725975234120486, 'eta2': 0.0022438829386454626, 'rel_l2_error': 0.00202268564627247}
+{'system': 'pendulum', 'degree': 5, 'Q': 42, 'N': 40000, 'true_defect': 0.20396772492749762, 'true_defect_se': 0.00015136689386650477, 'plug_in': 0.20445201515191674, 'upper_no_model_error': 0.20958360161561063, 'upper_sup_norm': 0.22614117687414942, 'upper_l2': 0.23082476207803346, 'upper_l2_datadriven': 0.26999298688658846, 'eta2_datadriven': 0.002190903545340868, 'eta0': 0.0025090288989805497, 'eta1': 0.014017355338953224, 'eta2': 0.000780185000343859, 'rel_l2_error': 0.0007032759929023836}
+{'system': 'pendulum', 'degree': 7, 'Q': 72, 'N': 40000, 'true_defect': 0.2038802162092599, 'true_defect_se': 0.00015119536038526416, 'plug_in': 0.20516495150775824, 'upper_no_model_error': 0.21482411022408596, 'upper_sup_norm': 0.2861978041775209, 'upper_l2': 0.2521966074139837, 'upper_l2_datadriven': 0.32219902537298045, 'eta2_datadriven': 0.0025766395517425695, 'eta0': 0.00554784874807777, 'eta1': 0.06512566518361117, 'eta2': 0.0009211917418417548, 'rel_l2_error': 0.0008303825844020352}
+{'system': 'pendulum', 'degree': 9, 'Q': 110, 'N': 40000, 'true_defect': 0.20378995794146343, 'true_defect_se': 0.00015211564733659544, 'plug_in': 0.20527934492380934, 'upper_no_model_error': 0.22158901115098936, 'upper_sup_norm': 0.3506817648401396, 'upper_l2': 0.28893455595256456, 'upper_l2_datadriven': 0.3854630949159576, 'eta2_datadriven': 0.002720254851282679, 'eta0': 0.009455318127939875, 'eta1': 0.11419432504669404, 'eta2': 0.0011620796324410653, 'rel_l2_error': 0.0010475242499874088}
+wrote /Volumes/Crucial X6/MacBook/Code/ml_papers/honest_symmetry_discovery/results/exp9_modelerror.json
+exp9 wall 189s
+=== exp9_modelerror: 36 CPU-s, 192 wall-s ===
+=== exp10_noise ===
+  [exp10a] 3/64 cells, 6s elapsed
+  [exp10a] 6/64 cells, 6s elapsed
+  [exp10a] 9/64 cells, 6s elapsed
+  [exp10a] 12/64 cells, 7s elapsed
+  [exp10a] 15/64 cells, 7s elapsed
+  [exp10a] 18/64 cells, 7s elapsed
+  [exp10a] 21/64 cells, 7s elapsed
+  [exp10a] 24/64 cells, 8s elapsed
+  [exp10a] 27/64 cells, 8s elapsed
+  [exp10a] 30/64 cells, 8s elapsed
+  [exp10a] 33/64 cells, 9s elapsed
+  [exp10a] 36/64 cells, 9s elapsed
+  [exp10a] 39/64 cells, 9s elapsed
+  [exp10a] 42/64 cells, 10s elapsed
+  [exp10a] 45/64 cells, 10s elapsed
+  [exp10a] 48/64 cells, 11s elapsed
+  [exp10a] 51/64 cells, 11s elapsed
+  [exp10a] 54/64 cells, 12s elapsed
+  [exp10a] 57/64 cells, 12s elapsed
+  [exp10a] 60/64 cells, 12s elapsed
+  [exp10a] 63/64 cells, 13s elapsed
+  [exp10b] 1/28 cells, 3s elapsed
+  [exp10b] 2/28 cells, 6s elapsed
+  [exp10b] 3/28 cells, 6s elapsed
+  [exp10b] 4/28 cells, 7s elapsed
+  [exp10b] 5/28 cells, 8s elapsed
+  [exp10b] 6/28 cells, 10s elapsed
+  [exp10b] 7/28 cells, 15s elapsed
+  [exp10b] 8/28 cells, 15s elapsed
+  [exp10b] 9/28 cells, 15s elapsed
+  [exp10b] 10/28 cells, 15s elapsed
+  [exp10b] 11/28 cells, 15s elapsed
+  [exp10b] 12/28 cells, 15s elapsed
+  [exp10b] 13/28 cells, 15s elapsed
+  [exp10b] 14/28 cells, 15s elapsed
+  [exp10b] 15/28 cells, 15s elapsed
+  [exp10b] 16/28 cells, 15s elapsed
+  [exp10b] 17/28 cells, 15s elapsed
+  [exp10b] 18/28 cells, 15s elapsed
+  [exp10b] 19/28 cells, 15s elapsed
+  [exp10b] 20/28 cells, 15s elapsed
+  [exp10b] 21/28 cells, 19s elapsed
+  [exp10b] 22/28 cells, 19s elapsed
+  [exp10b] 23/28 cells, 19s elapsed
+  [exp10b] 24/28 cells, 19s elapsed
+  [exp10b] 25/28 cells, 19s elapsed
+  [exp10b] 26/28 cells, 19s elapsed
+  [exp10b] 27/28 cells, 19s elapsed
+  [exp10b] 28/28 cells, 23s elapsed
+wrote /Volumes/Crucial X6/MacBook/Code/ml_papers/honest_symmetry_discovery/results/exp10_noise.json
+exp10 wall 38s
+=== exp10_noise: 42 CPU-s, 38 wall-s ===
+=== exp11_scaling ===
+  [exp11] 1/20 cells, 40s elapsed
+  [exp11] 2/20 cells, 42s elapsed
+  [exp11] 3/20 cells, 42s elapsed
+  [exp11] 4/20 cells, 43s elapsed
+  [exp11] 5/20 cells, 49s elapsed
+  [exp11] 6/20 cells, 49s elapsed
+  [exp11] 7/20 cells, 51s elapsed
+  [exp11] 8/20 cells, 53s elapsed
+  [exp11] 9/20 cells, 95s elapsed
+  [exp11] 10/20 cells, 97s elapsed
+  [exp11] 11/20 cells, 99s elapsed
+  [exp11] 12/20 cells, 106s elapsed
+  [exp11] 13/20 cells, 120s elapsed
+  [exp11] 14/20 cells, 126s elapsed
+  [exp11] 15/20 cells, 130s elapsed
+  [exp11] 16/20 cells, 141s elapsed
+  [exp11] 17/20 cells, 208s elapsed
+  [exp11] 18/20 cells, 217s elapsed
+  [exp11] 19/20 cells, 227s elapsed
+  [exp11] 20/20 cells, 241s elapsed
+wrote /Volumes/Crucial X6/MacBook/Code/ml_papers/honest_symmetry_discovery/results/exp11_scaling.json
+exp11 wall 242s
+=== exp11_scaling: 251 CPU-s, 242 wall-s ===
+=== exp12_realdata ===
+wrote /Volumes/Crucial X6/MacBook/Code/ml_papers/honest_symmetry_discovery/results/exp12_realdata.json
+  n_points: 19
+  scale: 77.4
+  design_condition: 4596.090035713712
+  sigma_hat: 0.046304912693053035
+  kappa_bound: 57.90781134408093
+  plug_in_spectrum_target: [0.18178216777659248, 0.3344681372843264, 0.6760383154729457, 1.1666932692442227, 1.3103725553919952, 1.4030506544510417]
+  plug_in_spectrum_data: [0.3650361203743202, 0.5374388757915797, 0.9375796976386047, 1.0389588701415504, 1.3102918145319453, 1.3376752919689883]
+  naive_dim_target: 0
+  naive_dim_data: 0
+  certified_dim: 0
+  smallest_certified_tolerance: 0.647391178732536
+  refutation_lower_bound: 0.0
+exp12 wall 0.0s
+=== exp12_realdata: 0 CPU-s, 0 wall-s ===
+=== exp13_tolerance ===
+  [exp13] 1/24 cells, 31s elapsed
+  [exp13] 2/24 cells, 32s elapsed
+  [exp13] 3/24 cells, 36s elapsed
+  [exp13] 4/24 cells, 36s elapsed
+  [exp13] 5/24 cells, 107s elapsed
+  [exp13] 6/24 cells, 107s elapsed
+  [exp13] 7/24 cells, 110s elapsed
+  [exp13] 8/24 cells, 110s elapsed
+  [exp13] 9/24 cells, 110s elapsed
+  [exp13] 10/24 cells, 110s elapsed
+  [exp13] 11/24 cells, 110s elapsed
+  [exp13] 12/24 cells, 110s elapsed
+  [exp13] 13/24 cells, 110s elapsed
+  [exp13] 14/24 cells, 110s elapsed
+  [exp13] 15/24 cells, 111s elapsed
+  [exp13] 16/24 cells, 114s elapsed
+  [exp13] 17/24 cells, 118s elapsed
+  [exp13] 18/24 cells, 122s elapsed
+  [exp13] 19/24 cells, 122s elapsed
+  [exp13] 20/24 cells, 126s elapsed
+  [exp13] 21/24 cells, 140s elapsed
+  [exp13] 22/24 cells, 141s elapsed
+  [exp13] 23/24 cells, 144s elapsed
+  [exp13] 24/24 cells, 147s elapsed
+wrote /Volumes/Crucial X6/MacBook/Code/ml_papers/honest_symmetry_discovery/results/exp13_tolerance.json
+exp13 wall 147s
+=== exp13_tolerance: 201 CPU-s, 147 wall-s ===
+{
+ "exp1_calibration": {
+  "cpu_seconds": 1467.0,
+  "wall_seconds": 1041.0
+ },
+ "exp2_coverage": {
+  "cpu_seconds": 88.0,
+  "wall_seconds": 124.0
+ },
+ "exp3_modelclass": {
+  "cpu_seconds": 775.0,
+  "wall_seconds": 1401.0
+ },
+ "exp4_resolution": {
+  "cpu_seconds": 884.0,
+  "wall_seconds": 674.0
+ },
+ "exp5_robustness": {
+  "cpu_seconds": 708.973336,
+  "wall_seconds": 825.3997497558594
+ },
+ "exp6_dimension": {
+  "cpu_seconds": 275.775937,
+  "wall_seconds": 311.32369804382324
+ },
+ "exp7_invariance": {
+  "cpu_seconds": 2153.0950780000003,
+  "wall_seconds": 2047.0967779159546
+ },
+ "total_cpu_hours": 3.3151827983333337,
+ "exp9_modelerror": {
+  "cpu_seconds": 36.202689,
+  "wall_seconds": 191.50429916381836
+ },
+ "exp10_noise": {
+  "cpu_seconds": 42.41139000000001,
+  "wall_seconds": 37.64980506896973
+ },
+ "exp13_tolerance": {
+  "cpu_seconds": 201.16400799999997,
+  "wall_seconds": 147.41551899909973
+ },
+ "exp11_scaling": {
+  "cpu_seconds": 251.050481,
+  "wall_seconds": 242.33485507965088
+ },
+ "exp19_drifters": {
+  "cpu_seconds": 1520.8056130000002,
+  "wall_seconds": 984.5259239673615
+ },
+ "exp14_selection": {
+  "cpu_seconds": 3144.6878739999997,
+  "wall_seconds": 3216.559918165207
+ },
+ "exp8_tightness": {
+  "cpu_seconds": 386.4611990000003,
+  "wall_seconds": 379.9514899253845
+ },
+ "exp12_realdata": {
+  "cpu_seconds": 0.030468999999982316,
+  "wall_seconds": 0.03379416465759277
+ }
+}

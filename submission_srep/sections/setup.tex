@@ -1,0 +1,187 @@
+\subsection{Symmetry discovery as a nullspace problem}
+\label{sec:setup}
+
+\paragraph{Generators and the Lie derivative.} Let $\dot x = F(x)$ be a
+dynamical system on $\R^n$ and let $\xi$ be a vector field on $\R^n$. The flow
+of $\xi$ is a one-parameter group of state transformations, and it maps
+solutions of $\dot x = F(x)$ to solutions if and only if the Lie bracket
+\begin{equation}
+  \Lc_\xi F \;=\; [\xi, F] \;=\; DF\,\xi \;-\; D\xi\, F
+  \label{eq:bracket}
+\end{equation}
+vanishes identically \citep[Ch.~2]{olver1993applications}; here $DF$ and
+$D\xi$ are Jacobian matrices. Equation~\eqref{eq:bracket} is the Lie derivative
+in the sense of Otto et al.~\citep[Eq.~16]{otto2025unified}; the same expression, with
+$D\xi\,F$ replaced by the appropriate output action, governs symmetries of a
+learned map, and with $D\xi\,F$ deleted it governs invariances of a learned
+scalar function (\SNinvariance).
+
+We search inside a \emph{candidate class} $\mathcal V =
+\mathrm{span}\{\zeta_1, \dots,\zeta_P\}$ of vector fields, writing $\xi_\theta
+= \sum_p \theta_p \zeta_p$; in our experiments $\mathcal V$ is usually the set
+of affine generators $\xi(x) = Sx + b$, whose flows form the affine group, or
+all polynomial fields of degree at most two; the scaling study and the
+invariance study of \SNinvariance{} use the linear generators $\xi(x) = Sx$. Because equation~\eqref{eq:bracket} is
+linear in $\xi$, the exact symmetry algebra inside $\mathcal V$ is the nullspace
+$\{\theta : [\xi_\theta,F] \equiv 0\}$, and it is standard to obtain it as the
+nullspace of the positive semi-definite Gram operator $\mathcal S$, defined by
+$\langle \xi', \mathcal S\xi\rangle = \int (\Lc_{\xi'} F)^{\!\top} (\Lc_\xi F)\,
+d\mu$, where $\mu$ is the distribution of the observed states
+\citep[\S7]{otto2025unified}.
+
+\paragraph{The target domain and the output metric.} A symmetry is a statement
+about a region of state space and about how vector fields are measured there.
+We therefore fix a \emph{target measure} $\nu$, the region over which the user
+wants the symmetry to hold, and a positive-definite \emph{output metric} $W$,
+and measure vector fields by $\|v\|_{\nu,W}^2 = \int v(x)^{\!\top} W v(x)\,
+d\nu(x)$. In most of our experiments $\nu$ is uniform on a box, whose monomial
+moments are available in closed form, and in the others the integrals are
+closed-form moments or quadratures that are exact or accurate to rounding, so
+\emph{the geometry used by the certificates carries no Monte Carlo error}; all
+statistical uncertainty lives in the model. (Monte Carlo integration is used
+only to evaluate reference quantities of the known truth, such as the true
+defects of non-polynomial systems.) Unless stated otherwise
+the state variables share a scale and $W = I$. Keeping $\nu$ separate from
+$\mu$ matters: their mismatch is the incomplete-coverage problem studied below.
+
+\paragraph{The defect.} Two quantities cancel in equation~\eqref{eq:bracket}.
+Measuring the residual relative to their size gives a dimensionless number.
+
+\begin{definition}[Relative equivariance defect]
+\label{def:defect}
+For a generator $\xi$ and a field $F$,
+\begin{equation}
+  \defect_\nu(\xi; F) \;=\;
+  \frac{\bigl\| \,DF\,\xi - D\xi\,F\, \bigr\|_{\nu,W}}
+       {\bigl(\,\|DF\,\xi\|_{\nu,W}^{2}
+        + \|D\xi\,F\|_{\nu,W}^{2}\,\bigr)^{1/2}} ,
+  \label{eq:defect}
+\end{equation}
+defined whenever the denominator is positive. When it vanishes, that is, when
+$DF\,\xi$ and $D\xi\,F$ are both zero $\nu$-almost everywhere, the defect is
+undefined, and such a generator is never certified.
+\end{definition}
+
+\begin{lemma}[Properties]
+\label{lem:props}
+Where it is defined, $\defect_\nu \in [0,\sqrt 2]$, and $\defect_\nu(\xi;F)=0$
+if and only if $[\xi,F]=0$ $\nu$-almost everywhere, that is, on the support of
+$\nu$ for continuous fields. When that support is the closure of an open set,
+as for every target measure used here, this holds if and only if $\xi$
+generates a symmetry of $F$ on its interior, and for polynomial (or other
+analytic) $\xi$ and $F$ the bracket then vanishes identically. On a measure
+concentrated on a lower-dimensional set, such as data on a limit cycle that
+lies on an algebraic curve, a zero defect need not indicate any symmetry
+(\Cref{prop:kappa}). The defect is invariant under $\xi \mapsto c\,\xi$ and $F \mapsto c'F$ for nonzero $c,c'$,
+hence under any invertible reparameterisation of the candidate class. Under an
+invertible affine change of coordinates $x = Az + b$, with $\nu$ transported to
+the new coordinates and $W$ replaced by $A^{\!\top}WA$, it is unchanged. With
+the metric held fixed at $W = I$, invariance holds in general only for
+similarity transformations ($A = cO$, $O$ orthogonal, $c > 0$).
+\end{lemma}
+
+The proof is in Methods. $\defect$ is the fraction of the bracket's two terms
+that fails to cancel, so $\defect = 0.05$ means the two halves of the bracket
+agree to $5\%$ in root-mean-square over the target domain. A generator with
+$\defect_\nu(\xi;F) \le \delta$ is what we call a \emph{$\delta$-approximate
+symmetry}; $\delta$ plays the role of the singular-value tolerance of the
+Gram-operator approach, but it does not depend on the scale of $F$, on the scale of $\xi$,
+or on how the candidate basis is chosen.
+
+It does depend on the units of the state when $W$ is held fixed. Measuring one
+coordinate of a Lotka--Volterra system in units a hundred times smaller lowers
+the smallest Euclidean defect in the affine class from $0.27$ to $0.0035$
+(\STunits), which would turn a clear absence of symmetry into an
+apparent one. The remedy is to declare the metric: either nondimensionalise
+each coordinate by a characteristic scale $s_i$ of the problem, or,
+equivalently, use $W = \mathrm{diag}(1/s_i^2)$ with $s_i$ expressed in the
+current units. Either way the defect, and hence the meaning of a tolerance,
+becomes independent of the units.
+
+One class of generators is outside the reach of the defect. A translation
+$\xi = b$ has $D\xi = 0$, so the second term of the bracket vanishes and
+$\defect_\nu(b;F)$ is $1$ whenever $DF\,b \neq 0$ and undefined when it is
+zero: the ratio says nothing about how close a translation is to a symmetry.
+Certifying translation symmetries needs a different normalisation of
+$\|DF\,b\|$; the machinery below applies to any normalisation that is the norm
+of a linear image of the model coefficients, but we do not pursue this here.
+
+\begin{remark}[Small eigenvalues are hard to read]
+Even with a scale fixed, the smallest eigenvalue of an estimated Gram matrix is
+a delicate object: its fluctuations are of a different order from those of the
+bulk, and the classical asymptotics \citep{anderson1963asymptotic} and their
+random-matrix refinements \citep{johnstone2001distribution} show
+that the map from ``small'' to ``zero in the population'' is not one a fixed
+threshold can implement. This is why the certificate below is stated for the
+defect ratio directly rather than for eigenvalues.
+\end{remark}
+
+\begin{remark}[An average, not a supremum]
+$\defect_\nu$ is a mean-square quantity, so a generator can have a small defect
+while violating the symmetry badly on a small part of the domain, a property it
+shares with the Gram-operator formulation it refines and with every
+$L^2$-based criterion. Two responses are available, each with a cost: choose
+$\nu$ to weight the region whose behaviour matters, which is the intended use
+of making $\nu$ explicit; or replace the numerator by a supremum norm, which
+for polynomials is bounded by a constant times the $L^2$ norm through a
+Markov-type inequality, at the cost of that constant.
+\end{remark}
+
+Without a normalisation the ``small singular value'' criterion is not even well
+posed: rescaling one basis generator $\zeta_p$ by $10^{3}$ multiplies the
+off-diagonal entries of the $p$-th row and column of the Gram matrix by
+$10^{3}$ and its $(p,p)$ entry by $10^{6}$, moving eigenvalues across any fixed
+threshold. $\defect$ is a functional of the
+vector field $\xi$ itself and is immune to this.
+
+\paragraph{Model and data.} We take the measured-derivative design of
+data-driven model discovery \citep{brunton2016discovering}: pairs
+$(x_i, y_i)_{i=1}^N$ with $x_i \sim \mu$ and
+\begin{equation}
+  y_i \;=\; F(x_i) + \varepsilon_i , \qquad \varepsilon_i \sim N(0, \sigma^2 I_n)
+  \ \text{i.i.d.},
+  \label{eq:model}
+\end{equation}
+and a model class $F_\beta(x) = \sum_{i,a} \beta_{i,a}\, \phi_a(x)\, e_i$ that is
+linear in its coefficients $\beta \in \R^Q$. In most of the paper the
+dictionary $\{\phi_a\}$ consists of the monomials of degree at most $d$, so
+that $Q = n\binom{n+d}{d}$; any fixed dictionary of differentiable functions
+can be used instead (trigonometric or radial libraries, for example), and we
+use two such libraries for non-polynomial systems. Ordinary least squares
+gives $\bhat$ and, in this homoskedastic Gaussian model, an \emph{exact}
+finite-sample confidence ellipsoid. Throughout, $\sigma$ is reported relative
+to the root-mean-square size of $F$ over the target domain, so ``noise level
+$0.1$'' means the noise standard deviation is a tenth of the typical size of
+the right-hand side.
+
+\begin{lemma}[Bilinear structure]
+\label{lem:bilinear}
+For a model that is linear in a fixed dictionary and a finite-dimensional
+candidate class $\mathcal V$,
+there are matrices $L_\theta, M^{(1)}_\theta, M^{(2)}_\theta$, linear in
+$\theta$ and independent of the data, such that
+\begin{equation}
+  \defect_\nu(\xi_\theta; F_\beta)^2
+  \;=\; \frac{\|L_\theta \beta\|^2}
+             {\|M^{(1)}_\theta \beta\|^2 + \|M^{(2)}_\theta \beta\|^2}
+  \;=\; \frac{\|L_\theta \beta\|^2}{\|M_\theta \beta\|^2},
+  \qquad L_\theta = M^{(1)}_\theta - M^{(2)}_\theta ,
+  \label{eq:ratio}
+\end{equation}
+where $\|\cdot\|$ is the Euclidean norm and $M_\theta$ stacks $M^{(1)}_\theta$
+and $M^{(2)}_\theta$. Consequently, over the generators whose defect is
+defined, $\min_\theta \defect_\nu(\xi_\theta;F_\beta)^2$ is the smallest
+generalised eigenvalue of the pencil $(C(\beta), D(\beta))$ with
+$\theta^{\!\top}C\theta = \|L_\theta\beta\|^2$ and $\theta^{\!\top}D\theta =
+\|M_\theta\beta\|^2$, restricted to the range of $D(\beta)$; the null space of
+$D(\beta)$ consists exactly of the generators with an undefined defect.
+\end{lemma}
+
+The matrices are obtained by expanding equation~\eqref{eq:bracket} in the
+dictionary and absorbing the integrals over $\nu$ (and the metric $W$) into a
+symmetric square root; for monomials and a box, ball, annulus or Gaussian
+target the integrals are closed-form moments, and for other dictionaries they
+are computed by quadrature rules that are exact, or accurate to rounding, for
+the integrands involved (Methods). The reduction to a generalised eigenproblem
+makes the plug-in symmetry directions independent of how the candidate basis is
+scaled.

@@ -1,28 +1,38 @@
-\begin{table}[t]
+\begin{table}[!tbp]
 \centering\small
+\begin{adjustbox}{max width=\textwidth, max totalheight=0.9\textheight}
 \begin{tabular}{llrrr}
 \toprule
-& & \multicolumn{2}{c}{worst coverage} & worst false \\
-\cmidrule(lr){3-4}
-error distribution & design & exact Gaussian & sandwich & certification \\
+setting & region & region coverage & certificate coverage & false cert.\ \\
 \midrule
-Gaussian & i.i.d.\ design & 1.000 & 1.000 & 0.000 \\
-Gaussian, heteroskedastic & i.i.d.\ design & 1.000 & 1.000 & 0.000 \\
-Laplace & i.i.d.\ design & 1.000 & 1.000 & 0.000 \\
-Student $t_4$ & i.i.d.\ design & 1.000 & 1.000 & 0.000 \\
+\multicolumn{5}{l}{\emph{Independent rows, error distribution varied}} \\
+Gaussian & OLS (exact) & 0.943 & 1.000 & 0.000 \\
+ & White & 0.770 & 1.000 & 0.000 \\
+Student $t_4$ & OLS (exact) & 0.940 & 1.000 & 0.000 \\
+ & White & 0.823 & 1.000 & 0.000 \\
+Laplace & OLS (exact) & 0.938 & 1.000 & 0.000 \\
+ & White & 0.792 & 1.000 & 0.000 \\
+heteroskedastic Gaussian & OLS (exact) & 0.823 & 1.000 & 0.000 \\
+ & White & 0.797 & 1.000 & 0.000 \\
 \midrule
-Gaussian & trajectories, exact states & --- & 1.000 & 0.000 \\
-Gaussian & trajectories, noisy states & --- & 1.000 & 0.000 \\
+\multicolumn{5}{l}{\emph{48 trajectories}} \\
+exact states & White & 0.900 & 1.000 & 0.000 \\
+ & cluster-robust & 0.760 & 1.000 & 0.000 \\
+noisy states, differenced & White & 1.000 & 1.000 & 0.000 \\
+ & cluster-robust & 0.760 & 1.000 & 0.000 \\
+\midrule
+\multicolumn{5}{l}{\emph{AR(1) errors, 192 trajectories}} \\
+$\phi = 0.9$ & OLS (exact) & 0.000 & 0.155 & 0.000 \\
+ & White & 0.000 & 0.150 & 0.000 \\
+ & cluster-robust & 0.910 & 1.000 & 0.000 \\
+ & Newey--West & 0.400 & 1.000 & 0.000 \\
+$\phi = 0.98$ & OLS (exact) & 0.000 & 0.010 & 0.000 \\
+ & White & 0.000 & 0.010 & 0.000 \\
+ & cluster-robust & 0.910 & 1.000 & 0.000 \\
+ & Newey--West & 0.135 & 1.000 & 0.000 \\
 \bottomrule
 \end{tabular}
-\caption{Coverage of the certificate under departures from the homoskedastic
-Gaussian model, at nominal $0.95$, over 24 design settings
-and 24 trajectory settings. The certificate depends on the errors
-only through a confidence ellipsoid for a least-squares estimator, and is
-correspondingly insensitive to their shape and to dependence between rows. The
-last block is the case the guarantee does \emph{not} cover: with noisy states and
-differenced derivatives the regressors carry error, and coverage held here only
-because the resulting bias happens to inflate the defect
-(\Cref{sec:robustness}).}
+\end{adjustbox}
+\caption{\textbf{What the certificate inherits from the coefficient region.} Nominal coverage $0.95$. Region coverage is the fraction of replications in which the coefficient region contains the true coefficients; certificate coverage the fraction in which the interval contains the true defect of every plug-in direction; both are minima, and the false-certification rate a maximum, over the settings in each row (independent rows: three systems, each at ($N$, noise level) $=$ $(400, 0.1)$ and $(3200, 0.03)$, 400 replications each; trajectories: three systems, with exact states or with state noise of standard deviation 0.0005, 0.002 and 0.005 (0.05\% to 0.5\% of the box half-width), 100 replications each; AR(1): two systems, 200 replications each). Each trajectory starts from a uniform initial condition in the box and runs for 100 steps of 0.01; only its part inside the box is kept (at most 100 points), and clusters and Newey--West groups are trajectories. With noisy states the regressors carry error and no region is guaranteed to cover; the state noise here is small, so the bias is negligible and the differenced derivatives dominate the error (main text). With serially correlated errors only the cluster-robust and Newey--West regions are designed to cover.}
 \label{tab:robustness}
 \end{table}

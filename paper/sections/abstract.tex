@@ -1,0 +1,17 @@
+Continuous symmetries of dynamical systems are often discovered from data as
+the nullspace of a linear operator. With noisy data, a symmetry is declared
+whenever a singular value looks small. This has no error control and points
+the wrong way: failing to reject a symmetry is not evidence for it. We recast
+symmetry discovery as an equivalence test: a generator is certified as an
+approximate symmetry only when the data rule out a violation above a stated
+tolerance. For vector-field models linear in their coefficients, such as
+polynomial or dictionary models, a relative measure of symmetry violation is a
+ratio of norms of linear images of the coefficients, so one confidence region
+yields bounds for every candidate generator at once. On ten systems with
+exactly known symmetries and 72,000 simulated data sets, the procedure never
+certified a false symmetry, whereas a fixed threshold at the same tolerance did
+so in 0.5\% of runs on average and 63\% in its worst setting. The price is
+fewer detections (48.5\% against 78.4\%). The guarantee requires a model class
+containing the true system, exactly observed states and a confidence region
+matched to the error structure; violating the first two can manufacture false
+symmetries.

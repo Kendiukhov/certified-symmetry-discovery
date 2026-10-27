@@ -1,0 +1,55 @@
+=== exp19_drifters ===
+wrote /Volumes/Crucial X6/MacBook/Code/ml_papers/honest_symmetry_discovery/results/exp19_drifters.json
+exp19 wall 981s
+=== exp19_drifters: 1521 CPU-s, 985 wall-s ===
+{
+ "exp1_calibration": {
+  "cpu_seconds": 1456.1167330000003,
+  "wall_seconds": 339.0979859828949
+ },
+ "exp2_coverage": {
+  "cpu_seconds": 122.262293,
+  "wall_seconds": 577.672089099884
+ },
+ "exp3_modelclass": {
+  "cpu_seconds": 125.08044100000006,
+  "wall_seconds": 90.91459894180298
+ },
+ "exp4_resolution": {
+  "cpu_seconds": 340.6571829999998,
+  "wall_seconds": 66.65748023986816
+ },
+ "exp5_robustness": {
+  "cpu_seconds": 1691.249204,
+  "wall_seconds": 1566.285922050476
+ },
+ "exp6_dimension": {
+  "cpu_seconds": 331.95661699999937,
+  "wall_seconds": 75.53448963165283
+ },
+ "exp7_invariance": {
+  "cpu_seconds": 2503.8008959999997,
+  "wall_seconds": 1030.424400806427
+ },
+ "total_cpu_hours": 2.379053454166667,
+ "exp9_modelerror": {
+  "cpu_seconds": 53.397375999999994,
+  "wall_seconds": 468.51807403564453
+ },
+ "exp10_noise": {
+  "cpu_seconds": 58.824639,
+  "wall_seconds": 154.35243010520935
+ },
+ "exp13_tolerance": {
+  "cpu_seconds": 246.647246,
+  "wall_seconds": 599.2525360584259
+ },
+ "exp11_scaling": {
+  "cpu_seconds": 113.794194,
+  "wall_seconds": 150.48188996315002
+ },
+ "exp19_drifters": {
+  "cpu_seconds": 1520.8056130000002,
+  "wall_seconds": 984.5259239673615
+ }
+}

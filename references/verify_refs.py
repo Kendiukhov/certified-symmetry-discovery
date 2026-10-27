@@ -23,6 +23,7 @@ HERE = Path(__file__).resolve().parent
 UA = "hsd-reference-checker/1.0 (mailto:kenduhov.ig@gmail.com)"
 
 # Generated from paper/refs.bib by references/sync_entries.py.
+# Generated from paper/refs.bib by references/sync_entries.py.
 ENTRIES = [
     ('otto2025unified', 'A Unified Framework to Enforce, Discover, and Promote Symmetry in Machine Learning'),
     ('cahill2023liepca', 'Lie PCA: Density estimation for symmetric manifolds'),
@@ -36,16 +37,10 @@ ENTRIES = [
     ('desai2022symmetry', 'Symmetry discovery with deep learning'),
     ('dehmamy2021automatic', 'Automatic Symmetry Discovery with Lie Algebra Convolutional Network'),
     ('liu2022machine', 'Machine Learning Hidden Symmetries'),
-    ('forestano2023deep', 'Deep learning symmetries and their Lie groups, algebras, and subalgebras from first principles'),
-    ('krippendorf2020detecting', 'Detecting symmetries with neural networks'),
-    ('rao1999learning', 'Learning Lie Groups for Invariant Visual Perception'),
-    ('miao2007learning', 'Learning the Lie Groups of Visual Invariance'),
     ('cohen2016group', 'Group Equivariant Convolutional Networks'),
-    ('kondor2018generalization', 'On the Generalization of Equivariance and Convolution in Neural Networks to the Action of Compact Groups'),
     ('finzi2021practical', 'A Practical Method for Constructing Equivariant Multilayer Perceptrons for Arbitrary Matrix Groups'),
     ('bronstein2021geometric', 'Geometric Deep Learning: Grids, Groups, Graphs, Geodesics, and Gauges'),
     ('benton2020learning', 'Learning Invariances in Neural Networks from Training Data'),
-    ('vanderwilk2018learning', 'Learning Invariances using the Marginal Likelihood'),
     ('immer2022invariance', 'Invariance Learning in Deep Neural Networks with Differentiable Laplace Approximations'),
     ('wang2022approximately', 'Approximately Equivariant Networks for Imperfectly Symmetric Dynamics'),
     ('romero2022learning', 'Learning Partial Equivariances from Data'),
@@ -55,7 +50,6 @@ ENTRIES = [
     ('brunton2016discovering', 'Discovering governing equations from data by sparse identification of nonlinear dynamical systems'),
     ('messenger2021weak', 'Weak SINDy: Galerkin-Based Data-Driven Model Selection'),
     ('zhang2019convergence', 'On the Convergence of the SINDy Algorithm'),
-    ('champion2020unified', 'A Unified Sparse Optimization Framework to Learn Parsimonious Physics-Informed Models From Data'),
     ('fasel2022ensemble', 'Ensemble-SINDy: Robust sparse model discovery in the low-data, high-noise limit, with active learning and control'),
     ('kaptanoglu2022pysindy', 'PySINDy: A comprehensive Python package for robust sparse system identification'),
     ('olver1993applications', 'Applications of Lie Groups to Differential Equations'),
@@ -63,7 +57,6 @@ ENTRIES = [
     ('bhatia1997matrix', 'Matrix Analysis'),
     ('davis1970rotation', 'The Rotation of Eigenvectors by a Perturbation. III'),
     ('yu2015useful', 'A useful variant of the Davis--Kahan theorem for statisticians'),
-    ('tropp2012user', 'User-Friendly Tail Bounds for Sums of Random Matrices'),
     ('gander1989constrained', 'A constrained eigenvalue problem'),
     ('more1983computing', 'Computing a Trust Region Step'),
     ('conn2000trust', 'Trust Region Methods'),
@@ -74,7 +67,6 @@ ENTRIES = [
     ('schuirmann1987comparison', 'A comparison of the two one-sided tests procedure and the power approach for assessing the equivalence of average bioavailability'),
     ('berger1996bioequivalence', 'Bioequivalence trials, intersection-union tests and equivalence confidence sets'),
     ('wellek2010testing', 'Testing Statistical Hypotheses of Equivalence and Noninferiority'),
-    ('maurer2009empirical', 'Empirical Bernstein Bounds and Sample Variance Penalization'),
     ('berk2013valid', 'Valid post-selection inference'),
     ('lee2016exact', 'Exact post-selection inference, with application to the lasso'),
     ('meinshausen2009pvalues', 'p-Values for High-Dimensional Regression'),
@@ -85,12 +77,21 @@ ENTRIES = [
     ('cragg1997inferring', 'Inferring the rank of a matrix'),
     ('anderson1963asymptotic', 'Asymptotic Theory for Principal Component Analysis'),
     ('johnstone2001distribution', 'On the distribution of the largest eigenvalue in principal components analysis'),
-    ('baik2005phase', 'Phase transition of the largest eigenvalue for nonnull complex sample covariance matrices'),
     ('white1980heteroskedasticity', 'A Heteroskedasticity-Consistent Covariance Matrix Estimator and a Direct Test for Heteroskedasticity'),
     ('benjamini1995controlling', 'Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing'),
     ('efron1979bootstrap', 'Bootstrap Methods: Another Look at the Jackknife'),
     ('hansen1982large', 'Large Sample Properties of Generalized Method of Moments Estimators'),
-    ('rosenbaum2002observational', 'Observational Studies')
+    ('rosenbaum2002observational', 'Observational Studies'),
+    ('newey1987simple', 'A Simple, Positive Semi-Definite, Heteroskedasticity and Autocorrelation Consistent Covariance Matrix'),
+    ('andrews1991heteroskedasticity', 'Heteroskedasticity and Autocorrelation Consistent Covariance Matrix Estimation'),
+    ('clopper1934use', 'The Use of Confidence or Fiducial Limits Illustrated in the Case of the Binomial'),
+    ('leeb2005model', 'Model Selection and Inference: Facts and Fiction'),
+    ('carroll2006measurement', 'Measurement Error in Nonlinear Models: A Modern Perspective'),
+    ('pollard1970comparison', 'Comparison between observed and simulated wind-generated inertial oscillations'),
+    ('elipot2016global', 'A global surface drifter data set at hourly resolution'),
+    ('elipot2022hourly', 'Hourly location, current velocity, and temperature collected from Global Drifter Program drifters world-wide, version 2.01'),
+    ('cameron2015practitioner', "A Practitioner's Guide to Cluster-Robust Inference"),
+    ('dinkelbach1967nonlinear', 'On Nonlinear Fractional Programming')
 ]
 
 

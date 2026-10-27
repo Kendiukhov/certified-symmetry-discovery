@@ -1,5 +1,8 @@
 % Every entry below was checked against Crossref, arXiv or DBLP metadata by
 % references/verify_refs.py; see references/verification_report.json.
+% Conference papers are entered as articles with the proceedings as journal,
+% because sn-nature.bst prints the booktitle of proceedings entries only when an
+% editor is given; volumes and pages follow the PMLR and NeurIPS proceedings.
 
 % ---------------------------------------------------------------- framework
 @article{otto2025unified,
@@ -23,29 +26,30 @@
   doi     = {10.1016/j.acha.2023.03.001}
 }
 
-@inproceedings{moskalev2022liegg,
-  author    = {Moskalev, Artem and Sepliarskaia, Anna and Sosnovik, Ivan and Smeulders, Arnold},
-  title     = {{LieGG}: Studying Learned {Lie} Group Generators},
-  booktitle = {Advances in Neural Information Processing Systems},
-  volume    = {35},
-  pages     = {25212--25223},
-  year      = {2022}
+@article{moskalev2022liegg,
+  author  = {Moskalev, Artem and Sepliarskaia, Anna and Sosnovik, Ivan and Smeulders, Arnold},
+  title   = {{LieGG}: Studying Learned {Lie} Group Generators},
+  journal = {Advances in Neural Information Processing Systems},
+  volume  = {35},
+  pages   = {25212--25223},
+  year    = {2022}
 }
 
-@inproceedings{gruver2023lie,
-  author    = {Gruver, Nate and Finzi, Marc and Goldblum, Micah and Wilson, Andrew Gordon},
-  title     = {The {Lie} Derivative for Measuring Learned Equivariance},
-  booktitle = {International Conference on Learning Representations},
-  year      = {2023}
+@article{gruver2023lie,
+  author  = {Gruver, Nate and Finzi, Marc and Goldblum, Micah and Wilson, Andrew Gordon},
+  title   = {The {Lie} Derivative for Measuring Learned Equivariance},
+  journal = {International Conference on Learning Representations (ICLR)},
+  year    = {2023},
+  url     = {https://openreview.net/forum?id=JL7Va5Vy15J}
 }
 
-@inproceedings{kaiser2018discovering,
-  author    = {Kaiser, Eurika and Kutz, J. Nathan and Brunton, Steven L.},
-  title     = {Discovering conservation laws from data for control},
-  booktitle = {2018 IEEE Conference on Decision and Control (CDC)},
-  pages     = {6415--6421},
-  year      = {2018},
-  doi       = {10.1109/CDC.2018.8618963}
+@article{kaiser2018discovering,
+  author  = {Kaiser, Eurika and Kutz, J. Nathan and Brunton, Steven L.},
+  title   = {Discovering conservation laws from data for control},
+  journal = {Proceedings of the 2018 IEEE Conference on Decision and Control (CDC)},
+  pages   = {6415--6421},
+  year    = {2018},
+  doi     = {10.1109/CDC.2018.8618963}
 }
 
 @article{baddoo2023physics,
@@ -60,31 +64,31 @@
 }
 
 % -------------------------------------------------------- symmetry discovery
-@inproceedings{yang2023liegan,
-  author    = {Yang, Jianke and Walters, Robin and Dehmamy, Nima and Yu, Rose},
-  title     = {Generative Adversarial Symmetry Discovery},
-  booktitle = {International Conference on Machine Learning},
-  series    = {PMLR},
-  volume    = {202},
-  pages     = {39488--39508},
-  year      = {2023}
+@article{yang2023liegan,
+  author  = {Yang, Jianke and Walters, Robin and Dehmamy, Nima and Yu, Rose},
+  title   = {Generative Adversarial Symmetry Discovery},
+  journal = {Proceedings of the 40th International Conference on Machine Learning, PMLR},
+  volume  = {202},
+  pages   = {39488--39508},
+  year    = {2023}
 }
 
-@inproceedings{yang2024latent,
-  author    = {Yang, Jianke and Dehmamy, Nima and Walters, Robin and Yu, Rose},
-  title     = {Latent Space Symmetry Discovery},
-  booktitle = {International Conference on Machine Learning},
-  series    = {PMLR},
-  volume    = {235},
-  year      = {2024}
+@article{yang2024latent,
+  author  = {Yang, Jianke and Dehmamy, Nima and Walters, Robin and Yu, Rose},
+  title   = {Latent Space Symmetry Discovery},
+  journal = {Proceedings of the 41st International Conference on Machine Learning, PMLR},
+  volume  = {235},
+  pages   = {56047--56070},
+  year    = {2024}
 }
 
-@inproceedings{yang2024symmetry,
-  author    = {Yang, Jianke and Rao, Wang and Dehmamy, Nima and Walters, Robin and Yu, Rose},
-  title     = {Symmetry-Informed Governing Equation Discovery},
-  booktitle = {Advances in Neural Information Processing Systems},
-  volume    = {37},
-  year      = {2024}
+@article{yang2024symmetry,
+  author  = {Yang, Jianke and Rao, Wang and Dehmamy, Nima and Walters, Robin and Yu, Rose},
+  title   = {Symmetry-Informed Governing Equation Discovery},
+  journal = {Advances in Neural Information Processing Systems},
+  volume  = {37},
+  pages   = {65297--65327},
+  year    = {2024}
 }
 
 @article{desai2022symmetry,
@@ -98,12 +102,13 @@
   doi     = {10.1103/PhysRevD.105.096031}
 }
 
-@inproceedings{dehmamy2021automatic,
-  author    = {Dehmamy, Nima and Walters, Robin and Liu, Yanchen and Wang, Dashun and Yu, Rose},
-  title     = {Automatic Symmetry Discovery with {Lie} Algebra Convolutional Network},
-  booktitle = {Advances in Neural Information Processing Systems},
-  volume    = {34},
-  year      = {2021}
+@article{dehmamy2021automatic,
+  author  = {Dehmamy, Nima and Walters, Robin and Liu, Yanchen and Wang, Dashun and Yu, Rose},
+  title   = {Automatic Symmetry Discovery with {Lie} Algebra Convolutional Network},
+  journal = {Advances in Neural Information Processing Systems},
+  volume  = {34},
+  pages   = {2503--2515},
+  year    = {2021}
 }
 
 @article{liu2022machine,
@@ -117,77 +122,22 @@
   doi     = {10.1103/PhysRevLett.128.180201}
 }
 
-@article{forestano2023deep,
-  author  = {Forestano, Roy T. and Matchev, Konstantin T. and Matcheva, Katia and Roman, Alexander and Unlu, Eyup B. and Verner, Sarunas},
-  title   = {Deep learning symmetries and their {Lie} groups, algebras, and subalgebras from first principles},
-  journal = {Machine Learning: Science and Technology},
-  volume  = {4},
-  number  = {2},
-  pages   = {025027},
-  year    = {2023},
-  doi     = {10.1088/2632-2153/acd989}
+@article{cohen2016group,
+  author  = {Cohen, Taco S. and Welling, Max},
+  title   = {Group Equivariant Convolutional Networks},
+  journal = {Proceedings of the 33rd International Conference on Machine Learning, PMLR},
+  volume  = {48},
+  pages   = {2990--2999},
+  year    = {2016}
 }
 
-@article{krippendorf2020detecting,
-  author  = {Krippendorf, Sven and Syvaeri, Marc},
-  title   = {Detecting symmetries with neural networks},
-  journal = {Machine Learning: Science and Technology},
-  volume  = {2},
-  number  = {1},
-  pages   = {015010},
-  year    = {2020},
-  doi     = {10.1088/2632-2153/abbd2d}
-}
-
-@inproceedings{rao1999learning,
-  author    = {Rao, Rajesh P. N. and Ruderman, Daniel L.},
-  title     = {Learning {Lie} Groups for Invariant Visual Perception},
-  booktitle = {Advances in Neural Information Processing Systems},
-  volume    = {11},
-  pages     = {810--816},
-  year      = {1999}
-}
-
-@article{miao2007learning,
-  author  = {Miao, Xu and Rao, Rajesh P. N.},
-  title   = {Learning the {Lie} Groups of Visual Invariance},
-  journal = {Neural Computation},
-  volume  = {19},
-  number  = {10},
-  pages   = {2665--2693},
-  year    = {2007},
-  doi     = {10.1162/neco.2007.19.10.2665}
-}
-
-% ------------------------------------------------------------ equivariant ML
-@inproceedings{cohen2016group,
-  author    = {Cohen, Taco S. and Welling, Max},
-  title     = {Group Equivariant Convolutional Networks},
-  booktitle = {International Conference on Machine Learning},
-  series    = {PMLR},
-  volume    = {48},
-  pages     = {2990--2999},
-  year      = {2016}
-}
-
-@inproceedings{kondor2018generalization,
-  author    = {Kondor, Risi and Trivedi, Shubhendu},
-  title     = {On the Generalization of Equivariance and Convolution in Neural Networks to the Action of Compact Groups},
-  booktitle = {International Conference on Machine Learning},
-  series    = {PMLR},
-  volume    = {80},
-  pages     = {2747--2755},
-  year      = {2018}
-}
-
-@inproceedings{finzi2021practical,
-  author    = {Finzi, Marc and Welling, Max and Wilson, Andrew Gordon},
-  title     = {A Practical Method for Constructing Equivariant Multilayer Perceptrons for Arbitrary Matrix Groups},
-  booktitle = {International Conference on Machine Learning},
-  series    = {PMLR},
-  volume    = {139},
-  pages     = {3318--3328},
-  year      = {2021}
+@article{finzi2021practical,
+  author  = {Finzi, Marc and Welling, Max and Wilson, Andrew Gordon},
+  title   = {A Practical Method for Constructing Equivariant Multilayer Perceptrons for Arbitrary Matrix Groups},
+  journal = {Proceedings of the 38th International Conference on Machine Learning, PMLR},
+  volume  = {139},
+  pages   = {3318--3328},
+  year    = {2021}
 }
 
 @article{bronstein2021geometric,
@@ -197,67 +147,58 @@
   year    = {2021}
 }
 
-@inproceedings{benton2020learning,
-  author    = {Benton, Gregory and Finzi, Marc and Izmailov, Pavel and Wilson, Andrew Gordon},
-  title     = {Learning Invariances in Neural Networks from Training Data},
-  booktitle = {Advances in Neural Information Processing Systems},
-  volume    = {33},
-  pages     = {17605--17616},
-  year      = {2020}
+@article{benton2020learning,
+  author  = {Benton, Gregory and Finzi, Marc and Izmailov, Pavel and Wilson, Andrew Gordon},
+  title   = {Learning Invariances in Neural Networks from Training Data},
+  journal = {Advances in Neural Information Processing Systems},
+  volume  = {33},
+  pages   = {17605--17616},
+  year    = {2020}
 }
 
-@inproceedings{vanderwilk2018learning,
-  author    = {van der Wilk, Mark and Bauer, Matthias and John, ST and Hensman, James},
-  title     = {Learning Invariances using the Marginal Likelihood},
-  booktitle = {Advances in Neural Information Processing Systems},
-  volume    = {31},
-  year      = {2018}
+@article{immer2022invariance,
+  author  = {Immer, Alexander and van der Ouderaa, Tycho F. A. and R{\"a}tsch, Gunnar and Fortuin, Vincent and van der Wilk, Mark},
+  title   = {Invariance Learning in Deep Neural Networks with Differentiable {Laplace} Approximations},
+  journal = {Advances in Neural Information Processing Systems},
+  volume  = {35},
+  pages   = {12449--12463},
+  year    = {2022}
 }
 
-@inproceedings{immer2022invariance,
-  author    = {Immer, Alexander and van der Ouderaa, Tycho F. A. and R{\"a}tsch, Gunnar and Fortuin, Vincent and van der Wilk, Mark},
-  title     = {Invariance Learning in Deep Neural Networks with Differentiable {Laplace} Approximations},
-  booktitle = {Advances in Neural Information Processing Systems},
-  volume    = {35},
-  year      = {2022}
+@article{wang2022approximately,
+  author  = {Wang, Rui and Walters, Robin and Yu, Rose},
+  title   = {Approximately Equivariant Networks for Imperfectly Symmetric Dynamics},
+  journal = {Proceedings of the 39th International Conference on Machine Learning, PMLR},
+  volume  = {162},
+  pages   = {23078--23091},
+  year    = {2022}
 }
 
-@inproceedings{wang2022approximately,
-  author    = {Wang, Rui and Walters, Robin and Yu, Rose},
-  title     = {Approximately Equivariant Networks for Imperfectly Symmetric Dynamics},
-  booktitle = {International Conference on Machine Learning},
-  series    = {PMLR},
-  volume    = {162},
-  pages     = {23078--23091},
-  year      = {2022}
+@article{romero2022learning,
+  author  = {Romero, David W. and Lohit, Suhas},
+  title   = {Learning Partial Equivariances from Data},
+  journal = {Advances in Neural Information Processing Systems},
+  volume  = {35},
+  pages   = {36466--36478},
+  year    = {2022}
 }
 
-@inproceedings{romero2022learning,
-  author    = {Romero, David W. and Lohit, Suhas},
-  title     = {Learning Partial Equivariances from Data},
-  booktitle = {Advances in Neural Information Processing Systems},
-  volume    = {35},
-  pages     = {36466--36478},
-  year      = {2022}
+@article{brandstetter2022lie,
+  author  = {Brandstetter, Johannes and Welling, Max and Worrall, Daniel E.},
+  title   = {{Lie} Point Symmetry Data Augmentation for Neural {PDE} Solvers},
+  journal = {Proceedings of the 39th International Conference on Machine Learning, PMLR},
+  volume  = {162},
+  pages   = {2241--2256},
+  year    = {2022}
 }
 
-@inproceedings{brandstetter2022lie,
-  author    = {Brandstetter, Johannes and Welling, Max and Worrall, Daniel E.},
-  title     = {{Lie} Point Symmetry Data Augmentation for Neural {PDE} Solvers},
-  booktitle = {International Conference on Machine Learning},
-  series    = {PMLR},
-  volume    = {162},
-  pages     = {2241--2256},
-  year      = {2022}
-}
-
-@inproceedings{akhound2023lie,
-  author    = {Akhound-Sadegh, Tara and Perreault-Levasseur, Laurence and Brandstetter, Johannes and Welling, Max and Ravanbakhsh, Siamak},
-  title     = {{Lie} Point Symmetry and Physics-Informed Networks},
-  booktitle = {Advances in Neural Information Processing Systems},
-  volume    = {36},
-  pages     = {42468--42481},
-  year      = {2023}
+@article{akhound2023lie,
+  author  = {Akhound-Sadegh, Tara and Perreault-Levasseur, Laurence and Brandstetter, Johannes and Welling, Max and Ravanbakhsh, Siamak},
+  title   = {{Lie} Point Symmetry and Physics-Informed Networks},
+  journal = {Advances in Neural Information Processing Systems},
+  volume  = {36},
+  pages   = {42468--42481},
+  year    = {2023}
 }
 
 @article{raissi2019physics,
@@ -302,16 +243,6 @@
   pages   = {948--972},
   year    = {2019},
   doi     = {10.1137/18M1189828}
-}
-
-@article{champion2020unified,
-  author  = {Champion, Kathleen and Zheng, Peng and Aravkin, Aleksandr Y. and Brunton, Steven L. and Kutz, J. Nathan},
-  title   = {A Unified Sparse Optimization Framework to Learn Parsimonious Physics-Informed Models From Data},
-  journal = {IEEE Access},
-  volume  = {8},
-  pages   = {169259--169271},
-  year    = {2020},
-  doi     = {10.1109/ACCESS.2020.3023625}
 }
 
 @article{fasel2022ensemble,
@@ -391,17 +322,6 @@
   doi     = {10.1093/biomet/asv008}
 }
 
-@article{tropp2012user,
-  author  = {Tropp, Joel A.},
-  title   = {User-Friendly Tail Bounds for Sums of Random Matrices},
-  journal = {Foundations of Computational Mathematics},
-  volume  = {12},
-  number  = {4},
-  pages   = {389--434},
-  year    = {2012},
-  doi     = {10.1007/s10208-011-9099-z}
-}
-
 @article{gander1989constrained,
   author  = {Gander, Walter and Golub, Gene H. and von Matt, Urs},
   title   = {A constrained eigenvalue problem},
@@ -450,16 +370,14 @@
   doi     = {10.1007/BF01425510}
 }
 
-@incollection{cirelson1976norms,
-  author    = {Cirel'son, B. S. and Ibragimov, I. A. and Sudakov, V. N.},
-  title     = {Norms of {Gaussian} sample functions},
-  booktitle = {Proceedings of the Third Japan--USSR Symposium on Probability Theory},
-  series    = {Lecture Notes in Mathematics},
-  volume    = {550},
-  pages     = {20--41},
-  publisher = {Springer},
-  year      = {1976},
-  doi       = {10.1007/BFb0077482}
+@article{cirelson1976norms,
+  author  = {Cirel'son, B. S. and Ibragimov, I. A. and Sudakov, V. N.},
+  title   = {Norms of {Gaussian} sample functions},
+  journal = {Proceedings of the Third Japan--USSR Symposium on Probability Theory, Lecture Notes in Mathematics},
+  volume  = {550},
+  pages   = {20--41},
+  year    = {1976},
+  doi     = {10.1007/BFb0077482}
 }
 
 @book{tsybakov2009introduction,
@@ -500,13 +418,6 @@
   publisher = {Chapman and Hall/CRC},
   year      = {2010},
   doi       = {10.1201/EBK1439808184}
-}
-
-@inproceedings{maurer2009empirical,
-  author    = {Maurer, Andreas and Pontil, Massimiliano},
-  title     = {Empirical {Bernstein} Bounds and Sample Variance Penalization},
-  booktitle = {Conference on Learning Theory (COLT)},
-  year      = {2009}
 }
 
 @article{berk2013valid,
@@ -619,17 +530,6 @@
   doi     = {10.1214/aos/1009210544}
 }
 
-@article{baik2005phase,
-  author  = {Baik, Jinho and Ben Arous, G{\'e}rard and P{\'e}ch{\'e}, Sandrine},
-  title   = {Phase transition of the largest eigenvalue for nonnull complex sample covariance matrices},
-  journal = {The Annals of Probability},
-  volume  = {33},
-  number  = {5},
-  pages   = {1643--1697},
-  year    = {2005},
-  doi     = {10.1214/009117905000000233}
-}
-
 @article{white1980heteroskedasticity,
   author  = {White, Halbert},
   title   = {A Heteroskedasticity-Consistent Covariance Matrix Estimator and a Direct Test for Heteroskedasticity},
@@ -682,4 +582,112 @@
   publisher = {Springer},
   year      = {2002},
   doi       = {10.1007/978-1-4757-3692-2}
+}
+
+% ------------------------------------------- inference beyond the basic model
+@article{newey1987simple,
+  author  = {Newey, Whitney K. and West, Kenneth D.},
+  title   = {A Simple, Positive Semi-Definite, Heteroskedasticity and Autocorrelation Consistent Covariance Matrix},
+  journal = {Econometrica},
+  volume  = {55},
+  number  = {3},
+  pages   = {703--708},
+  year    = {1987},
+  doi     = {10.2307/1913610}
+}
+
+@article{andrews1991heteroskedasticity,
+  author  = {Andrews, Donald W. K.},
+  title   = {Heteroskedasticity and Autocorrelation Consistent Covariance Matrix Estimation},
+  journal = {Econometrica},
+  volume  = {59},
+  number  = {3},
+  pages   = {817--858},
+  year    = {1991},
+  doi     = {10.2307/2938229}
+}
+
+@article{clopper1934use,
+  author  = {Clopper, C. J. and Pearson, E. S.},
+  title   = {The Use of Confidence or Fiducial Limits Illustrated in the Case of the Binomial},
+  journal = {Biometrika},
+  volume  = {26},
+  number  = {4},
+  pages   = {404--413},
+  year    = {1934},
+  doi     = {10.1093/biomet/26.4.404}
+}
+
+@article{leeb2005model,
+  author  = {Leeb, Hannes and P{\"o}tscher, Benedikt M.},
+  title   = {Model Selection and Inference: Facts and Fiction},
+  journal = {Econometric Theory},
+  volume  = {21},
+  number  = {1},
+  pages   = {21--59},
+  year    = {2005},
+  doi     = {10.1017/S0266466605050036}
+}
+
+@book{carroll2006measurement,
+  author    = {Carroll, Raymond J. and Ruppert, David and Stefanski, Leonard A. and Crainiceanu, Ciprian M.},
+  title     = {Measurement Error in Nonlinear Models: A Modern Perspective},
+  edition   = {2},
+  publisher = {Chapman and Hall/CRC},
+  address   = {Boca Raton},
+  year      = {2006},
+  doi       = {10.1201/9781420010138}
+}
+
+% ------------------------------------------------------------- ocean data
+@article{pollard1970comparison,
+  author  = {Pollard, R. T. and Millard, R. C.},
+  title   = {Comparison between observed and simulated wind-generated inertial oscillations},
+  journal = {Deep Sea Research and Oceanographic Abstracts},
+  volume  = {17},
+  number  = {4},
+  pages   = {813--821},
+  year    = {1970},
+  doi     = {10.1016/0011-7471(70)90043-4}
+}
+
+@article{elipot2016global,
+  author  = {Elipot, Shane and Lumpkin, Rick and Perez, Renellys C. and Lilly, Jonathan M. and Early, Jeffrey J. and Sykulski, Adam M.},
+  title   = {A global surface drifter data set at hourly resolution},
+  journal = {Journal of Geophysical Research: Oceans},
+  volume  = {121},
+  number  = {5},
+  pages   = {2937--2966},
+  year    = {2016},
+  doi     = {10.1002/2016JC011716}
+}
+
+@misc{elipot2022hourly,
+  author       = {Elipot, Shane and Sykulski, Adam and Lumpkin, Rick and Centurioni, Luca and Pazos, Mayra},
+  title        = {Hourly location, current velocity, and temperature collected from {Global Drifter Program} drifters world-wide, version 2.01},
+  howpublished = {NOAA National Centers for Environmental Information, dataset},
+  year         = {2022},
+  doi          = {10.25921/x46c-3620}
+}
+
+@article{cameron2015practitioner,
+  author  = {Cameron, A. Colin and Miller, Douglas L.},
+  title   = {A Practitioner's Guide to Cluster-Robust Inference},
+  journal = {Journal of Human Resources},
+  volume  = {50},
+  number  = {2},
+  pages   = {317--372},
+  year    = {2015},
+  doi     = {10.3368/jhr.50.2.317}
+}
+
+@article{dinkelbach1967nonlinear,
+  author  = {Dinkelbach, Werner},
+  title   = {On Nonlinear Fractional Programming},
+  journal = {Management Science},
+  volume  = {13},
+  number  = {7},
+  pages   = {492--498},
+  year    = {1967},
+  doi     = {10.1287/mnsc.13.7.492}
 }

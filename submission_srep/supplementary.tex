@@ -1,0 +1,45 @@
+%% Supplementary Information for the Scientific Reports article.
+%% Supplementary figures and tables are numbered S1, S2, ... independently of
+%% the main article; build.sh checks the numbers against the macros used to
+%% cite them in the main text.
+
+\documentclass[pdflatex,sn-nature]{sn-jnl}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\usepackage[capitalise,noabbrev]{cleveref}
+
+\input{sections/macros}
+\newcommand{\figdir}{figures/}
+\newcommand{\tabdir}{tables/}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\figurename}{Supplementary Fig.}
+\renewcommand{\tablename}{Supplementary Table}
+
+\raggedbottom
+
+\begin{document}
+
+\title[Certified symmetry discovery: Supplementary Information]{Supplementary
+Information for: Certified symmetry discovery for polynomial and dictionary
+vector fields: confidence sets for Lie-algebra generators from noisy
+vector-field measurements}
+
+\author*[1]{\fnm{Ihor} \sur{Kendiukhov}}\email{ihor.kendiukhov@student.uni-tuebingen.de}
+
+\affil*[1]{\orgdiv{Institute of Medical Genetics and Applied Genomics},
+\orgname{University of T\"ubingen}, \orgaddress{\city{T\"ubingen},
+\country{Germany}}}
+
+\maketitle
+
+\raggedright
+
+\input{sections/supplementary}
+
+\end{document}

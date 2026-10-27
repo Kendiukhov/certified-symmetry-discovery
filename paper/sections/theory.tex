@@ -1,126 +1,141 @@
-\section{How small a violation can anyone certify?}
+\subsection{How small a violation can be certified, and from which data}
 \label{sec:limits}
 
 Two questions bound what any procedure can do. How small a tolerance is
 achievable, and when can the observed region of state space stand in for the
 target domain?
 
-\subsection{A resolution limit}
-
-Exact symmetry cannot be certified from noisy data: a system with zero defect
-and one with a defect just above zero generate almost the same data. The
-useful version of this statement is quantitative.
+\paragraph{A resolution limit.} Exact symmetry cannot be certified from noisy
+data: a system with zero defect and one with a defect just above zero generate
+almost the same data. The useful version of this statement is quantitative.
 
 \begin{proposition}[Le~Cam bound on the certifiable tolerance]
 \label{prop:lecam}
-Consider model \eqref{eq:model} with fixed design. Let $\varphi \in \{0,1\}$ be
-any rule for certifying a fixed generator $\xi$ at tolerance $\delta$ whose
-false-certification rate is at most $\alpha$, i.e.\
-$\Prob_\beta(\varphi = 1) \le \alpha$ whenever
-$\defect_\nu(\xi;F_\beta) > \delta$. Then for any $\beta^0$ with
-$\defect_\nu(\xi;F_{\beta^0}) = 0$,
+Consider model~\eqref{eq:model} with a fixed design whose empirical measure is
+$\mu_N$, and a fixed generator $\xi = \xi_\theta \in \mathcal V$; write
+$L_\xi$, $M^{(1)}_\xi$, $M^{(2)}_\xi$ and $M_\xi$ for the matrices $L_\theta$,
+$M^{(1)}_\theta$, $M^{(2)}_\theta$ and $M_\theta$ of \Cref{lem:bilinear}.
+Let $\varphi \in \{0,1\}$ be any rule
+for certifying $\xi$ at tolerance $\delta$ whose false-certification rate is at
+most $\alpha$, i.e.\ $\Prob_\beta(\varphi = 1) \le \alpha$ whenever
+$\defect_\nu(\xi;F_\beta) > \delta$. Let $s_{\max}(\xi) = \max_{\Delta \neq 0}
+\|L_\xi \Delta\|/\|F_\Delta\|_{\mu_N}$, attained at $\Delta^\star$ normalised
+so that $\|F_{\Delta^\star}\|_{\mu_N} = 1$. Then for any $\beta^0$ with
+$\defect_\nu(\xi;F_{\beta^0}) = 0$ and any $\delta < s_{\max}(\xi)/\|M_\xi
+\Delta^\star\|$,
 \begin{equation}
   \Prob_{\beta^0}(\varphi = 1)
-  \;\le\; \alpha \;+\; \frac{\delta\,\sqrt{N}\,\|M_\xi \beta^0\|}
-                            {2\,\sigma\, s_{\max}(\xi)} \;+\; o(\delta),
-  \qquad
-  s_{\max}(\xi) = \max_{\Delta \neq 0}
-    \frac{\|L_\xi \Delta\|}{\|F_\Delta\|_{\Ltwo{\mu}}} .
+  \;\le\; \alpha \;+\; \frac{\sqrt{N}}{2\sigma}\,
+  \frac{\delta\,\|M_\xi \beta^0\|}{s_{\max}(\xi) - \delta\,\|M_\xi\Delta^\star\|} .
+  \label{eq:lecam}
 \end{equation}
-Equivalently, attaining power $\gamma$ requires
-$\delta \gtrsim 2\sigma\,s_{\max}(\xi)\,(\gamma-\alpha)\,/\,
-(\|M_\xi\beta^0\|\sqrt{N})$.
+Equivalently, attaining power $\gamma$ at $\beta^0$ requires
+$\delta \ge 2\sigma(\gamma-\alpha)\,s_{\max}(\xi)\,/\,
+\bigl(\sqrt{N}\,\|M_\xi\beta^0\| + 2\sigma(\gamma-\alpha)\,\|M_\xi\Delta^\star\|\bigr)$.
 \end{proposition}
 
-The constants are computable for a given problem, so this is a numerical
-benchmark rather than a rate statement. \Cref{sec:resolution} evaluates it:
-\symcert's certified tolerance tracks the bound's $\sigma/\sqrt N$ scaling
-over two decades of $N$ and three noise levels, exceeding it by a factor of
-$8.1$ to $8.8$. Part of that gap is ours, since a calibration-targeting
-bootstrap is $9$--$18\%$ narrower (\Cref{sec:tightness}); the rest is not
-attributable without a matching construction: \Cref{prop:lecam} is a lower
-bound obtained through Pinsker's inequality and a single two-point
-alternative, and we do not claim it is attained. What the comparison does
-establish is that the \emph{rate} is right: no procedure, however clever, can
-improve on \symcert{} by more than a constant factor.
+The bound is non-asymptotic and its constants are computable for the design at
+hand, so it serves as a numerical benchmark for a single, pre-specified
+generator in a fixed model class. It is a lower bound obtained through
+Pinsker's inequality and one two-point alternative, and we do not claim it is
+attained. \Cref{sec:resolution} compares it with the certificate: the two share
+the $\sigma/\sqrt N$ scaling over two decades of $N$ at a fixed model class,
+with a gap of a factor of about $8$ that increases with the size of the model
+class. That comparison supports the scaling in $N$ and $\sigma$, not
+optimality: neither the constant nor the dependence on the number of
+coefficients $Q$ is addressed by the bound.
 
-\subsection{The price of incomplete coverage}
-\label{sec:coverage-theory}
-
-Suppose the data occupy a region with distribution $\mu$ while the claim is
-about $\nu$. Every bracket $[\xi_\theta, F_\beta]$ lies in a fixed
-finite-dimensional space $\mathcal R$ of polynomial fields, so the worst-case
-discrepancy between the two measures is a single generalised eigenvalue.
+\paragraph{The price of incomplete coverage.} Suppose the data occupy a region
+with distribution $\mu$ while the claim is about $\nu$. Both terms
+$DF_\beta\,\xi_\theta$ and $D\xi_\theta\,F_\beta$ of every bracket, and hence
+the bracket itself, lie in a fixed finite-dimensional space $\mathcal R$ of
+fields (for polynomial classes, the polynomial fields up to the degree of a
+bracket), so the worst-case discrepancy between the two measures is a pair of
+generalised eigenvalues.
 
 \begin{proposition}[Extrapolation factor]
 \label{prop:kappa}
 Let $G_\mu$ and $G_\nu$ be the Gram matrices of a basis of $\mathcal R$ under
-$\mu$ and $\nu$, and set
+$\mu$ and $\nu$, with $G_\nu$ positive definite, and set
 $\kappa = \lambda_{\max}(G_\mu^{-1/2} G_\nu G_\mu^{-1/2})$ and
-$\kappa' = \lambda_{\max}(G_\nu^{-1/2} G_\mu G_\nu^{-1/2})$. Then for every
-$r \in \mathcal R$, $\|r\|^2_{\Ltwo{\nu}} \le \kappa\,\|r\|^2_{\Ltwo{\mu}}$,
-with equality attained, and consequently
+$\kappa' = \lambda_{\max}(G_\nu^{-1/2} G_\mu G_\nu^{-1/2})$, with $\kappa =
+\infty$ when $G_\mu$ is singular. Then for every $q \in \mathcal R$,
+$\|q\|^2_{\nu} \le \kappa\,\|q\|^2_{\mu}$ and
+$\|q\|^2_{\mu} \le \kappa'\,\|q\|^2_{\nu}$, with equality attained, and
+consequently, for every field $F$ in the class,
 \begin{equation}
   \defect_\nu(\xi;F) \;\le\; \sqrt{\kappa\kappa'}\;\defect_\mu(\xi;F)
-  \qquad\text{for every } \xi \in \mathcal V .
+  \qquad\text{for every } \xi \in \mathcal V ,
 \end{equation}
-Moreover $\kappa = \infty$ if and only if some nonzero $r \in \mathcal R$
+where $\defect_\mu$ is \Cref{def:defect} with $\nu$ replaced by $\mu$.
+Moreover $\kappa = \infty$ if and only if some nonzero $q \in \mathcal R$
 vanishes $\mu$-almost everywhere, i.e.\ the data lie in the zero set of a
-possible bracket.
+nonzero field in $\mathcal R$, such as a possible bracket.
 \end{proposition}
 
 As a \emph{diagnostic}, $\kappa$ and $\kappa'$ are computable from the observed
-states alone, before any symmetry analysis, and
-$\sqrt{\kappa\kappa'}\,\delta$ is the tolerance that a defect of $\delta$
-measured on the data can actually support on the target domain. As an
-\emph{explanation}: declaring a symmetry at tolerance $\delta$ from a defect
-measured on the data requires some generator whose \emph{true} defect satisfies
-$\defect_\nu \le \sqrt{\kappa\kappa'}\,\delta$. Writing $\defect^\star$ for the
-smallest true defect in the candidate class that is not already within
-tolerance, a spurious symmetry is possible only if
+states alone, before any symmetry analysis. In floating point $G_\mu$ is
+treated as singular when its smallest eigenvalue is at most $10^{-10}$ times
+its largest; no pseudoinverse or regularisation is used, and the factor
+$\sqrt{\kappa\kappa'}$ is then reported as infinite. As an
+\emph{explanation}, apply the proposition to the true field, assumed to lie
+in the fitted class: generators whose defects measured on the data are at
+most $\delta$ have true defects $\defect_\nu \le \sqrt{\kappa\kappa'}\,\delta$.
+Let $r^\star$ be the dimension of the true symmetry algebra and
+$\defect^\star$ the square root of the $(r^\star{+}1)$-th smallest
+generalised eigenvalue of the true pencil $(C(\beta^\star), D(\beta^\star))$
+on $\nu$ (for a system without symmetry, its smallest true defect). By the
+Courant--Fischer theorem every subspace of dimension $r^\star + 1$ contains a
+generator with true defect at least $\defect^\star$, so declaring more
+generators than the true algebra has is possible only if
 \begin{equation}
   \sqrt{\kappa\kappa'} \;\ge\; \defect^\star / \delta .
   \label{eq:kappacrit}
 \end{equation}
-This is a one-sided guarantee. Falling below the threshold \emph{proves} that no
-spurious symmetry can occur; exceeding it is a warning rather than a prediction,
-since the bound is worst-case over the residual space. \Cref{sec:coverage}
-confirms both halves: no false certification anywhere below the threshold, and
-false certifications on some but not all settings above it.
+This is a one-sided, population-level statement. Falling below the threshold
+rules out declaring more generators than the true algebra has, and any
+declaration for a system without symmetry. It does not rule out a declaration
+of the right dimension tilted towards generators with true defect between
+$\delta$ and $\sqrt{\kappa\kappa'}\,\delta$, nor errors from estimating the
+field. Exceeding the threshold is a warning rather than a prediction, since
+the bound is worst-case over $\mathcal R$. The infinite case is not exotic: a
+single trajectory of the Hopf normal form converges onto its limit cycle, the
+unit circle, and once the transient is discarded every field in $\mathcal R$
+divisible by $x^2 + y^2 - 1$ vanishes on the data to within the eigenvalue
+threshold, so the factor is reported as infinite. Single trajectories of the
+Van der Pol and Lorenz systems give large but finite factors
+(\STtrajectory).
 
-The infinite case is not exotic. A single trajectory of a planar system with a
-limit cycle eventually lies on an algebraic curve, and every bracket divisible
-by the curve's defining polynomial vanishes on the data. We observe exactly
-this (\Cref{tab:trajectory}).
-
-\subsection{Why noise alone does not manufacture symmetry}
-\label{sec:noise-theory}
-
-It is natural to expect that noise makes small singular values smaller. Under
-model \eqref{eq:model} the opposite happens. Since $\E\|L_\theta \bhat\|^2 =
-\|L_\theta\beta^\star\|^2 + \mathrm{tr}(L_\theta \Sigma L_\theta^{\!\top})$,
-and likewise for the denominator, estimation error inflates \emph{both} parts
-of \eqref{eq:ratio}; for a direction that is close to a true symmetry the
-numerator is near zero, so its relative inflation is unbounded while the
-denominator's is not. The plug-in defect of a true symmetry is therefore
-biased upward and all directions are pulled toward a common noise-dominated
-value. The practical consequence is that a fixed tolerance loses
-\emph{detections} as the noise grows, at a rate that depends on $\sigma$, $N$
-and the design, none of which the tolerance knows, rather than gaining false
-ones. \Cref{sec:calibration} measures this over $32{,}000$ replications
-spanning noise levels from $0.1$ to $1.0$ and sample sizes from $30$ to $400$
-on four systems with no symmetry: the median smallest plug-in defect is
-$1.01$, $1.09$, $1.27$ and $1.64$ times the true one at the four noise levels,
-and in not one of the $32{,}000$ replications did it fall below $0.05$.
-
-A second effect pulls the other way. The generator chosen to \emph{minimise}
-the plug-in defect is selected for a small value, so its true defect tends to
-exceed its plug-in value: the winner's curse. The two effects compete, and
-which wins is system-dependent: at noise level $0.2$ and $N=100$ the mean of
-$\defect_\nu(\hat\xi;\beta^\star) - \hat\defect(\hat\xi)$ is $+0.0150 \pm
-0.0017$ on Van der Pol, $+0.0078 \pm 0.0004$ on Lotka--Volterra, $+0.0060 \pm
-0.0021$ on Duffing and $-0.0073 \pm 0.0009$ on the asymmetric rigid body. Both
-effects decay with $N$ (the Van der Pol gap falls to $0.0002 \pm 0.0002$ at $N
-= 6400$), and neither is large. But a selection effect of either sign is
-enough to invalidate a test evaluated on the data that chose the direction,
-and \Cref{prop:simultaneous} removes the need to reason about it at all.
+\paragraph{Additive derivative noise and the plug-in defect.} It is natural
+to expect that noise makes small singular values smaller. Under
+model~\eqref{eq:model}, that is, with noise on a measured right-hand side, a
+correctly specified class and exactly observed states, the opposite happens
+near a true symmetry. Since $\E\|L_\theta \bhat\|^2 = \|L_\theta\beta^\star\|^2 +
+\mathrm{tr}(L_\theta \Sigma L_\theta^{\!\top})$, where $\Sigma =
+\mathrm{Cov}(\bhat)$, and likewise for the denominator, estimation error
+inflates \emph{both} parts of equation~\eqref{eq:ratio}; for a direction close
+to a true symmetry the numerator is near zero, so its relative inflation is
+unbounded while the denominator's is not. The plug-in defect of a true
+symmetry is therefore biased upward and all directions are pulled toward a
+common noise-dominated value, so a fixed tolerance loses \emph{detections} as
+the noise grows. For a direction whose true defect is well above zero the
+argument gives no sign for the bias, since the common value may lie above or
+below it, and a second effect pulls downward: the generator chosen to
+\emph{minimise} the plug-in defect is selected for a small value (the
+winner's curse), which can push the minimal plug-in defect below its true
+value. On a system without symmetry, whether noise produces false
+declarations therefore depends on how far the smallest true defect lies
+above $\delta$; in our tests a threshold rule at $\delta$ declared a false
+symmetry in at most $3.7\%$ of replications, and only when that defect was
+within a factor of about two of $\delta$. Both effects are measured in
+\Cref{sec:modelclass}, and the winner's curse at small samples and high noise
+in \Cref{sec:tightness}. The argument concerns individual directions: on a
+symmetric system the noise also tilts the estimated subspace away from the
+true algebra, and a fixed tolerance can then declare generators whose true
+defect exceeds it, which in our tests was the more frequent failure
+(\Cref{sec:calibration}). \Cref{prop:simultaneous} removes the need to reason
+about either the winner's curse or the tilt. The bias argument above holds
+only under model~\eqref{eq:model}, with noise on the derivative and exact
+states: noise in the \emph{states} acts quite differently, by attenuating
+nonlinear terms, and can manufacture symmetry or hide it, depending on the
+system (\Cref{sec:robustness}).

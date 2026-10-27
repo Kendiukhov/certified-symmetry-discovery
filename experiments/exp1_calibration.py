@@ -14,8 +14,9 @@ from itertools import product
 
 import numpy as np
 
-from common import (ALPHA, DELTA, principal_angle, rms_field, run_cells, save,
+from common import (ALPHA, DELTA, recovered, rms_field, run_cells, save,
                     sup_true_defect)
+from common import trials
 from hsd import DefectProblem, exact_symmetry_algebra, fit_ols, get_system, simulate_design
 from hsd.baselines import (eigengap, rank_test_dimension, split_significance,
                            weyl_certificate)
@@ -37,9 +38,7 @@ SYSTEMS = [
 NS = [100, 200, 400, 800, 1600, 3200]
 SIGMAS = [0.01, 0.03, 0.10, 0.30]
 TAUS = [0.005, 0.01, 0.02, 0.05, 0.10, 0.20, 0.40]
-TRIALS = 300
-
-
+TRIALS = trials(300)
 def one_cell(args):
     name, degF, scale, N, srel, seed = args
     rng = np.random.default_rng(seed)
@@ -54,10 +53,12 @@ def one_cell(args):
            ["fc_sym", "det_sym", "dim_sym", "fc_gap", "det_gap", "dim_gap",
             "fc_rank", "det_rank", "dim_rank", "fc_weyl", "det_weyl", "dim_weyl",
             "fc_split", "det_split", "fc_symp", "det_symp", "dim_symp",
-            "refute", "angle_ok", "u_first"]}
+            "refute", "u_first", "rec_sym", "rec_gap", "rec_rank", "rec_weyl",
+            "rec_split", "rec_symp"]}
     acc.update({f"fc_tau{t}": 0.0 for t in TAUS})
     acc.update({f"det_tau{t}": 0.0 for t in TAUS})
     acc.update({f"dim_tau{t}": 0.0 for t in TAUS})
+    acc.update({f"rec_tau{t}": 0.0 for t in TAUS})
 
     for _ in range(TRIALS):
         X, Y = simulate_design(sys_, rng, N=N, sigma=sigma, sampler="box", scale=scale)
@@ -71,18 +72,21 @@ def one_cell(args):
             acc[f"dim_tau{t}"] += d
             acc[f"fc_tau{t}"] += sup_true_defect(prob, V, beta0) > DELTA
             acc[f"det_tau{t}"] += d >= dstar
+            acc[f"rec_tau{t}"] += recovered(prob, Strue, V)
 
         # ---- eigengap heuristic
         dg, Vg, _ = eigengap(prob, fit, max_dim=prob.P - 1)
         acc["dim_gap"] += dg
         acc["fc_gap"] += sup_true_defect(prob, Vg, beta0) > DELTA
         acc["det_gap"] += dg >= dstar
+        acc["rec_gap"] += recovered(prob, Strue, Vg)
 
         # ---- Wald rank test
         dr = rank_test_dimension(prob, fit, ALPHA)
         acc["dim_rank"] += dr
         acc["fc_rank"] += sup_true_defect(prob, Theta[:, :dr], beta0) > DELTA
         acc["det_rank"] += dr >= dstar
+        acc["rec_rank"] += recovered(prob, Strue, Theta[:, :dr])
 
         # ---- Weyl perturbation certificate
         wb = weyl_certificate(prob, fit, ALPHA)
@@ -90,6 +94,7 @@ def one_cell(args):
         acc["dim_weyl"] += dw
         acc["fc_weyl"] += sup_true_defect(prob, Theta[:, :dw], beta0) > DELTA
         acc["det_weyl"] += dw >= dstar
+        acc["rec_weyl"] += recovered(prob, Strue, Theta[:, :dw])
 
         # ---- split significance test (select on half, test on the other half)
         half = N // 2
@@ -98,17 +103,20 @@ def one_cell(args):
         declared, th, _ = split_significance(prob, fA, fB, ALPHA)
         acc["fc_split"] += declared and sup_true_defect(prob, th[:, None], beta0) > DELTA
         acc["det_split"] += int(declared) >= min(dstar, 1)
+        acc["rec_split"] += recovered(prob, Strue, th[:, None] if declared
+                                      else np.zeros((prob.P, 0)))
 
         # ---- SymCert (simultaneous)
         dc, Vc = certified_dimension(prob, fit, DELTA, ALPHA)
         acc["dim_sym"] += dc
         acc["fc_sym"] += sup_true_defect(prob, Vc, beta0) > DELTA
         acc["det_sym"] += dc >= dstar
-        if dc == dstar and dstar > 0:
-            acc["angle_ok"] += principal_angle(Vc, Strue) < 10.0
+        acc["rec_sym"] += recovered(prob, Strue, Vc)
         acc["u_first"] += certify_subspace(prob, Theta[:, :1], fit, ALPHA).upper
 
-        # ---- SymCert (split + pointwise bound)
+        # ---- SymCert with sample splitting (directions from first-half fit;
+        #      simultaneous certificate from second-half fit: sharp for d=1,
+        #      subspace bound for d>1)
         _, ThA = prob.spectrum(fA.beta)
         dsp = 0
         for d in range(1, prob.P + 1):
@@ -119,6 +127,7 @@ def one_cell(args):
         acc["dim_symp"] += dsp
         acc["fc_symp"] += sup_true_defect(prob, ThA[:, :dsp], beta0) > DELTA
         acc["det_symp"] += dsp >= dstar
+        acc["rec_symp"] += recovered(prob, Strue, ThA[:, :dsp])
 
         acc["refute"] += refute_all(prob, fit, ALPHA)
 

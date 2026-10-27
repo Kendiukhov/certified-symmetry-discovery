@@ -16,10 +16,11 @@ from itertools import product
 import numpy as np
 
 from common import ALPHA, DELTA, rms_field, run_cells, save
+from common import trials
 from hsd import DefectProblem, exact_symmetry_algebra, fit_ols, get_system, simulate_design
 from hsd.certify import certify_direction
 
-TRIALS = 300
+TRIALS = trials(300)
 CONFIGS = [
     # (system, model degree, candidate class, target half-width)
     ("hopf", 3, "affine", 1.0),

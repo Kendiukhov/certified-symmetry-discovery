@@ -1,32 +1,29 @@
-\begin{table}[t]
+\begin{table}[!tbp]
 \centering\small
-\begin{tabular}{lrrrr}
+\begin{adjustbox}{max width=\textwidth, max totalheight=0.9\textheight}
+\begin{tabular}{lrrrrr}
 \toprule
-& \multicolumn{2}{c}{false certification} & detection & \\
-\cmidrule(lr){2-3}
-method & mean & worst setting & mean & settings above $\alpha$ \\
+& \multicolumn{3}{c}{false certification} & \multicolumn{2}{c}{symmetric systems} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-6}
+method & mean & worst setting [95\% CI] & settings $>\alpha$ & detection & recovery \\
 \midrule
-fixed threshold $\tau=0.005$ & 0.005 & 0.633 & 0.418 & 3 / 240 \\
-fixed threshold $\tau=0.01$ & 0.005 & 0.633 & 0.523 & 3 / 240 \\
-fixed threshold $\tau=0.02$ & 0.005 & 0.633 & 0.635 & 3 / 240 \\
-fixed threshold $\tau=0.05$ & 0.005 & 0.633 & 0.784 & 3 / 240 \\
-fixed threshold $\tau=0.1$ & 0.017 & 0.633 & 0.886 & 18 / 240 \\
-fixed threshold $\tau=0.2$ & 0.139 & 1.000 & 0.960 & 52 / 240 \\
-fixed threshold $\tau=0.4$ & 0.551 & 1.000 & 0.990 & 142 / 240 \\
-largest eigengap & 0.650 & 1.000 & 0.842 & 166 / 240 \\
-nullspace rank test & 0.070 & 1.000 & 0.988 & 30 / 240 \\
-split significance test & 0.070 & 0.920 & 0.845 & 37 / 240 \\
-Weyl perturbation bound & 0.000 & 0.000 & 0.000 & 0 / 240 \\
+fixed threshold $\tau=0.005$ & 0.005 & 0.633 [0.576, 0.688] & 3 & 0.418 & 0.418 \\
+fixed threshold $\tau=0.01$ & 0.005 & 0.633 [0.576, 0.688] & 3 & 0.523 & 0.523 \\
+fixed threshold $\tau=0.02$ & 0.005 & 0.633 [0.576, 0.688] & 3 & 0.635 & 0.635 \\
+fixed threshold $\tau=0.05$ & 0.005 & 0.633 [0.576, 0.688] & 3 & 0.784 & 0.784 \\
+fixed threshold $\tau=0.1$ & 0.017 & 0.633 [0.576, 0.688] & 18 & 0.886 & 0.886 \\
+fixed threshold $\tau=0.2$ & 0.139 & 1.000 [0.988, 1.000] & 52 & 0.960 & 0.959 \\
+fixed threshold $\tau=0.4$ & 0.551 & 1.000 [0.988, 1.000] & 142 & 0.990 & 0.990 \\
+largest eigengap & 0.650 & 1.000 [0.988, 1.000] & 166 & 0.842 & 0.841 \\
+nullspace rank test & 0.070 & 1.000 [0.988, 1.000] & 30 & 0.988 & 0.987 \\
+split significance test & 0.070 & 0.920 [0.883, 0.948] & 37 & 0.844 & 0.221 \\
+Weyl perturbation bound & 0.000 & 0.000 [0.000, 0.012] & 0 & 0.000 & 0.000 \\
 \midrule
-\symcert{} (ours) & \textbf{0.000} & \textbf{0.000} & 0.484 & \textbf{0 / 240} \\
-\symcert{} + sample splitting & \textbf{0.000} & \textbf{0.000} & 0.370 & \textbf{0 / 240} \\
+\symcert{} & 0.000 & 0.000 [0.000, 0.012] & 0 & 0.485 & 0.485 \\
+\symcert{} + sample splitting & 0.000 & 0.000 [0.000, 0.012] & 0 & 0.371 & 0.371 \\
 \bottomrule
 \end{tabular}
-\caption{Calibration and power over 240 settings, 300 replications each. ``Worst setting'' is the
-maximum false-certification rate over the settings; the last column counts those
-exceeding the nominal $\alpha = 0.05$. No fixed threshold controls the error,
-and the two significance-test procedures --- both valid tests --- are the worst
-offenders relative to their apparent rigour. The Weyl certificate is valid but
-never certifies anything.}
+\end{adjustbox}
+\caption{\textbf{Calibration and power over 240 settings.} Ten systems, sample sizes $N = 100, 200, 400, 800, 1600$ and $3200$, and noise levels $0.01, 0.03, 0.1$ and $0.3$; 300 replications per setting. ``Mean'' is the average false-certification rate over settings and ``worst setting'' its maximum, with an exact Clopper--Pearson interval for the Monte Carlo error of that setting; the next column counts settings whose rate exceeds $\alpha = 0.05$ (out of 240). Detection (declared dimension at least the true one; for the split-sample test, which declares at most one direction, any declaration) and recovery (detection, with the true algebra inside the declared subspace to within $10^\circ$) are averaged over the 96 settings of the four symmetric systems. Among the thresholds examined none keeps the worst-setting rate near $\alpha$; the rank and split-sample tests are valid tests of exact symmetry and still poor discovery rules; the Weyl certificate is valid but never certifies.}
 \label{tab:calibration}
 \end{table}

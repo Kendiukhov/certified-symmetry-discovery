@@ -1,0 +1,41 @@
+\begin{table}[!htbp]
+\centering\footnotesize
+\begin{adjustbox}{max width=\textwidth, max totalheight=0.9\textheight}
+\begin{tabular}{llrrrrr}
+\toprule
+degree ($Q$) & region & plug-in & $U$ & $L$ & certified subspace dim.\ & $\sqrt{\kappa\kappa'}$ \\
+\midrule
+1 (6) & OLS (exact) & 0.025 & 0.040 & 0.010 & 2 & 1.02 \\
+1 (6) & White & 0.025 & 0.042 & 0.008 & 2 & 1.02 \\
+1 (6) & cluster-robust & 0.025 & 0.074 & 0.000 & 0 & 1.02 \\
+1 (6) & Newey--West & 0.025 & 0.045 & 0.005 & 2 & 1.02 \\
+\addlinespace
+2 (12) & OLS (exact) & 0.036 & 0.058 & 0.015 & 1 & 1.48 \\
+2 (12) & White & 0.036 & 0.063 & 0.010 & 1 & 1.48 \\
+2 (12) & cluster-robust & 0.036 & 0.107 & 0.001 & 1 & 1.48 \\
+2 (12) & Newey--West & 0.036 & 0.069 & 0.006 & 1 & 1.48 \\
+\addlinespace
+3 (20) & OLS (exact) & 0.037 & 0.064 & 0.012 & 0 & 2.69 \\
+3 (20) & White & 0.037 & 0.070 & 0.008 & 0 & 2.69 \\
+3 (20) & cluster-robust & 0.037 & 0.206 & 0.004 & 0 & 2.69 \\
+3 (20) & Newey--West & 0.037 & 0.076 & 0.003 & 0 & 2.69 \\
+\midrule
+1 (6), window 37 h & cluster-robust & 0.022 & 0.067 & 0.000 & 1 & 1.02 \\
+1 (6), window 49 h & cluster-robust & 0.025 & 0.074 & 0.000 & 0 & 1.02 \\
+1 (6), window 73 h & cluster-robust & 0.023 & 0.069 & 0.000 & 1 & 1.02 \\
+\midrule
+1 (6), summer 2016 & Newey--West & 0.096 & 0.200 & 0.000 & 1 & 1.07 \\
+1 (6), summer 2017 & Newey--West & 0.044 & 0.188 & 0.000 & 0 & 1.03 \\
+1 (6), summer 2018 & Newey--West & 0.032 & 0.061 & 0.003 & 2 & 1.02 \\
+1 (6), summer 2019 & Newey--West & 0.049 & 0.076 & 0.022 & 2 & 1.04 \\
+1 (6), summer 2018 & cluster-robust & 0.032 & 0.117 & --- & --- & 1.02 \\
+1 (6), summer 2019 & cluster-robust & 0.049 & 0.109 & --- & --- & 1.04 \\
+\midrule
+1--3, simultaneous & cluster-robust & --- & 0.254 & --- & --- & --- \\
+1--3, simultaneous & Newey--West & --- & 0.079 & --- & --- & --- \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption{\textbf{Rotation invariance of near-inertial ocean currents.} Hourly velocities of 31 drogued drifters of the Global Drifter Program (North Pacific, 30--45$^\circ$N, 180--140$^\circ$W, June--September 2016--2019; 46{,}733 state--derivative pairs), near-inertial band isolated by removing a running mean (49 hours unless stated), time in units of the local inertial period over $2\pi$ and velocity in units of its root-mean-square. $U$ and $L$ bound the defect of the rotation generator, fixed in advance by the physics; the target measure is the standard Gaussian in the normalised velocity. The cluster-robust region treats each drifter as a cluster; the Newey--West region allows serial correlation within each drifter's record. The certified subspace dimension is that of the certified plug-in subspace at $\delta = 0.05$. In the degree-1 class every fitted field $Ax + b$ commutes with the dilation about its fixed point and with itself, so two plug-in defects are zero whatever the data. These generators come first in the nested plug-in subspaces, and in the degree-1 rows the column counts how many of them the region is narrow enough to certify (0, 1 or 2 here). The column is therefore not evidence about the rotation, which is judged by $U$ and $L$, and where it is positive while $U > \delta$ the certified subspace does not contain the rotation. For single summers the cluster-robust region is unidentified in 2016 and 2017, which have fewer drifters (3 and 4) than coefficients (6); for 2018 (10 drifters) and 2019 (15 drifters) it gives $U = 0.117$ and $0.109$ ($L$ and the certified subspace dimension are not reported for these two rows); the Newey--West rows cover all four summers. The last rows bound the rotation defect simultaneously over the classes of degree 1 to 3, assuming the largest contains the truth. Velocities carry measurement error (median standard error 0.014 m\,s$^{-1}$ against a root-mean-square of 0.109 m\,s$^{-1}$), which the guarantee does not cover.}
+\label{stab:drifters}
+\end{table}

@@ -1,0 +1,133 @@
+=== exp1_calibration ===
+  [exp1] 12/240 cells, 47s elapsed
+  [exp1] 24/240 cells, 78s elapsed
+  [exp1] 36/240 cells, 210s elapsed
+  [exp1] 48/240 cells, 292s elapsed
+  [exp1] 60/240 cells, 360s elapsed
+  [exp1] 72/240 cells, 410s elapsed
+  [exp1] 84/240 cells, 574s elapsed
+  [exp1] 96/240 cells, 684s elapsed
+  [exp1] 108/240 cells, 702s elapsed
+  [exp1] 120/240 cells, 730s elapsed
+  [exp1] 132/240 cells, 751s elapsed
+  [exp1] 144/240 cells, 778s elapsed
+  [exp1] 156/240 cells, 795s elapsed
+  [exp1] 168/240 cells, 816s elapsed
+  [exp1] 180/240 cells, 843s elapsed
+  [exp1] 192/240 cells, 871s elapsed
+  [exp1] 204/240 cells, 909s elapsed
+  [exp1] 216/240 cells, 951s elapsed
+  [exp1] 228/240 cells, 995s elapsed
+  [exp1] 240/240 cells, 1038s elapsed
+wrote /Volumes/Crucial X6/MacBook/Code/ml_papers/honest_symmetry_discovery/results/exp1_calibration.json
+exp1 wall 1039s
+=== exp1_calibration: 1467 CPU-s, 1041 wall-s ===
+=== exp2_coverage ===
+  [exp2] 2/50 cells, 14s elapsed
+  [exp2] 4/50 cells, 14s elapsed
+  [exp2] 6/50 cells, 14s elapsed
+  [exp2] 8/50 cells, 14s elapsed
+  [exp2] 10/50 cells, 21s elapsed
+  [exp2] 12/50 cells, 21s elapsed
+  [exp2] 14/50 cells, 21s elapsed
+  [exp2] 16/50 cells, 21s elapsed
+  [exp2] 18/50 cells, 27s elapsed
+  [exp2] 20/50 cells, 28s elapsed
+  [exp2] 22/50 cells, 28s elapsed
+  [exp2] 24/50 cells, 28s elapsed
+  [exp2] 26/50 cells, 30s elapsed
+  [exp2] 28/50 cells, 30s elapsed
+  [exp2] 30/50 cells, 32s elapsed
+  [exp2] 32/50 cells, 36s elapsed
+  [exp2] 34/50 cells, 39s elapsed
+  [exp2] 36/50 cells, 39s elapsed
+  [exp2] 38/50 cells, 40s elapsed
+  [exp2] 40/50 cells, 46s elapsed
+  [exp2] 42/50 cells, 49s elapsed
+  [exp2] 44/50 cells, 51s elapsed
+  [exp2] 46/50 cells, 51s elapsed
+  [exp2] 48/50 cells, 55s elapsed
+  [exp2] 50/50 cells, 58s elapsed
+wrote /Volumes/Crucial X6/MacBook/Code/ml_papers/honest_symmetry_discovery/results/exp2_coverage.json
+exp2 wall 124s
+=== exp2_coverage: 88 CPU-s, 124 wall-s ===
+=== exp3_modelclass ===
+  [exp3a] 1/24 cells, 27s elapsed
+  [exp3a] 2/24 cells, 30s elapsed
+  [exp3a] 3/24 cells, 30s elapsed
+  [exp3a] 4/24 cells, 30s elapsed
+  [exp3a] 5/24 cells, 30s elapsed
+  [exp3a] 6/24 cells, 30s elapsed
+  [exp3a] 7/24 cells, 30s elapsed
+  [exp3a] 8/24 cells, 30s elapsed
+  [exp3a] 9/24 cells, 35s elapsed
+  [exp3a] 10/24 cells, 40s elapsed
+  [exp3a] 11/24 cells, 40s elapsed
+  [exp3a] 12/24 cells, 40s elapsed
+  [exp3a] 13/24 cells, 50s elapsed
+  [exp3a] 14/24 cells, 55s elapsed
+  [exp3a] 15/24 cells, 55s elapsed
+  [exp3a] 16/24 cells, 55s elapsed
+  [exp3a] 17/24 cells, 55s elapsed
+  [exp3a] 18/24 cells, 55s elapsed
+  [exp3a] 19/24 cells, 56s elapsed
+  [exp3a] 20/24 cells, 62s elapsed
+  [exp3a] 21/24 cells, 62s elapsed
+  [exp3a] 22/24 cells, 64s elapsed
+  [exp3a] 23/24 cells, 64s elapsed
+  [exp3a] 24/24 cells, 64s elapsed
+wrote /Volumes/Crucial X6/MacBook/Code/ml_papers/honest_symmetry_discovery/results/exp3_modelclass.json
+exp3 wall 1401s
+=== exp3_modelclass: 775 CPU-s, 1401 wall-s ===
+=== exp4_resolution ===
+  [exp4] 8/168 cells, 35s elapsed
+  [exp4] 16/168 cells, 67s elapsed
+  [exp4] 24/168 cells, 113s elapsed
+  [exp4] 32/168 cells, 144s elapsed
+  [exp4] 40/168 cells, 169s elapsed
+  [exp4] 48/168 cells, 202s elapsed
+  [exp4] 56/168 cells, 222s elapsed
+  [exp4] 64/168 cells, 244s elapsed
+  [exp4] 72/168 cells, 262s elapsed
+  [exp4] 80/168 cells, 280s elapsed
+  [exp4] 88/168 cells, 292s elapsed
+  [exp4] 96/168 cells, 301s elapsed
+  [exp4] 104/168 cells, 324s elapsed
+  [exp4] 112/168 cells, 324s elapsed
+  [exp4] 120/168 cells, 335s elapsed
+  [exp4] 128/168 cells, 345s elapsed
+  [exp4] 136/168 cells, 345s elapsed
+  [exp4] 144/168 cells, 359s elapsed
+  [exp4] 152/168 cells, 359s elapsed
+  [exp4] 160/168 cells, 366s elapsed
+  [exp4] 168/168 cells, 380s elapsed
+  [exp4q] 1/24 cells, 35s elapsed
+  [exp4q] 2/24 cells, 37s elapsed
+  [exp4q] 3/24 cells, 37s elapsed
+  [exp4q] 4/24 cells, 39s elapsed
+  [exp4q] 5/24 cells, 39s elapsed
+  [exp4q] 6/24 cells, 39s elapsed
+  [exp4q] 7/24 cells, 43s elapsed
+  [exp4q] 8/24 cells, 50s elapsed
+  [exp4q] 9/24 cells, 100s elapsed
+  [exp4q] 10/24 cells, 101s elapsed
+  [exp4q] 11/24 cells, 101s elapsed
+  [exp4q] 12/24 cells, 104s elapsed
+  [exp4q] 13/24 cells, 105s elapsed
+  [exp4q] 14/24 cells, 109s elapsed
+  [exp4q] 15/24 cells, 121s elapsed
+  [exp4q] 16/24 cells, 140s elapsed
+  [exp4q] 17/24 cells, 220s elapsed
+  [exp4q] 18/24 cells, 223s elapsed
+  [exp4q] 19/24 cells, 223s elapsed
+  [exp4q] 20/24 cells, 226s elapsed
+  [exp4q] 21/24 cells, 226s elapsed
+  [exp4q] 22/24 cells, 240s elapsed
+  [exp4q] 23/24 cells, 261s elapsed
+  [exp4q] 24/24 cells, 292s elapsed
+wrote /Volumes/Crucial X6/MacBook/Code/ml_papers/honest_symmetry_discovery/results/exp4_resolution.json
+exp4 wall 674s
+=== exp4_resolution: 884 CPU-s, 674 wall-s ===
+=== exp5_robustness ===
+/Users/ihorkendiukhov/anaconda3/envs/base-extras/lib/python3.11/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 5 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
